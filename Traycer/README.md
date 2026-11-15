@@ -13,7 +13,8 @@ Traycer/
     nasa-orbit-saude-astronautas/             story raiz (kind: story)
       index.md                                resultado do Passo 0, decisões pendentes do dono, lista de artefatos
       brief/index.md                          problema, escopo, entregáveis, decisões tomadas e em aberto
-      frentes-de-pesquisa/index.md            roteiro das 19 frentes de pesquisa, revisões, achados, lacunas, consolidação, cota
+      frentes-de-pesquisa/index.md            roteiro das 19 frentes de pesquisa, andamento, achados, revisões, lacunas, consolidação, cota
+      fontes-de-dados/index.md                as 33 fontes de dados do software, item por item
       arquitetura/index.md                    princípios, fluxo de dados, níveis de alerta, protótipo
       design-da-interface/index.md            telas, Monitor geral, wireframes renderizáveis no Traycer, perguntas de kickoff
       plano-prototipo-20h/index.md            escopo, versão comprimida do plano, pontos de controle
@@ -55,7 +56,7 @@ O `<id-do-épico>` aparece no Traycer (ou, para um agente rodando dentro do Tray
    EPIC="<id-do-épico>"
    cp -R ./Traycer/artifacts/nasa-orbit-saude-astronautas "$HOME/.traycer/epics/$EPIC/artifacts/"
    ```
-5. Abra o épico no Traycer e confira que a story "NASA: Orbit, monitoramento de saúde de astronautas" aparece com os 5 filhos.
+5. Abra o épico no Traycer e confira que a story "NASA: Orbit, monitoramento de saúde de astronautas" aparece com os 6 filhos.
 6. Se já existir uma story com o mesmo nome no épico de destino, **não sobrescreva sem conferir**: compare os dois `index.md` e pergunte ao dono qual versão vale.
 
 Comentários que o dono tiver feito na EPIC original ficam em pastas `.comments/` dentro de cada artefato. Esta exportação foi feita quando não havia nenhum comentário. Comentários são estado do Traycer e não precisam ser importados.

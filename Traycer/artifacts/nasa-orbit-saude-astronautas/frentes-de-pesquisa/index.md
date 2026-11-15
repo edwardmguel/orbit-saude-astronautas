@@ -1,6 +1,7 @@
 ---
-kind: spec
 title: "Frentes de pesquisa (agentes Luna)"
+kind: spec
+comments: none
 ---
 
 # Frentes de pesquisa
@@ -15,101 +16,120 @@ Pedidos do dono, 15/11: *"Mantenha os 6 agentes simultâneos por vez."* (02h05),
 
 | # | Frente | Aberta | Devolvida | Aprovada | Entrega | Alimentou |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | ECLSS, ambiente da cabine, radiação e telemetria pública | 01h30 | | ✅ 02h19 | `01-eclss-ambiente-radiacao.md` (581 linhas, 121 fontes) | `docs/02`, `docs/12` |
-| 2 | Equipamentos médicos e fisiológicos da tripulação | 01h30 | | ✅ 01h59 | `02-equipamentos-medicos-tripulacao.md` (452 linhas, 91 fontes) | `docs/02`, `docs/06`, `docs/14` |
+| 1 | ECLSS, ambiente da cabine, radiação e telemetria pública | 01h30 |  | ✅ 02h19 | `01-eclss-ambiente-radiacao.md` (581 linhas, 121 fontes) | `docs/02`, `docs/12` |
+| 2 | Equipamentos médicos e fisiológicos da tripulação | 01h30 |  | ✅ 01h59 | `02-equipamentos-medicos-tripulacao.md` (452 linhas, 91 fontes) | `docs/02`, `docs/06`, `docs/14` |
 | 3 | Riscos do HRP, indicadores e limiares | 01h30 | ↩️ 02h13 | ✅ 02h28 | `03-riscos-indicadores-limiares.md` (564 linhas) | `docs/01`, `docs/03` |
-| 4 | Precedentes do óculos, sono e rotina | 01h30 | | ✅ 02h00 | `04-precedentes-oculos-sono.md` (426 linhas, 75 fontes) | `docs/09`, `docs/11`, `docs/14` |
+| 4 | Precedentes do óculos, sono e rotina | 01h30 |  | ✅ 02h00 | `04-precedentes-oculos-sono.md` (426 linhas, 75 fontes) | `docs/09`, `docs/11`, `docs/14` |
 | 5 | Massa, computação embarcada e custo de lançamento | 01h30 | ↩️ 02h07 | ✅ 02h17 | `05-massa-computacao-lancamento.md` (470 linhas, 76 fontes) | `docs/09`, `docs/10` |
-| 6 | Dados abertos, software da NASA e fluxo de dados | 01h30 | | ✅ 02h19 | `06-dados-abertos-software-fluxo.md` (548 linhas, 302 fontes) | `docs/12`, `docs/14` |
-| 7 | Desafio oficial, padrões de interface e alarme, monitoramento entre colegas | 02h05 | | ✅ 02h44 | `07-desafio-oficial-padroes-interface.md` (323 linhas, 44 fontes) | `docs/07`, `docs/08`, `docs/11` |
-| 8 | Autoavaliações implementáveis | 02h05 | | ✅ 02h50 | `08-autoavaliacoes-implementaveis.md` (427 linhas, 72 fontes) | `docs/03`, `docs/04` |
+| 6 | Dados abertos, software da NASA e fluxo de dados | 01h30 |  | ✅ 02h19 | `06-dados-abertos-software-fluxo.md` (548 linhas, 302 fontes) | `docs/12`, `docs/14` |
+| 7 | Desafio oficial, padrões de interface e alarme, monitoramento entre colegas | 02h05 |  | ✅ 02h44 | `07-desafio-oficial-padroes-interface.md` (323 linhas, 44 fontes) | `docs/07`, `docs/08`, `docs/11` |
+| 8 | Autoavaliações implementáveis | 02h05 |  | ✅ 02h50 | `08-autoavaliacoes-implementaveis.md` (427 linhas, 72 fontes) | `docs/03`, `docs/04` |
 | 9 | Perfis de dados simulados | 02h22 | ↩️ 03h20 | ✅ 03h36 | `09-perfis-dados-simulados.md` e `perfis-simulacao.rascunho.json` | gerador simulado do protótipo |
-| 10 | Orientações e contramedidas | 02h22 | | ✅ 02h55 | `10-orientacoes-contramedidas.md` (821 linhas, 158 fontes) | `docs/03`, `indicadores.json` |
-| 11 | Amostras reais para o modo demonstração | 02h22 | | ✅ 04h34 | `11-amostras-reais.md` e `prototipo/dados/amostras-reais/` (23 arquivos) | `docs/02`, `docs/12` |
+| 10 | Orientações e contramedidas | 02h22 |  | ✅ 02h55 | `10-orientacoes-contramedidas.md` (821 linhas, 158 fontes) | `docs/03`, `indicadores.json` |
+| 11 | Amostras reais para o modo demonstração | 02h22 |  | ✅ 04h34 | `11-amostras-reais.md` e `prototipo/dados/amostras-reais/` (23 arquivos) | `docs/02`, `docs/12` |
 | 12 | Consolidação dos limiares | 02h56 | ↩️ 04h10 | ✅ 04h41 | `docs/03` e `prototipo/config/indicadores.json` | motor de regras |
-| 13 | IA médica embarcada | 03h37 | | ✅ 04h01 | `13-ia-medica-embarcada.md` (327 linhas, 55 fontes) | `docs/11` |
-| 14 | Pipeline de sinais do óculos | 04h03 | | ✅ 04h25 | `14-oculos-pipeline-sinais.md` (302 linhas, 53 fontes) | construção do óculos |
-| 15 | Áudio e acervo sonoro do óculos | 04h27 | | ✅ 04h48 | `15-oculos-audio-acervo.md` (212 linhas, 36 fontes) | construção do óculos |
-| 16 | Artemis II, Gateway e Marte | 04h37 | | ✅ 04h53 | `16-artemis-marte.md` (265 linhas, 52 fontes) | `docs/16` |
-| 17 | Caminho até voar | 04h43 | | ✅ 05h14 | `17-caminho-ate-voar.md` (292 linhas, 75 fontes) | `docs/16` |
-| 18 | Aplicações na Terra e impacto | 04h49 | | ✅ 05h09 | `18-aplicacoes-terra-impacto.md` (209 linhas, 40 fontes) | `docs/16` |
-| 19 | Checagem cruzada final | 05h15 | | ✅ 05h40 | `19-checagem-cruzada.md` (154 linhas, 40 itens) | correções em `docs/02`, `03`, `04`, `05` e perfis |
+| 13 | IA médica embarcada | 03h37 |  | ✅ 04h01 | `13-ia-medica-embarcada.md` (327 linhas, 55 fontes) | `docs/11` |
+| 14 | Pipeline de sinais do óculos | 04h03 |  | ✅ 04h25 | `14-oculos-pipeline-sinais.md` (302 linhas, 53 fontes) | construção do óculos |
+| 15 | Áudio e acervo sonoro do óculos | 04h27 |  | ✅ 04h48 | `15-oculos-audio-acervo.md` (212 linhas, 36 fontes) | construção do óculos |
+| 16 | Artemis II, Gateway e Marte | 04h37 |  | ✅ 04h53 | `16-artemis-marte.md` (265 linhas, 52 fontes) | `docs/16` |
+| 17 | Caminho até voar | 04h43 |  | ✅ 05h14 | `17-caminho-ate-voar.md` (292 linhas, 75 fontes) | `docs/16` |
+| 18 | Aplicações na Terra e impacto | 04h49 |  | ✅ 05h09 | `18-aplicacoes-terra-impacto.md` (209 linhas, 40 fontes) | `docs/16` |
+| 19 | Checagem cruzada final | 05h15 |  | ✅ 05h40 | `19-checagem-cruzada.md` (154 linhas, 40 itens) | correções em `docs/02`, `03`, `04`, `05` e perfis |
 
 ## 2. Andamento e achados de cada frente
 
 ### Frente 1: ECLSS, ambiente da cabine e radiação
+
 - **Andamento:** aberta 01h30; aprovada 02h19 sem correção. Etiquetas no formato "OFICIAL, [link]", aceitas.
 - **Achados:** os segmentos americano e russo têm sistemas próprios, e a leitura de um módulo não vale para os outros (o software precisa saber onde cada tripulante está). Regra operacional da ISS para CO2: média de 24 h até 3 mmHg desde 2016; NASA-STD-3001 Vol 2 limita a média de 1 h a 3 mmHg; dados de 2025 mostram 1,7 a 2,1 mmHg típicos. 4B CO2 é o sistema primário; 98% de recuperação de água demonstrada. Monitores de ar e água funcionam por amostra ou campanha, sem feed contínuo público. Radiação: dosímetro pessoal ativo (CAD) com downlink, passivo (CPD) lido depois; limite de carreira menor que 600 mSv; a faixa de 80 a 160 mSv do documento inicial é estimativa alta, e um resumo técnico da NASA de 2024 traz 50 a 100 mSv.
 
 ### Frente 2: equipamentos médicos da tripulação
+
 - **Andamento:** aberta 01h30; entregue 01h56; aprovada 01h59 sem correção.
 - **Achados:** o cuidado médico a bordo (CHeCS) tem três partes separadas (HMS clínica, EHS ambiente, CMS exercício) e não existe painel contínuo com todos os sinais vitais; esse é o espaço do software. A maior parte das medidas do corpo é pontual, por campanha ou de pesquisa (conferência médica semanal, exames de olhos em FD30, FD90 e R-30, sangue e urina analisados na Terra). Bio-Monitor (CSA) na ISS desde dezembro de 2018, sessões de até 48 h. Oxímetro existe no kit, sem modelo publicado. Ultrasound 3 chegou em 2025 para substituir o Ultrasound 2 (desde 2011). **Aplicado no `docs/06`:** dado do corpo tem latência e estados próprios.
 
 ### Frente 3: riscos, indicadores e limiares
+
 - **Andamento:** aberta 01h30; devolvida 02h13 (ruído NC-50 e NC-40 em dBA errados, duas linhas coladas na tabela mestra, LxC de 7 riscos faltando, revisão da norma sem letra); aprovada 02h28.
 - **Achados:** LxC do HRP é risco de programa, não semáforo clínico. SANS: cerca de 70% com algum sinal e 18% clinicamente preocupante (brief da NASA); 81% numa coorte de 64; "47 a 48%" é deslocamento hipermetrópico de olhos, não necessidade de óculos. Requisitos oficiais com número: CO2 média de 1 h até 3 mmHg (V2 6004), PIO2 de 145 a 155 mmHg, pressão acima de 5 até 15 psia, carreira menor que 600 mSv e limites por órgão em mGy-Eq, ruído NC-50 (cerca de 58 dBA) e NC-40 (cerca de 49 dBA), sono planejado de 8,5 h. Para a maioria dos sinais vitais e para SANS a NASA não publica limiar de voo; valores terrestres ficam marcados como tal.
 
 ### Frente 4: precedentes do óculos, sono e rotina
+
 - **Andamento:** aberta 01h30; aprovada 02h00 sem correção (corrigiu um erro do próprio briefing sobre o EEG de Mogensen).
 - **Achados:** o AttentivU (MIT) já juntou EEG, EOG e condução óssea numa armação, então a combinação não é inédita. A NASA avaliou condução óssea para o xEMU (2024) só quanto a ajuste e conforto. O Dreem monitorou sono na ISS (Pesquet, 2021). **Não há evidência de que EOG detecte SANS**; o argumento do óculos é que todo tripulante já leva pelo menos três pares de lentes. Rotina em GMT, acordar por volta de 06h00 e dormir por volta de 21h30, todos no mesmo período. Diferencial defensável: integração com o painel, offline, personalização cultural, validação em missão.
 
 ### Frente 5: massa, computação e lançamento
+
 - **Andamento:** aberta 01h30; devolvida 02h07 (parâmetros do DeepSleepNet atribuídos errado); aprovada 02h17.
 - **Achados:** óculos de 54 a 72 g sem lentes; 4 canais a 250 Hz geram 97,2 MB por noite. Estagiamento do sono não precisa de GPU (DeepSleepNet original tem 21 a 24,7 milhões de parâmetros; TinySleepNet, DeepSleepNet-Lite e YASA são leves). Configuração mínima reaproveita o laptop de bordo. Custo de carga para a ISS (NASA OIG): US$ 63.200/kg no CRS-1 e US$ 71.800/kg projetado no CRS-2. Equação do foguete: 14,71 kg de propelente por kg num estágio idealizado.
 
 ### Frente 6: dados abertos, software e fluxo de dados
+
 - **Andamento:** aberta 01h30; aprovada 02h19 sem correção.
 - **Achados:** sinais vitais da tripulação não são monitorados continuamente; o ambiente sim, pelos controladores ETHOS e BME. OSDR com API testada (Inspiration4); LSDA e LSAH exigem solicitação formal. NOAA SWPC e DONKI abertos e testados. Artemis II usou vestíveis de pulso (ARCHeR). Inventário do software de saúde da NASA (CHeCS, WinSCAT, Cognition, ISS FIT, OOHA, IMM, MDA e outros) com quem fez e se segue em uso.
 
 ### Frente 7: desafio oficial e padrões de interface
+
 - **Andamento:** aberta 02h05; acréscimo de monitoramento entre colegas 02h12 (pedido do Monitor geral); aprovada 02h44 sem correção.
 - **Achados:** o desafio é "Create Health Monitoring Software for Astronauts on Space Missions", Space Apps 2026, nível Intermediate; envio fecha em **15/11 às 23h59 no horário do evento local**; termos pedem licença aberta (Apache 2.0 por padrão); 5 recursos oficiais (3 NASA, 2 CSA); critérios de julgamento e regra de IA não confirmados (página global com HTTP 502). Na ISS, vermelho, amarelo, piscar e som pertencem ao sistema de Caution and Warning. **Aplicado no design:** prefixo "Saúde:", nada pisca nem toca som, vermelho só como contorno; Monitor geral com consentimento granular por audiência e "Oferecer apoio" (privacidade médica pela NASA-STD-3001 Vol 1, V1 7003, 6003 e 6011).
 
 ### Frente 8: autoavaliações implementáveis
+
 - **Andamento:** aberta 02h05; aprovada 02h50 sem correção.
 - **Achados:** PVT-B de 3 minutos é o paradigma do Reaction Self Test da ISS (intervalo de 1 a 4 s, lapso a partir de 355 ms; registrar também 500 ms); PVT padrão de 10 minutos com intervalo de 2 a 10 s. Cognition e WinSCAT são ferramentas fechadas. KSS e Samn-Perelli são de uso livre; PSQI e POMS são protegidos; PHQ-9 exige resposta humana no item 9. Propostas de check-in diário de 2 minutos e semanal de 10 minutos com escalas livres. **Aplicado no `docs/04`.**
 
 ### Frente 9: perfis de dados simulados
+
 - **Andamento:** aberta 02h22; devolvida 03h20 (faltavam glicose, exemplo citado no desafio, e hemoglobina); aprovada 03h36.
 - **Achados:** 35 indicadores com valor típico, variação, ruído, ritmo diário e tendência em 180 dias; 7 tripulantes fictícios; roteiro de missão; magnitudes dos cenários C1 a C5. CO2 por módulo a partir do OCHMO-TB-004. A hemólise 54% maior em voo (Trudel 2022) não foi convertida em queda de hemoglobina, porque o estudo não mediu hemograma em série. Cenários C1 e C5 ajustados depois pelo coordenador para casar com os limiares (CO2 de 2,95 mmHg; água de 1.000 mL por dia).
 
 ### Frente 10: orientações e contramedidas
+
 - **Andamento:** aberta 02h22; aprovada 02h55 sem correção.
 - **Achados:** um bloco de orientação para cada um dos 42 indicadores da tabela mestra e das 6 regras de cruzamento (o que o astronauta faz, como o colega ajuda, o que o CMO faz, gatilho para subir de nível, por que importa). Exercício: média observada de cerca de 2 h por dia e bloco programado de cerca de 2,5 h. Contramedidas de SANS como thigh cuffs e pressão negativa são pesquisa, não rotina. **Nenhum remédio ou dose recomendado.**
 
 ### Frente 11: amostras reais para a demonstração
+
 - **Andamento:** aberta 02h22; gravação ao vivo de 3 horas; aprovada 04h34 sem correção.
 - **Achados:** telemetria pública da ISS gravada por 120 minutos (158.753 registros) mais 60 minutos de recuperação, com a posição da estação e duas passagens pela região da Anomalia do Atlântico Sul; NOAA (prótons do GOES, Kp, alertas) e DONKI dos últimos 90 dias (55 FLR, 11 SEP, 323 CME, 3 GST). **Resolveu a divergência de unidade:** as pressões do feed são torr ou mmHg, não psia; ppCO2 do laboratório com mediana de 2,44 mmHg. Licença de redistribuição do feed não encontrada.
 
 ### Frente 12: consolidação dos limiares
+
 - **Andamento:** aberta 02h56; devolvida 04h10 (faixas só em texto, sem camada numérica para o motor; humor em 0 a 100); aprovada 04h41; reparo de acentos corrompidos concluído às 05h51 por um agente Claude.
 - **Achados:** `docs/03` com 73 indicadores e `indicadores.json` com 35 indicadores e 6 regras, em 4 classes (10 requisito oficial, 8 referência terrestre, 16 linha de base, 1 sintoma). Cada indicador tem `regraCor` determinística e `exemplosTeste`; o nível 4 só vem de sintoma. Valores de demonstração separados e marcados (por exemplo CO2 acima de 2,8 mmHg para amarelo). Humor em escala de 1 a 5.
 
 ### Frente 13: IA médica embarcada
+
 - **Andamento:** aberta 03h37; aprovada 04h01 sem correção.
 - **Achados:** o assistente digital do CMO (NASA e Google, agosto de 2025) é prova de conceito com cenários simulados, sem uso em voo; a imprensa o descreve rodando na nuvem do Google, o que reforça o diferencial offline. Doc-in-a-Box: 76 de 100 em avaliação clínica estruturada. IMM e MEDPRAT são modelos de risco de missão, não IA clínica. CIMON dependia de nuvem. Modelo de linguagem local de 1 a 8 bilhões de parâmetros cabe em 0,5 a 4 GB. Recomendação: no protótipo, tendências pessoais explicáveis e YASA; modelo de linguagem fica para a visão futura; humano sempre no circuito.
 
 ### Frente 14: pipeline de sinais do óculos
+
 - **Andamento:** aberta 04h03; aprovada 04h25 sem correção.
 - **Achados:** montagem mínima de 3 canais (EEG frontal, EOG horizontal e vertical) com 6 contatos; ADS1299-4 a 250 Hz; Bluetooth precisa de cerca de 24 kbit/s, com gravação local íntegra. Não há evidência de eletrodo seco de armação em microgravidade. Estagiamento: YASA 85,12% com um EEG e 86,92% com EEG e EOG; Dreem 83,5% em montagem seca (resultados terrestres). Bases públicas com licença, contrato de dados com o software e roteiro de construção até a validação contra polissonografia.
 
 ### Frente 15: áudio e acervo sonoro do óculos
+
 - **Andamento:** aberta 04h27; aprovada 04h48 sem correção.
 - **Achados:** 115 dBA é o teto da NASA para áudio pessoal, não nível confortável; dose de ruído de 24 h limitada a 100. A ficha do transdutor ISL citado na frente 5 é incoerente (pedir errata e medir); alternativas Dayton BCE-1 e Adafruit 1674; amplificador TPA2015D1 com 1,7 mA em repouso. Pré-sono a partir de 19h30 GMT; som desligado durante o sono. Evidência de sons e sono é fraca e heterogênea. NPS Sound Gallery em domínio público; Fonoteca Neotropical restringe uso comercial. O tripulante escolhe o próprio perfil cultural.
 
 ### Frente 16: Artemis II, Gateway e Marte
+
 - **Andamento:** aberta 04h37; aprovada 04h53 sem correção (reformulação do Artemis conferida na imprensa).
 - **Achados:** Artemis II voou de 1 a 10 de abril de 2026 (Wiseman, Glover, Koch, Hansen); estudos de saúde em análise, dados futuros pelo LSDA. Em fevereiro de 2026 o Artemis III virou teste em órbita da Terra (2027) e o pouso passou para o Artemis IV (2028). Orion tem kit para 128 condições. Marte: atraso de 4 a 24 minutos por trecho e cerca de 13 dias a três semanas sem contato direto na conjunção solar; Earth Independent Medical Operations.
 
 ### Frente 17: caminho até voar
+
 - **Andamento:** aberta 04h43; aprovada 05h14 sem correção.
 - **Achados:** não existe inscrição única para voar; a rota passa por chamada ou patrocinador, pesquisador principal, ética e segurança. **O ajuste Brasil e NASA de 1997 sobre cargas úteis está listado como suspenso pela AEB**, então a participação brasileira não é automática. Piloto cruzado de 8 a 12 participantes focado em viabilidade. Revisões de segurança por fases para o hardware. Análogos viáveis: HERA e Concordia (NEEMO descontinuado, CHAPEA 2 encerrada). Estimativa de 3 a 6 anos até o voo.
 
 ### Frente 18: aplicações na Terra e impacto
+
 - **Andamento:** aberta 04h49; aprovada 05h09 sem correção.
 - **Achados:** Estação Antártica Comandante Ferraz com médico e enfermeiro e teste de telemedicina em 2022; Parintins com 22 pontos de telessaúde (9 ribeirinhos) e 1.116 teleconsultas de janeiro a agosto de 2026; telessaúde em 24 dos 34 Distritos Sanitários Especiais Indígenas; NR-37 nas plataformas. Limiares personalizados melhoram o valor preditivo em insuficiência cardíaca. Regulação: ANVISA e LGPD. Nenhum impacto do Orbit apresentado como comprovado.
 
 ### Frente 19: checagem cruzada final
+
 - **Andamento:** aberta 05h15; aprovada 05h40; correções aplicadas pelo coordenador às 05h40.
 - **Achados:** 40 números e fatos conferidos, sem erro grave fora da fila. Correções aplicadas: exemplo de CO2 do `docs/03` alinhado ao cenário C1; `docs/02` na Rev F com as janelas de CO2 de 1 h, 24 h e 7 dias diferenciadas; gatilho do cenário C2 (150 pfu, escala S2 da NOAA, evento SEP); janela inclusiva de 14 dias no C3; regra de hidratação e cenários C4 e C5 sem linguagem de diagnóstico; `METODO.md` sem a sequência proibida. Pendente: rubrica de julgamento e regra de IA do Space Apps (site global ainda com HTTP 502).
 
@@ -176,7 +196,7 @@ Conferências por amostragem com busca na web: valores do OIG (IG-18-016), parâ
 | 04h37 | 61% | 12% | 3 |
 | 04h57 | 64% | 12% | 2 |
 | 05h36 | 68% | 13% | 1 |
-| 05h51 | Todas as 19 frentes concluídas; nenhum agente parou por cota; tarefas agendadas canceladas | | 0 |
+| 05h51 | Todas as 19 frentes concluídas; nenhum agente parou por cota; tarefas agendadas canceladas |  | 0 |
 
 Com 6 agentes o consumo foi de cerca de 33 pontos por hora; com 3, cerca de 10 a 12.
 
