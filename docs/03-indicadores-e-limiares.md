@@ -25,7 +25,7 @@ O motor avalia `regraCor.regras` na ordem declarada. Uma condi??o satisfeita pro
 
 | Exemplo resolvido | Avalia??o | Resultado |
 | --- | --- | --- |
-| A, `ppco2_modulo`, m?dia de 1 h de 3,2 mmHg | Ultrapassa o m?ximo oficial de 3 mmHg; a regra vermelha precede o marcador demonstrativo de 2,8 mmHg. | N?vel 3, a??o do controle ambiental e contato com CMO. O valor de 3,2 mmHg no perfil C1 entra em conflito com a expectativa de amarelo de docs/05 e precisa ser alinhado no perfil ou no cen?rio. |
+| A, `ppco2_modulo`, pico de 2,95 mmHg no cenário C1 (EWMA sustentada) | Fica abaixo do máximo oficial de 3 mmHg (V2 6004, média de 1 h) e acima do marcador demonstrativo de 2,8 mmHg, que só vale dentro da regra R-CO2-01. | Nível 2 (amarelo) se houver coocorrência com sintoma ou piora de PVT acima de 10% na janela de 3 h; sem coocorrência, verde com tendência. Um valor de 3,2 mmHg seria nível 3 (ação do controle ambiental e contato com o CMO). O cenário C1 foi ajustado pelo coordenador em 15/11 para 2,95 mmHg. |
 | B, `spo2`, leitura de 92% | A refer?ncia terrestre ? 95% a 100%; 92% tamb?m alcan?a o corte terrestre de contato cl?nico. Esse r?tulo continua sendo refer?ncia terrestre, n?o limite de voo. | N?vel 3, contato cl?nico conforme a fonte terrestre, sem diagn?stico autom?tico. |
 | C, `hrv_rmssd`, desvio pessoal de 2 desvios padr?o | N?o existe corte de voo publicado; a regra de linha de base atinge o marcador amarelo. | N?vel 2, revisar tend?ncia e contexto. O marcador nunca leva a vermelho sozinho. |
 

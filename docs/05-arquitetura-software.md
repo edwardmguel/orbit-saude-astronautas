@@ -135,10 +135,10 @@ O gerador simulado roda uma "missão" acelerada com quatro tripulantes fictício
 | Cenário | O que acontece nos dados | O que o software deve mostrar |
 | --- | --- | --- |
 | C1. Pico de CO2 | ppCO2 sobe num módulo; um tripulante relata dor de cabeça no check-in; tempo de reação piora | Amarelo no tripulante e no módulo, com a hipótese "CO2" e a orientação |
-| C2. Evento de partículas solares | Fluxo de prótons do GOES passa do limiar de tempestade de radiação | Alerta de radiação para toda a tripulação, dose acumulada atualizada, orientação de abrigo conforme procedimento |
+| C2. Evento de partículas solares | Fluxo de prótons do GOES (≥ 10 MeV) chega a 150 pfu no dia 120, dentro da escala S2 da NOAA, com evento SEP na DONKI; a taxa de dose a bordo sobe pelos multiplicadores observados no evento de setembro de 2017 | Alerta de radiação para toda a tripulação, dose acumulada atualizada, orientação de seguir o procedimento da estação e o controle de missão |
 | C3. Sinais iniciais de SANS | Teste de grade de Amsler e de acuidade próxima pioram ao longo de semanas, com relato de visão embaçada | Olhos ficam amarelos na figura humana; sugestão de agendar exame de OCT e fundo de olho com o médico de voo |
-| C4. Dívida de sono antes de EVA | Sono medido abaixo do programado por várias noites, ruído alto na cabine de dormir, fadiga alta | Prontidão baixa no dia da EVA, recomendação de higiene do sono e ajuste da paisagem sonora do óculos |
-| C5. Desidratação e risco de cálculo renal | Baixa ingestão de água registrada, urina escura na foto, perda óssea estimada em curso | Rins em amarelo; orientação de hidratação |
+| C4. Dívida de sono antes de EVA | **Gatilho:** sono abaixo do programado por 3 noites e EVA no dia seguinte. **Contexto, não dispara sozinho:** ruído na cabine de dormir avaliado por bandas (curva NC) e fadiga autorrelatada, quando registrados | Prontidão baixa no dia da EVA, recomendação de higiene do sono e ajuste da paisagem sonora do óculos; o ruído aparece como "fator possível", nunca como violação de norma a partir de uma leitura isolada |
+| C5. Ingestão de água baixa registrada | Ingestão registrada de 1.000 mL por dia por 2 dias (abaixo do parâmetro de demonstração de 1.200 mL), cor da urina 6 de 8, perda óssea estimada em curso | Rins em amarelo com "ingestão registrada abaixo do plano"; orientação de seguir a meta individual aprovada, sem diagnóstico de desidratação |
 
 ---
 

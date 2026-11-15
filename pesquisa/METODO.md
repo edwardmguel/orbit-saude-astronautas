@@ -27,7 +27,7 @@ Documentos já existentes no repositório (`C:\Users\ingri\Documents\github\NASA
 ## Parte C. Formato de entrega
 
 1. Português do Brasil, mantendo nomes técnicos e siglas em inglês, com a expansão na primeira menção.
-2. **Regra de escrita inegociável do dono do projeto:** sem travessão (U+2014), sem meia-risca (U+2013), sem hífen solto entre espaços no papel deles. Usar vírgula, dois-pontos, parênteses ou ponto. Hífen de palavra composta é permitido. Faixas numéricas por extenso ("60 a 100 bpm"). Antes de terminar, procurar no arquivo por U+2014, U+2013 e " - " no meio de frases e corrigir. Trechos literais de código ou JSON copiados de resposta real ficam como vieram, dentro de blocos de código.
+2. **Regra de escrita inegociável do dono do projeto:** sem travessão (U+2014), sem meia-risca (U+2013), sem hífen solto entre espaços no papel deles. Usar vírgula, dois-pontos, parênteses ou ponto. Hífen de palavra composta é permitido. Faixas numéricas por extenso ("60 a 100 bpm"). Antes de terminar, procurar no arquivo por U+2014, U+2013 e pela sequência espaço, hífen, espaço no meio de frases, e corrigir. Trechos literais de código ou JSON copiados de resposta real ficam como vieram, dentro de blocos de código.
 3. Escrever **somente** no próprio arquivo de saída. Outros agentes escrevem em paralelo em arquivos vizinhos.
 4. Markdown estruturado, com tabelas. Profundidade em vez de resumo.
 5. Salvar de forma incremental, a cada seção concluída.

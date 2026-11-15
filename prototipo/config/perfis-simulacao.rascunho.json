@@ -1751,6 +1751,7 @@
                             },
                      "C2":  {
                                 "indicadorId":  "fluxo_protons_goes",
+                                 "gatilho":  {                                                  "diaMissao":  120,                                                  "inicioHoraGmt":  "14:00",                                                  "duracaoHoras":  30,                                                  "fluxoProtonsGoesMax":  150,                                                  "unidade":  "pfu",                                                  "canal":  "fluxo integral de prótons maior ou igual a 10 MeV",                                                  "escalaNoaa":  "S2 (100 a 999 pfu)",                                                  "eventoDonki":  "SEP",                                                  "classificacao":  "[INFERÊNCIA] valor sintético dentro da escala S2 da NOAA para disparar R-RAD-01; a dose dentro da ISS continua vindo dos multiplicadores observados em 2017 abaixo, sem conversão de silício para mSv (decisão do coordenador em 15/11)",                                                  "fontes":  [                                                                 "https://www.swpc.noaa.gov/noaa-scales-explanation",                                                                 "https://api.nasa.gov/"                                                             ]                                              },
                                 "perfil":  "SPE de setembro de 2017 observado dentro da ISS",
                                 "doseAbsorvidaDiariaSilicio":  {
                                                                    "instrumentoISS_RAD_B":  {
@@ -1795,6 +1796,7 @@
                                                     "amsler":  "repetição na mesma região e olho"
                                                 }
                                             ],
+                                 "janelaRegra":  {                                                      "dias":  14,                                                      "bordaInclusiva":  true,                                                      "nota":  "dias 90 e 104 têm exatamente 14 dias de intervalo e contam para R-SANS-01 (decisão do coordenador em 15/11)"                                                  },
                                 "classificacao":  "[INFERÊNCIA] piora de uma linha ilustrativa; magnitude universal não encontrada",
                                 "contexto":  "27/56 olhos com hipermetropia após voo em uma coorte; média +0.12 D nos olhos com mudança",
                                 "fontes":  [

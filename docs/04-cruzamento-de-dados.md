@@ -221,7 +221,7 @@ As regras abaixo estão descritas em nível de lógica. Os números de limiar ci
 ### R-SANS-01. Possíveis sinais visuais compatíveis com SANS (cenário C3)
 
 - **Condições:** piora na acuidade de perto em relação à base **ou** distorção relatada na grade de Amsler, em **2 testes seguidos**, com ou sem sintoma de visão embaçada.
-- **Janela:** 14 dias.
+- **Janela:** 14 dias, inclusiva (dois testes com até 14 dias de intervalo contam; no cenário C3 eles caem nos dias 90 e 104).
 - **Nível:** 2. Sobe para 3 se vier com dor de cabeça persistente, visão dupla ou perda súbita de visão (sinais que pedem avaliação imediata).
 - **Hipótese:** "Mudança na visão: vale antecipar o exame de olhos com o médico de voo."
 - **Orientações:** repetir os testes no mesmo horário e com a mesma luz; confirmar o uso dos óculos de grau do voo; resumo para o médico de voo sugerindo OCT e fundo de olho.
@@ -238,11 +238,11 @@ As regras abaixo estão descritas em nível de lógica. Os números de limiar ci
 
 ### R-HID-01. Hidratação baixa e risco renal (cenário C5)
 
-- **Condições:** ingestão de água abaixo da meta por 2 dias **e** urina escura na escala de cor.
+- **Condições:** registro de ingestão de água abaixo do parâmetro de demonstração (menos de 1.200 mL em 24 h, ver `docs/03`, seção 5) por 2 dias **e** cor da urina 6 ou mais na escala de 8 pontos.
 - **Agravante:** fase da missão com perda óssea esperada (cálcio liberado do osso aumenta o risco de cálculo renal).
 - **Nível:** 2.
-- **Hipótese:** "Hidratação abaixo do recomendado."
-- **Orientações:** meta de água do dia com lembretes; missão da gamificação ligada à hidratação.
+- **Hipótese:** "Ingestão registrada abaixo do plano: vale conferir a hidratação."
+- **Orientações:** comparar com a meta individual aprovada no plano de voo (o software não prescreve volume de água); lembretes; missão da gamificação ligada à hidratação.
 - **Fonte:** nutrição e cálculo renal em `docs/03`.
 
 ### R-AMB-01. Ambiente explica o sintoma (regra genérica)
