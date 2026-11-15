@@ -1,0 +1,109 @@
+/*
+ * Tokens do design system ORBITA (docs/18, seções 2.1 a 2.8).
+ * Tema padrão escuro em :root; modo noturno âmbar em [data-tema="noturno"].
+ * Nada aqui pisca ou anima: movimento só em transições curtas (docs/18, 2.10).
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* 2.1 Marca e superfícies */
+  --bg: #07111f;
+  --surface: #0b1b2b;
+  --surface-2: #11243a;
+  --border: rgba(145, 164, 184, 0.2);
+  --border-strong: #2a4a6b;
+  --text: #f4f8fc;
+  --muted: #91a4b8;
+  --primary: #21c5ef;
+  --primary-2: #16a9c4;
+
+  /* 2.2 Estados: texto e contorno, e fundo de selo (14% da cor sobre --surface) */
+  --estado-sem-dado: #a3adba;
+  --estado-sem-dado-bg: #202f3f;
+  --estado-normal: #22c55e;
+  --estado-normal-bg: #0e3332;
+  --estado-atencao: #f5b800;
+  --estado-atencao-bg: #2c3125;
+  --estado-alerta: #f97316;
+  --estado-alerta-bg: #2c2728;
+  --estado-critico: #ff6b6b;
+  --estado-critico-bg: #2d2634;
+
+  /* 2.4 Espaçamento (grade de 4 px), raios, sombras e brilho */
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-5: 20px;
+  --espaco-6: 24px;
+  --espaco-8: 32px;
+  --margem-tela: 16px;
+  --raio-cartao: 16px;
+  --raio-elemento: 12px;
+  --raio-pilula: 999px;
+  --raio-folha: 24px;
+  --sombra-folha: 0 -10px 30px rgba(0, 0, 0, 0.5);
+  --brilho-foco: 0 0 0 1px rgba(33, 197, 239, 0.35), 0 0 16px rgba(33, 197, 239, 0.22);
+  --duracao-transicao: 220ms;
+  --duracao-painel: 250ms;
+
+  /* 2.3 Tipografia: celular */
+  --fonte-display: 'Space Grotesk', system-ui, sans-serif;
+  --fonte-texto: Inter, system-ui, sans-serif;
+  --fs-numero: 26px;
+  --fs-titulo: 20px;
+  --fs-rotulo: 12px;
+  --fs-texto: 14px;
+}
+
+/* Modo noturno âmbar (docs/18, 2.6): troca os tokens e desliga o brilho ciano. */
+:root[data-tema='noturno'] {
+  --bg: #120a04;
+  --surface: #1c1108;
+  --surface-2: #26170b;
+  --border: #3a2414;
+  --border-strong: #553620;
+  --text: #f2c79b;
+  --muted: #bc9672;
+  --primary: #e8963f;
+  --primary-2: #c77b30;
+
+  --estado-sem-dado: #ac9884;
+  --estado-sem-dado-bg: #302419;
+  --estado-normal: #a9c25a;
+  --estado-normal-bg: #302a14;
+  --estado-atencao: #f2b544;
+  --estado-atencao-bg: #3a2810;
+  --estado-alerta: #ee8a45;
+  --estado-alerta-bg: #392211;
+  --estado-critico: #f07a62;
+  --estado-critico-bg: #3a2015;
+
+  --brilho-foco: none;
+}
+
+/* 2.3 Tipografia por ponto de quebra (docs/18, 2.11): tablet e laptop. */
+@media (min-width: 768px) {
+  :root {
+    --fs-numero: 28px;
+    --fs-titulo: 22px;
+    --fs-texto: 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --fs-numero: 32px;
+    --fs-titulo: 24px;
+    --fs-rotulo: 13px;
+  }
+}
+
+/* Modo de exibição (painel da missão em 1920 x 1080): números e rótulos legíveis a distância. */
+[data-exibicao='true'] {
+  --fs-numero: 56px;
+  --fs-titulo: 32px;
+  --fs-rotulo: 22px;
+  --fs-texto: 24px;
+}
