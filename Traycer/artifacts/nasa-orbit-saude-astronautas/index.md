@@ -23,11 +23,14 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | Amostras reais gravadas: 3 h de telemetria pública da ISS, NOAA e DONKI | ✅ `prototipo/dados/amostras-reais/` |
 | Wireframes de 7 telas, com o Monitor geral pedido pelo dono | ✅ `docs/wireframes/telas-prototipo.html` |
 | Contexto para a IA de desenvolvimento | ✅ `AGENTS.md` |
+| Cópia desta EPIC no repositório, com instruções de importação | ✅ `Traycer/` (15/11, 08h40) |
+| Plano comprimido para caber no prazo de hoje (cerca de 14 horas mais o envio) | ✅ `docs/08`, seção 0.1 |
 
 ## O que o dono precisa decidir ao acordar
 
 | Decisão | Por quê | Onde |
 | --- | --- | --- |
+| **Dar acesso à equipe** (bloqueia a passagem de bastão) | O repositório é privado e o único colaborador é o dono; sem convite, a equipe não abre nada | GitHub: Settings, Collaborators, ou `gh api -X PUT repos/edwardmguel/orbit-saude-astronautas/collaborators/<usuario>` |
 | **Prazo:** confirmar o horário de fechamento do evento local | A página oficial diz que o envio fecha hoje, 15/11, às 23h59 no horário do evento local | `docs/08`, seção 0 |
 | Licença aberta e repositório público no envio | Termos do Space Apps pedem licença aberta (Apache 2.0 é o padrão) | [Brief](brief) |
 | Redistribuição das amostras reais da ISS | Licença do conteúdo não encontrada | `pesquisa/bruto/11` |
