@@ -49,7 +49,7 @@ erDiagram
 | `agencia` | string | `"NASA"` | Para a demo multinacional |
 | `massaPreVooKg` | número | `64,2` | Base para variação de massa |
 | `perfilSonoro` | string | `"mata-atlantica"` | Paisagem sonora do óculos Orbit |
-| `usaOculosOrbit` | booleano | `true` | Base do grupo controle (ver `docs/09`) |
+| `usaOculosOrbit` | booleano | `true` | Participa do estudo do óculos; a condição de cada noite fica em `SessaoSono.condicaoEstudo` (ver `docs/09`) |
 | `horarioSono` | `{ inicio: "21:30", fim: "06:00" }` | | Horário programado em GMT (referência publicada pela NASA, ver `docs/01`) |
 | `moduloAtual` | string | `"node3"` | Onde o tripulante está agora; usado pelo Monitor geral e pelas regras de cruzamento com o ambiente |
 | `compartilhamento` | `{ sinaisVitais: boolean, mente: boolean }` | `{ "sinaisVitais": true, "mente": false }` | O que os colegas veem no Monitor geral; o estado por sistema é sempre compartilhado e detalhes clínicos nunca (ver `docs/07`, T1) |
@@ -179,6 +179,10 @@ Cada autoavaliação gera `Leitura`s com `origem: "manual"` (exemplo: fadiga 4 v
 | `epocas` | `{ t: number, estagio: "W" \| "N1" \| "N2" \| "N3" \| "REM" }[]` | uma por 30 s |
 | `fonte` | `"orbit"` \| `"actigrafia"` \| `"simulada"` | `"simulada"` |
 | `metricas` | `{ tstMin, eficienciaPct, latenciaMin, wasoMin }` | calculadas como em `docs/04`, A8 |
+| `condicaoEstudo` | `"com_orbit"` \| `"sem_orbit"` \| `"fora_do_estudo"` | `"com_orbit"` |
+| `paisagemSonora` | `{ perfil, inicioUtc, fimUtc }` opcional | sons tocados naquela noite (a faixa "dormir" é silenciosa por padrão, ver `docs/09`) |
+
+**Por que `condicaoEstudo` fica na sessão e não no tripulante.** O estudo com grupo controle recomendado pela frente 4 é **cruzado e intrassujeito**: o mesmo tripulante alterna períodos com e sem o óculos, e o resultado compara a pessoa com ela mesma. Por isso a condição é registrada em cada noite. O campo `usaOculosOrbit` do `Tripulante` só diz se a pessoa participa do estudo. Desenho completo em [`09-oculos-orbit.md`](09-oculos-orbit.md).
 
 ### 2.10 `EventoClimaEspacial`
 
