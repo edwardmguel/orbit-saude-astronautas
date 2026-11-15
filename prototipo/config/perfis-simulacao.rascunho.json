@@ -1,0 +1,1869 @@
+{
+    "esquema":  "perfis-simulacao.rascunho.v1.1",
+    "descricao":  "Parâmetros de gerador para missão fictícia de 180 dias, agora com 35 indicadores. Não são dados de voo, limiares clínicos ou especificações operacionais.",
+    "convencoes":  {
+                       "unidadesCanonicas":  "Usar docs/06-modelo-de-dados.md onde definidas.",
+                       "evidencias":  "[OFICIAL], [PAPER], [DIRETRIZ-TERRA], [INFERÊNCIA], [NÃO ENCONTRADO].",
+                       "ruido":  "ruido:null informa que erro instrumental real não foi encontrado para hardware do protótipo; ruidoSimulador é ruído artificial.",
+                       "dispersoes":  "dpEntrePessoas e dpDiaADia só contêm dados publicados se população/recorte forem compatíveis; sufixo Simulador indica inferência.",
+                       "privacidade":  "Perfis inteiramente fictícios, sem dado identificável de astronauta."
+                   },
+    "lacunasDeUnidade":  [
+                             {
+                                 "indicadorId":  "carga_ared",
+                                 "docs06":  "sem unidade",
+                                 "proposta":  "carga por exercício, séries e repetições"
+                             },
+                             {
+                                 "indicadorId":  "acuidade_perto",
+                                 "docs06":  "sem unidade",
+                                 "proposta":  "logMAR ou valor literal de cartela validada"
+                             },
+                             {
+                                 "indicadorId":  "amsler_distorcao",
+                                 "docs06":  "sem unidade",
+                                 "proposta":  "resposta por olho e coordenadas"
+                             },
+                             {
+                                 "indicadorId":  "cor_urina",
+                                 "docs06":  "sem unidade",
+                                 "proposta":  "categoria ordinal sob iluminação padronizada"
+                             },
+                             {
+                                 "indicadorId":  "densidade_ossea",
+                                 "docs06":  "sem unidade",
+                                 "proposta":  "DXA g/cm2 ou QCT mg/cm3; exibição percentual é provisória"
+                             }
+                         ],
+    "indicadores":  [
+                        {
+                            "indicadorId":  "fc_repouso",
+                            "unidade":  "bpm",
+                            "tipico":  70,
+                            "dpEntrePessoas":  6.6,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  5,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  3.5,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  1.5,
+                            "circadiano":  {
+                                               "amplitude":  12.54,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  "15:04 no horário do estudo; GMT não confirmado",
+                                               "unidade":  "bpm",
+                                               "status":  "[PAPER] amplitude 12.54 ± 2.78 bpm, acrofase publicada sem confirmação GMT"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência universal; estabilidade em torno da linha de base",
+                                                  "valor":  null,
+                                                  "unidade":  "bpm",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  15,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/002341.htm; [PAPER] https://doi.org/10.1038/s41598-021-94478-w; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "hrv_rmssd",
+                            "unidade":  "ms",
+                            "tipico":  30,
+                            "dpEntrePessoas":  15.6,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  10,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  8,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  3,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "ms",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem magnitude astronauta publicada",
+                                                  "valor":  null,
+                                                  "unidade":  "ms",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC12194801/; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "pa_sistolica",
+                            "unidade":  "mmHg",
+                            "tipico":  120,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  6,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  4,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  2,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mmHg",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem curva longitudinal apropriada",
+                                                  "valor":  null,
+                                                  "unidade":  "mmHg",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/002341.htm; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "pa_diastolica",
+                            "unidade":  "mmHg",
+                            "tipico":  80,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  5,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  3,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  2,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mmHg",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem curva longitudinal apropriada",
+                                                  "valor":  null,
+                                                  "unidade":  "mmHg",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/002341.htm; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "spo2",
+                            "unidade":  "%",
+                            "tipico":  98,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.8,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.5,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.15,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "%",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência saudável uniforme",
+                                                  "valor":  null,
+                                                  "unidade":  "%",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/patientinstructions/000852.htm; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "temperatura_corporal",
+                            "unidade":  "°C",
+                            "tipico":  36.8,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.25,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.15,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.05,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "°C",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Magnitude e direção individuais não encontradas",
+                                                  "valor":  null,
+                                                  "unidade":  "°C",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/002341.htm; [PAPER] https://ntrs.nasa.gov/citations/20040088714; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "frequencia_respiratoria",
+                            "unidade":  "respirações/min",
+                            "tipico":  15,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  2,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  1,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.5,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "respirações/min",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem efeito longitudinal quantitativo universal",
+                                                  "valor":  null,
+                                                  "unidade":  "respirações/min",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1,
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/002341.htm; [OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf"
+                        },
+                        {
+                            "indicadorId":  "sono_tst",
+                            "unidade":  "min",
+                            "tipico":  358,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  36,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  36,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "min",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Média próxima de 6 h; sem queda linear por trimestre",
+                                                  "valor":  null,
+                                                  "unidade":  "min",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  1440,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/09/ochmo-std-100-1a-rev-a-signed.pdf"
+                        },
+                        {
+                            "indicadorId":  "sono_eficiencia",
+                            "unidade":  "%",
+                            "tipico":  91.8,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  4,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  3,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "%",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência universal",
+                                                  "valor":  null,
+                                                  "unidade":  "%",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  1440,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/"
+                        },
+                        {
+                            "indicadorId":  "pvt_tempo_reacao",
+                            "unidade":  "ms",
+                            "tipico":  270,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  25,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  12,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  3,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "ms",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Até 6 h sono associado a menor velocidade; efeito individual em ms não encontrado",
+                                                  "valor":  null,
+                                                  "unidade":  "ms",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5760,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [OFICIAL] https://ntrs.nasa.gov/api/citations/20210022966/downloads/Final%20Tu%20et%20al%20TRISH_Updated_2021-11-12.pdf"
+                        },
+                        {
+                            "indicadorId":  "pvt_lapsos",
+                            "unidade":  "eventos/sessão 3 min",
+                            "tipico":  1,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  1,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "eventos/sessão 3 min",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência progressiva demonstrada",
+                                                  "valor":  null,
+                                                  "unidade":  "eventos/sessão 3 min",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5760,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [OFICIAL] https://ntrs.nasa.gov/api/citations/20210022966/downloads/Final%20Tu%20et%20al%20TRISH_Updated_2021-11-12.pdf"
+                        },
+                        {
+                            "indicadorId":  "fadiga",
+                            "unidade":  "pontos, escala interna 1 a 7",
+                            "tipico":  2,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.8,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "pontos, escala interna 1 a 7",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Variação e fase, sem média convertível",
+                                                  "valor":  null,
+                                                  "unidade":  "pontos, escala interna 1 a 7",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5760,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [TESTADO] docs/04-cruzamento-de-dados.md"
+                        },
+                        {
+                            "indicadorId":  "humor",
+                            "unidade":  "pontos, escala interna 1 a 5",
+                            "tipico":  4,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.7,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.5,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "pontos, escala interna 1 a 5",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem conversão para escala interna",
+                                                  "valor":  null,
+                                                  "unidade":  "pontos, escala interna 1 a 5",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5760,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/09/ochmo-std-100-1a-rev-a-signed.pdf"
+                        },
+                        {
+                            "indicadorId":  "dor",
+                            "unidade":  "pontos, proposta NRS 0 a 10",
+                            "tipico":  0,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "pontos, proposta NRS 0 a 10",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência universal",
+                                                  "valor":  null,
+                                                  "unidade":  "pontos, proposta NRS 0 a 10",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[INFERÊNCIA] escala proposta; [OFICIAL] https://www.nasa.gov/reference/6-0-medical-operations/"
+                        },
+                        {
+                            "indicadorId":  "glicose",
+                            "unidade":  "mg/dL",
+                            "tipico":  90,
+                            "tipicoStatus":  "[INFERÊNCIA] baseline de jejum sintético dentro da referência terrestre, não média de astronautas",
+                            "referenciaTerrestre":  {
+                                                        "adultoJejumMgDl":  {
+                                                                                "min":  74,
+                                                                                "max":  99,
+                                                                                "etiqueta":  "[DIRETRIZ-TERRA]"
+                                                                            },
+                                                        "adultoPosRefeicao":  {
+                                                                                  "picoUsualAteMgDl":  140,
+                                                                                  "horaPicoMinAposInicio":  60,
+                                                                                  "retornoPreRefeicaoHoras":  {
+                                                                                                                  "min":  2,
+                                                                                                                  "max":  3
+                                                                                                              },
+                                                                                  "etiqueta":  "[DIRETRIZ-TERRA]"
+                                                                              },
+                                                        "fonteJejum":  "https://doi.org/10.2337/dci23-0036",
+                                                        "fontePosRefeicao":  "https://doi.org/10.2337/diacare.24.4.775"
+                                                    },
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO para astronautas em voos longos com protocolo comparável",
+                            "dpEntrePessoasSimulador":  0,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO; leitura a bordo é pontual e não há série diária uniforme",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO para o modelo do kit; ISO 15197 fornece critério de aceitação, não desvio padrão do instrumento",
+                            "ruidoSimulador":  null,
+                            "precisaoDeReferencia":  {
+                                                         "criterio":  "ISO 15197:2013, revisão 2018",
+                                                         "leiturasDentroDoLimitePercentual":  95,
+                                                         "abaixoDe100MgDl":  {
+                                                                                 "erroAbsolutoMaxMgDl":  15
+                                                                             },
+                                                         "aPartirDe100MgDl":  {
+                                                                                  "erroRelativoMaxPercentual":  15
+                                                                              },
+                                                         "nota":  "critério de acurácia de lotes, não distribuição de ruído do dispositivo a bordo",
+                                                         "fonte":  "https://doi.org/10.2337/dci23-0036"
+                                                     },
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mg/dL",
+                                               "status":  "amplitude circadiana a bordo não encontrada; curva alimentar descrita separadamente"
+                                           },
+                            "respostaPosRefeicao":  {
+                                                        "picoMinAposInicio":  60,
+                                                        "retornoAoPreRefeicaoHoras":  "2 a 3",
+                                                        "limiteUsualMgDl":  140,
+                                                        "etiqueta":  "[DIRETRIZ-TERRA]"
+                                                    },
+                            "tendencia180d":  {
+                                                  "tipo":  "Mir: tendência de aumento da glicose capilar versus baseline nos pontos amostrados, sem magnitude ou inclinação numérica publicada; não extrapolar como curva universal",
+                                                  "valor":  null,
+                                                  "unidade":  "mg/dL",
+                                                  "status":  "[PAPER] Mir: tendência qualitativa; [OFICIAL] poucos dados e mudanças sutis em secreção de insulina, resistência à insulina e tolerância à glicose em estudos de voo e análogos",
+                                                  "fontes":  [
+                                                                 "https://pubmed.ncbi.nlm.nih.gov/11541607/",
+                                                                 "https://www.nasa.gov/wp-content/uploads/2024/08/human-adaptation-2021-final-b.pdf"
+                                                             ]
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "Amostra manual pontual de sangue capilar com glicosímetro do kit conforme avaliação ou protocolo; sem cadência automática universal.",
+                            "frequenciaSimuladorMin":  null,
+                            "notaFrequenciaSimulador":  "Event-driven: não emitir valor diário sem coleta manual ou evento definido.",
+                            "fonte":  "[DIRETRIZ-TERRA] https://doi.org/10.2337/dci23-0036; [DIRETRIZ-TERRA] https://doi.org/10.2337/diacare.24.4.775; [OFICIAL] https://ntrs.nasa.gov/api/citations/20210020209/downloads/Aunon-Chancellor_Medical%20Challenges.pdf; [PAPER] https://pubmed.ncbi.nlm.nih.gov/11541607/; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/08/human-adaptation-2021-final-b.pdf; [PAPER] https://academic.oup.com/clinchem/article/69/5/442/7113323",
+                            "evidenciaDeVoo":  {
+                                                   "plataforma":  "estação orbital Mir",
+                                                   "cosmonautas":  17,
+                                                   "missoes":  6,
+                                                   "diaDeVooInicial":  25,
+                                                   "diaDeVooFinal":  423,
+                                                   "metodo":  "sangue capilar, analisador Reflotron IV",
+                                                   "direcao":  "tendência de aumento contra o baseline nos pontos amostrados",
+                                                   "magnitudeMgDl":  null,
+                                                   "status":  "[PAPER] resumo não quantifica magnitude nem inclinação temporal",
+                                                   "fonte":  "https://pubmed.ncbi.nlm.nih.gov/11541607/"
+                                               }
+                        },
+                        {
+                            "indicadorId":  "hemoglobina",
+                            "unidade":  "g/dL",
+                            "tipico":  null,
+                            "tipicoStatus":  "[DIRETRIZ-TERRA] intervalos de referência dependem do sexo e do laboratório, não há um único valor típico",
+                            "tipicoPorSexo":  {
+                                                  "feminino":  {
+                                                                   "min":  12.1,
+                                                                   "max":  15.1,
+                                                                   "etiqueta":  "[DIRETRIZ-TERRA]"
+                                                               },
+                                                  "masculino":  {
+                                                                    "min":  13.8,
+                                                                    "max":  17.2,
+                                                                    "etiqueta":  "[DIRETRIZ-TERRA]"
+                                                                },
+                                                  "fonte":  "https://medlineplus.gov/ency/article/003645.htm"
+                                              },
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO como distribuição de Hb seriada em astronautas",
+                            "dpEntrePessoasSimulador":  0,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO; hemograma é amostra pontual e não foi medido serialmente em voo no estudo Trudel",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO para versão de HemoCue/i-STAT e método de voo",
+                            "ruidoSimulador":  null,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "g/dL",
+                                               "status":  "perfil circadiano em voo comparável não encontrado"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Hemólise, medida indiretamente por eliminação de CO, ficou elevada durante os seis meses; concentração de Hb em g/dL não teve série intraflight no estudo",
+                                                  "valor":  null,
+                                                  "unidade":  "g/dL",
+                                                  "status":  "[PAPER] hemólise não equivale a queda de hemoglobina",
+                                                  "hemoliseObservada":  {
+                                                                            "aumentoPercentual":  54,
+                                                                            "ic95Min":  39,
+                                                                            "ic95Max":  70,
+                                                                            "duracao":  "seis meses de missão",
+                                                                            "medidasDeCO":  46,
+                                                                            "tripulantes":  14,
+                                                                            "unidade":  "percentual da eliminação de CO versus pré-voo"
+                                                                        },
+                                                  "concentracaoHb":  {
+                                                                         "deltaInflight":  null,
+                                                                         "status":  "NÃO ENCONTRADO, CBC não medido em voo no estudo"
+                                                                     },
+                                                  "resultadoPosPouso":  {
+                                                                            "dia":  4,
+                                                                            "deltaPercentual":  -8.8,
+                                                                            "tripulantes":  13,
+                                                                            "anemiaClinica":  5,
+                                                                            "etiqueta":  "[PAPER], dado pós-voo, não inclinação inflight"
+                                                                        },
+                                                  "resultadoUmAno":  {
+                                                                         "deltaPercentual":  3.5,
+                                                                         "deltaGdl":  0.5,
+                                                                         "etiqueta":  "[PAPER], comparação um ano pós-voo com pré-voo"
+                                                                     },
+                                                  "fonte":  "https://pmc.ncbi.nlm.nih.gov/articles/PMC8799460/"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "Amostra pontual; HemoCue foi demonstrado e i-STAT depende do cartucho validado. A maioria dos resultados laboratoriais depende de análise/retorno; frequência é de protocolo, não contínua.",
+                            "frequenciaSimuladorMin":  null,
+                            "notaFrequenciaSimulador":  "Event-driven por coleta de sangue; quando coletada, disponibilidade padrão pendente_laboratorio até liberação do resultado.",
+                            "disponibilidadePadrao":  "pendente_laboratorio",
+                            "disponibilidadeAposResultado":  "disponivel",
+                            "fonte":  "[DIRETRIZ-TERRA] https://medlineplus.gov/ency/article/003645.htm; [PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8799460/; [OFICIAL] https://ntrs.nasa.gov/citations/20240004905; [PAPER] https://academic.oup.com/clinchem/article/69/5/442/7113323"
+                        },
+                        {
+                            "indicadorId":  "massa_corporal",
+                            "unidade":  "kg",
+                            "tipico":  {
+                                           "feminino":  65.7,
+                                           "masculino":  82.9
+                                       },
+                            "dpEntrePessoas":  {
+                                                   "feminino":  6.3,
+                                                   "masculino":  8.4
+                                               },
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.3,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "kg",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "rampa até FD30 e platô",
+                                                  "valor":  -3.5,
+                                                  "unidade":  "% da massa pré-voo",
+                                                  "status":  "[INFERÊNCIA]",
+                                                  "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/08/human-adaptation-2021-final-b.pdf"
+                                              },
+                            "frequenciaRealMin":  43200,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://ntrs.nasa.gov/api/citations/20220015095/downloads/IEEE%20Aeropace%20_female%20astronaut_%20strock%202022_pubpress.docx.pdf; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/08/human-adaptation-2021-final-b.pdf"
+                        },
+                        {
+                            "indicadorId":  "agua_ingerida",
+                            "unidade":  "mL/dia",
+                            "tipico":  2500,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  350,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  250,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mL/dia",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem curva média de ingestão observada",
+                                                  "valor":  null,
+                                                  "unidade":  "mL/dia",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+                        },
+                        {
+                            "indicadorId":  "cor_urina",
+                            "unidade":  "categoria ordinal proposta 1 a 8",
+                            "tipico":  2,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.7,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "categoria ordinal proposta 1 a 8",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem trajetória astronauta",
+                                                  "valor":  null,
+                                                  "unidade":  "categoria ordinal proposta 1 a 8",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[PAPER] https://pubmed.ncbi.nlm.nih.gov/32330109/; [OFICIAL] https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+                        },
+                        {
+                            "indicadorId":  "tempo_exercicio",
+                            "unidade":  "min/dia",
+                            "tipico":  120,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  20,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  15,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "min/dia",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Individualizado conforme agenda",
+                                                  "valor":  null,
+                                                  "unidade":  "min/dia",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  1440,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/missions/station/iss-research/astronaut-exercise/; [OFICIAL] https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/"
+                        },
+                        {
+                            "indicadorId":  "carga_ared",
+                            "unidade":  "unidade não definida em docs/06",
+                            "tipico":  null,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  null,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "unidade não definida em docs/06",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência até especificar exercício e unidade",
+                                                  "valor":  null,
+                                                  "unidade":  "unidade não definida em docs/06",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/; [TESTADO] docs/06-modelo-de-dados.md"
+                        },
+                        {
+                            "indicadorId":  "acuidade_perto",
+                            "unidade":  "logMAR provisório ou valor literal da cartela",
+                            "tipico":  0,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.05,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "logMAR provisório ou valor literal da cartela",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Magnitude universal não encontrada",
+                                                  "valor":  null,
+                                                  "unidade":  "logMAR provisório ou valor literal da cartela",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  43200,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf; [PAPER] https://pubmed.ncbi.nlm.nih.gov/40194644/"
+                        },
+                        {
+                            "indicadorId":  "amsler_distorcao",
+                            "unidade":  "binário/coord. por olho, proposta",
+                            "tipico":  0,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "binário/coord. por olho, proposta",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Percentual e magnitude universal não encontrados",
+                                                  "valor":  null,
+                                                  "unidade":  "binário/coord. por olho, proposta",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  43200,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+                        },
+                        {
+                            "indicadorId":  "densidade_ossea",
+                            "unidade":  "% da linha de base, unidade provisória",
+                            "tipico":  100,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1.5,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "% da linha de base, unidade provisória",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "declínio linear ilustrativo diário",
+                                                  "valor":  -0.04,
+                                                  "unidade":  "% base/dia",
+                                                  "status":  "[INFERÊNCIA] conversão aritmética",
+                                                  "fonte":  "https://www.nasa.gov/reference/risk-of-spaceflight-induced-bone-changes/"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  1440,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/reference/risk-of-spaceflight-induced-bone-changes/"
+                        },
+                        {
+                            "indicadorId":  "ppco2_modulo",
+                            "unidade":  "mmHg",
+                            "tipico":  1.9,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "Não se aplica a ambiente; variabilidade ambiental está separada por módulo",
+                            "dpEntrePessoasSimulador":  0,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.12,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.03,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mmHg",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Oscilações operacionais, sem tendência monotônica",
+                                                  "valor":  null,
+                                                  "unidade":  "mmHg",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  10,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+                            "tipicoStatus":  "[INFERÊNCIA] centro de demonstração 1,9 mmHg, não média universal",
+                            "variacaoEspacialSimulador":  0.15,
+                            "variacaoEspacialStatus":  "[INFERÊNCIA] offset pequeno sintético; não é offset observado",
+                            "evidenciaPorModulo":  {
+                                                       "periodoDoGrafico":  "24/11/2024 a aproximadamente 09/11/2025",
+                                                       "series":  [
+                                                                      "MCA 24h média",
+                                                                      "Lab cas07",
+                                                                      "Node 2 cas13",
+                                                                      "Node 3 cas05",
+                                                                      "Airlock cas04",
+                                                                      "CMACS combinado"
+                                                                  ],
+                                                       "novembro2024AinicioMarco2025":  "Maioria dos pontos 2,0 a 2,9 mmHg; Airlock aproximadamente 1,3 a 2,0 mmHg",
+                                                       "marcoAabril2025":  "Pontos em torno de 1,2 a 2,0 mmHg, com excursões breves próximas ou acima de 3",
+                                                       "maioAjunho2025":  "Maioria em torno de 1,4 a 2,4 mmHg",
+                                                       "julhoAnovembro2025":  "Maioria em torno de 1,7 a 2,2 mmHg",
+                                                       "diferencaQualitativa":  "Pequena variação entre nós, associada a scrubber e ventilação",
+                                                       "mediaEOffsetNumericoPorModulo":  "NÃO ENCONTRADO na tabela do brief",
+                                                       "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf"
+                                                   }
+                        },
+                        {
+                            "indicadorId":  "pio2_cabine",
+                            "unidade":  "kPa",
+                            "tipico":  20,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.1,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.05,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.02,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "kPa",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Nominal estável salvo evento ECLSS",
+                                                  "valor":  null,
+                                                  "unidade":  "kPa",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-002-eclss.pdf; [OFICIAL] https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/"
+                        },
+                        {
+                            "indicadorId":  "pressao_cabine",
+                            "unidade":  "kPa",
+                            "tipico":  101.3,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  0.5,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.1,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.03,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "kPa",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Nominal estável por projeto",
+                                                  "valor":  null,
+                                                  "unidade":  "kPa",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[OFICIAL] https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+                        },
+                        {
+                            "indicadorId":  "temperatura_cabine",
+                            "unidade":  "°C",
+                            "tipico":  22,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  0.4,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.1,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "°C",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência mensal publicada",
+                                                  "valor":  null,
+                                                  "unidade":  "°C",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[INFERÊNCIA] setpoint; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf; [OFICIAL] https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/"
+                        },
+                        {
+                            "indicadorId":  "umidade_cabine",
+                            "unidade":  "%",
+                            "tipico":  50,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  8,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  3,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  1,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "%",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência mensal publicada",
+                                                  "valor":  null,
+                                                  "unidade":  "%",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[INFERÊNCIA] setpoint; [OFICIAL] https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf; [OFICIAL] https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/"
+                        },
+                        {
+                            "indicadorId":  "ruido_trabalho",
+                            "unidade":  "dBA",
+                            "tipico":  56,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  1.5,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  1.5,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.5,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "dBA",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Varia por local, ventilação e manutenção",
+                                                  "valor":  null,
+                                                  "unidade":  "dBA",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  15,
+                            "fonte":  "[PAPER] https://ntrs.nasa.gov/api/citations/20240006442/downloads/ICES-2024-354%20ISS%20Acoustics.pdf?attachment=true"
+                        },
+                        {
+                            "indicadorId":  "ruido_dormitorio",
+                            "unidade":  "dBA",
+                            "tipico":  52,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  2,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  2,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.5,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "dBA",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Sem tendência mensal publicada",
+                                                  "valor":  null,
+                                                  "unidade":  "dBA",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  null,
+                            "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
+                            "frequenciaSimuladorMin":  15,
+                            "fonte":  "[PAPER] https://ntrs.nasa.gov/api/citations/20240006442/downloads/ICES-2024-354%20ISS%20Acoustics.pdf?attachment=true"
+                        },
+                        {
+                            "indicadorId":  "taxa_dose_radiacao",
+                            "unidade":  "µGy/h",
+                            "tipico":  15.6,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "ver fonte e população na descrição do indicador",
+                            "dpEntrePessoasSimulador":  3,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  2,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  0.5,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "µGy/h",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Varia por órbita, blindagem e ciclo solar",
+                                                  "valor":  null,
+                                                  "unidade":  "µGy/h",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5,
+                            "notaFrequenciaReal":  "EAD: integração de 5 min; Pille automático histórico: 90 min. Resolução depende de instrumento e modo.",
+                            "frequenciaSimuladorMin":  1,
+                            "fonte":  "[OFICIAL] https://ntrs.nasa.gov/api/citations/20240014923/downloads/EDUCATIONAL%20SRE%20Radiation%20Health%20Effects.pdf; [OFICIAL] https://srag.jsc.nasa.gov/spaceradiation/how/how.cfm; [PAPER] https://www.sciencedirect.com/science/article/pii/S2214552424000178; [PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC10919969/",
+                            "tipicoStatus":  "[INFERÊNCIA] 15,6 µGy/h é o centro da faixa NASA 300 a 450 µGy/dia após divisão por 24",
+                            "dosePorComponenteObservada":  {
+                                                               "janelaUmMes":  {
+                                                                                   "GCRIncerteza":  2,
+                                                                                   "GCRAbsorvida":  146,
+                                                                                   "SAAAbsorvida":  168,
+                                                                                   "SAAUnidade":  "µGy/dia",
+                                                                                   "GCRUnidade":  "µGy/dia",
+                                                                                   "SAAIncerteza":  14
+                                                                               },
+                                                               "sinteseMissao":  {
+                                                                                     "GCRAbsorvida":  153,
+                                                                                     "GCRIncerteza":  8,
+                                                                                     "unidade":  "µGy/dia",
+                                                                                     "SAAIncerteza":  21,
+                                                                                     "SAAAbsorvida":  133
+                                                                                 },
+                                                               "nota":  "Resultados do EAD e janela de estudo específicas; não são offset universal nem valor pessoal em mSv",
+                                                               "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC10919969/"
+                                                           }
+                        },
+                        {
+                            "indicadorId":  "dose_acumulada",
+                            "unidade":  "mSv",
+                            "tipico":  null,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  null,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "mSv",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Acumula apenas a grandeza reportada pelo instrumento",
+                                                  "valor":  null,
+                                                  "unidade":  "mSv",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  90,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  90,
+                            "fonte":  "[OFICIAL] https://srag.jsc.nasa.gov/spaceradiation/how/how.cfm; [PAPER] https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018SW001920"
+                        },
+                        {
+                            "indicadorId":  "fluxo_protons_goes",
+                            "unidade":  "pfu (partículas/cm2/s/sr)",
+                            "tipico":  null,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  null,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "pfu (partículas/cm2/s/sr)",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Eventos episódicos; classes S NOAA",
+                                                  "valor":  null,
+                                                  "unidade":  "pfu (partículas/cm2/s/sr)",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  5,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  5,
+                            "fonte":  "[OFICIAL] https://www.spaceweather.gov/products/goes-proton-flux; [OFICIAL] https://www.spaceweather.gov/noaa-scales-explanation"
+                        },
+                        {
+                            "indicadorId":  "kp",
+                            "unidade":  "escala adimensional 0 a 9",
+                            "tipico":  2,
+                            "dpEntrePessoas":  null,
+                            "dpEntrePessoasStatus":  "NÃO ENCONTRADO ou conforme fonte indicada",
+                            "dpEntrePessoasSimulador":  null,
+                            "dpDiaADia":  null,
+                            "dpDiaADiaStatus":  "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador":  null,
+                            "ruido":  null,
+                            "ruidoEquipamentoStatus":  "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador":  null,
+                            "circadiano":  {
+                                               "amplitude":  null,
+                                               "horaPicoGmt":  null,
+                                               "horaPicoPublicada":  null,
+                                               "unidade":  "escala adimensional 0 a 9",
+                                               "status":  "Sem amplitude e pico GMT aplicáveis encontrados"
+                                           },
+                            "tendencia180d":  {
+                                                  "tipo":  "Flutua com atividade geomagnética",
+                                                  "valor":  null,
+                                                  "unidade":  "escala adimensional 0 a 9",
+                                                  "status":  "NÃO ENCONTRADO"
+                                              },
+                            "frequenciaRealMin":  180,
+                            "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
+                            "frequenciaSimuladorMin":  180,
+                            "fonte":  "[INFERÊNCIA] Kp=2 demo; [OFICIAL] https://www.spaceweather.gov/noaa-scales-explanation"
+                        }
+                    ],
+    "linhaDeBaseAmbiental":  {
+                                 "status":  "[INFERÊNCIA] linhas de base sintéticas; ppCO2 varia por módulo conforme OCHMO, sem offsets numéricos estáveis publicados",
+                                 "ppco2_modulo":  {
+                                                      "node2":  1.9,
+                                                      "node3":  1.9,
+                                                      "us_lab":  1.9,
+                                                      "unidade":  "mmHg",
+                                                      "status":  "[OFICIAL] Nós têm pequena variação ligada a scrubber e ventilação; valores iguais são centros de demo e offsets separados são sintéticos",
+                                                      "airlock":  1.9,
+                                                      "offsetsDemoMmHg":  {
+                                                                              "node2":  0.1,
+                                                                              "node3":  0,
+                                                                              "us_lab":  0.05,
+                                                                              "airlock":  -0.15
+                                                                          },
+                                                      "offsetsStatus":  "[INFERÊNCIA] pequena variação para demonstrar heterogeneidade; offsets absolutos não publicados"
+                                                  },
+                                 "pio2_cabine":  {
+                                                     "valor":  20,
+                                                     "unidade":  "kPa"
+                                                 },
+                                 "pressao_cabine":  {
+                                                        "valor":  101.3,
+                                                        "unidade":  "kPa"
+                                                    },
+                                 "temperatura_cabine":  {
+                                                            "valor":  22,
+                                                            "unidade":  "°C"
+                                                        },
+                                 "umidade_cabine":  {
+                                                        "valor":  50,
+                                                        "unidade":  "%"
+                                                    },
+                                 "ruido_trabalho":  {
+                                                        "valor":  56,
+                                                        "unidade":  "dBA"
+                                                    },
+                                 "ruido_dormitorio":  {
+                                                          "valor":  52,
+                                                          "unidade":  "dBA"
+                                                      },
+                                 "taxa_dose_radiacao":  {
+                                                            "valor":  15.6,
+                                                            "unidade":  "µGy/h",
+                                                            "status":  "conversão aproximada da faixa diária"
+                                                        },
+                                 "dose_acumulada":  {
+                                                        "valor":  0,
+                                                        "unidade":  "mSv",
+                                                        "nota":  "início do acumulador, não dose típica"
+                                                    },
+                                 "fluxo_protons_goes":  {
+                                                            "valor":  null,
+                                                            "valorInicialDemo":  1,
+                                                            "unidade":  "pfu",
+                                                            "status":  "fluxo calmo exato não encontrado"
+                                                        },
+                                 "kp":  {
+                                            "valor":  2,
+                                            "unidade":  "adimensional",
+                                            "status":  "[INFERÊNCIA] estado calmo demo"
+                                        }
+                             },
+    "tripulantesFicticios":  {
+                                 "modo4":  [
+                                               "trip-a",
+                                               "trip-b",
+                                               "trip-c",
+                                               "trip-d"
+                                           ],
+                                 "modo7":  [
+                                               "trip-a",
+                                               "trip-b",
+                                               "trip-c",
+                                               "trip-d",
+                                               "trip-e",
+                                               "trip-f",
+                                               "trip-g"
+                                           ],
+                                 "metodoSorteio":  "LCG seed 20261115 e Box-Muller com normal truncada a ±2 DP. Agregados: mulheres idade 42.8±3.7 anos, massa 65.7±6.3 kg; homens idade 48.4±5.1 anos, massa 82.9±8.4 kg.",
+                                 "fonte":  "[PAPER] https://ntrs.nasa.gov/api/citations/20220015095/downloads/IEEE%20Aeropace%20_female%20astronaut_%20strock%202022_pubpress.docx.pdf",
+                                 "lista":  [
+                                               {
+                                                   "id":  "trip-a",
+                                                   "codinome":  "Tripulante A",
+                                                   "sexo":  "feminino",
+                                                   "idadeAnos":  41.3,
+                                                   "massaPreVooKg":  62.3,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  64,
+                                                                       "hrv_rmssd":  32,
+                                                                       "pa_sistolica":  114,
+                                                                       "pa_diastolica":  72,
+                                                                       "spo2":  98,
+                                                                       "temperatura_corporal":  36.7,
+                                                                       "frequencia_respiratoria":  14,
+                                                                       "sono_tst":  370,
+                                                                       "sono_eficiencia":  92,
+                                                                       "pvt_tempo_reacao":  270,
+                                                                       "pvt_lapsos":  1,
+                                                                       "fadiga":  2,
+                                                                       "humor":  4,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2500,
+                                                                       "cor_urina":  2,
+                                                                       "tempo_exercicio":  110,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  62.3,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  89,
+                                                                       "hemoglobina":  13.7
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-b",
+                                                   "codinome":  "Tripulante B",
+                                                   "sexo":  "masculino",
+                                                   "idadeAnos":  45.8,
+                                                   "massaPreVooKg":  91,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  66,
+                                                                       "hrv_rmssd":  30,
+                                                                       "pa_sistolica":  120,
+                                                                       "pa_diastolica":  76,
+                                                                       "spo2":  98,
+                                                                       "temperatura_corporal":  36.8,
+                                                                       "frequencia_respiratoria":  14,
+                                                                       "sono_tst":  355,
+                                                                       "sono_eficiencia":  91,
+                                                                       "pvt_tempo_reacao":  265,
+                                                                       "pvt_lapsos":  1,
+                                                                       "fadiga":  2,
+                                                                       "humor":  4,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2600,
+                                                                       "cor_urina":  2,
+                                                                       "tempo_exercicio":  120,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  91,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  93,
+                                                                       "hemoglobina":  15.4
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-c",
+                                                   "codinome":  "Tripulante C",
+                                                   "sexo":  "feminino",
+                                                   "idadeAnos":  46.9,
+                                                   "massaPreVooKg":  71.7,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  68,
+                                                                       "hrv_rmssd":  42,
+                                                                       "pa_sistolica":  116,
+                                                                       "pa_diastolica":  74,
+                                                                       "spo2":  99,
+                                                                       "temperatura_corporal":  36.6,
+                                                                       "frequencia_respiratoria":  13,
+                                                                       "sono_tst":  390,
+                                                                       "sono_eficiencia":  94,
+                                                                       "pvt_tempo_reacao":  255,
+                                                                       "pvt_lapsos":  0,
+                                                                       "fadiga":  2,
+                                                                       "humor":  4,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2400,
+                                                                       "cor_urina":  2,
+                                                                       "tempo_exercicio":  105,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  71.7,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  87,
+                                                                       "hemoglobina":  14.2
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-d",
+                                                   "codinome":  "Tripulante D",
+                                                   "sexo":  "masculino",
+                                                   "idadeAnos":  50.4,
+                                                   "massaPreVooKg":  66.2,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  62,
+                                                                       "hrv_rmssd":  28,
+                                                                       "pa_sistolica":  118,
+                                                                       "pa_diastolica":  70,
+                                                                       "spo2":  98,
+                                                                       "temperatura_corporal":  36.9,
+                                                                       "frequencia_respiratoria":  15,
+                                                                       "sono_tst":  360,
+                                                                       "sono_eficiencia":  90,
+                                                                       "pvt_tempo_reacao":  280,
+                                                                       "pvt_lapsos":  1,
+                                                                       "fadiga":  3,
+                                                                       "humor":  4,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2500,
+                                                                       "cor_urina":  3,
+                                                                       "tempo_exercicio":  110,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  66.2,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  95,
+                                                                       "hemoglobina":  15.9
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-e",
+                                                   "codinome":  "Tripulante E",
+                                                   "sexo":  "feminino",
+                                                   "idadeAnos":  40.7,
+                                                   "massaPreVooKg":  73.2,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  70,
+                                                                       "hrv_rmssd":  38,
+                                                                       "pa_sistolica":  112,
+                                                                       "pa_diastolica":  68,
+                                                                       "spo2":  99,
+                                                                       "temperatura_corporal":  36.7,
+                                                                       "frequencia_respiratoria":  12,
+                                                                       "sono_tst":  380,
+                                                                       "sono_eficiencia":  93,
+                                                                       "pvt_tempo_reacao":  250,
+                                                                       "pvt_lapsos":  0,
+                                                                       "fadiga":  2,
+                                                                       "humor":  4,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2700,
+                                                                       "cor_urina":  1,
+                                                                       "tempo_exercicio":  120,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  73.2,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  90,
+                                                                       "hemoglobina":  13.3
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-f",
+                                                   "codinome":  "Tripulante F",
+                                                   "sexo":  "masculino",
+                                                   "idadeAnos":  44.8,
+                                                   "massaPreVooKg":  99.7,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  65,
+                                                                       "hrv_rmssd":  34,
+                                                                       "pa_sistolica":  122,
+                                                                       "pa_diastolica":  78,
+                                                                       "spo2":  97,
+                                                                       "temperatura_corporal":  36.8,
+                                                                       "frequencia_respiratoria":  16,
+                                                                       "sono_tst":  345,
+                                                                       "sono_eficiencia":  89,
+                                                                       "pvt_tempo_reacao":  290,
+                                                                       "pvt_lapsos":  2,
+                                                                       "fadiga":  3,
+                                                                       "humor":  3,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2300,
+                                                                       "cor_urina":  3,
+                                                                       "tempo_exercicio":  100,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  99.7,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  96,
+                                                                       "hemoglobina":  16.1
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               },
+                                               {
+                                                   "id":  "trip-g",
+                                                   "codinome":  "Tripulante G",
+                                                   "sexo":  "feminino",
+                                                   "idadeAnos":  39.9,
+                                                   "massaPreVooKg":  77.7,
+                                                   "evidencia":  "[INFERÊNCIA] dados sintéticos; idade e massa sorteadas de agregados publicados",
+                                                   "linhaDeBase":  {
+                                                                       "fc_repouso":  67,
+                                                                       "hrv_rmssd":  45,
+                                                                       "pa_sistolica":  118,
+                                                                       "pa_diastolica":  72,
+                                                                       "spo2":  98,
+                                                                       "temperatura_corporal":  36.6,
+                                                                       "frequencia_respiratoria":  13,
+                                                                       "sono_tst":  375,
+                                                                       "sono_eficiencia":  92,
+                                                                       "pvt_tempo_reacao":  260,
+                                                                       "pvt_lapsos":  1,
+                                                                       "fadiga":  2,
+                                                                       "humor":  5,
+                                                                       "dor":  0,
+                                                                       "agua_ingerida":  2600,
+                                                                       "cor_urina":  2,
+                                                                       "tempo_exercicio":  115,
+                                                                       "acuidade_perto":  0,
+                                                                       "densidade_ossea":  100,
+                                                                       "massa_corporal":  77.7,
+                                                                       "carga_ared":  null,
+                                                                       "amsler_distorcao":  0,
+                                                                       "glicose":  91,
+                                                                       "hemoglobina":  14.5
+                                                                   },
+                                                   "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
+                                                   "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
+                                                   "evidenciaHemoglobina":  "[INFERÊNCIA] baseline pré-voo fictício escolhido dentro do intervalo terrestre por sexo; não é medida de astronauta"
+                                               }
+                                           ]
+                             },
+    "roteiroMissao":  {
+                          "duracaoDias":  180,
+                          "status":  "manifesto de demonstração, não missão real",
+                          "coletaDiaria":  [
+                                               "sono",
+                                               "ingestão de água",
+                                               "exercício resumido",
+                                               "sintomas",
+                                               "check-in opcional de fadiga e humor"
+                                           ],
+                          "eventos":  [
+                                          {
+                                              "id":  "PMC",
+                                              "dias":  "FD7 e depois a cada 7 dias até FD175",
+                                              "tipo":  "conferência médica privada",
+                                              "status":  "[OFICIAL] semanal depois da primeira semana; dias da demo fixos",
+                                              "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/09/ochmo-std-100-1a-rev-a-signed.pdf"
+                                          },
+                                          {
+                                              "id":  "SANS_FD30",
+                                              "dia":  30,
+                                              "tipo":  "acuidade, Amsler e protocolo ocular",
+                                              "status":  "[OFICIAL] janela exemplo, conforme plano",
+                                              "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+                                          },
+                                          {
+                                              "id":  "SANS_FD90",
+                                              "dia":  90,
+                                              "tipo":  "acuidade, Amsler e protocolo ocular",
+                                              "status":  "[OFICIAL] janela exemplo, conforme plano",
+                                              "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+                                          },
+                                          {
+                                              "id":  "SANS_R30",
+                                              "dia":  150,
+                                              "tipo":  "janela R-30",
+                                              "status":  "[INFERÊNCIA] R-30=FD150 se retorno em FD180",
+                                              "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+                                          },
+                                          {
+                                              "id":  "SANS_FD180",
+                                              "dia":  180,
+                                              "tipo":  "retorno ou extensão da missão",
+                                              "status":  "[OFICIAL] conforme plano",
+                                              "fonte":  "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+                                          },
+                                          {
+                                              "id":  "EVA1",
+                                              "dia":  75,
+                                              "tipo":  "EVA",
+                                              "status":  "[INFERÊNCIA] frequência por missão não encontrada",
+                                              "fonte":  "https://www.nasa.gov/international-space-station/space-station-spacewalks/"
+                                          },
+                                          {
+                                              "id":  "CARGA1",
+                                              "dia":  55,
+                                              "tipo":  "chegada/partida de veículo de carga",
+                                              "status":  "[INFERÊNCIA] data demo, ajustar ao manifesto",
+                                              "fonte":  "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/"
+                                          },
+                                          {
+                                              "id":  "CARGA2",
+                                              "dia":  115,
+                                              "tipo":  "chegada/partida de veículo de carga",
+                                              "status":  "[INFERÊNCIA] data demo, ajustar ao manifesto",
+                                              "fonte":  "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/"
+                                          },
+                                          {
+                                              "id":  "SLEEP_SHIFT",
+                                              "dias":  "FD54 a FD57 e FD114 a FD117",
+                                              "tipo":  "ajuste de sono",
+                                              "status":  "[INFERÊNCIA] janela de 1 a 3 dias perto de operações",
+                                              "fonte":  "https://ntrs.nasa.gov/citations/20240002094"
+                                          },
+                                          {
+                                              "id":  "SOLAR_CYCLE",
+                                              "dias":  "FD1 a FD180",
+                                              "tipo":  "ciclo solar 25 e observações GOES/Kp",
+                                              "status":  "[OFICIAL] previsão NASA MSFC atualizada em 05/11/2026, não prevê datas individuais",
+                                              "fonte":  "https://www.nasa.gov/solar-cycle-progression-and-forecast/"
+                                          }
+                                      ],
+                          "solarFrequenciaMediaPor180Dias":  {
+                                                                 "formula":  "média NOAA por ciclo solar de 11 anos multiplicada por 180/365.25",
+                                                                 "estimativas":  {
+                                                                                     "S1":  25,
+                                                                                     "S2":  12.5,
+                                                                                     "S3":  5,
+                                                                                     "S4":  1.5,
+                                                                                     "S5":  "menos de 0.5"
+                                                                                 },
+                                                                 "status":  "[INFERÊNCIA] classes sobrepostas, atribuir cada evento ao maior nível",
+                                                                 "fonte":  "https://www.spaceweather.gov/noaa-scales-explanation"
+                                                             },
+                          "notaAmostragem":  "Cadência do gerador não representa coleta médica uniforme.",
+                          "solarFrequenciaMediaPorAno":  {
+                                                             "formula":  "médias NOAA por ciclo solar de aproximadamente 11 anos divididas por 11",
+                                                             "estimativas":  {
+                                                                                 "S5":  "menos de 0.09",
+                                                                                 "S1":  4.55,
+                                                                                 "S3":  0.91,
+                                                                                 "S4":  0.27,
+                                                                                 "S2":  2.27
+                                                                             },
+                                                             "status":  "[INFERÊNCIA] média do ciclo completo, não estimativa específica da fase descendente atual do ciclo 25; classes sobrepostas, contar pelo nível máximo",
+                                                             "fonte":  "https://www.spaceweather.gov/noaa-scales-explanation"
+                                                         },
+                          "faseSolarAtual":  {
+                                                 "descricao":  "A previsão NASA MSFC de 05/11/2026 mostra a mediana do número de manchas em queda; não fornece contagem prevista de eventos S por ano",
+                                                 "status":  "[OFICIAL] previsão de ciclo, não previsão de eventos SPE",
+                                                 "fonte":  "https://www.nasa.gov/solar-cycle-progression-and-forecast/"
+                                             }
+                      },
+    "cenarios":  {
+                     "C1":  {
+                                "indicadorId":  "ppco2_modulo",
+                                "evento":  {
+                                               "valorBase":  1.9,
+                                               "valorEvento":  3.2,
+                                               "unidade":  "mmHg",
+                                               "duracaoMin":  120,
+                                               "delta":  1.3,
+                                               "deltaPercentual":  68
+                                           },
+                                "classificacao":  "[INFERÊNCIA] evento fictício; média horária acima de 3 mmHg cruza padrão citado",
+                                "coocorrencia":  {
+                                                     "pvtTempoReacaoDeltaPercentual":  10,
+                                                     "dorCabecaPontos":  2,
+                                                     "status":  "[INFERÊNCIA] coocorrência, não causalidade"
+                                                 },
+                                "janelaRegraHoras":  3,
+                                "regraProjeto":  "R-CO2-01 em docs/04-cruzamento-de-dados.md",
+                                "fontes":  [
+                                               "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+                                               "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+                                               "https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/"
+                                           ]
+                            },
+                     "C2":  {
+                                "indicadorId":  "fluxo_protons_goes",
+                                "perfil":  "SPE de setembro de 2017 observado dentro da ISS",
+                                "doseAbsorvidaDiariaSilicio":  {
+                                                                   "instrumentoISS_RAD_B":  {
+                                                                                                "diaAnterior":  113.6,
+                                                                                                "diaEvento":  244.3,
+                                                                                                "unidade":  "µGy/dia",
+                                                                                                "multiplicador":  2.15,
+                                                                                                "doseAdicional":  146.2
+                                                                                            },
+                                                                   "instrumentoDOSTEL_2":  {
+                                                                                               "diaAnterior":  103.7,
+                                                                                               "diaEvento":  163.8,
+                                                                                               "unidade":  "µGy/dia",
+                                                                                               "multiplicador":  1.58,
+                                                                                               "doseAdicional":  67.8
+                                                                                           }
+                                                               },
+                                "unidadeDoseAdicional":  "µGy(Si)",
+                                "duracao":  "pulsos em nove órbitas sucessivas na fase principal de 11/09/2017 e ainda em alta latitude em 12/09",
+                                "nota":  "absorvida em silício, sem conversão para mSv; GOES não converte diretamente em dose ISS",
+                                "fontes":  [
+                                               "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018SW001920",
+                                               "https://srag.jsc.nasa.gov/spaceradiation/how/how.cfm"
+                                           ]
+                            },
+                     "C3":  {
+                                "indicadores":  [
+                                                    "acuidade_perto",
+                                                    "amsler_distorcao"
+                                                ],
+                                "eventos":  [
+                                                {
+                                                    "dia":  90,
+                                                    "acuidadeDelta":  0.1,
+                                                    "unidadeAcuidade":  "logMAR",
+                                                    "amsler":  "uma região distorcida em um olho"
+                                                },
+                                                {
+                                                    "dia":  104,
+                                                    "acuidadeDelta":  0.1,
+                                                    "unidadeAcuidade":  "logMAR",
+                                                    "amsler":  "repetição na mesma região e olho"
+                                                }
+                                            ],
+                                "classificacao":  "[INFERÊNCIA] piora de uma linha ilustrativa; magnitude universal não encontrada",
+                                "contexto":  "27/56 olhos com hipermetropia após voo em uma coorte; média +0.12 D nos olhos com mudança",
+                                "fontes":  [
+                                               "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf",
+                                               "https://pubmed.ncbi.nlm.nih.gov/40194644/"
+                                           ]
+                            },
+                     "C4":  {
+                                "indicadores":  [
+                                                    "sono_tst",
+                                                    "sono_eficiencia",
+                                                    "pvt_tempo_reacao",
+                                                    "ruido_dormitorio",
+                                                    "fadiga"
+                                                ],
+                                "sono":  {
+                                             "baseMin":  372,
+                                             "eventoMin":  300,
+                                             "noites":  3,
+                                             "oportunidadeMin":  510,
+                                             "unidade":  "min"
+                                         },
+                                "ruido":  {
+                                              "valor":  54,
+                                              "unidade":  "dBA",
+                                              "duracaoMin":  480,
+                                              "nota":  "extremo observado em quarto com ventilador alto, não limite"
+                                          },
+                                "pvtTempoReacaoDeltaPercentual":  10,
+                                "evaProxima":  {
+                                                   "dia":  75,
+                                                   "diaRelativo":  "atividade crítica no dia seguinte"
+                                               },
+                                "classificacao":  "[INFERÊNCIA] PVT +10%; associação de sono \u003c=6 h a menor velocidade não define ms por hora perdida",
+                                "fontes":  [
+                                               "https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/",
+                                               "https://ntrs.nasa.gov/api/citations/20240006442/downloads/ICES-2024-354%20ISS%20Acoustics.pdf?attachment=true"
+                                           ]
+                            },
+                     "C5":  {
+                                "indicadores":  [
+                                                    "agua_ingerida",
+                                                    "cor_urina",
+                                                    "densidade_ossea"
+                                                ],
+                                "agua":  {
+                                             "baseMlDia":  2500,
+                                             "eventoMlDia":  1500,
+                                             "duracaoDias":  2
+                                         },
+                                "urina":  {
+                                              "baseCategoria":  2,
+                                              "eventoCategoria":  6,
+                                              "escala":  "proposta ordinal 1 a 8",
+                                              "atrasoHorasMin":  12,
+                                              "atrasoHorasMax":  24
+                                          },
+                                "osso":  {
+                                             "perdaMensalPercentualMin":  1,
+                                             "perdaMensalPercentualMax":  1.5,
+                                             "estimativaDiariaPercentualBaseMin":  0.033,
+                                             "estimativaDiariaPercentualBaseMax":  0.05
+                                         },
+                                "classificacao":  "[INFERÊNCIA] ingestão, cor e atraso são sintéticos; 2500 mL é provisão e cor não confirma diagnóstico",
+                                "fontes":  [
+                                               "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+                                               "https://pubmed.ncbi.nlm.nih.gov/32330109/",
+                                               "https://www.nasa.gov/reference/risk-of-spaceflight-induced-bone-changes/"
+                                           ]
+                            }
+                 }
+}
