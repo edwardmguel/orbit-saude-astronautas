@@ -1,0 +1,4 @@
+# Fim de linha LF no app e nos arquivos de Docker, para o build funcionar igual em qualquer máquina.
+app/** text eol=lf
+docker-compose.yml text eol=lf
+.dockerignore text eol=lf

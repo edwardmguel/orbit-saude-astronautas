@@ -1,0 +1,63 @@
+/* Fontes empacotadas com o app (sem rede): só o subconjunto latino, que cobre o português. */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-700.css';
+@import './ui/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: var(--bg);
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-texto);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  /* Foco de teclado visível em todo controle (docs/18, 2.11); brilho ciano só aqui. */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    box-shadow: var(--brilho-foco);
+  }
+}
+
+@layer components {
+  /* Número de destaque do cartão (docs/18, 2.3). */
+  .numero-destaque {
+    font-family: var(--fonte-display);
+    font-size: var(--fs-numero);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+}
+
+/* Movimento reduzido: troca toda transição e animação por corte simples (docs/18, 2.10). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

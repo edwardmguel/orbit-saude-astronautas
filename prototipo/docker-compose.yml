@@ -1,0 +1,14 @@
+# ORBITA: apresentação local em http://localhost:8088
+#   cd prototipo
+#   docker compose up --build -d
+name: orbita
+
+services:
+  orbita:
+    container_name: orbita
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - "8088:80"
+    restart: unless-stopped
