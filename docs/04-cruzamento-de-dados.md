@@ -145,12 +145,12 @@ Use sempre contra a linha de base pessoal (A3); a faixa entre pessoas é muito l
 
 ### A10. Teste de reação PVT (Psychomotor Vigilance Test)
 
-O tripulante toca na tela assim que um estímulo aparece, em intervalos aleatórios, por 3 minutos (versão usada em voo, detalhada em `docs/03`).
+O tripulante toca na tela assim que um estímulo aparece, em intervalos aleatórios. O protótipo usa o **PVT-B de 3 minutos**, o paradigma do Reaction Self Test da ISS, com intervalo entre estímulos sorteado de 1 a 4 s. A versão padrão de pesquisa tem 10 minutos e intervalo de 2 a 10 s. Especificação completa, temporização no navegador (`performance.now`, taxa de atualização da tela) e fontes em [`../pesquisa/bruto/08-autoavaliacoes-implementaveis.md`](../pesquisa/bruto/08-autoavaliacoes-implementaveis.md), seção 2.
 
 | Métrica | Como calcular |
 | --- | --- |
 | Tempo médio de reação | média dos tempos válidos (ignore toques antes do estímulo, que são "falsos inícios") |
-| Lapsos | quantidade de respostas acima do limiar de lapso definido para a versão do teste (ver `docs/03`) |
+| Lapsos | no PVT-B, respostas com tempo ≥ 355 ms (corte usado na literatura do teste breve); guarde também a contagem ≥ 500 ms para comparar com o PVT padrão. Nenhum dos dois é limiar clínico: o motor compara com a linha de base pessoal |
 | Velocidade média | média de 1 ÷ tempo de reação (em 1/s); é menos sensível a um único valor muito alto |
 | Falsos inícios | toques sem estímulo |
 
