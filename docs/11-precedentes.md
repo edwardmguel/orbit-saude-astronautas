@@ -100,7 +100,7 @@ Leitura do status, como na frente 6: "confirmado" quando uma fonte recente da NA
 | Nome | Função | Quem desenvolveu | Desde quando | Ainda em uso | Fonte |
 | --- | --- | --- | --- | --- | --- |
 | CHeCS e Medical Equipment Computer (MEC) | Arquitetura de saúde a bordo (saúde, ambiente, contramedidas); o MEC é o laptop de operações médicas para registros e transferência | NASA JSC; fornecedor do software não nomeado | Catálogos de 2008 e 2011 | Função confirmada em 2025; versão atual não pública | [catálogo](https://ntrs.nasa.gov/api/citations/20090021477/downloads/20090021477.pdf); [ISS Familiarization](https://ntrs.nasa.gov/api/citations/20250005232/downloads/International%20Space%20Station%20Familiarization.pdf) |
-| Space Station Computer (SSC) | Laptop geral onde rodam WinSCAT, KUDUwave e o visualizador de procedimentos | NASA JSC mantém | Citado em requisitos de voo | Sim; não é aplicação clínica única | [LSDA](https://nlsp.nasa.gov/explore/api/v1/getfiles3?alias=lsda&id=IDP-LSDA_DOCUMENT-0000000000002936&type=lsda_document) |
+| Station Support Computer (SSC; a fonte da LSDA escreve Space Station Computer) | Laptop geral onde rodam WinSCAT, KUDUwave e o visualizador de procedimentos | NASA JSC mantém | Citado em requisitos de voo | Sim; não é aplicação clínica única | [LSDA](https://nlsp.nasa.gov/explore/api/v1/getfiles3?alias=lsda&id=IDP-LSDA_DOCUMENT-0000000000002936&type=lsda_document) |
 | Medical Information Systems and Tools (MIST) | Suíte em solo: prontuário eletrônico, imagens, banco do LSAH, repositório de missão, exercício, radiação | NASA JSC | Descrição publicada em 2023 | Função confirmada; versão não | [NASA](https://www.nasa.gov/general/medical-information-systems-and-tools-mist/) |
 | WinSCAT | Triagem cognitiva autoaplicada | NASA JSC, operações médicas | Expedition 1 | Sim até 2025, mensal; 2026 não confirmado | [PAPER](https://ntrs.nasa.gov/citations/20100036584); [OFICIAL](https://ntrs.nasa.gov/api/citations/20250011491/downloads/BHP%20Operations%20Overview_Navy_Revised.pdf) |
 | Cognition Test Battery (CTB) | Dez testes cognitivos de pesquisa | University of Pennsylvania para o HRP | Em voo desde 2016 | Pesquisa; rotina 2025/26 não confirmada; não substitui o WinSCAT | [NASA](https://www.nasa.gov/humans-in-space/spaceflight-standard-measures-characterizing-how-humans-adapt-in-space/); [HRP](https://humanresearchroadmap.nasa.gov/evidence/reports/HRP-ER-BMED-HFBP-20250210.pdf) |
@@ -271,7 +271,7 @@ O que a pesquisa não conseguiu confirmar. Nada disso entra no pitch como fato.
 - **Traje russo Orlan:** campos biomédicos e frequência: NÃO ENCONTRADO.
 - **Óculos de mercado na ISS:** Vuzix e Epson Moverio: NÃO ENCONTRADO.
 - **Monitor coletivo:** regra pública para monitor de saúde entre colegas, acesso emergencial do CMO e estudo de usabilidade que meça estigma ou subnotificação: NÃO ENCONTRADO (seção 5.2).
-- **Validação de produto:** nenhum dos diferenciais da seção 6 foi testado com tripulantes. O caminho proposto é solo, depois análogo (HERA, CHAPEA ou estação polar) e só então voo. [INFERÊNCIA, frente 4, seção 7.3]
+- **Validação de produto:** nenhum dos diferenciais da seção 6 foi testado com tripulantes. O caminho proposto é solo, depois análogo (HERA ou estação polar como Concordia; NEEMO descontinuado em 2023 e CHAPEA 2 encerrada em 31/10/2026, ver [`16-proximos-passos-e-impacto.md`](16-proximos-passos-e-impacto.md)) e só então voo. [INFERÊNCIA, frente 4, seção 7.3]
 
 **Divergências entre as fontes, para quem for manter este documento:**
 

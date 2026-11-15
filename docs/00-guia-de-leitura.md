@@ -18,7 +18,7 @@
 | **Dev de dados e entrada** (Dev B) | `06` → `02` → `12` → `03` (faixas para o simulador) → `05` (seção 3.3, cenários) | Gerador simulado, check-in, testes rápidos |
 | **Dev do motor e ML** (Dev C) | `03` → `04` → `06` → `05` (seções 2 e 4) | Regras, linha de base, cruzamentos, alertas |
 | **Dono do projeto (óculos)** | `09` → `10` → `11` → `pesquisa/bruto/04` e `05` | Óculos Orbit, massa, energia, pitch |
-| **Quem apresenta** | `01` → `11` → `10` → `14` | Narrativa, precedentes e números de viabilidade |
+| **Quem apresenta** | `08` (seção 0 e 6) → `01` → `11` → `10` → `16` → `14` | Prazo, narrativa, precedentes, números de viabilidade e slides finais |
 | **IA de desenvolvimento** | [`../AGENTS.md`](../AGENTS.md) primeiro, depois o documento da tarefa | Regras de domínio e convenções |
 
 ## Mapa dos documentos
@@ -41,6 +41,7 @@
 | 13 | [Glossário](13-glossario.md) | O que significa cada sigla? |
 | 14 | [Perguntas respondidas](14-perguntas-respondidas.md) | Respostas às dúvidas do documento inicial |
 | 15 | [Referências](15-referencias.md) | Lista de fontes oficiais usadas |
+| 16 | [Próximos passos e impacto](16-proximos-passos-e-impacto.md) | O que muda para Lua e Marte, como chegar à ISS e para que serve na Terra? (base dos slides finais) |
 
 ## Como ler as etiquetas de fonte
 

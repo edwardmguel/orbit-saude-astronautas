@@ -128,7 +128,7 @@ A quarta pessoa (**Dev D**) assume: T3 Check-in, PVT e Amsler (tira do Dev B), e
 | 4:30 | Radiação real: feed da NOAA e dose acumulada | T5 |
 | 5:15 | A noite: modo âmbar, sono e o óculos Orbit | T6 |
 | 6:00 | Viabilidade: offline, massa, computação, custo de lançamento, dados que a NASA já tem | Slide (números de [`10-massa-energia-lancamento.md`](10-massa-energia-lancamento.md)) |
-| 6:40 | Próximos passos: validação com grupo controle | Slide |
+| 6:40 | Próximos passos: piloto cruzado com o óculos (cada tripulante com e sem, comparado com ele mesmo) e caminho até a ISS | Slide (números e frases de [`16-proximos-passos-e-impacto.md`](16-proximos-passos-e-impacto.md)) |
 
 ## 7. Riscos do cronograma
 

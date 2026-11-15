@@ -389,7 +389,7 @@ Se a pergunta for só "o áudio é agradável e viável?", não é preciso colet
 
 - Estudos com tripulantes do segmento americano (USOS) precisam de aprovação do NASA/JSC IRB (comitê de ética institucional) e do HRMRB (Human Research Multilateral Review Board), com protocolo e consentimento; a tripulação recebe briefing de consentimento antes da missão. [OFICIAL, [NASA, For Prospective Researchers](https://www.nasa.gov/hrp/for-prospective-researchers/); [IRB Submission Guidance](https://www.nasa.gov/irb-submission-guidance/)]
 - Dados fisiológicos minimizados, protegidos e acessados conforme consentimento. Resultado de bem-estar não dispara alerta clínico sem validação, limiar aprovado e interpretação do médico de voo. [OFICIAL, [NPR 7100.1C](https://nodis3.gsfc.nasa.gov/displayAll.cfm?Internal_ID=N_PR_7100_001C_&page_name=ALL); INFERÊNCIA]
-- Caminho proporcional: validar no solo; testar em análogo (HERA, CHAPEA ou estação polar); corrigir ergonomia e algoritmos; só então propor demonstração em órbita. Poucos astronautas estimam viabilidade e variabilidade, mas não provam eficácia generalizável. [INFERÊNCIA, frente 4, seção 7.3]
+- Caminho proporcional: validar no solo; testar em análogo (HERA ou estação polar como Concordia; o NEEMO foi descontinuado em 2023 e a missão 2 do CHAPEA terminou em 31/10/2026, ver [`16-proximos-passos-e-impacto.md`](16-proximos-passos-e-impacto.md)); corrigir ergonomia e algoritmos; só então propor demonstração em órbita. Poucos astronautas estimam viabilidade e variabilidade, mas não provam eficácia generalizável. [INFERÊNCIA, frente 4, seção 7.3]
 
 ### 9.5 Consequência para o modelo de dados
 
