@@ -43,7 +43,7 @@
   .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
   .s-ok { color: var(--ok); } .s-warn { color: var(--warn); } .s-alert { color: var(--alert); } .s-nodata { color: var(--nodata); } .s-info { color: var(--info); }
   .big { font-size: 26px; font-weight: 700; }
   .unit { font-size: 12px; color: var(--muted); margin-left: 3px; }
@@ -77,6 +77,35 @@
   .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: -1px; }
   .kv { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 12px; align-items: center; }
   .kv div:nth-child(3n+1) { color: var(--muted); }
+  /* Monitor geral (T1 e T1b) */
+  .banner { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: var(--radius); border: 2px solid var(--alert); background: color-mix(in srgb, var(--alert) 12%, var(--surface)); }
+  .envmini { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 12px; color: var(--muted); }
+  .envmini b { color: var(--text); margin-left: 4px; }
+  .crewgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .crew { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 10px; display: grid; gap: 8px; }
+  .crew.ok-b { border-color: color-mix(in srgb, var(--ok) 45%, var(--border)); }
+  .crew.warn-b { border-color: var(--warn); }
+  .crew.alert-b { border-color: var(--alert); box-shadow: 0 0 0 3px color-mix(in srgb, var(--alert) 25%, transparent); }
+  .crew.nd-b { border-color: var(--nodata); border-style: dashed; }
+  .crew-h { display: flex; align-items: center; gap: 8px; }
+  .avatar { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); font-weight: 800; }
+  .crew-body { display: grid; grid-template-columns: 54px 1fr; gap: 8px; align-items: start; }
+  .mini { width: 54px; height: 100px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  .tile { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; padding: 4px 6px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); font-size: 11px; }
+  .tile span { color: var(--muted); grid-column: 1; }
+  .tile b { grid-column: 1; font-size: 13px; }
+  .tile b i { font-style: normal; font-size: 10px; color: var(--muted); }
+  .tile em { grid-column: 2; grid-row: 1 / 3; align-self: center; font-style: normal; font-weight: 800; }
+  .tile.w { border-color: var(--warn); } .tile.a { border-color: var(--alert); } .tile.n { border-style: dashed; }
+  .crew-f { border-top: 1px solid var(--border); padding-top: 6px; }
+  table.matrix { width: 100%; border-collapse: separate; border-spacing: 4px; font-size: 13px; }
+  table.matrix th { text-align: left; color: var(--muted); font-weight: 600; padding: 4px 8px; }
+  table.matrix thead th { text-align: center; color: var(--text); }
+  table.matrix td { text-align: center; padding: 8px 4px; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); font-weight: 600; }
+  table.matrix td.ok { color: var(--ok); } table.matrix td.w { color: var(--warn); border-color: var(--warn); }
+  table.matrix td.a { color: var(--alert); border-color: var(--alert); background: color-mix(in srgb, var(--alert) 14%, var(--surface)); }
+  table.matrix td.n { color: var(--nodata); border-style: dashed; }
   .pulse { animation: pulse 1.2s infinite; }
   @keyframes pulse { 50% { opacity: .35; } }
 </style>
@@ -86,7 +115,8 @@
 <h1 class="page">Orbit Saúde: wireframes do protótipo</h1>
 <p class="page">Wireframes de média fidelidade para a equipe de desenvolvimento. Todos os nomes de tripulantes e números são fictícios e servem só para mostrar o layout. Faixas e limiares reais estão em docs/03-indicadores-e-limiares.md. A especificação de cada tela está em docs/07-design-interface.md.</p>
 <nav class="index">
-  <a href="#t1">T1 Painel da tripulação</a>
+  <a href="#t1">T1 Monitor geral da tripulação</a>
+  <a href="#t1b">T1b Monitor geral em matriz</a>
   <a href="#t2">T2 Meu corpo</a>
   <a href="#t3">T3 Check-in diário</a>
   <a href="#t4">T4 Detalhe do alerta</a>
@@ -96,7 +126,7 @@
 
 <!-- ===================== T1 ===================== -->
 <div class="frame" id="t1">
-<h2>T1. Painel da tripulação (tela inicial)</h2>
+<h2>T1. Monitor geral da tripulação (tela inicial; botão "Tela cheia" para um monitor compartilhado na estação)</h2>
 <div class="screen">
   <div class="topbar">
     <span class="logo">ORBIT</span>
@@ -104,70 +134,160 @@
     <span class="pill">GMT <b>318 / 14:32</b></span>
     <span class="pill">Solo: <b style="color:var(--ok)">com sinal</b>, perda em 12 min</span>
     <span class="spacer"></span>
+    <span class="pill"><b>Cartões</b> · Matriz</span>
+    <span class="pill">⛶ Tela cheia</span>
     <span class="pill">Perfil: <b>Astronauta</b></span>
-    <span class="pill">Modo noturno às 21:00</span>
   </div>
   <div class="side">
-    <a class="on"><span class="ico">◉</span>Painel</a>
+    <a class="on"><span class="ico">◉</span>Monitor geral</a>
     <a><span class="ico">♙</span>Meu corpo</a>
     <a><span class="ico">✓</span>Check-in</a>
     <a><span class="ico">▦</span>Ambiente</a>
-    <a><span class="ico">!</span>Alertas <span class="status s-warn" style="margin-left:auto">2</span></a>
+    <a><span class="ico">!</span>Alertas <span class="status s-alert" style="margin-left:auto">3</span></a>
     <a><span class="ico">∿</span>Tendências</a>
     <a><span class="ico">◐</span>Sono e Orbit</a>
   </div>
   <div class="main">
-    <div class="env">
-      <div class="card"><div class="small muted">CO2 (ppCO2) Node 3</div><div class="big" style="color:var(--warn)">3,9<span class="unit">mmHg</span></div><span class="status s-warn">! atenção</span></div>
-      <div class="card"><div class="small muted">O2 (ppO2)</div><div class="big">21,3<span class="unit">kPa</span></div><span class="status s-ok">✓ normal</span></div>
-      <div class="card"><div class="small muted">Pressão da cabine</div><div class="big">101,2<span class="unit">kPa</span></div><span class="status s-ok">✓ normal</span></div>
-      <div class="card"><div class="small muted">Temperatura</div><div class="big">22,4<span class="unit">°C</span></div><span class="status s-ok">✓ normal</span></div>
-      <div class="card"><div class="small muted">Umidade</div><div class="big">44<span class="unit">%</span></div><span class="status s-ok">✓ normal</span></div>
-      <div class="card"><div class="small muted">Taxa de dose</div><div class="big">18<span class="unit">µGy/h</span></div><span class="status s-info">i passagem pela SAA</span></div>
-      <div class="card"><div class="small muted">Prótons GOES ≥10 MeV</div><div class="big">0,4<span class="unit">pfu</span></div><span class="status s-ok">✓ sem tempestade</span></div>
+    <div class="banner">
+      <span class="status s-alert" style="font-size:14px">✕ PRECISA DE ATENÇÃO</span>
+      <div><b>Tripulante C: oxigenação 89% há 4 min</b><div class="small muted">Pode ser leitura ruim do sensor. Confirme com o oxímetro do kit e chame o CMO se continuar abaixo do limite.</div></div>
+      <span class="spacer"></span>
+      <span class="btn primary">Estou indo ver</span><span class="btn">Chamar CMO</span>
     </div>
 
-    <div class="grid4">
-      <div class="card">
-        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--ok)">86</div><div><b>Tripulante A</b><div class="small muted">Comandante · prontidão</div></div></div>
-        <div class="chips" style="margin-top:10px"><span class="chip ok">Sono</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span><span class="chip ok">Hidratação</span></div>
-        <div class="small muted" style="margin-top:8px">Check-in feito às 07:10 · sequência de 21 dias</div>
+    <div class="envmini">
+      <span>CO2 Node 3 <b style="color:var(--warn)">3,9 mmHg !</b></span>
+      <span>O2 <b>21,3 kPa ✓</b></span>
+      <span>Pressão <b>101,2 kPa ✓</b></span>
+      <span>Temperatura <b>22,4 °C ✓</b></span>
+      <span>Taxa de dose <b>18 µGy/h i</b></span>
+      <span>Prótons GOES <b>0,4 pfu ✓</b></span>
+    </div>
+
+    <div class="crewgrid">
+      <!-- Tripulante A: normal -->
+      <div class="crew ok-b">
+        <div class="crew-h"><span class="avatar">A</span><div><b>Tripulante A</b><div class="small muted">Comandante · Lab Destiny</div></div><span class="status s-ok" style="margin-left:auto">✓ normal</span></div>
+        <div class="crew-body">
+          <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--ok)" fill-opacity=".35"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
+          <div class="tiles">
+            <div class="tile"><span>Coração</span><b>58 <i>bpm</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Oxigenação</span><b>98 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Temperatura</span><b>36,6 <i>°C</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Sono</span><b>7 h 40</b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Prontidão</span><b>86</b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Hidratação</span><b>80 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Radiação</span><b>58 <i>mSv</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Olhos · Mente</span><b>✓ · ✓</b><em class="s-ok">✓</em></div>
+          </div>
+        </div>
+        <div class="crew-f small muted">Atualizado há 2 min · vestível e óculos conectados</div>
       </div>
-      <div class="card">
-        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--warn)">64</div><div><b>Tripulante B</b><div class="small muted">Engenheira de voo</div></div></div>
-        <div class="chips" style="margin-top:10px"><span class="chip warn">CO2 / cabeça</span><span class="chip warn">Reação</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span></div>
-        <div class="small muted" style="margin-top:8px">1 alerta amarelo · ver detalhe</div>
+
+      <!-- Tripulante B: atenção -->
+      <div class="crew warn-b">
+        <div class="crew-h"><span class="avatar">B</span><div><b>Tripulante B</b><div class="small muted">Engenheira de voo · Node 3</div></div><span class="status s-warn" style="margin-left:auto">! atenção</span></div>
+        <div class="crew-body">
+          <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--warn)" fill-opacity=".6"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
+          <div class="tiles">
+            <div class="tile"><span>Coração</span><b>71 <i>bpm</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Oxigenação</span><b>97 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Temperatura</span><b>36,8 <i>°C</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Sono</span><b>6 h 50</b><em class="s-ok">✓</em></div>
+            <div class="tile w"><span>Prontidão</span><b>64</b><em class="s-warn">!</em></div>
+            <div class="tile"><span>Hidratação</span><b>65 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Radiação</span><b>61 <i>mSv</i></b><em class="s-ok">✓</em></div>
+            <div class="tile w"><span>Cabeça</span><b>dor 3/10</b><em class="s-warn">!</em></div>
+          </div>
+        </div>
+        <div class="crew-f"><span class="small" style="color:var(--warn)">! Possível efeito de CO2 no Node 3.</span> <span class="small muted">Ajude: convide a Tripulante B para trabalhar no Lab por um tempo.</span></div>
       </div>
-      <div class="card">
-        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--warn)">71</div><div><b>Tripulante C</b><div class="small muted">Engenheiro de voo</div></div></div>
-        <div class="chips" style="margin-top:10px"><span class="chip warn">Olhos</span><span class="chip ok">Sono</span><span class="chip ok">Coração</span><span class="chip ok">Hidratação</span></div>
-        <div class="small muted" style="margin-top:8px">Teste de Amsler piorou · exame sugerido</div>
+
+      <!-- Tripulante C: perigo -->
+      <div class="crew alert-b">
+        <div class="crew-h"><span class="avatar">C</span><div><b>Tripulante C</b><div class="small muted">Engenheiro de voo · Columbus</div></div><span class="status s-alert" style="margin-left:auto">✕ perigo</span></div>
+        <div class="crew-body">
+          <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--warn)" fill-opacity=".5"/><rect x="118" y="140" width="64" height="52" fill="var(--alert)" fill-opacity=".6"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
+          <div class="tiles">
+            <div class="tile"><span>Coração</span><b>96 <i>bpm</i></b><em class="s-warn">!</em></div>
+            <div class="tile a"><span>Oxigenação</span><b>89 <i>%</i></b><em class="s-alert">✕</em></div>
+            <div class="tile"><span>Temperatura</span><b>37,1 <i>°C</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Sono</span><b>7 h 05</b><em class="s-ok">✓</em></div>
+            <div class="tile w"><span>Prontidão</span><b>71</b><em class="s-warn">!</em></div>
+            <div class="tile"><span>Hidratação</span><b>75 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Radiação</span><b>55 <i>mSv</i></b><em class="s-ok">✓</em></div>
+            <div class="tile w"><span>Olhos</span><b>Amsler</b><em class="s-warn">!</em></div>
+          </div>
+        </div>
+        <div class="crew-f"><span class="small" style="color:var(--alert)">✕ Oxigenação abaixo do limite há 4 min.</span> <span class="small muted">Vá até ele, confirme a leitura com o oxímetro do kit e chame o CMO.</span></div>
       </div>
-      <div class="card">
-        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--nodata)">?</div><div><b>Tripulante D</b><div class="small muted">Engenheira de voo</div></div></div>
-        <div class="chips" style="margin-top:10px"><span class="chip">Sono sem dado</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span></div>
-        <div class="small muted" style="margin-top:8px">Check-in pendente há 26 h · lembrar</div>
+
+      <!-- Tripulante D: sem dado -->
+      <div class="crew nd-b">
+        <div class="crew-h"><span class="avatar">D</span><div><b>Tripulante D</b><div class="small muted">Engenheira de voo · local desconhecido</div></div><span class="status s-nodata" style="margin-left:auto">? sem dado</span></div>
+        <div class="crew-body">
+          <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g></svg>
+          <div class="tiles">
+            <div class="tile n"><span>Coração</span><b>há 26 h</b><em class="s-nodata">?</em></div>
+            <div class="tile n"><span>Oxigenação</span><b>há 26 h</b><em class="s-nodata">?</em></div>
+            <div class="tile"><span>Temperatura</span><b>36,5 <i>°C</i></b><em class="s-ok">✓</em></div>
+            <div class="tile n"><span>Sono</span><b>sem dado</b><em class="s-nodata">?</em></div>
+            <div class="tile n"><span>Prontidão</span><b>parcial</b><em class="s-nodata">?</em></div>
+            <div class="tile"><span>Hidratação</span><b>70 <i>%</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Radiação</span><b>57 <i>mSv</i></b><em class="s-ok">✓</em></div>
+            <div class="tile"><span>Olhos · Mente</span><b>✓ · privado</b><em class="s-ok">✓</em></div>
+          </div>
+        </div>
+        <div class="crew-f small muted">Vestível desconectado e check-in pendente há 26 h. Lembre a colega.</div>
       </div>
     </div>
 
-    <div class="grid2">
-      <div class="card">
-        <h3>Alertas abertos</h3>
-        <div class="alert-item"><span class="status s-warn">!</span><div><b>Possível efeito de CO2 elevado</b><div class="small muted">Tripulante B · ppCO2 alto no Node 3 + dor de cabeça + reação mais lenta que a linha de base</div></div><span class="btn">Ver</span></div>
-        <div class="alert-item"><span class="status s-warn">!</span><div><b>Mudança no teste de visão</b><div class="small muted">Tripulante C · 2 testes de Amsler seguidos com distorção relatada</div></div><span class="btn">Ver</span></div>
-      </div>
-      <div class="card">
-        <h3>Prontidão da tripulação, últimos 14 dias</h3>
-        <svg class="chart" viewBox="0 0 560 150" preserveAspectRatio="none">
-          <rect x="0" y="0" width="560" height="40" fill="var(--ok)" opacity=".06"/>
-          <rect x="0" y="40" width="560" height="50" fill="var(--warn)" opacity=".06"/>
-          <rect x="0" y="90" width="560" height="60" fill="var(--alert)" opacity=".06"/>
-          <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="0,30 40,28 80,35 120,32 160,38 200,30 240,26 280,34 320,45 360,52 400,48 440,44 480,40 520,36 560,34"/>
-          <polyline fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4" points="0,40 40,42 80,45 120,40 160,50 200,55 240,60 280,58 320,62 360,70 400,66 440,64 480,60 520,58 560,62"/>
-        </svg>
-        <div class="legend"><span><i class="dot" style="background:var(--accent)"></i>média da tripulação</span><span><i class="dot" style="background:var(--warn)"></i>Tripulante B</span></div>
-      </div>
+    <div class="row" style="align-items:center">
+      <span class="pill">Cuidado mútuo hoje: <b>3 verificações entre colegas</b></span>
+      <span class="pill">Meta da tripulação: hidratação <b>3 de 4</b> 💧</span>
+      <span class="spacer"></span>
+      <span class="small muted">Cada tripulante escolhe o que aparece aqui. Detalhes médicos e questionários nunca aparecem no monitor geral.</span>
     </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T1b ===================== -->
+<div class="frame" id="t1b">
+<h2>T1b. Monitor geral em modo matriz (leitura rápida com tripulação de até 7 pessoas)</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">FD 142 · GMT 318 / 14:32</span>
+    <span class="spacer"></span>
+    <span class="pill">Cartões · <b>Matriz</b></span>
+    <span class="pill">⛶ Tela cheia</span>
+  </div>
+  <div class="side">
+    <a class="on"><span class="ico">◉</span>Monitor geral</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas</a>
+  </div>
+  <div class="main">
+    <table class="matrix">
+      <thead><tr><th></th><th>A<br><span class="small muted">CDR</span></th><th>B<br><span class="small muted">FE</span></th><th>C<br><span class="small muted">FE</span></th><th>D<br><span class="small muted">FE</span></th><th>E<br><span class="small muted">FE</span></th><th>F<br><span class="small muted">FE</span></th><th>G<br><span class="small muted">FE</span></th></tr></thead>
+      <tbody>
+        <tr><th>Estado geral</th><td class="ok">✓</td><td class="w">!</td><td class="a">✕</td><td class="n">?</td><td class="ok">✓</td><td class="ok">✓</td><td class="w">!</td></tr>
+        <tr><th>Coração <span class="small muted">bpm</span></th><td class="ok">✓ 58</td><td class="ok">✓ 71</td><td class="w">! 96</td><td class="n">? 26 h</td><td class="ok">✓ 64</td><td class="ok">✓ 60</td><td class="ok">✓ 66</td></tr>
+        <tr><th>Oxigenação <span class="small muted">%</span></th><td class="ok">✓ 98</td><td class="ok">✓ 97</td><td class="a">✕ 89</td><td class="n">? 26 h</td><td class="ok">✓ 97</td><td class="ok">✓ 98</td><td class="ok">✓ 96</td></tr>
+        <tr><th>Temperatura <span class="small muted">°C</span></th><td class="ok">✓ 36,6</td><td class="ok">✓ 36,8</td><td class="ok">✓ 37,1</td><td class="ok">✓ 36,5</td><td class="ok">✓ 36,7</td><td class="ok">✓ 36,4</td><td class="ok">✓ 36,9</td></tr>
+        <tr><th>Sono da noite</th><td class="ok">✓ 7h40</td><td class="ok">✓ 6h50</td><td class="ok">✓ 7h05</td><td class="n">?</td><td class="ok">✓ 7h20</td><td class="w">! 5h10</td><td class="ok">✓ 6h55</td></tr>
+        <tr><th>Prontidão</th><td class="ok">✓ 86</td><td class="w">! 64</td><td class="w">! 71</td><td class="n">? parcial</td><td class="ok">✓ 82</td><td class="w">! 58</td><td class="ok">✓ 79</td></tr>
+        <tr><th>Hidratação <span class="small muted">% da meta</span></th><td class="ok">✓ 80</td><td class="ok">✓ 65</td><td class="ok">✓ 75</td><td class="ok">✓ 70</td><td class="ok">✓ 90</td><td class="ok">✓ 85</td><td class="w">! 40</td></tr>
+        <tr><th>Olhos</th><td class="ok">✓</td><td class="ok">✓</td><td class="w">!</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+        <tr><th>Radiação <span class="small muted">mSv missão</span></th><td class="ok">✓ 58</td><td class="ok">✓ 61</td><td class="ok">✓ 55</td><td class="ok">✓ 57</td><td class="ok">✓ 12</td><td class="ok">✓ 12</td><td class="ok">✓ 12</td></tr>
+        <tr><th>Mente <span class="small muted">só estado</span></th><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="n">privado</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+        <tr><th>Atualizado</th><td>2 min</td><td>1 min</td><td>agora</td><td class="n">26 h</td><td>5 min</td><td>3 min</td><td>9 min</td></tr>
+      </tbody>
+    </table>
+    <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>✓ normal</span><span><i class="dot" style="background:var(--warn)"></i>! atenção</span><span><i class="dot" style="background:var(--alert)"></i>✕ perigo, ir ver o colega</span><span><i class="dot" style="background:var(--nodata)"></i>? sem dado ou privado</span><span>Clique numa célula para abrir o detalhe permitido pelo colega.</span></div>
   </div>
 </div>
 </div>

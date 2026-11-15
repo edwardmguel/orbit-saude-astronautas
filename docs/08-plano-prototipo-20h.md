@@ -10,7 +10,7 @@
 
 Em até 7 minutos, mostrar:
 
-1. O **painel da tripulação** com o ambiente da estação e quatro tripulantes, cada um com estado em cores.
+1. O **monitor geral da tripulação** com o ambiente da estação e quatro tripulantes, cada um com seus indicadores e estado em cores, e um colega em perigo sinalizado para os outros.
 2. A **figura humana clicável** explicando cada parte do corpo, por que ela muda no espaço e o que fazer.
 3. O **check-in diário** de 2 minutos, com pelo menos um teste rápido funcionando (teste de reação PVT ou grade de Amsler).
 4. Um **cruzamento de dados ao vivo**: o cenário C1 (CO2 alto + dor de cabeça + reação lenta) disparando um alerta amarelo explicável, com a fonte da regra.
@@ -24,7 +24,9 @@ Em até 7 minutos, mostrar:
 | **P0** (sem isso não há demo) | Esqueleto do app, navegação e tema (tokens de cor) | Dev A |
 | P0 | Modelo de dados em TypeScript e gerador de dados simulados com 4 tripulantes e o cenário C1 | Dev B |
 | P0 | Motor de regras lendo `config/indicadores.json` (faixas verde, amarelo, vermelho com fonte) | Dev C |
-| P0 | T1 Painel da tripulação | Dev A |
+| P0 | T1 Monitor geral da tripulação (modo cartões, faixa de perigo, idade do dado) | Dev A |
+| P1 | T1b Monitor geral em modo matriz e botão de tela cheia | Dev A |
+| P1 | Configuração de compartilhamento por tripulante (o que os colegas veem) | Dev B |
 | P0 | T2 Meu corpo com a figura SVG clicável e o painel da região | Dev A |
 | P0 | T4 Detalhe do alerta explicável | Dev C |
 | P0 | Linha de base pessoal (média e desvio padrão) e z-score | Dev C |
@@ -56,7 +58,7 @@ gantt
   Ensaio da apresentação e correções :e, 18:00, 2h
   section Dev A (interface)
   Esqueleto, tema, navegação :a1, 01:00, 2h
-  T1 Painel :a2, 03:00, 3h
+  T1 Monitor geral :a2, 03:00, 3h
   T2 Figura humana e painel da região :a3, 06:00, 2h
   T2 finalização :a4, 09:00, 2h
   T5 Ambiente e T6 Sono :a5, 11:00, 3h
@@ -106,7 +108,7 @@ A quarta pessoa (**Dev D**) assume: T3 Check-in, PVT e Amsler (tira do Dev B), e
 | --- | --- | --- |
 | 0:00 | O problema: RIDGE, missões mais longas, a tripulação precisa se autoavaliar. Um número forte de SANS. | Slide |
 | 1:00 | "Bom dia, tripulante": o check-in de 2 minutos | T3 |
-| 2:00 | O painel: ambiente e tripulação num olhar | T1 |
+| 2:00 | O monitor geral: ambiente e tripulação num olhar; um colega em perigo e o "Estou indo ver" | T1 e T1b |
 | 2:45 | O cruzamento ao vivo: CO2 sobe, alerta amarelo explicável com fonte | T4 |
 | 3:45 | A figura humana: olhos em amarelo, SANS, o que fazer | T2 |
 | 4:30 | Radiação real: feed da NOAA e dose acumulada | T5 |

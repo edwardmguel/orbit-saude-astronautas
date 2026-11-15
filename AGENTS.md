@@ -38,7 +38,7 @@ Se o código e um documento discordarem, o documento vence até alguém atualiz�
 6. **Não substituir o alarme da estação.** Fogo, despressurização e atmosfera tóxica têm alarme próprio da ISS. O software mostra e aponta o procedimento; não comanda nada.
 7. **Explicável.** Todo alerta guarda as evidências (leituras com valor, unidade e estado), o id da regra e a fonte.
 8. **Cor nunca sozinha.** Estado sempre com cor, ícone e palavra: ✓ normal, ! atenção, ✕ acionar médico, ? sem dado.
-9. **Privacidade por perfil.** O perfil Astronauta vê só os próprios dados detalhados; colegas aparecem só com estado geral.
+9. **Privacidade por perfil e cuidado mútuo.** O Monitor geral (T1) mostra cada colega conforme o nível de compartilhamento que ele escolheu (`Tripulante.compartilhamento` em `docs/06`): estado por sistema sempre, números de sinais vitais se permitido, mente e humor só com permissão, detalhes clínicos nunca. Toda filtragem acontece no motor, antes de chegar à tela.
 10. **Dados simulados são marcados.** Toda leitura tem `origem` (`simulada`, `ao_vivo`, `manual`, `automatica`, `exame`). A tela mostra o selo da origem.
 
 ## 4. Regras de escrita (do dono do projeto)

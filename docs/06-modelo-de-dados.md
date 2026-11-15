@@ -50,7 +50,9 @@ erDiagram
 | `massaPreVooKg` | número | `64,2` | Base para variação de massa |
 | `perfilSonoro` | string | `"mata-atlantica"` | Paisagem sonora do óculos Orbit |
 | `usaOculosOrbit` | booleano | `true` | Base do grupo controle (ver `docs/09`) |
-| `horarioSono` | `{ inicio: "21:30", fim: "06:00" }` | | Horário programado em GMT |
+| `horarioSono` | `{ inicio: "21:30", fim: "06:00" }` | | Horário programado em GMT (referência publicada pela NASA, ver `docs/01`) |
+| `moduloAtual` | string | `"node3"` | Onde o tripulante está agora; usado pelo Monitor geral e pelas regras de cruzamento com o ambiente |
+| `compartilhamento` | `{ sinaisVitais: boolean, mente: boolean }` | `{ "sinaisVitais": true, "mente": false }` | O que os colegas veem no Monitor geral; o estado por sistema é sempre compartilhado e detalhes clínicos nunca (ver `docs/07`, T1) |
 
 ### 2.3 `Modulo`
 

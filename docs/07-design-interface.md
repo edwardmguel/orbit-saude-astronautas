@@ -26,12 +26,14 @@
 | U6 | **Respeita o relógio biológico.** | Modo noturno âmbar automático no pré-sono, com pouca luz azul. |
 | U7 | **Explica sem assustar.** Linguagem simples, tom calmo, sem diagnóstico definitivo. | "Possível efeito de CO2", nunca "você está intoxicado". |
 | U8 | **Cooperação, não competição.** Isolamento e conflito de equipe são riscos da missão. | Gamificação com metas da tripulação inteira, sem ranking entre colegas. |
+| U9 | **Cuidado mútuo.** A tripulação também cuida uns dos outros. | Monitor geral (T1) com o estado de cada colega, frase de "como ajudar" e botão "Estou indo ver". |
 
 ## 3. Mapa de navegação
 
 ```mermaid
 flowchart TD
-  T1["T1 Painel da tripulação"] --> T2["T2 Meu corpo"]
+  T1["T1 Monitor geral da tripulação"] --> T2["T2 Meu corpo"]
+  T1 <--> T1b["T1b Monitor em matriz"]
   T1 --> T4["T4 Detalhe do alerta"]
   T1 --> T5["T5 Ambiente e radiação"]
   T2 --> T4
@@ -42,17 +44,61 @@ flowchart TD
   T4 --> RES["Resumo para o médico de voo"]
 ```
 
-Barra lateral fixa com: Painel, Meu corpo, Check-in, Ambiente, Alertas (com contador), Tendências, Sono e Orbit. Barra superior com: dia de missão (FD), horário GMT (o horário oficial da ISS), estado da comunicação com o solo, perfil, modo noturno.
+Barra lateral fixa com: Monitor geral, Meu corpo, Check-in, Ambiente, Alertas (com contador), Tendências, Sono e Orbit. Barra superior com: dia de missão (FD), horário GMT (o horário oficial da ISS), estado da comunicação com o solo, perfil, modo noturno.
 
 ## 4. Telas
 
-### T1. Painel da tripulação (tela inicial)
+### T1. Monitor geral da tripulação (tela inicial)
 
-- **Faixa do ambiente** no topo: CO2, O2, pressão, temperatura, umidade, taxa de dose e prótons do GOES, cada um com valor, unidade e estado. Clique leva à T5.
-- **Um cartão por tripulante**: anel de prontidão (0 a 100), chips por sistema do corpo, última atividade (check-in, sequência), alertas.
-- **Alertas abertos** com resumo de uma linha e botão "Ver".
-- **Gráfico de prontidão** dos últimos 14 dias com faixas coloridas ao fundo.
-- No perfil Astronauta, os cartões dos colegas mostram só o estado geral (privacidade). No perfil CMO, mostram detalhes.
+Pedido do dono, 15/11: *"uma tela no software que funciona de monitor geral, que em uma tela apresenta indicadores visuais da saúde dos astronautas individualmente, indicando como normal e se tiver indicadores de perigo ou outros sinaliza nessa tela geral. [...] os astronautas que podem monitorar uns aos outros nessa tela geral."*
+
+É a tela inicial do software e também funciona em **tela cheia** num monitor compartilhado da estação. Junta o monitoramento pessoal com o **cuidado mútuo**: qualquer tripulante bate o olho e vê se um colega precisa de ajuda.
+
+**Dois modos de visualização, mesma informação:**
+
+| Modo | Quando usar | Como é |
+| --- | --- | --- |
+| **Cartões** (T1) | Tripulação de até 4 a 5 pessoas, tela de laptop | Um cartão por tripulante, lado a lado |
+| **Matriz** (T1b) | Tripulação de até 7 pessoas (tamanho típico da ISS), monitor compartilhado | Linhas = indicadores, colunas = tripulantes, cada célula com cor, ícone e valor |
+
+**Estrutura da tela (modo cartões):**
+
+1. **Faixa de perigo** no topo, só quando há algum tripulante em nível 3 ou 4: quem, o quê, há quanto tempo, e duas ações diretas para o colega ("Estou indo ver", "Chamar CMO"). Quando alguém toca "Estou indo ver", a faixa mostra para todos quem já está a caminho, para não irem todos ao mesmo tempo.
+2. **Faixa compacta do ambiente**: CO2, O2, pressão, temperatura, taxa de dose e prótons do GOES. Clique leva à T5.
+3. **Um cartão por tripulante**, sempre com os mesmos indicadores na mesma ordem (o olho aprende onde procurar):
+   - Cabeçalho: nome ou codinome, função, **módulo onde está agora**, selo de estado geral (✓ normal, ! atenção, ✕ perigo, ? sem dado).
+   - Mini figura humana com as regiões coloridas (a mesma lógica da T2, em miniatura).
+   - Oito blocos de indicador: **Coração** (bpm), **Oxigenação** (SpO2 %), **Temperatura** (°C), **Sono** da última noite, **Prontidão** (0 a 100), **Hidratação** (% da meta do dia), **Radiação** (dose da missão em mSv), e um bloco que muda conforme o que estiver pior (Olhos, Cabeça, Mente).
+   - Rodapé: idade do dado ("atualizado há 2 min", "vestível desconectado há 26 h") e, se houver alerta, uma frase do que está acontecendo **e do que o colega pode fazer para ajudar**.
+   - Borda do cartão na cor do estado; tracejada quando falta dado.
+4. **Barra do cuidado mútuo**: verificações entre colegas no dia e metas da tripulação (gamificação cooperativa, sem ranking).
+
+**Regras de sinalização:**
+
+| Estado do tripulante | Cartão | Faixa de perigo | Som |
+| --- | --- | --- | --- |
+| ✓ Normal | Borda verde discreta | Não | Não |
+| ! Atenção (nível 2) | Borda amarela, frase de ajuda no rodapé | Não | Não |
+| ✕ Perigo (nível 3) | Borda vermelha com halo, bloco do indicador em vermelho | Sim | Um aviso curto, só no monitor compartilhado |
+| Emergência (nível 4) | Igual ao perigo | Sim, com o procedimento oficial da estação | Segue o alarme da estação; o software não cria alarme próprio (ver `docs/05`, princípio P5) |
+| ? Sem dado | Borda cinza tracejada, blocos com "há X h" | Não | Não; lembrete para o próprio tripulante |
+
+**Idade do dado é informação de saúde.** Como boa parte dos dados do corpo na ISS chega por sessão ou por medida pontual (ver `docs/06`, nota sobre disponibilidade), cada bloco mostra a idade da leitura. Um "normal" de 3 dias atrás não é o mesmo que um "normal" de agora; depois do prazo de validade do indicador, o bloco fica cinza.
+
+**Privacidade no monitor geral.** Cada tripulante controla, em Configurações, o que os colegas veem:
+
+| Nível de compartilhamento | O que aparece para os colegas | Padrão |
+| --- | --- | --- |
+| Estado por sistema | Cor e ícone de cada bloco, sem números | Sempre ligado (é o mínimo para o cuidado mútuo funcionar) |
+| Sinais vitais com números | Valores de coração, oxigenação, temperatura, sono, hidratação, radiação | Ligado, o tripulante pode desligar |
+| Mente e humor | Só o estado (✓ ou !), nunca respostas | Desligado; aparece como "privado" |
+| Detalhes clínicos, questionários, conversas médicas | Nunca aparecem no monitor geral | Bloqueado |
+
+Em emergência (nível 4), o CMO vê o detalhe necessário independentemente da configuração, conforme o protocolo médico.
+
+### T1b. Monitor geral em modo matriz
+
+Mesmos dados da T1, organizados para leitura rápida de muitos tripulantes. Cada célula traz ícone, cor e valor; a coluna inteira de um tripulante fica destacada quando ele está em perigo. Clique numa célula abre o detalhe que aquele colega permitiu compartilhar. Última linha: idade do dado de cada tripulante.
 
 ### T2. Meu corpo (figura humana clicável)
 
@@ -144,7 +190,10 @@ Por que tema escuro: os laptops de bordo ficam ligados o dia todo e a tripulaç�
 | --- | --- | --- |
 | `StatusBadge` | `nivel` (0 a 4), `texto` | Em todo lugar |
 | `MetricCard` | `rotulo`, `valor`, `unidade`, `nivel`, `fonte`, `atualizadoEm` | T1, T5, T6 |
-| `CrewCard` | `tripulante`, `prontidao`, `chips[]`, `alertas` | T1 |
+| `CrewMonitorCard` | `tripulante`, `moduloAtual`, `estadoGeral`, `blocos[]` (indicador, valor, unidade, nível, idade), `estadoPorRegiao`, `fraseAjuda`, `compartilhamento` | T1 |
+| `CrewMatrix` | `tripulantes[]`, `linhas[]` (indicadores), `celulas[][]` | T1b |
+| `DangerBanner` | `alertas[]` de nível 3 ou 4, `quemEstaIndo` | T1, T1b |
+| `MiniBodyMap` | `estadoPorRegiao` | T1 |
 | `BodyMap` | `estadoPorRegiao`, `onSelect(regiao)`, `lado` (frente ou costas) | T2 |
 | `RegionPanel` | `regiao`, `indicadores[]`, `orientacoes[]` | T2 |
 | `TrendChart` | `serie[]`, `faixas`, `linhaDeBase`, `eventos[]` | T1, T2, T4, T7 |

@@ -198,9 +198,10 @@ prototipo/
 
 | Perfil | Vê | Não vê |
 | --- | --- | --- |
-| Astronauta | Todos os próprios dados, ambiente da estação, alertas próprios e coletivos | Dados médicos de outros tripulantes |
+| Astronauta | Todos os próprios dados, ambiente da estação, alertas próprios e coletivos; no Monitor geral, o que cada colega escolheu compartilhar (ver `docs/07`, T1) | Detalhes clínicos, questionários e conversas médicas de outros tripulantes |
+| Monitor geral em tela compartilhada | Estado por sistema de cada tripulante (sempre), sinais vitais com números (se o tripulante permitir), faixa de perigo | Mente e humor (salvo permissão), qualquer detalhe clínico |
 | Crew Medical Officer | Status resumido da tripulação e detalhes quando o tripulante autoriza ou em emergência | Diário pessoal e questionários psicológicos privados |
 | Médico de voo (solo) | Resumos e alertas sincronizados, conforme protocolo médico da NASA | Nada além do que a política da NASA permitir |
 | Comandante | Prontidão agregada (apto, atenção, restrito) para planejamento | Detalhe clínico |
 
-No protótipo basta um seletor de perfil no topo da tela para demonstrar o conceito. As regras reais de privacidade dos dados médicos de astronautas estão resumidas em [`12-fontes-de-dados-abertas.md`](12-fontes-de-dados-abertas.md).
+No protótipo basta um seletor de perfil no topo da tela e a tela de configuração de compartilhamento para demonstrar o conceito. As regras reais de privacidade dos dados médicos de astronautas estão resumidas em [`12-fontes-de-dados-abertas.md`](12-fontes-de-dados-abertas.md).
