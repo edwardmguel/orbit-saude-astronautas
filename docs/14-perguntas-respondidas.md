@@ -274,7 +274,7 @@ Para o óculos Orbit: ruído histórico de 56 a 69 dBA nos módulos [OFICIAL](ht
 | Tipo | Precedente | O que foi |
 | --- | --- | --- |
 | Laboratório a bordo | Skylab M133, NASA, 1973 | Touca com EEG e EOG e painel na cabine de sono que estimava o estágio do sono; um astronauta por missão [OFICIAL](https://ntrs.nasa.gov/citations/19750019675) |
-| Laboratório a bordo | Neurolab, ônibus espacial STS-90, 1998 | Polissonografia de 20 canais (4 EEG, 2 EOG); 4 astronautas, 16 noites [OFICIAL](https://ntrs.nasa.gov/api/citations/20020073385/downloads/20020073385.pdf) |
+| Laboratório a bordo | Neurolab, ônibus espacial STS-90, 1998 | Polissonografia de 20 canais (4 EEG, 2 EOG); 4 astronautas, 16 registros de sono [OFICIAL](https://ntrs.nasa.gov/api/citations/20020073385/downloads/20020073385.pdf) |
 | Laboratório a bordo | Son-3, estação Mir | EEG, EOG, EMG e ECG do programa russo-búlgaro [OFICIAL](https://ntrs.nasa.gov/api/citations/19910017355/downloads/19910017355.pdf) |
 | Módulo da ISS | Neurospat, ESA, 2009 a 2013 | Touca de 62 eletrodos no Columbus, cinco astronautas [OFICIAL](https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/PromISSe/Neurospat) |
 | Módulo da ISS, câmera | Eye Tracking Device, Expedições 9, 11, 13, 14 e 16 | Rastreamento ocular por câmera, 31 astronautas; não é EOG [OFICIAL](https://www.nasa.gov/wp-content/uploads/2022/03/iss_technical_publication_030116.pdf) |
