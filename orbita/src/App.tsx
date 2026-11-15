@@ -89,10 +89,10 @@ function Main({ fadeIn }: { fadeIn: boolean }) {
         <Suspense fallback={<div className="py-24 text-center text-sm text-mist">Loading…</div>}>{page}</Suspense>
       </main>
       <footer className="mx-auto max-w-[1400px] space-y-1.5 border-t border-line px-4 pb-8 pt-4 text-[11px] text-faint sm:px-6">
-        <p>ORBITA — Astronaut Health Monitoring System · NASA Space Apps Challenge 2026 · Automatic data is SIMULATED · Does not provide medical diagnoses.</p>
+        <p>Orbit: Astronaut Health Monitoring System · NASA Space Apps Challenge 2026 · Automatic data is SIMULATED · Does not provide medical diagnoses.</p>
         <p className="flex items-center gap-1.5">
           <Sparkles size={12} className="shrink-0 text-cyan" />
-          This software and the ORBITA logo were created with the assistance of artificial intelligence (AI).
+          This software and the Orbit logo were created with the assistance of artificial intelligence (AI).
         </p>
       </footer>
     </div>

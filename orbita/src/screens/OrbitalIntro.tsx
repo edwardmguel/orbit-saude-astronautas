@@ -145,7 +145,7 @@ export function OrbitalIntro({ onReveal, onDone }: { onReveal: () => void; onDon
 
   const dissolving = phase === "dissolve";
   return (
-    <div className="fixed inset-0 z-[100]" aria-live="polite" aria-label="Initializing ORBITA">
+    <div className="fixed inset-0 z-[100]" aria-live="polite" aria-label="Initializing Orbit">
       <div className="absolute inset-0 bg-navy" style={{ opacity: bgFade }} />
       <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ opacity: dissolving ? bgFade : 1 }}>
         <div
@@ -161,7 +161,7 @@ export function OrbitalIntro({ onReveal, onDone }: { onReveal: () => void; onDon
           <OrbitaLogo size={168} t={t} glow={glow} trail={trail} />
         </div>
         <div className="mt-8 font-display text-lg font-semibold tracking-[0.5em] text-ink/90" style={{ opacity: dissolving ? 0 : 1, transition: "opacity .4s" }}>
-          ORBITA
+          ORBIT
         </div>
         <div className="mt-2 text-[11px] tracking-[0.25em] text-mist" style={{ opacity: dissolving ? 0 : 1, transition: "opacity .4s" }}>
           {phase === "static" ? "INITIALIZING SYSTEM" : "SYNCHRONIZING ORBIT"}

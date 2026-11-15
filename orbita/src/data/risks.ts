@@ -55,7 +55,7 @@ export const HAZARDS: Risk[] = [
     hazard: true,
     summary: "Communication delays and the impossibility of a quick return require onboard medical autonomy.",
     description:
-      "On a mission to Mars, messages can take several minutes to reach Earth and there is no quick return in an emergency. The crew needs local protocols, onboard medical resources and information available without a connection — which is why tools like ORBITA work offline.",
+      "On a mission to Mars, messages can take several minutes to reach Earth and there is no quick return in an emergency. The crew needs local protocols, onboard medical resources and information available without a connection, which is why tools like Orbit work offline.",
     impacts: ["Limited real-time medical support", "Greater reliance on local protocols and resources", "Supply and food planning", "Need for onboard decision support"],
     indicators: ["Local records", "Mission routine", "Notifications"],
     refTitle: "NASA HRP — Hazard: Distance from Earth",

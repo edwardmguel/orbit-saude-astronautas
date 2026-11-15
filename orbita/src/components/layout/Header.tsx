@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Bell, CheckCheck, ChevronDown, ChevronRight } from "lucide-react";
+import { Bell, CheckCheck, ChevronDown, ChevronRight, Menu } from "lucide-react";
 import { MISSIONS, MISSION_ORDER } from "@/data/missions";
 import { commsFor, fmtDelay } from "@/lib/physics";
 import { OrbitaLogo } from "../OrbitaLogo";
@@ -15,15 +15,25 @@ export function Header({ onMenu }: { onMenu: () => void }) {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-navy/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center gap-1.5 px-3 sm:gap-3 sm:px-6">
+        {/* Explicit menu button: the logo also opens the menu, but not everyone discovers that. */}
         <button
           onClick={onMenu}
-          className="group -ml-1.5 flex items-center gap-2.5 rounded-xl px-1.5 py-1.5 transition hover:bg-white/[0.04]"
+          className="flex shrink-0 items-center gap-2 rounded-xl border border-line px-2 py-2 text-mist transition hover:bg-white/[0.05] hover:text-ink sm:px-3"
           aria-label="Open navigation menu"
+        >
+          <Menu size={20} strokeWidth={2} />
+          <span className="hidden text-[13px] font-medium sm:inline">Menu</span>
+        </button>
+        <button
+          onClick={onMenu}
+          className="group flex items-center gap-2.5 rounded-xl px-1.5 py-1.5 transition hover:bg-white/[0.04]"
+          aria-label="Open navigation menu"
+          tabIndex={-1}
         >
           <span className="transition-transform duration-300 group-hover:rotate-[-8deg] group-active:scale-95">
             <OrbitaLogo size={34} />
           </span>
-          <span className="font-display text-[14px] font-semibold tracking-[0.14em] text-ink min-[400px]:text-[15px] min-[400px]:tracking-[0.2em] sm:text-[17px] sm:tracking-[0.28em]">ORBITA</span>
+          <span className="font-display text-[14px] font-semibold tracking-[0.14em] text-ink min-[400px]:text-[15px] min-[400px]:tracking-[0.2em] sm:text-[17px] sm:tracking-[0.28em]">ORBIT</span>
         </button>
 
         <div className="mx-2 hidden h-7 w-px bg-line md:block" />

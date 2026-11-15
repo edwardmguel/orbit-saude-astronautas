@@ -1,6 +1,6 @@
-# ORBITA — Mission data mapping (ISS · Moon · Mars)
+# Orbit: Mission data mapping (ISS · Moon · Mars)
 
-How the research repository (`edwardmguel/orbit-saude-astronautas`) feeds the ORBITA dashboard, and how each value changes with the mission selected in the header.
+How the research repository (`edwardmguel/orbit-saude-astronautas`) feeds the Orbit dashboard, and how each value changes with the mission selected in the header.
 
 Source tags: **[REPO doc]** = project research document; **[REAL]** = real data captured on 2026-11-15; **[PAPER]** = peer-reviewed measurement; **[DESIGN REF]** = NASA design reference not yet flown; **[INFERENCE]** = deduction, explained.
 
@@ -46,7 +46,7 @@ Source tags: **[REPO doc]** = project research document; **[REAL]** = real data 
 | SpO₂ card and evaluation | Expected SpO₂ for the cabin PIO₂; the attention cut follows the atmosphere; ≤ 92% (CMO contact) stays absolute |
 | New section "Habitat & life support" | Inspired O₂, CO₂, radiation environment (real NOAA GOES/Kp sample), gravity load and bone, ground link, O₂ demand vs OGA, water loop, space weather. Each card shows its formula and source, tagged REAL DATA or DESIGN REF |
 | Reports | Dose bands and the dashed expected-rate line follow the mission; SpO₂ bands follow the cabin atmosphere |
-| ORBITA AI | New question "How does this mission's environment affect me?"; the radiation answer includes career-use and projection math |
+| Orbit IA | New question "How does this mission's environment affect me?"; the radiation answer includes career-use and projection math |
 | Criteria editor | Dose criteria expressed as multiples of the mission rate |
 
 ## 4. Challenge indicators and guidance

@@ -67,7 +67,7 @@ export default function OrbitaAI() {
   return (
     <div className="mx-auto max-w-4xl">
       <PageTitle
-        title="ORBITA AI"
+        title="Orbit IA"
         subtitle="Intelligent space health assistant."
         right={
           <span className="flex items-center gap-2 rounded-full border border-st-normal/30 bg-st-normal/10 px-3 py-1.5 text-[11.5px] text-st-normal">
@@ -84,7 +84,7 @@ export default function OrbitaAI() {
               <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-navy-2 bg-st-normal" />
             </div>
             <div>
-              <div className="font-display text-[13px] font-semibold tracking-[0.14em]">ORBITA AI</div>
+              <div className="font-display text-[13px] font-semibold tracking-[0.14em]">Orbit IA</div>
               <div className="text-[11.5px] text-mist">Context: Astronaut {selected.profile.code} · {selected.profile.name}</div>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function OrbitaAI() {
             ))}
           </div>
           <form onSubmit={submit} className="flex gap-2">
-            <input className="field" placeholder="Ask about your health, the crew or space risks…" value={q} onChange={(e) => setQ(e.target.value)} maxLength={300} aria-label="Question for ORBITA AI" />
+            <input className="field" placeholder="Ask about your health, the crew or space risks…" value={q} onChange={(e) => setQ(e.target.value)} maxLength={300} aria-label="Question for Orbit IA" />
             <button type="submit" className="btn-primary !px-4" disabled={!q.trim() || typing} aria-label="Send question">
               <Send size={16} />
             </button>
