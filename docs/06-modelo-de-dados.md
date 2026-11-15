@@ -147,6 +147,22 @@ Formato do JSON (os números reais de cada indicador estão em `docs/03`; o exem
 
 Regra de leitura das faixas, para `direcao: "acima"`: valor ≥ `vermelho.min` é vermelho; senão, valor ≥ `amarelo.min` é amarelo; senão, verde. Para `"abaixo"`, as faixas usam `max` e a comparação é ≤. Para `"ambos"`, existem `amareloBaixo`, `amareloAlto`, `vermelhoBaixo`, `vermelhoAlto`.
 
+**Campos acrescentados na consolidação dos limiares (frente 12).** O `prototipo/config/indicadores.json` real usa `id` como chave do indicador e traz estes campos além dos acima. O motor decide a cor **só pela `regraCor`**; os demais campos explicam e citam.
+
+| Campo | Tipo | Para que serve |
+| --- | --- | --- |
+| `classe` | `"requisito_oficial"` \| `"referencia_terrestre"` \| `"linha_de_base"` \| `"gatilho_sintoma"` | Como a cor é decidida (ver `docs/03`, seção 1) |
+| `faixas.valoresPublicados` | objeto | Números exatamente como a fonte publica, com a etiqueta ([OFICIAL] ou [DIRETRIZ-TERRA]) |
+| `faixas.verde` / `amarelo` / `vermelho` | `{ criterio, fonteDoValor }` | Texto explicativo de cada faixa, para a tela "por que estou vendo isto" |
+| `regraCor` | `{ tipo, regras[], nivelMaximoSemSintoma, linhaDeBase }` | Camada numérica que o motor executa: cada regra tem `nivel`, `operador`, `valor`, `unidade`, `origem` e `texto` |
+| `exemplosTeste` | `{ verde, amarelo, vermelho }` | Valores de gabarito para o teste unitário de cada indicador |
+| `valorDeDemonstracao` / `demonstracao` | booleano / objeto | Marca número que não é limiar da NASA e só existe para a demonstração (`docs/03`, seção 5) |
+| `gatilhosSintoma` | lista | Sintomas que elevam o nível (por exemplo dor no peito, perda súbita de visão); único caminho para o nível 4 |
+| `orientacoes.colega` | string | Frase de "como ajudar" no Monitor geral |
+| `orientacoes.gatilhoParaSubir` | string | O que faria o alerta subir de nível |
+
+O mesmo arquivo traz o array `regrasCruzamento` com as 6 regras de `docs/04` em formato declarativo (`id`, `condicoes`, `janelaMin`, `nivel`, `hipotese`, `orientacoes`, `fonte`).
+
 ### 2.7 `LinhaDeBase`
 
 | Campo | Tipo | Exemplo |
