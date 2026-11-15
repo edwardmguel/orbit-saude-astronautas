@@ -6,9 +6,9 @@ comments: none
 
 # Design da interface
 
-<user_quoted_section>Atualização de 15/11, 12h: o app passou a se chamar ORBITA e o visual final está no artefato Revisão do prompt ORBITA e design responsivo e em docs/18-design-orbita-responsivo.md. Em cor, componente e layout vale o docs/18; as regras de sinalização, privacidade e convenções da NASA desta página continuam valendo. O nível 3 agora é laranja.</user_quoted_section>
+<user_quoted_section>Atualização de 15/11, 12h: o app passou a se chamar ORBITA e o visual final está no artefato Revisão do prompt ORBITA e design responsivo e em docs/18-orbita-responsive-design.md. Em cor, componente e layout vale o docs/18; as regras de sinalização, privacidade e convenções da NASA desta página continuam valendo. O nível 3 agora é laranja.</user_quoted_section>
 
-Proposta inicial para acelerar o kickoff; o layout final é desenhado com a equipe usando as perguntas K1 a K8 abaixo. Especificação completa em `docs/07-design-interface.md` e as 6 telas navegáveis em `docs/wireframes/telas-prototipo.html` no repositório.
+Proposta inicial para acelerar o kickoff; o layout final é desenhado com a equipe usando as perguntas K1 a K8 abaixo. Especificação completa em `docs/07-interface-design.md` e as 6 telas navegáveis em `docs/wireframes/prototype-screens.html` no repositório.
 
 ## Telas
 

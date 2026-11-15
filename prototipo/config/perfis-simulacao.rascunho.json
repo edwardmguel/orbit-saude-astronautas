@@ -2,7 +2,7 @@
     "esquema":  "perfis-simulacao.rascunho.v1.1",
     "descricao":  "Parâmetros de gerador para missão fictícia de 180 dias, agora com 37 indicadores (35 originais mais apetite e eog_piscadas, do ORBITA). Não são dados de voo, limiares clínicos ou especificações operacionais.",
     "convencoes":  {
-                       "unidadesCanonicas":  "Usar docs/06-modelo-de-dados.md onde definidas.",
+                       "unidadesCanonicas":  "Usar docs/06-data-model.md onde definidas.",
                        "evidencias":  "[OFICIAL], [PAPER], [DIRETRIZ-TERRA], [INFERÊNCIA], [NÃO ENCONTRADO].",
                        "ruido":  "ruido:null informa que erro instrumental real não foi encontrado para hardware do protótipo; ruidoSimulador é ruído artificial.",
                        "dispersoes":  "dpEntrePessoas e dpDiaADia só contêm dados publicados se população/recorte forem compatíveis; sufixo Simulador indica inferência.",
@@ -406,7 +406,7 @@
                             "frequenciaRealMin":  5760,
                             "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
                             "frequenciaSimuladorMin":  1440,
-                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [TESTADO] docs/04-cruzamento-de-dados.md"
+                            "fonte":  "[PAPER] https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/; [TESTADO] docs/04-data-cross-referencing.md"
                         },
                         {
                             "indicadorId":  "humor",
@@ -789,7 +789,7 @@
                             "frequenciaRealMin":  null,
                             "notaFrequenciaReal":  "NÃO ENCONTRADO como frequência operacional uniforme ou série bruta pública",
                             "frequenciaSimuladorMin":  1440,
-                            "fonte":  "[OFICIAL] https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/; [TESTADO] docs/06-modelo-de-dados.md"
+                            "fonte":  "[OFICIAL] https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/; [TESTADO] docs/06-data-model.md"
                         },
                         {
                             "indicadorId":  "acuidade_perto",
@@ -1818,7 +1818,7 @@
                                                      "status":  "[INFERÊNCIA] coocorrência, não causalidade"
                                                  },
                                 "janelaRegraHoras":  3,
-                                "regraProjeto":  "R-CO2-01 em docs/04-cruzamento-de-dados.md",
+                                "regraProjeto":  "R-CO2-01 em docs/04-data-cross-referencing.md",
                                 "fontes":  [
                                                "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
                                                "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",

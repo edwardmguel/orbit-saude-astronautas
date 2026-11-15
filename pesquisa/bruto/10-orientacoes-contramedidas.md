@@ -540,7 +540,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Por que isso importa no espaço:** luvas pressurizadas e atividade extraveicular podem produzir carga mecânica localizada e irritação.
 - **Fonte:** [OFICIAL, EVA HRP](https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=84); [OFICIAL, V1 Medical Operations](https://www.nasa.gov/reference/3-0-health-and-medical-care/).
 
-### Regras de cruzamento de `docs/04-cruzamento-de-dados.md`
+### Regras de cruzamento de `docs/04-data-cross-referencing.md`
 
 #### R-CO2-01. Possível efeito de CO2 elevado
 
@@ -550,7 +550,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** 1) o CMO segue procedimento médico e avalia cefaleia e tontura; 2) envia ppCO2, local, duração, sintomas e PVT ao Flight Surgeon; 3) controle ambiental segue o procedimento de remoção de CO2.
 - **Gatilho para subir de nível:** dor de cabeça 7 de 10 ou maior, tontura associada ou ppCO2 acima do limite crítico aprovado; alarme ambiental segue o procedimento oficial.
 - **Por que isso importa no espaço:** a NASA registra que sensores fixos podem não capturar variação local de CO2 e que há associação com cefaleia.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, OCHMO-TB-004](https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/); [OFICIAL, ventilação local](https://ntrs.nasa.gov/citations/20170009419).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, OCHMO-TB-004](https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/); [OFICIAL, ventilação local](https://ntrs.nasa.gov/citations/20170009419).
 
 #### R-RAD-01. Evento de partículas solares
 
@@ -560,7 +560,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** 1) o CMO segue o procedimento médico e radiológico; 2) coordena com Flight Surgeon, SRAG e controle a dose e estado da tripulação; 3) registra início, duração, abrigo e sintomas.
 - **Gatilho para subir de nível:** taxa de dose acima do patamar definido para a missão ou ordem operacional de emergência; a regra local não autoriza escolher abrigo por conta própria.
 - **Por que isso importa no espaço:** um evento solar pode elevar rapidamente a exposição ionizante, especialmente fora da proteção geomagnética terrestre.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, SRAG](https://srag.jsc.nasa.gov/SpaceRadiation/How/How.cfm); [OFICIAL, coordenação de previsão](https://ntrs.nasa.gov/api/citations/20190025247/downloads/20190025247.pdf).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, SRAG](https://srag.jsc.nasa.gov/SpaceRadiation/How/How.cfm); [OFICIAL, coordenação de previsão](https://ntrs.nasa.gov/api/citations/20190025247/downloads/20190025247.pdf).
 
 #### R-SANS-01. Mudança visual compatível com SANS
 
@@ -570,7 +570,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** 1) o CMO segue procedimento ocular e registra sintomas; 2) encaminha resultado ao Flight Surgeon e oftalmologia para decidir OCT ou fundo de olho; 3) perda visual súbita ou diplopia nova importante pede avaliação imediata.
 - **Gatilho para subir de nível:** cefaleia persistente com sintoma visual, visão dupla ou perda visual súbita, conforme regra do projeto e protocolo médico.
 - **Por que isso importa no espaço:** redistribuição de fluidos em microgravidade é associada a mudanças oculares, mas o autoteste não confirma SANS.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, OCHMO-MTB-001](https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, OCHMO-MTB-001](https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf).
 
 #### R-SONO-01. Dívida de sono antes de atividade crítica
 
@@ -580,7 +580,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** a regra de produto não define nível 3 automático; 1) o CMO segue o procedimento de fadiga; 2) comunica aptidão e agenda ao Flight Surgeon e controle de voo; 3) incapacidade de operar com segurança segue regra operacional da missão.
 - **Gatilho para subir de nível:** incapacidade de manter segurança em atividade crítica ou sintoma urgente; limite numérico adicional não foi definido na regra.
 - **Por que isso importa no espaço:** dívida de sono pode coincidir com tarefas de alta demanda e fatores ambientais de cabine.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, V1 6.0](https://www.nasa.gov/reference/6-0-medical-operations/); [OFICIAL, OCHMO-TB-041](https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, V1 6.0](https://www.nasa.gov/reference/6-0-medical-operations/); [OFICIAL, OCHMO-TB-041](https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf).
 
 #### R-HID-01. Hidratação baixa e risco renal
 
@@ -590,7 +590,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** a regra local não define nível 3 automático; 1) o CMO segue procedimento médico e avalia sintomas urinários; 2) informa ao Flight Surgeon ingestão, amostra e história de cálculo; 3) dor intensa, febre, vômitos persistentes ou retenção seguem avaliação urgente.
 - **Gatilho para subir de nível:** sinais clínicos urgentes ou critério individual aprovado; hidratação abaixo do plano pede atenção, não um diagnóstico automático.
 - **Por que isso importa no espaço:** perda óssea, ingestão de água e química urinária podem combinar-se no risco de cálculo.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, OCHMO Urinary Health](https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/); [OFICIAL, NASA renal stone model](https://www.nasa.gov/glenn/glenn-expertise-space-exploration/human-health-performance/computational-modeling/renal-stone-incidence-rate-quantification/).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, OCHMO Urinary Health](https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/); [OFICIAL, NASA renal stone model](https://www.nasa.gov/glenn/glenn-expertise-space-exploration/human-health-performance/computational-modeling/renal-stone-incidence-rate-quantification/).
 
 #### R-AMB-01. Ambiente como fator possível para sintoma
 
@@ -600,7 +600,7 @@ Os blocos abaixo são propostas de texto para T2 e T4. “Amarelo” significa c
 - **Nível 3, CMO e solo:** a regra de correlação não define nível 3; 1) o CMO segue o procedimento clínico para o sintoma; 2) envia sinais e contexto ambiental ao Flight Surgeon; 3) se houver emergência ambiental, a tripulação segue o procedimento e alarme da estação.
 - **Gatilho para subir de nível:** critério clínico ou ambiental aprovado, sinal de urgência ou alarme do veículo; associação temporal isolada não prova causa.
 - **Por que isso importa no espaço:** CO2, ruído, temperatura, umidade e contaminantes podem variar entre módulos e coincidir com sintomas.
-- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-cruzamento-de-dados.md); [OFICIAL, NASA OCHMO Technical Briefs](https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/); [OFICIAL, CO2](https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/).
+- **Fonte:** regra do protótipo [INFERÊNCIA, especificação de produto](../../docs/04-data-cross-referencing.md); [OFICIAL, NASA OCHMO Technical Briefs](https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/); [OFICIAL, CO2](https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/).
 
 ## D3. Melhorias positivas para missões e metas cooperativas
 

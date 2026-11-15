@@ -8,24 +8,24 @@ Este arquivo é lido por agentes de IA (Claude Code, Codex, Cursor e similares) 
 
 Entregável secundário (não é código deste repositório por enquanto): o **óculos Orbit**, com áudio por condução óssea, EEG e EOG. O software exibe os dados do óculos (sono, fadiga, paisagem sonora).
 
-Equipe: Fundação Futuro. Prazo do protótipo: 20 horas. Plano em [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md).
+Equipe: Fundação Futuro. Prazo do protótipo: 20 horas. Plano em [`docs/08-prototype-plan-20h.md`](docs/08-prototype-plan-20h.md).
 
 ## 2. Onde está a verdade
 
 | Assunto | Documento |
 | --- | --- |
-| Ordem de leitura por perfil | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
-| Contexto da missão, riscos e rotina da tripulação | [`docs/01-contexto-missao.md`](docs/01-contexto-missao.md) |
-| Equipamentos reais da ISS: o que medem, como entregam, unidade | [`docs/02-equipamentos-e-dados.md`](docs/02-equipamentos-e-dados.md) |
-| **Indicadores, faixas verde, amarelo e vermelho, com fonte** | [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
-| Fórmulas e regras de cruzamento, com exemplos resolvidos | [`docs/04-cruzamento-de-dados.md`](docs/04-cruzamento-de-dados.md) |
-| Arquitetura e stack | [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) |
-| Modelo de dados e unidades canônicas | [`docs/06-modelo-de-dados.md`](docs/06-modelo-de-dados.md) |
-| Telas, tokens de cor, componentes do app **ORBITA** (responsivo, com Visão geral em tela grande) | [`docs/18-design-orbita-responsivo.md`](docs/18-design-orbita-responsivo.md) e [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html); prompt para o Lovable em [`docs/19-prompt-lovable-revisado.md`](docs/19-prompt-lovable-revisado.md) |
-| Regras de sinalização, privacidade e convenções da NASA na tela | [`docs/07-design-interface.md`](docs/07-design-interface.md) (proposta inicial; em cor e layout vale o `docs/18`) |
+| Ordem de leitura por perfil | [`docs/00-reading-guide.md`](docs/00-reading-guide.md) |
+| Contexto da missão, riscos e rotina da tripulação | [`docs/01-mission-context.md`](docs/01-mission-context.md) |
+| Equipamentos reais da ISS: o que medem, como entregam, unidade | [`docs/02-equipment-and-data.md`](docs/02-equipment-and-data.md) |
+| **Indicadores, faixas verde, amarelo e vermelho, com fonte** | [`docs/03-indicators-and-thresholds.md`](docs/03-indicators-and-thresholds.md) |
+| Fórmulas e regras de cruzamento, com exemplos resolvidos | [`docs/04-data-cross-referencing.md`](docs/04-data-cross-referencing.md) |
+| Arquitetura e stack | [`docs/05-software-architecture.md`](docs/05-software-architecture.md) |
+| Modelo de dados e unidades canônicas | [`docs/06-data-model.md`](docs/06-data-model.md) |
+| Telas, tokens de cor, componentes do app **ORBITA** (responsivo, com Visão geral em tela grande) | [`docs/18-orbita-responsive-design.md`](docs/18-orbita-responsive-design.md) e [`docs/wireframes/orbita-responsive.html`](docs/wireframes/orbita-responsive.html); prompt para o Lovable em [`docs/19-revised-lovable-prompt.md`](docs/19-revised-lovable-prompt.md) |
+| Regras de sinalização, privacidade e convenções da NASA na tela | [`docs/07-interface-design.md`](docs/07-interface-design.md) (proposta inicial; em cor e layout vale o `docs/18`) |
 | Base de conhecimento da ORBITA IA | [`prototipo/config/orbita-ia-base.json`](prototipo/config/orbita-ia-base.json) |
-| Fontes de dados públicas (APIs e arquivos) | [`docs/12-fontes-de-dados-abertas.md`](docs/12-fontes-de-dados-abertas.md) |
-| Siglas | [`docs/13-glossario.md`](docs/13-glossario.md) |
+| Fontes de dados públicas (APIs e arquivos) | [`docs/12-open-data-sources.md`](docs/12-open-data-sources.md) |
+| Siglas | [`docs/13-glossary.md`](docs/13-glossary.md) |
 | Pesquisa bruta com todas as citações | [`pesquisa/bruto/`](pesquisa/bruto/) |
 
 Se o dono pedir para importar ou atualizar a EPIC do Traycer, siga [`Traycer/README.md`](Traycer/README.md): a pasta `Traycer/` guarda a cópia dos artefatos da EPIC deste projeto.

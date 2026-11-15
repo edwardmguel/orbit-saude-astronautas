@@ -10,11 +10,11 @@ A equipe escreveu um prompt para construir no Lovable o app **ORBITA** (aba "Pro
 
 | Entrega | Onde | Estado |
 | --- | --- | --- |
-| Revisão seção por seção | `docs/17-revisao-prompt-orbita.md` | ✅ 10h39, atualizada para responsivo às 11h05 |
+| Revisão seção por seção | `docs/17-orbita-prompt-review.md` | ✅ 10h39, atualizada para responsivo às 11h05 |
 | Cópia do prompt original | `pesquisa/prompt-orbita-equipe.md` | ✅ 10h39 |
-| Design das telas (design system, pontos de quebra, M01 a M18, pendências resolvidas) | `docs/18-design-orbita-responsivo.md` | ✅ 12h, revisado |
-| Desenhos das telas: 21 quadros de celular, um de laptop e a Visão geral em tela grande | `docs/wireframes/orbita-responsivo.html` | ✅ 12h, conferidos renderizados; tela grande aprovada pelo dono às 11h50 |
-| Prompt corrigido para o Lovable (19 seções, guia para colar em 5 partes, ordem de construção em cerca de 13 h) | `docs/19-prompt-lovable-revisado.md` | ✅ 11h20, revisado |
+| Design das telas (design system, pontos de quebra, M01 a M18, pendências resolvidas) | `docs/18-orbita-responsive-design.md` | ✅ 12h, revisado |
+| Desenhos das telas: 21 quadros de celular, um de laptop e a Visão geral em tela grande | `docs/wireframes/orbita-responsive.html` | ✅ 12h, conferidos renderizados; tela grande aprovada pelo dono às 11h50 |
+| Prompt corrigido para o Lovable (19 seções, guia para colar em 5 partes, ordem de construção em cerca de 13 h) | `docs/19-revised-lovable-prompt.md` | ✅ 11h20, revisado |
 | Base de conhecimento da ORBITA IA (65 respostas com fonte) | `prototipo/config/orbita-ia-base.json` | ✅ 11h20, revisada |
 | Indicadores novos do prompt: `apetite` (1 a 3) e `eog_piscadas`, só linha de base | `indicadores.json`, `perfis-simulacao.rascunho.json` (37 cada) e `docs/03` | ✅ 12h |
 
@@ -22,7 +22,7 @@ Tudo no GitHub no commit `1bf26d2` (15/11, cerca de 12h).
 
 ## Visão geral em tela grande (aprovada às 11h50)
 
-Painel da missão para o monitor compartilhado e o telão da apresentação, 1920 x 1080, sem rolagem. Desenho simplificado abaixo; a versão completa está em `docs/wireframes/orbita-responsivo.html`, quadro M03b.
+Painel da missão para o monitor compartilhado e o telão da apresentação, 1920 x 1080, sem rolagem. Desenho simplificado abaixo; a versão completa está em `docs/wireframes/orbita-responsive.html`, quadro M03b.
 
 ```wireframe
 <!doctype html>

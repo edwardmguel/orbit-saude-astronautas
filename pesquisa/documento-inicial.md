@@ -3,7 +3,7 @@
 > Cópia fiel do documento de referência do projeto, com todas as abas, feita em 15/11/2026 às 01h30.
 > Original: https://docs.google.com/document/d/1S_IkPR_NH6MWLGBoEADfagqL3BzmjUt7LvfQqnna3tI/edit
 > Abas: Passo 0, Dores e Aliviadores, Dúvidas, Links, Óculos Orbit (esta última estava vazia na data da cópia).
-> As respostas às perguntas da aba "Dúvidas" estão em [`docs/14-perguntas-respondidas.md`](../docs/14-perguntas-respondidas.md).
+> As respostas às perguntas da aba "Dúvidas" estão em [`docs/14-answered-questions.md`](../docs/14-answered-questions.md).
 
 ---
 
@@ -106,7 +106,7 @@ Siga por conta própria orquestrando as pesquisas com os agentes Luna.
 - Osteoporose
 - Problemas emocionais
 
-Tarefa: Ampliar a lista para podermos pelo menos visualizar todas as questões que os astronautas passam em relação à própria saúde. (Lista ampliada em [`docs/01-contexto-missao.md`](../docs/01-contexto-missao.md).)
+Tarefa: Ampliar a lista para podermos pelo menos visualizar todas as questões que os astronautas passam em relação à própria saúde. (Lista ampliada em [`docs/01-mission-context.md`](../docs/01-mission-context.md).)
 
 #### Possíveis soluções
 
@@ -212,4 +212,4 @@ Dicas para agilizar sua busca:
 
 ## Aba 5: Óculos Orbit
 
-(Vazia na data da cópia. A documentação do óculos está em [`docs/09-oculos-orbit.md`](../docs/09-oculos-orbit.md).)
+(Vazia na data da cópia. A documentação do óculos está em [`docs/09-orbit-glasses.md`](../docs/09-orbit-glasses.md).)
