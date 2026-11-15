@@ -1,0 +1,198 @@
+# 07. Design da interface
+
+> Para quem: quem desenha e quem implementa as telas.
+> Wireframes navegáveis: abra [`wireframes/telas-prototipo.html`](wireframes/telas-prototipo.html) no navegador.
+> Esta é uma **proposta inicial** para acelerar o kickoff. A seção 8 lista as perguntas que a equipe responde juntos antes de fechar o visual; os padrões recomendados permitem começar a codar mesmo antes das respostas.
+
+---
+
+## 1. Para quem é cada tela
+
+| Persona | Contexto de uso | O que precisa em 3 segundos |
+| --- | --- | --- |
+| **Astronauta** (usuário principal) | Laptop de bordo ou tablet, flutuando, às vezes com pressa, às vezes com pouca luz antes de dormir | "Estou bem? Preciso fazer algo agora?" |
+| **Crew Medical Officer (CMO)** | Tripulante com treinamento médico básico que cuida da saúde dos colegas | "Alguém da tripulação precisa de atenção? O que eu levo para a conferência com o médico?" |
+| **Médico de voo** (solo, visão secundária) | Recebe resumos quando há comunicação | "O que mudou desde a última conferência e por quê?" |
+
+## 2. Princípios de UX
+
+| # | Princípio | Como aparece na tela |
+| --- | --- | --- |
+| U1 | **Leitura em 3 segundos.** O estado geral aparece antes de qualquer número. | Anel de prontidão por tripulante, cor da região do corpo, contador de alertas. |
+| U2 | **Revelação progressiva.** Estado, depois motivo, depois dado, depois fonte. | Cartão verde ou amarelo → clique → "por que estou vendo isto" → gráfico → fonte da regra. |
+| U3 | **Sempre a próxima ação.** Nenhum amarelo ou vermelho sem um "o que fazer". | Bloco "O que fazer" em toda região e em todo alerta. |
+| U4 | **Cor nunca sozinha.** Todo estado tem cor, ícone e palavra. | ✓ normal, ! atenção, ✕ acionar médico, ? sem dado. Funciona para daltonismo e em modo noturno. |
+| U5 | **Digitar o mínimo.** Em microgravidade o tripulante segura o laptop com uma mão. | Chips, escalas de toque, botões de +250 mL, câmera. Alvos de toque grandes. |
+| U6 | **Respeita o relógio biológico.** | Modo noturno âmbar automático no pré-sono, com pouca luz azul. |
+| U7 | **Explica sem assustar.** Linguagem simples, tom calmo, sem diagnóstico definitivo. | "Possível efeito de CO2", nunca "você está intoxicado". |
+| U8 | **Cooperação, não competição.** Isolamento e conflito de equipe são riscos da missão. | Gamificação com metas da tripulação inteira, sem ranking entre colegas. |
+
+## 3. Mapa de navegação
+
+```mermaid
+flowchart TD
+  T1["T1 Painel da tripulação"] --> T2["T2 Meu corpo"]
+  T1 --> T4["T4 Detalhe do alerta"]
+  T1 --> T5["T5 Ambiente e radiação"]
+  T2 --> T4
+  T2 --> TT["T7 Tendências"]
+  T3["T3 Check-in diário"] --> T2
+  T3 --> TESTES["Testes rápidos\nPVT, Amsler, acuidade, foto"]
+  T6["T6 Sono e óculos Orbit"] --> T2
+  T4 --> RES["Resumo para o médico de voo"]
+```
+
+Barra lateral fixa com: Painel, Meu corpo, Check-in, Ambiente, Alertas (com contador), Tendências, Sono e Orbit. Barra superior com: dia de missão (FD), horário GMT (o horário oficial da ISS), estado da comunicação com o solo, perfil, modo noturno.
+
+## 4. Telas
+
+### T1. Painel da tripulação (tela inicial)
+
+- **Faixa do ambiente** no topo: CO2, O2, pressão, temperatura, umidade, taxa de dose e prótons do GOES, cada um com valor, unidade e estado. Clique leva à T5.
+- **Um cartão por tripulante**: anel de prontidão (0 a 100), chips por sistema do corpo, última atividade (check-in, sequência), alertas.
+- **Alertas abertos** com resumo de uma linha e botão "Ver".
+- **Gráfico de prontidão** dos últimos 14 dias com faixas coloridas ao fundo.
+- No perfil Astronauta, os cartões dos colegas mostram só o estado geral (privacidade). No perfil CMO, mostram detalhes.
+
+### T2. Meu corpo (figura humana clicável)
+
+A figura é a ideia central do desafio. Cada região é um `<path>` SVG com `id` próprio, preenchido com a cor do pior estado entre os indicadores daquela região. Ao clicar, o painel lateral mostra: o que aquela parte do corpo faz, por que ela muda no espaço, os indicadores com estado, um gráfico de tendência, o bloco "O que fazer" e os botões de ação (fazer teste, enviar ao médico, por que estou vendo isto).
+
+**Mapa região → indicadores** (a lista completa de indicadores e limiares está em [`03-indicadores-e-limiares.md`](03-indicadores-e-limiares.md)):
+
+| Região (id do SVG) | Por que muda no espaço | Indicadores exibidos |
+| --- | --- | --- |
+| `cerebro` Cérebro e mente | Sono curto, isolamento, carga de trabalho, CO2, radiação | Horas e eficiência do sono, tempo de reação (PVT), fadiga, humor, estresse, sinais de EEG do óculos |
+| `olhos` Olhos | SANS: líquidos sobem para a cabeça | Grade de Amsler, acuidade de perto, sintomas visuais, último OCT e fundo de olho, pressão intraocular |
+| `ouvidos` Ouvidos | Ruído constante de ventiladores e bombas | Dose de ruído (dBA), audiometria periódica, zumbido relatado |
+| `coracao` Coração e vasos | Redistribuição de fluidos, descondicionamento | Frequência cardíaca de repouso, variabilidade (HRV), pressão arterial, ECG |
+| `pulmoes` Pulmões | Ar fechado, CO2, EVA | Frequência respiratória, SpO2, exposição a CO2 do módulo |
+| `sangue` Sangue e imunidade (ícone sistêmico) | Anemia do voo espacial, imunidade alterada, reativação viral | Hemoglobina, hematócrito, temperatura, sintomas de infecção |
+| `digestao` Digestão e nutrição | Apetite menor, cardápio limitado | Calorias, proteína, apetite, massa corporal, enjoo |
+| `rins` Rins e hidratação | Perda óssea libera cálcio, risco de cálculo | Água ingerida, cor da urina por foto, risco de cálculo |
+| `ossos` Ossos | Sem carga, o osso perde massa | Perda óssea estimada, adesão ao exercício resistido, cálcio e vitamina D |
+| `musculos` Músculos e coluna | Sem carga, músculo atrofia; coluna alonga | Força de preensão, carga no ARED, capacidade aeróbica no CEVIS, dor lombar |
+| `pele` Pele | Ar seco, contato com equipamentos, EVA | Irritações por foto, temperatura da pele |
+| `corpo` Corpo inteiro (radiação) | Raios cósmicos e partículas solares | Dose acumulada da missão e em relação ao limite de carreira |
+
+### T3. Check-in diário (meta: 2 minutos)
+
+Seis passos curtos com barra de progresso: **Sono, Energia, Humor, Sintomas, Hidratação, Testes rápidos**. Cada passo é uma pergunta de toque (escala ou chips). Os testes rápidos (PVT de 3 minutos, grade de Amsler, acuidade de perto, foto da urina) aparecem só nos dias em que estão programados, para não cansar. As escalas exatas (fadiga, sonolência, humor, dor) estão em [`03-indicadores-e-limiares.md`](03-indicadores-e-limiares.md), seção de autoavaliação.
+
+### T4. Detalhe do alerta
+
+Quatro blocos fixos, sempre na mesma ordem:
+1. **Cabeçalho**: nível com cor, ícone e quem age; título curto; tripulante, local e horário.
+2. **Por que estou vendo isto**: cada dado que disparou a regra, com valor, unidade e estado; o nome da regra de cruzamento.
+3. **O que fazer agora**: passos numerados, incluindo o gatilho que faria o alerta subir de nível.
+4. **Fonte da regra e quem já sabe**: referência oficial do limiar e estado das notificações (tripulante, CMO, solo).
+
+Embaixo, um gráfico com os sinais envolvidos sobrepostos e a linha do limite.
+
+### T5. Ambiente e radiação
+
+- **Mapa esquemático dos módulos** colorido pela grandeza escolhida (CO2 por padrão; trocar para temperatura, umidade, ruído). Clique mostra os valores do módulo e quem está nele.
+- **Taxa de dose** das últimas horas, com os picos das passagens pela Anomalia do Atlântico Sul.
+- **Dose acumulada** por tripulante em barra relativa ao limite de carreira.
+- **Clima espacial**: prótons do GOES, índice Kp, últimos eventos da DONKI.
+- Selo indicando a origem do dado: simulado ou ao vivo (telemetria pública).
+
+### T6. Sono e óculos Orbit
+
+- Cartões: sono da última noite, eficiência, ruído na cabine de dormir.
+- **Hipnograma** gerado do EEG do óculos (no protótipo, a partir de uma base pública de sono).
+- **Paisagem sonora do dia**: perfil cultural escolhido pelo tripulante e a programação por período (manhã, tarde, pré-sono, dormir), com a transição suave para o noturno.
+- **Sinais do óculos**: piscadas por minuto e índice de fadiga (EOG), potência alfa (EEG), luz ambiente.
+
+### T7. Tendências (sem wireframe; usa os mesmos componentes)
+
+Seletor de indicador e de período (7 dias, 30 dias, missão inteira), gráfico com faixas coloridas de fundo, linha de base pessoal pontilhada e anotações de eventos (EVA, chegada de veículo, evento solar).
+
+## 5. Sistema visual
+
+### 5.1 Tokens de cor
+
+Os nomes abaixo são os mesmos do CSS dos wireframes. Use como variáveis CSS ou no `tailwind.config`.
+
+| Token | Tema padrão (escuro) | Modo noturno (âmbar) | Uso |
+| --- | --- | --- | --- |
+| `--bg` | `#0A0F1E` | `#0D0703` | Fundo da página |
+| `--surface` | `#111A2F` | `#1A0F07` | Cartões, barras |
+| `--surface-2` | `#18233D` | `#24150A` | Elementos dentro de cartões |
+| `--border` | `#26324F` | `#3A2414` | Bordas |
+| `--text` | `#E8ECF5` | `#F2C79B` | Texto principal |
+| `--muted` | `#94A0B8` | `#A98462` | Texto secundário |
+| `--accent` | `#4EA8FF` | `#E08A3C` | Ação principal, séries de gráfico |
+| `--ok` | `#22C55E` | `#A3B84F` | ✓ normal |
+| `--warn` | `#F5B800` | `#F0A030` | ! atenção |
+| `--alert` | `#EF4444` | `#E0503A` | ✕ acionar médico |
+| `--nodata` | `#6B7280` | `#6E5A48` | ? sem dado |
+| `--info` | `#38BDF8` | `#D99A55` | i informação |
+
+Por que tema escuro: os laptops de bordo ficam ligados o dia todo e a tripulação trabalha perto do horário de dormir; um fundo escuro emite menos luz. O modo noturno troca os azuis por âmbar, porque luz azul à noite atrapalha o sono (o tema de iluminação circadiana da ISS está em [`01-contexto-missao.md`](01-contexto-missao.md)).
+
+### 5.2 Tipografia e espaçamento
+
+- Fonte do sistema (`system-ui`), sem dependência de rede.
+- Números grandes em 26 px com unidade menor ao lado; rótulos em 12 px; texto em 14 px.
+- Grade de 14 px entre cartões; raio de 10 px.
+- Unidade sempre visível ao lado do número. Nunca mostrar número sem unidade.
+
+### 5.3 Componentes
+
+| Componente | Props principais | Onde aparece |
+| --- | --- | --- |
+| `StatusBadge` | `nivel` (0 a 4), `texto` | Em todo lugar |
+| `MetricCard` | `rotulo`, `valor`, `unidade`, `nivel`, `fonte`, `atualizadoEm` | T1, T5, T6 |
+| `CrewCard` | `tripulante`, `prontidao`, `chips[]`, `alertas` | T1 |
+| `BodyMap` | `estadoPorRegiao`, `onSelect(regiao)`, `lado` (frente ou costas) | T2 |
+| `RegionPanel` | `regiao`, `indicadores[]`, `orientacoes[]` | T2 |
+| `TrendChart` | `serie[]`, `faixas`, `linhaDeBase`, `eventos[]` | T1, T2, T4, T7 |
+| `AlertDetail` | `alerta` (com evidências, ações, fonte) | T4 |
+| `CheckinStep` | `pergunta`, `tipo` (escala, chips, contador, câmera) | T3 |
+| `ModuleMap` | `modulos[]`, `grandeza`, `onSelect` | T5 |
+| `Hypnogram` | `epocas[]` (estágio a cada 30 s) | T6 |
+| `SoundscapeSchedule` | `perfil`, `faixas[]` | T6 |
+
+### 5.4 Animações (com moderação)
+
+- Pulso suave só no nível 4 (emergência).
+- Transição de cor de uma região do corpo quando o estado muda (300 ms).
+- Nada de animação contínua em tela que fica aberta o dia todo.
+
+## 6. Gamificação
+
+Objetivo: aumentar a adesão aos hábitos que a medicina espacial já recomenda, sem criar competição entre colegas.
+
+| Mecânica | Comportamento incentivado | Como medir |
+| --- | --- | --- |
+| Sequência de check-ins | Responder o check-in diário | Dias seguidos com check-in completo |
+| Missão do dia | Uma meta concreta (hidratação, teste de visão semanal) | Meta cumprida no dia |
+| Meta da tripulação | Todos cumprirem a hidratação ou o exercício prescrito | Percentual da tripulação que cumpriu |
+| Medalhas com nomes da natureza | Marcos de constância | Exemplo: "Rio Limpo" por 7 dias de hidratação |
+| **Sons desbloqueáveis** | Constância nos hábitos | Cada marco libera um novo som do perfil cultural do tripulante no óculos Orbit. Liga o software ao óculos. |
+
+Evitar: ranking individual entre tripulantes, punição por meta perdida, notificações insistentes.
+
+## 7. Acessibilidade e ambiente de uso
+
+- Contraste mínimo AA entre texto e fundo nos dois temas.
+- Cor, ícone e palavra juntos em todo estado.
+- Alvos de toque de no mínimo 44 px.
+- Funciona com teclado (o laptop de bordo é o caso principal).
+- Textos curtos; detalhes atrás de "saiba mais".
+
+## 8. Perguntas para o kickoff com a equipe (desenhar juntos)
+
+O dono do projeto pediu que o layout final seja desenhado **com** a equipe. Proposta: 30 minutos no início das 20 horas, passando por estas perguntas. Onde não houver consenso rápido, vale o padrão recomendado.
+
+| # | Pergunta | Padrão recomendado |
+| --- | --- | --- |
+| K1 | A demonstração roda em laptop, tablet ou telão? Qual resolução? | Laptop, 1366 × 768 no mínimo, projetado no telão |
+| K2 | Tema escuro de controle de missão ou tema claro clínico? | Escuro, com modo noturno âmbar |
+| K3 | A equipe já tem paleta, logo ou nome visual em mente? | Usar os tokens da seção 5.1 e o nome "Orbit" |
+| K4 | Idioma da interface na apresentação: português, inglês ou os dois? | Dicionário PT-BR e EN desde o início, apresentação em PT-BR |
+| K5 | Estilo da figura humana: silhueta minimalista, anatômica ou 3D? | Silhueta minimalista em SVG (rápido, nítido, fácil de colorir) |
+| K6 | Quanta gamificação: discreta ou forte? | Discreta: sequência, missão do dia e meta da tripulação |
+| K7 | Qual cenário é a história principal da demo? | C1 (CO2) para mostrar o cruzamento ambiente e corpo, e C3 (SANS) para ligar ao óculos |
+| K8 | Alguma referência visual que a equipe gosta (apps de saúde, painéis da NASA, jogos)? | Anotar e ajustar tokens; não muda a estrutura das telas |

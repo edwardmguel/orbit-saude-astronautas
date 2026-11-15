@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit Saúde: wireframes</title>
+<style>
+  /* Tokens do tema padrão (escuro). Mesmos nomes de docs/07-design-interface.md */
+  :root {
+    --bg: #0A0F1E; --surface: #111A2F; --surface-2: #18233D; --border: #26324F;
+    --text: #E8ECF5; --muted: #94A0B8; --accent: #4EA8FF;
+    --ok: #22C55E; --warn: #F5B800; --alert: #EF4444; --nodata: #6B7280; --info: #38BDF8;
+    --radius: 10px;
+  }
+  /* Modo noturno: pouca luz azul no período pré-sono */
+  .night {
+    --bg: #0D0703; --surface: #1A0F07; --surface-2: #24150A; --border: #3A2414;
+    --text: #F2C79B; --muted: #A98462; --accent: #E08A3C;
+    --ok: #A3B84F; --warn: #F0A030; --alert: #E0503A; --nodata: #6E5A48; --info: #D99A55;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #05070d; color: var(--text); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  h1.page { font-size: 18px; margin: 24px 24px 8px; color: #cfd6e6; }
+  p.page { margin: 0 24px 16px; color: #8d97ab; max-width: 900px; }
+  nav.index { margin: 0 24px 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav.index a { color: #9cc9ff; text-decoration: none; border: 1px solid #26324F; padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+  .frame { margin: 0 24px 40px; }
+  .frame > h2 { font-size: 14px; color: #8d97ab; font-weight: 600; margin: 0 0 8px; letter-spacing: .02em; }
+  .screen { background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; width: 1280px; max-width: 100%; display: grid; grid-template-columns: 200px 1fr; grid-template-rows: 52px 1fr; min-height: 720px; }
+  .topbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; padding: 0 16px; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .logo { font-weight: 800; letter-spacing: .08em; color: var(--accent); }
+  .pill { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
+  .pill b { color: var(--text); font-weight: 600; }
+  .spacer { flex: 1; }
+  .side { background: var(--surface); border-right: 1px solid var(--border); padding: 12px 8px; display: flex; flex-direction: column; gap: 2px; }
+  .side a { color: var(--muted); text-decoration: none; padding: 9px 12px; border-radius: 8px; display: flex; gap: 10px; align-items: center; }
+  .side a.on { background: var(--surface-2); color: var(--text); }
+  .side .ico { width: 18px; text-align: center; }
+  .main { padding: 16px; display: grid; gap: 14px; align-content: start; overflow: hidden; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+  .card h3 { margin: 0 0 10px; font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+  .row { display: flex; gap: 14px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
+  .s-ok { color: var(--ok); } .s-warn { color: var(--warn); } .s-alert { color: var(--alert); } .s-nodata { color: var(--nodata); } .s-info { color: var(--info); }
+  .big { font-size: 26px; font-weight: 700; }
+  .unit { font-size: 12px; color: var(--muted); margin-left: 3px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 12px; }
+  .ring { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 11px; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); }
+  .chip.ok { border-color: var(--ok); } .chip.warn { border-color: var(--warn); } .chip.alert { border-color: var(--alert); }
+  .env { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .env .card { padding: 10px 12px; }
+  .alert-item { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--border); }
+  .alert-item:first-of-type { border-top: 0; }
+  .btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font-size: 13px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #04101f; font-weight: 700; }
+  .spark { height: 36px; width: 100%; }
+  .chart { height: 150px; width: 100%; }
+  .bar { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; }
+  .scale { display: flex; gap: 6px; }
+  .scale span { flex: 1; text-align: center; padding: 10px 0; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); }
+  .scale span.sel { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .steps { display: flex; gap: 6px; }
+  .steps i { flex: 1; height: 6px; border-radius: 999px; background: var(--surface-2); }
+  .steps i.done { background: var(--accent); }
+  .body-wrap { display: grid; grid-template-columns: 420px 1fr; gap: 14px; }
+  svg text { fill: var(--muted); font-size: 11px; }
+  .region { cursor: pointer; stroke-width: 2; }
+  .module { stroke: var(--border); stroke-width: 1.5; }
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: -1px; }
+  .kv { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 12px; align-items: center; }
+  .kv div:nth-child(3n+1) { color: var(--muted); }
+  .pulse { animation: pulse 1.2s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+</style>
+</head>
+<body>
+
+<h1 class="page">Orbit Saúde: wireframes do protótipo</h1>
+<p class="page">Wireframes de média fidelidade para a equipe de desenvolvimento. Todos os nomes de tripulantes e números são fictícios e servem só para mostrar o layout. Faixas e limiares reais estão em docs/03-indicadores-e-limiares.md. A especificação de cada tela está em docs/07-design-interface.md.</p>
+<nav class="index">
+  <a href="#t1">T1 Painel da tripulação</a>
+  <a href="#t2">T2 Meu corpo</a>
+  <a href="#t3">T3 Check-in diário</a>
+  <a href="#t4">T4 Detalhe do alerta</a>
+  <a href="#t5">T5 Ambiente e radiação</a>
+  <a href="#t6">T6 Sono e óculos Orbit (modo noturno)</a>
+</nav>
+
+<!-- ===================== T1 ===================== -->
+<div class="frame" id="t1">
+<h2>T1. Painel da tripulação (tela inicial)</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Dia de missão <b>FD 142</b></span>
+    <span class="pill">GMT <b>318 / 14:32</b></span>
+    <span class="pill">Solo: <b style="color:var(--ok)">com sinal</b>, perda em 12 min</span>
+    <span class="spacer"></span>
+    <span class="pill">Perfil: <b>Astronauta</b></span>
+    <span class="pill">Modo noturno às 21:00</span>
+  </div>
+  <div class="side">
+    <a class="on"><span class="ico">◉</span>Painel</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas <span class="status s-warn" style="margin-left:auto">2</span></a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="env">
+      <div class="card"><div class="small muted">CO2 (ppCO2) Node 3</div><div class="big" style="color:var(--warn)">3,9<span class="unit">mmHg</span></div><span class="status s-warn">! atenção</span></div>
+      <div class="card"><div class="small muted">O2 (ppO2)</div><div class="big">21,3<span class="unit">kPa</span></div><span class="status s-ok">✓ normal</span></div>
+      <div class="card"><div class="small muted">Pressão da cabine</div><div class="big">101,2<span class="unit">kPa</span></div><span class="status s-ok">✓ normal</span></div>
+      <div class="card"><div class="small muted">Temperatura</div><div class="big">22,4<span class="unit">°C</span></div><span class="status s-ok">✓ normal</span></div>
+      <div class="card"><div class="small muted">Umidade</div><div class="big">44<span class="unit">%</span></div><span class="status s-ok">✓ normal</span></div>
+      <div class="card"><div class="small muted">Taxa de dose</div><div class="big">18<span class="unit">µGy/h</span></div><span class="status s-info">i passagem pela SAA</span></div>
+      <div class="card"><div class="small muted">Prótons GOES ≥10 MeV</div><div class="big">0,4<span class="unit">pfu</span></div><span class="status s-ok">✓ sem tempestade</span></div>
+    </div>
+
+    <div class="grid4">
+      <div class="card">
+        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--ok)">86</div><div><b>Tripulante A</b><div class="small muted">Comandante · prontidão</div></div></div>
+        <div class="chips" style="margin-top:10px"><span class="chip ok">Sono</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span><span class="chip ok">Hidratação</span></div>
+        <div class="small muted" style="margin-top:8px">Check-in feito às 07:10 · sequência de 21 dias</div>
+      </div>
+      <div class="card">
+        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--warn)">64</div><div><b>Tripulante B</b><div class="small muted">Engenheira de voo</div></div></div>
+        <div class="chips" style="margin-top:10px"><span class="chip warn">CO2 / cabeça</span><span class="chip warn">Reação</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span></div>
+        <div class="small muted" style="margin-top:8px">1 alerta amarelo · ver detalhe</div>
+      </div>
+      <div class="card">
+        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--warn)">71</div><div><b>Tripulante C</b><div class="small muted">Engenheiro de voo</div></div></div>
+        <div class="chips" style="margin-top:10px"><span class="chip warn">Olhos</span><span class="chip ok">Sono</span><span class="chip ok">Coração</span><span class="chip ok">Hidratação</span></div>
+        <div class="small muted" style="margin-top:8px">Teste de Amsler piorou · exame sugerido</div>
+      </div>
+      <div class="card">
+        <div class="row" style="align-items:center"><div class="ring" style="border:5px solid var(--nodata)">?</div><div><b>Tripulante D</b><div class="small muted">Engenheira de voo</div></div></div>
+        <div class="chips" style="margin-top:10px"><span class="chip">Sono sem dado</span><span class="chip ok">Coração</span><span class="chip ok">Olhos</span></div>
+        <div class="small muted" style="margin-top:8px">Check-in pendente há 26 h · lembrar</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Alertas abertos</h3>
+        <div class="alert-item"><span class="status s-warn">!</span><div><b>Possível efeito de CO2 elevado</b><div class="small muted">Tripulante B · ppCO2 alto no Node 3 + dor de cabeça + reação mais lenta que a linha de base</div></div><span class="btn">Ver</span></div>
+        <div class="alert-item"><span class="status s-warn">!</span><div><b>Mudança no teste de visão</b><div class="small muted">Tripulante C · 2 testes de Amsler seguidos com distorção relatada</div></div><span class="btn">Ver</span></div>
+      </div>
+      <div class="card">
+        <h3>Prontidão da tripulação, últimos 14 dias</h3>
+        <svg class="chart" viewBox="0 0 560 150" preserveAspectRatio="none">
+          <rect x="0" y="0" width="560" height="40" fill="var(--ok)" opacity=".06"/>
+          <rect x="0" y="40" width="560" height="50" fill="var(--warn)" opacity=".06"/>
+          <rect x="0" y="90" width="560" height="60" fill="var(--alert)" opacity=".06"/>
+          <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="0,30 40,28 80,35 120,32 160,38 200,30 240,26 280,34 320,45 360,52 400,48 440,44 480,40 520,36 560,34"/>
+          <polyline fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4" points="0,40 40,42 80,45 120,40 160,50 200,55 240,60 280,58 320,62 360,70 400,66 440,64 480,60 520,58 560,62"/>
+        </svg>
+        <div class="legend"><span><i class="dot" style="background:var(--accent)"></i>média da tripulação</span><span><i class="dot" style="background:var(--warn)"></i>Tripulante B</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T2 ===================== -->
+<div class="frame" id="t2">
+<h2>T2. Meu corpo: figura humana clicável</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Tripulante C</span>
+    <span class="pill">FD 142</span>
+    <span class="spacer"></span>
+    <span class="pill">Frente · <b>Costas</b></span>
+  </div>
+  <div class="side">
+    <a><span class="ico">◉</span>Painel</a>
+    <a class="on"><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas</a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="body-wrap">
+      <div class="card" style="display:grid;place-items:center">
+        <svg viewBox="0 0 300 560" width="300" height="560" aria-label="Figura humana com regiões clicáveis">
+          <!-- corpo base -->
+          <g fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5">
+            <circle cx="150" cy="60" r="42"/>
+            <rect x="135" y="100" width="30" height="20" rx="6"/>
+            <rect x="95" y="118" width="110" height="170" rx="30"/>
+            <rect x="55" y="125" width="34" height="160" rx="16"/>
+            <rect x="211" y="125" width="34" height="160" rx="16"/>
+            <rect x="102" y="290" width="44" height="230" rx="18"/>
+            <rect x="154" y="290" width="44" height="230" rx="18"/>
+          </g>
+          <!-- regiões com status -->
+          <circle class="region" cx="150" cy="48" r="26" fill="var(--ok)" fill-opacity=".25" stroke="var(--ok)"><title>Cérebro e mente: verde</title></circle>
+          <ellipse class="region" cx="134" cy="66" rx="9" ry="6" fill="var(--warn)" fill-opacity=".5" stroke="var(--warn)"><title>Olhos: amarelo</title></ellipse>
+          <ellipse class="region" cx="166" cy="66" rx="9" ry="6" fill="var(--warn)" fill-opacity=".5" stroke="var(--warn)"/>
+          <rect class="region" x="104" y="56" width="8" height="18" rx="4" fill="var(--ok)" fill-opacity=".3" stroke="var(--ok)"><title>Ouvidos</title></rect>
+          <rect class="region" x="188" y="56" width="8" height="18" rx="4" fill="var(--ok)" fill-opacity=".3" stroke="var(--ok)"/>
+          <path class="region" d="M118 140 h64 v52 h-64 z" fill="var(--ok)" fill-opacity=".2" stroke="var(--ok)"><title>Pulmões</title></path>
+          <circle class="region" cx="160" cy="170" r="14" fill="var(--ok)" fill-opacity=".35" stroke="var(--ok)"><title>Coração</title></circle>
+          <path class="region" d="M118 200 h64 v40 h-64 z" fill="var(--ok)" fill-opacity=".2" stroke="var(--ok)"><title>Digestão e nutrição</title></path>
+          <ellipse class="region" cx="128" cy="255" rx="10" ry="14" fill="var(--ok)" fill-opacity=".3" stroke="var(--ok)"><title>Rins e hidratação</title></ellipse>
+          <ellipse class="region" cx="172" cy="255" rx="10" ry="14" fill="var(--ok)" fill-opacity=".3" stroke="var(--ok)"/>
+          <rect class="region" x="110" y="330" width="28" height="160" rx="12" fill="var(--warn)" fill-opacity=".18" stroke="var(--warn)" stroke-dasharray="5 3"><title>Ossos: perda estimada</title></rect>
+          <rect class="region" x="162" y="330" width="28" height="160" rx="12" fill="var(--warn)" fill-opacity=".18" stroke="var(--warn)" stroke-dasharray="5 3"/>
+          <rect class="region" x="60" y="140" width="24" height="70" rx="10" fill="var(--ok)" fill-opacity=".2" stroke="var(--ok)"><title>Músculos</title></rect>
+          <rect class="region" x="216" y="140" width="24" height="70" rx="10" fill="var(--ok)" fill-opacity=".2" stroke="var(--ok)"/>
+          <text x="20" y="40">Cérebro</text><text x="20" y="72">Olhos</text><text x="20" y="175">Coração</text><text x="230" y="250">Rins</text><text x="215" y="410">Ossos</text>
+        </svg>
+        <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>✓ normal</span><span><i class="dot" style="background:var(--warn)"></i>! atenção</span><span><i class="dot" style="background:var(--alert)"></i>✕ acionar médico</span><span><i class="dot" style="background:var(--nodata)"></i>? sem dado</span></div>
+      </div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <div class="card">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div><div class="small muted">Região selecionada</div><div class="big">Olhos</div></div>
+            <span class="status s-warn">! atenção</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">Em microgravidade, líquidos do corpo sobem para a cabeça. Isso pode mudar o formato do olho e o nervo óptico (SANS, Síndrome Neuro-Ocular Associada ao Voo Espacial). Mudanças pequenas na visão de perto ou linhas tortas na grade de Amsler podem ser os primeiros sinais.</p>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>Indicadores</h3>
+            <div class="kv">
+              <div>Grade de Amsler</div><div>distorção em 2 testes</div><span class="status s-warn">!</span>
+              <div>Acuidade de perto</div><div>-1 linha vs base</div><span class="status s-warn">!</span>
+              <div>Visão embaçada relatada</div><div>sim, 3 dias</div><span class="status s-warn">!</span>
+              <div>OCT (último exame)</div><div>FD 90</div><span class="status s-ok">✓</span>
+              <div>Dor de cabeça</div><div>não</div><span class="status s-ok">✓</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Acuidade de perto, últimos 60 dias</h3>
+            <svg class="chart" viewBox="0 0 300 150" preserveAspectRatio="none">
+              <rect x="0" y="0" width="300" height="60" fill="var(--ok)" opacity=".07"/><rect x="0" y="60" width="300" height="50" fill="var(--warn)" opacity=".07"/>
+              <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="0,35 30,36 60,34 90,38 120,37 150,40 180,45 210,52 240,60 270,66 300,70"/>
+            </svg>
+          </div>
+        </div>
+        <div class="card">
+          <h3>O que fazer</h3>
+          <ol style="margin:0;padding-left:18px" class="muted">
+            <li>Refaça o teste de Amsler e o de acuidade amanhã no mesmo horário e com a mesma luz.</li>
+            <li>Se usar óculos de grau ajustado para o voo, confirme que está com eles.</li>
+            <li>O software preparou um resumo para o médico de voo sugerindo antecipar o exame de OCT e fundo de olho.</li>
+          </ol>
+          <div class="row" style="margin-top:12px"><span class="btn primary">Fazer teste de Amsler agora</span><span class="btn">Enviar resumo ao médico de voo</span><span class="btn">Por que estou vendo isto?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T3 ===================== -->
+<div class="frame" id="t3">
+<h2>T3. Check-in diário (meta: 2 minutos)</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Check-in da manhã</span>
+    <span class="spacer"></span>
+    <span class="pill">Sequência: <b>21 dias</b> 🔥</span>
+    <span class="pill">Nível <b>7</b> · 1.420 pontos</span>
+  </div>
+  <div class="side">
+    <a><span class="ico">◉</span>Painel</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a class="on"><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas</a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="steps"><i class="done"></i><i class="done"></i><i class="done"></i><i></i><i></i><i></i></div>
+    <div class="small muted">Passo 4 de 6 · Sono ✓ · Energia ✓ · Humor ✓ · <b style="color:var(--text)">Sintomas</b> · Hidratação · Testes rápidos</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Você sente alguma destas coisas hoje?</h3>
+        <div class="chips" style="gap:8px">
+          <span class="chip warn" style="padding:8px 12px">Dor de cabeça ✓</span>
+          <span class="chip" style="padding:8px 12px">Visão embaçada</span>
+          <span class="chip" style="padding:8px 12px">Nariz entupido</span>
+          <span class="chip" style="padding:8px 12px">Rosto inchado</span>
+          <span class="chip" style="padding:8px 12px">Dor nas costas</span>
+          <span class="chip" style="padding:8px 12px">Enjoo</span>
+          <span class="chip" style="padding:8px 12px">Pele irritada</span>
+          <span class="chip" style="padding:8px 12px">Dificuldade de concentração</span>
+          <span class="chip" style="padding:8px 12px">Nenhuma</span>
+        </div>
+        <h3 style="margin-top:16px">Intensidade da dor de cabeça</h3>
+        <div class="scale"><span>0</span><span>1</span><span>2</span><span class="sel">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+        <div class="small muted" style="margin-top:6px">Escala numérica de dor, 0 = nenhuma, 10 = pior possível</div>
+      </div>
+      <div class="card">
+        <h3>Antes, nesta manhã</h3>
+        <div class="kv">
+          <div>Sono (como você dormiu)</div><div>Razoável</div><span class="status s-ok">✓</span>
+          <div>Fadiga (escala de 1 a 7)</div><div>4</div><span class="status s-warn">!</span>
+          <div>Humor</div><div>Bom</div><span class="status s-ok">✓</span>
+        </div>
+        <h3 style="margin-top:16px">Próximos passos</h3>
+        <div class="kv">
+          <div>Hidratação</div><div>+250 mL por toque</div><span class="small muted">30 s</span>
+          <div>Foto da cor da urina</div><div>câmera</div><span class="small muted">20 s</span>
+          <div>Teste de reação (PVT)</div><div>3 minutos</div><span class="small muted">3 min</span>
+          <div>Grade de Amsler</div><div>1 olho por vez</div><span class="small muted">40 s</span>
+        </div>
+        <div class="card" style="margin-top:14px;background:var(--surface-2)">
+          <b>Missão do dia</b><div class="small muted">Beba 2 garrafas antes do almoço e ganhe a medalha "Rio Limpo" 🏅</div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><span class="btn">Voltar</span><span class="spacer"></span><span class="btn primary">Continuar</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T4 ===================== -->
+<div class="frame" id="t4">
+<h2>T4. Detalhe do alerta: explicável e com fonte</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Alerta #A-0142-03</span>
+    <span class="spacer"></span>
+    <span class="pill">Aberto há <b>38 min</b></span>
+  </div>
+  <div class="side">
+    <a><span class="ico">◉</span>Painel</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a class="on"><span class="ico">!</span>Alertas</a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="card">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <div><span class="status s-warn">! AMARELO · ação do próprio tripulante</span><div class="big" style="margin-top:6px">Possível efeito de CO2 elevado</div><div class="muted">Tripulante B · Node 3 · desde 13:54 GMT</div></div>
+        <div class="row"><span class="btn">Adiar 1 h</span><span class="btn primary">Marcar como feito</span></div>
+      </div>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <h3>Por que estou vendo isto</h3>
+        <div class="kv">
+          <div>ppCO2 no Node 3</div><div>3,9 mmHg por 2 h</div><span class="status s-warn">!</span>
+          <div>Dor de cabeça (check-in)</div><div>3 de 10</div><span class="status s-warn">!</span>
+          <div>Teste de reação</div><div>+18% vs sua base</div><span class="status s-warn">!</span>
+          <div>Sono da última noite</div><div>normal</div><span class="status s-ok">✓</span>
+        </div>
+        <p class="small muted" style="margin-top:10px">Regra de cruzamento R-CO2-01: CO2 do módulo acima do limite de atenção E pelo menos um sintoma compatível no mesmo período.</p>
+      </div>
+      <div class="card">
+        <h3>O que fazer agora</h3>
+        <ol style="margin:0;padding-left:18px" class="muted">
+          <li>Trabalhe por um tempo num módulo com CO2 mais baixo (Lab está em 2,6 mmHg).</li>
+          <li>Verifique se o ventilador do posto de trabalho está ligado e sem obstrução.</li>
+          <li>Beba água e refaça o teste de reação em 2 horas.</li>
+          <li>Se a dor de cabeça passar de 6 ou vier com tontura, o alerta sobe para vermelho e chama o médico de voo.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Fonte da regra</h3>
+        <p class="muted small" style="margin:0">Limite de CO2 e relação com sintomas: ver docs/03-indicadores-e-limiares.md, linha CO2, com a referência oficial da NASA citada.</p>
+        <h3 style="margin-top:14px">Quem já sabe</h3>
+        <div class="kv">
+          <div>Tripulante B</div><div>notificado</div><span class="status s-ok">✓</span>
+          <div>Controle ambiental (solo)</div><div>na fila</div><span class="status s-info">i</span>
+          <div>Médico de voo</div><div>só se subir</div><span class="status s-nodata">·</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>CO2 no Node 3 e tempo de reação, hoje</h3>
+      <svg class="chart" viewBox="0 0 1000 150" preserveAspectRatio="none">
+        <rect x="0" y="0" width="1000" height="55" fill="var(--warn)" opacity=".07"/>
+        <line x1="0" y1="55" x2="1000" y2="55" stroke="var(--warn)" stroke-dasharray="6 4"/>
+        <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="0,110 100,105 200,100 300,96 400,90 500,70 560,52 620,45 700,42 800,44 900,48 1000,50"/>
+        <polyline fill="none" stroke="var(--info)" stroke-width="2" stroke-dasharray="3 4" points="0,100 200,98 400,95 600,80 700,70 800,72 1000,74"/>
+      </svg>
+      <div class="legend"><span><i class="dot" style="background:var(--accent)"></i>ppCO2 (mmHg)</span><span><i class="dot" style="background:var(--info)"></i>tempo de reação (ms)</span><span><i class="dot" style="background:var(--warn)"></i>limite de atenção</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T5 ===================== -->
+<div class="frame" id="t5">
+<h2>T5. Ambiente da estação e radiação</h2>
+<div class="screen">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Ambiente</span>
+    <span class="spacer"></span>
+    <span class="pill">Fonte: <b>simulado</b> · ao vivo: telemetria pública ISS Live</span>
+  </div>
+  <div class="side">
+    <a><span class="ico">◉</span>Painel</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a class="on"><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas</a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="card">
+      <h3>Mapa dos módulos, colorido por CO2</h3>
+      <svg viewBox="0 0 1000 220" width="100%" height="220">
+        <rect class="module" x="40" y="90" width="110" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="62" y="120">Zvezda</text>
+        <rect class="module" x="160" y="90" width="90" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="178" y="120">Zarya</text>
+        <rect class="module" x="260" y="90" width="80" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="275" y="120">Node 1</text>
+        <rect class="module" x="350" y="90" width="130" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="385" y="120">Lab Destiny</text>
+        <rect class="module" x="490" y="90" width="80" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="505" y="120">Node 2</text>
+        <rect class="module" x="580" y="90" width="110" height="50" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="605" y="120">Columbus</text>
+        <rect class="module" x="490" y="20" width="80" height="60" rx="10" fill="var(--ok)" fill-opacity=".25"/><text x="510" y="55">Kibo</text>
+        <rect class="module" x="260" y="150" width="80" height="55" rx="10" fill="var(--warn)" fill-opacity=".35"/><text x="275" y="182">Node 3</text>
+        <text x="720" y="70">Clique num módulo para ver</text>
+        <text x="720" y="88">CO2, O2, temperatura, umidade,</text>
+        <text x="720" y="106">ruído e quem está lá agora.</text>
+      </svg>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Taxa de dose nas últimas 6 h</h3>
+        <svg class="chart" viewBox="0 0 500 150" preserveAspectRatio="none">
+          <polyline fill="none" stroke="var(--accent)" stroke-width="2" points="0,120 30,118 60,119 70,60 80,118 120,117 150,116 160,120 190,119 200,55 212,118 250,117 280,119 290,120 320,118 330,62 342,118 380,117 420,119 430,58 442,118 500,118"/>
+        </svg>
+        <div class="small muted">Os picos curtos são as passagens pela Anomalia do Atlântico Sul (SAA), previstas pela posição da estação.</div>
+      </div>
+      <div class="card">
+        <h3>Dose acumulada da missão</h3>
+        <div class="kv">
+          <div>Tripulante A</div><div>58 mSv</div><span class="small muted">limite de carreira</span>
+        </div>
+        <div class="bar" style="margin:8px 0 14px"><i style="width:10%;background:var(--ok)"></i></div>
+        <div class="small muted">Barra em relação ao limite de carreira da NASA. Número e regra exatos em docs/03.</div>
+        <h3 style="margin-top:14px">Clima espacial</h3>
+        <div class="kv">
+          <div>Prótons GOES ≥10 MeV</div><div>0,4 pfu</div><span class="status s-ok">✓</span>
+          <div>Índice Kp</div><div>3</div><span class="status s-ok">✓</span>
+          <div>Último evento DONKI</div><div>CME há 2 dias</div><span class="status s-info">i</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== T6 ===================== -->
+<div class="frame" id="t6">
+<h2>T6. Sono e óculos Orbit (mostrado em modo noturno)</h2>
+<div class="screen night">
+  <div class="topbar">
+    <span class="logo">ORBIT</span>
+    <span class="pill">Modo noturno · pré-sono</span>
+    <span class="spacer"></span>
+    <span class="pill">Óculos: <b>conectado</b> · bateria 72%</span>
+  </div>
+  <div class="side">
+    <a><span class="ico">◉</span>Painel</a>
+    <a><span class="ico">♙</span>Meu corpo</a>
+    <a><span class="ico">✓</span>Check-in</a>
+    <a><span class="ico">▦</span>Ambiente</a>
+    <a><span class="ico">!</span>Alertas</a>
+    <a><span class="ico">∿</span>Tendências</a>
+    <a class="on"><span class="ico">◐</span>Sono e Orbit</a>
+  </div>
+  <div class="main">
+    <div class="grid3">
+      <div class="card"><div class="small muted">Sono da última noite</div><div class="big">6 h 12<span class="unit">min</span></div><span class="status s-warn">! abaixo do programado</span></div>
+      <div class="card"><div class="small muted">Eficiência do sono</div><div class="big">84<span class="unit">%</span></div><span class="status s-ok">✓</span></div>
+      <div class="card"><div class="small muted">Ruído na cabine de dormir</div><div class="big">52<span class="unit">dBA</span></div><span class="status s-warn">! atenção</span></div>
+    </div>
+    <div class="card">
+      <h3>Hipnograma (EEG do óculos)</h3>
+      <svg class="chart" viewBox="0 0 1000 150" preserveAspectRatio="none">
+        <text x="0" y="18">Acordado</text><text x="0" y="48">REM</text><text x="0" y="78">N1</text><text x="0" y="108">N2</text><text x="0" y="138">N3</text>
+        <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="80,15 110,15 110,75 140,75 140,105 200,105 200,135 260,135 260,105 300,105 300,45 340,45 340,105 420,105 420,135 450,135 450,105 520,105 520,45 580,45 580,15 590,15 590,105 680,105 680,45 760,45 760,105 840,105 840,45 920,45 920,15 1000,15"/>
+      </svg>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Paisagem sonora de hoje</h3>
+        <div class="kv">
+          <div>Perfil cultural</div><div>Mata Atlântica (Brasil)</div><span class="small muted">editar</span>
+          <div>06:00 manhã</div><div>pássaros ao amanhecer</div><span class="small muted">volume 30%</span>
+          <div>14:00 tarde</div><div>chuva leve</div><span class="small muted">sob demanda</span>
+          <div>20:30 pré-sono</div><div>chuva noturna e grilos</div><span class="small muted">diminui em 30 min</span>
+          <div>21:30 dormir</div><div>desliga sozinho ao detectar sono N2</div><span class="small muted">automático</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Sinais do óculos</h3>
+        <div class="kv">
+          <div>Piscadas por minuto (EOG)</div><div>24</div><span class="status s-ok">✓</span>
+          <div>Índice de fadiga (EOG)</div><div>0,62</div><span class="status s-warn">!</span>
+          <div>Potência alfa (EEG, olhos fechados)</div><div>normal para você</div><span class="status s-ok">✓</span>
+          <div>Luz ambiente</div><div>35 lux, âmbar</div><span class="status s-ok">✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
