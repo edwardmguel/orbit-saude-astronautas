@@ -1,6 +1,7 @@
 ---
-kind: spec
 title: "Fontes de dados do software"
+kind: spec
+comments: none
 ---
 
 # Fontes de dados do software
@@ -55,6 +56,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 ## 3. A bordo (família A)
 
 ### A1. Telemetria do suporte à vida (ECLSS)
+
 - **O que é:** sensores do sistema de controle ambiental da ISS: analisador de gases (MCA), remoção de CO2 (4B CO2 e CDRA), gerador de oxigênio (OGA), controle de temperatura e umidade (CCAA), sensores de pressão. Acompanhados continuamente pelos controladores ETHOS no controle de missão.
 - **Grandezas:** pressão parcial de CO2 (mmHg), pressão parcial de O2 (kPa ou mmHg), pressão da cabine (kPa), temperatura (°C), umidade relativa (%).
 - **Ajuda a indicar:** CO2 alto, que está associado a dor de cabeça e pior desempenho; falta ou excesso de oxigênio; desconforto térmico; contexto ambiental para qualquer sintoma relatado. O valor é **por módulo**: o software precisa saber onde cada tripulante está.
@@ -62,6 +64,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** perfil de simulação com CO2 por módulo a partir de dados publicados da NASA, e as 3 h gravadas da telemetria pública (B1).
 
 ### A2. Qualidade do ar e da água
+
 - **O que é:** monitor de qualidade do ar (AQM), monitor de atmosfera (SAM), ANITA da ESA, analisador de carbono orgânico da água (TOCA), kits de microbiologia de água, ar e superfícies.
 - **Grandezas:** compostos orgânicos voláteis (mg/m3), carbono orgânico total da água, contagem microbiana (UFC). Por amostra ou campanha, várias vezes analisadas depois.
 - **Ajuda a indicar:** exposição a contaminantes, irritação de olhos e pele, risco de infecção.
@@ -69,6 +72,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** visão futura.
 
 ### A3. Acústica
+
 - **O que é:** medidor de nível sonoro e dosímetros acústicos usados pela tripulação em campanhas.
 - **Grandezas:** dBA e espectro por banda de oitava; norma NC-50 para trabalho (cerca de 58 dBA) e NC-40 para sono (cerca de 49 dBA); dose de 24 h limitada a 100.
 - **Ajuda a indicar:** sono ruim, cansaço, risco de perda auditiva.
@@ -76,6 +80,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado.
 
 ### A4. Iluminação circadiana
+
 - **O que é:** luminárias de LED da ISS (SSLA) com modos geral, pré-sono e de ajuste de fase.
 - **Grandezas:** modo de luz, iluminância (lux), temperatura de cor (K).
 - **Ajuda a indicar:** se a luz está ajudando ou atrapalhando o ritmo circadiano antes de dormir.
@@ -83,6 +88,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** só pelo sensor de luz simulado do Orbit.
 
 ### A5. Radiação de área
+
 - **O que é:** monitores fixos de radiação (ISS-RAD, TEPC, REM, DOSIS e outros), sob responsabilidade do grupo de análise de radiação (SRAG) do Johnson Space Center.
 - **Grandezas:** taxa de dose absorvida (µGy/h), taxa de dose equivalente (µSv/h), fluxo de partículas.
 - **Ajuda a indicar:** a exposição do ambiente, os picos de cada passagem pela Anomalia do Atlântico Sul e a subida durante eventos solares.
@@ -90,6 +96,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** série histórica real do RadLab (B5) e perfil simulado com os multiplicadores observados no evento solar de setembro de 2017.
 
 ### A6. Dosimetria pessoal
+
 - **O que é:** dosímetro ativo da tripulação (CAD, com gravação contínua e downlink) e dosímetro passivo (CPD, lido em laboratório depois).
 - **Grandezas:** dose acumulada (mSv de dose efetiva; limites por órgão em mGy-Eq).
 - **Ajuda a indicar:** quanto da cota de radiação da carreira cada tripulante já usou (limite da NASA: menos de 600 mSv) e se um evento solar mudou esse saldo.
@@ -97,6 +104,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado.
 
 ### A7. Vestível Bio-Monitor ou Astroskin
+
 - **O que é:** camiseta instrumentada com faixa de cabeça da Agência Espacial Canadense (fabricante Carré Technologies), na ISS desde dezembro de 2018. Grava sessões de até 48 h e transfere o arquivo depois.
 - **Grandezas:** ECG (256 Hz) e frequência cardíaca (bpm), respiração (respirações/min, volume em mL), SpO2 (%), pressão sistólica estimada (mmHg), temperatura da pele (°C), aceleração (g).
 - **Ajuda a indicar:** coração (frequência de repouso, variabilidade), respiração, oxigenação, estresse e recuperação (HRV), atividade.
@@ -104,6 +112,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado.
 
 ### A8. Kit de exame físico
+
 - **O que é:** itens do kit médico da ISS: oxímetro de pulso, manguito de pressão, termômetro, glicosímetro, estetoscópio, analisador point of care (i-STAT).
 - **Grandezas:** SpO2 (%), pressão arterial (mmHg), temperatura corporal (°C), glicose (mg/dL).
 - **Ajuda a indicar:** sinais vitais e glicose, que são exemplos citados no próprio desafio oficial.
@@ -111,6 +120,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** entrada manual no check-in.
 
 ### A9. Imagem e exames de olhos
+
 - **O que é:** ultrassom (Ultrasound 2, desde 2011; Ultrasound 3 a partir de 2025 e 2026), tomografia de coerência óptica (OCT), foto de fundo de olho, tonometria. Feitos em campanhas (por exemplo FD30, FD90 e R-30), com apoio do solo.
 - **Grandezas:** espessura da retina e do disco óptico (µm), pressão intraocular (mmHg), escala de Frisén, imagens.
 - **Ajuda a indicar:** sinais da síndrome neuro-ocular do voo espacial (SANS).
@@ -118,6 +128,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** imagem de OCT de base terrestre opcional (C4).
 
 ### A10. Sangue, urina e saliva
+
 - **O que é:** coletas centrifugadas, congeladas a menos 80 °C e analisadas na Terra; poucos testes point of care a bordo.
 - **Grandezas:** hemoglobina (g/dL), hemograma, marcadores ósseos, cálcio urinário, reativação viral na saliva.
 - **Ajuda a indicar:** anemia do voo espacial, perda óssea, imunidade, risco de cálculo renal.
@@ -125,6 +136,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado com o estado pendente.
 
 ### A11. Massa corporal
+
 - **O que é:** aparelho que mede massa sem gravidade por aceleração (SLAMMD) e o equivalente russo.
 - **Grandezas:** massa (kg).
 - **Ajuda a indicar:** nutrição insuficiente e perda de massa ao longo da missão.
@@ -132,6 +144,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado com tendência de 180 dias.
 
 ### A12. Exercício
+
 - **O que é:** aparelho de resistência (ARED), bicicleta (CEVIS) e esteira (T2), cerca de 2 h por dia.
 - **Grandezas:** carga (kg ou lb), repetições, potência (W), tempo (min), frequência cardíaca.
 - **Ajuda a indicar:** se a proteção de osso, músculo e coração está sendo cumprida.
@@ -139,6 +152,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado.
 
 ### A13. Actigrafia
+
 - **O que é:** relógio de pulso com acelerômetro e sensor de luz (Actiwatch), usado em campanhas de duas semanas.
 - **Grandezas:** movimento por época, luz (lux), horários estimados de sono.
 - **Ajuda a indicar:** tempo e regularidade do sono, atividade.
@@ -146,6 +160,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** simulado.
 
 ### A14. Cognição e comportamento
+
 - **O que é:** teste de reação de 3 minutos (Reaction Self Test, paradigma PVT-B), bateria Cognition, WinSCAT, questionários; conferências médicas e psicológicas privadas.
 - **Grandezas:** tempo de reação (ms), lapsos (respostas a partir de 355 ms), escalas de humor e fadiga.
 - **Ajuda a indicar:** fadiga, falta de sono, atenção, efeito de CO2, humor.
@@ -153,6 +168,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** o PVT de 3 minutos roda de verdade no app.
 
 ### A15. Nutrição e hidratação (ISS FIT)
+
 - **O que é:** aplicativo de registro de alimentação no iPad da tripulação.
 - **Grandezas:** calorias (kcal), proteína (g), líquidos (mL).
 - **Ajuda a indicar:** ingestão insuficiente, hidratação abaixo do plano, risco de cálculo renal (junto com a perda óssea).
@@ -160,6 +176,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** entrada manual (+250 mL por toque e foto da urina).
 
 ### A16. Audição
+
 - **O que é:** avaliação auditiva em órbita (OOHA), a cada 3 meses.
 - **Grandezas:** limiar auditivo (dB HL) por frequência.
 - **Ajuda a indicar:** perda auditiva somada ao ruído da estação.
@@ -167,6 +184,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** visão futura.
 
 ### A17. Óculos Orbit (proposto)
+
 - **O que é:** o óculos do projeto, com EEG frontal, EOG horizontal e vertical, sensor de movimento, sensor de luz e áudio por condução óssea.
 - **Grandezas:** sinais a 250 Hz (97,2 MB por noite de 9 h com 4 canais), estágios do sono a cada 30 s, piscadas por minuto, índice de fadiga, luz (lux).
 - **Ajuda a indicar:** qualidade e estágios do sono, sonolência e fadiga, exposição à luz antes de dormir. **Não detecta SANS.**
@@ -174,6 +192,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** hipnograma pré-calculado de uma base pública de sono (C1).
 
 ### A18. Entrada manual do astronauta
+
 - **O que é:** check-in diário de 2 minutos e testes rápidos no próprio app: sono, energia, humor (1 a 5), sintomas, dor (0 a 10), água, foto da urina, grade de Amsler, acuidade de perto, PVT.
 - **Grandezas:** escalas autorrelatadas, mL, escala de cor da urina de 8 pontos, distorção na grade, tempo de reação.
 - **Ajuda a indicar:** fadiga, humor, dor, sintomas do voo (dor de cabeça, visão embaçada, congestão), primeiros sinais visuais compatíveis com SANS, hidratação. É a fonte que transforma o astronauta em participante ativo, como pede o desafio.
@@ -183,6 +202,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 ## 4. Públicas (família B)
 
 ### B1. Telemetria pública da ISS (ISS Live)
+
 - **O que é:** parcela da telemetria da estação publicada pela NASA e retransmitida pelo servidor `push.lightstreamer.com` (adapter `ISSLIVE`).
 - **Dados:** pressões parciais de O2, N2 e CO2 do laboratório e do Node 3, pressão da cabine, temperatura do ar, estado e produção do gerador de O2, tanques de água e urina. As pressões vêm em torr ou mmHg (confirmado pela gravação de 15/11; ppCO2 do laboratório com mediana de 2,44 mmHg). Não traz umidade, ruído nem sinais vitais.
 - **Ajuda a indicar:** o ambiente real da estação naquele momento.
@@ -190,6 +210,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** 3 h gravadas em `prototipo/dados/amostras-reais/`, com scripts de coleta. Licença de redistribuição não encontrada.
 
 ### B2. Posição da ISS
+
 - **O que é:** serviço aberto Where the ISS at.
 - **Dados:** latitude, longitude, altitude, velocidade.
 - **Ajuda a indicar:** quando a estação cruza a Anomalia do Atlântico Sul, o que explica os picos de taxa de dose.
@@ -197,6 +218,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** gravada junto com o B1 (duas passagens pela SAA).
 
 ### B3. NOAA SWPC
+
 - **O que é:** centro de previsão de clima espacial da NOAA, fonte preferida para alerta.
 - **Dados:** fluxo integral de prótons do satélite GOES (pfu, por energia), índice Kp, alertas e escalas oficiais. Escala S de tempestade de radiação: S1 a partir de 10 pfu, S2 de 100, S3 de 1.000.
 - **Ajuda a indicar:** tempestade de radiação em andamento e atividade geomagnética.
@@ -204,6 +226,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** 7 dias gravados; modo ao vivo opcional.
 
 ### B4. NASA DONKI
+
 - **O que é:** banco de eventos de clima espacial do centro de modelagem da NASA (CCMC), no endereço `ccmc.gsfc.nasa.gov/DONKI-API` (a rota antiga em api.nasa.gov responde 404).
 - **Dados:** explosões solares (FLR), eventos de partículas (SEP), ejeções de massa coronal (CME), tempestades geomagnéticas (GST), com horários e classe.
 - **Ajuda a indicar:** contexto do que está acontecendo no Sol e o que pode chegar.
@@ -211,6 +234,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** 90 dias gravados (55 FLR, 11 SEP, 323 CME, 3 GST).
 
 ### B5. OSDR RadLab
+
 - **O que é:** portal de dados de radiação do repositório aberto da NASA.
 - **Dados:** taxa de dose absorvida (µGy/h), taxa de dose equivalente (µSv/h), fluxo, posição orbital, por instrumento e módulo; cadência de 20 s a 5 min conforme o instrumento.
 - **Ajuda a indicar:** como é a radiação real dentro da ISS, inclusive picos da SAA.
@@ -218,6 +242,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** API testada (DosTel, abril de 2022).
 
 ### B6. OSDR EDA
+
 - **O que é:** aplicação de dados ambientais de experimentos da ISS.
 - **Dados:** temperatura (°C), umidade (%), CO2 (ppm) e doses de campanhas selecionadas.
 - **Ajuda a indicar:** ambiente real de uma missão passada.
@@ -225,6 +250,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** download quando necessário.
 
 ### B7. OSDR, Inspiration4 e SOMA
+
 - **O que é:** dados de pesquisa com astronautas no repositório aberto (por exemplo o conjunto OSD-575 da missão Inspiration4) e o atlas SOMA.
 - **Dados:** painel metabólico, citocinas, painel cardiovascular, hemograma, antes e depois do voo.
 - **Ajuda a indicar:** como os exames de sangue mudam com o voo em casos reais.
@@ -232,6 +258,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** API testada.
 
 ### B8. NLSP, LSDA e LSAH
+
 - **O que é:** portal de ciências da vida da NASA, arquivo de dados do Johnson Space Center e vigilância da saúde dos astronautas.
 - **Dados:** estudos de voo e de análogos; dados individuais só por solicitação formal, com consentimento e comitê de ética. Os resultados anonimizados do Artemis II poderão ser pedidos ao LSDA.
 - **Ajuda a indicar:** valores agregados de astronautas reais para validar o software.
@@ -239,6 +266,7 @@ Panorama de todas as fontes de dados que o Orbit Saúde pode usar: o que cada um
 - **No protótipo:** só catálogo.
 
 ### B9. data.nasa.gov e NTRS
+
 - **O que é:** catálogo de datasets da NASA e servidor de relatórios técnicos.
 - **Dados:** normas, manuais, limites e conjuntos como o TEPC da ISS a cada 10 s.
 - **Ajuda a indicar:** de onde vem cada limiar e cada número citado.
