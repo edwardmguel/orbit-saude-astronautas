@@ -18,6 +18,7 @@ Traycer/
       arquitetura/index.md                    princípios, fluxo de dados, níveis de alerta, protótipo
       design-da-interface/index.md            telas, Monitor geral, wireframes renderizáveis no Traycer, perguntas de kickoff
       plano-prototipo-20h/index.md            escopo, versão comprimida do plano, pontos de controle
+      revisao-prompt-orbita/index.md          prompt ORBITA da equipe revisado, design responsivo, Visão geral em tela grande, correção da PIO2
 ```
 
 Cada artefato é uma pasta com um `index.md`. O cabeçalho (frontmatter) traz `kind` (`story` ou `spec`), `title` e, na story, `status` (0 a fazer, 1 em andamento, 2 concluído). A linha `comments:` é mantida pelo próprio Traycer. Os links entre artefatos são relativos (`../brief`, `frentes-de-pesquisa`), então continuam funcionando depois da importação. Os blocos ```` ```wireframe ```` do artefato de design são renderizados pelo Traycer como telas.
@@ -56,7 +57,7 @@ O `<id-do-épico>` aparece no Traycer (ou, para um agente rodando dentro do Tray
    EPIC="<id-do-épico>"
    cp -R ./Traycer/artifacts/nasa-orbit-saude-astronautas "$HOME/.traycer/epics/$EPIC/artifacts/"
    ```
-5. Abra o épico no Traycer e confira que a story "NASA: Orbit, monitoramento de saúde de astronautas" aparece com os 6 filhos.
+5. Abra o épico no Traycer e confira que a story "NASA: Orbit, monitoramento de saúde de astronautas" aparece com os 7 filhos.
 6. Se já existir uma story com o mesmo nome no épico de destino, **não sobrescreva sem conferir**: compare os dois `index.md` e pergunte ao dono qual versão vale.
 
 Comentários que o dono tiver feito na EPIC original ficam em pastas `.comments/` dentro de cada artefato. Esta exportação foi feita quando não havia nenhum comentário. Comentários são estado do Traycer e não precisam ser importados.

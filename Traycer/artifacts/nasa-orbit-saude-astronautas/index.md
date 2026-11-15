@@ -25,6 +25,8 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | Contexto para a IA de desenvolvimento | ✅ `AGENTS.md` |
 | Cópia desta EPIC no repositório, com instruções de importação | ✅ `Traycer/` (15/11, 08h40) |
 | Plano comprimido para caber no prazo de hoje (cerca de 14 horas mais o envio) | ✅ `docs/08`, seção 0.1 |
+| Prompt ORBITA da equipe conectado à pesquisa: revisão, design responsivo com Visão geral em tela grande (aprovada pelo dono), desenhos de 18 telas, prompt corrigido para o Lovable e base da ORBITA IA (15/11, 12h) | ✅ `docs/17` a `docs/19`, `docs/wireframes/orbita-responsivo.html`, `prototipo/config/orbita-ia-base.json`; ver [Revisão do prompt ORBITA](revisao-prompt-orbita) |
+| Correção da PIO2 do módulo: calculada da ppO2 e da pressão total, alvo de normoxia separado dos limites de exposição; indicadores e perfis passam a 37 | ✅ `indicadores.json`, `docs/03`, `docs/04` (A1) |
 
 ## O que o dono precisa decidir ao acordar
 
@@ -36,6 +38,7 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | Redistribuição das amostras reais da ISS | Licença do conteúdo não encontrada | `pesquisa/bruto/11` |
 | Critérios de julgamento e regra de uso de IA | Página global fora do ar durante a pesquisa | `docs/08`, seção 0 |
 | Kickoff com a equipe: perguntas K1 a K8 de design | O layout final é desenhado com a equipe | [Design da interface](design-da-interface) |
+| Ícone oficial do ORBITA em SVG | A tela de inicialização e o cabeçalho usam marcador provisório até ele chegar | `prototipo/marca/orbita-icone.svg` |
 
 ## Artefatos
 
@@ -43,6 +46,7 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | --- | --- |
 | [Brief do épico](brief) | Problema, escopo, entregáveis, decisões tomadas e em aberto |
 | [Frentes de pesquisa](frentes-de-pesquisa) | Roteiro das 19 frentes, revisões, achados, lacunas encontradas no caminho, consolidação e cota do Codex |
+| [Revisão do prompt ORBITA e design responsivo](revisao-prompt-orbita) | O prompt da equipe para o Lovable revisado contra a pesquisa: o que manter, as 8 correções, as 18 telas responsivas (com a Visão geral em tela grande) e o prompt corrigido |
 | [Fontes de dados do software](fontes-de-dados) | As 33 fontes de dados (18 a bordo, 9 públicas, 6 terrestres e análogos) e os 3 arquivos do projeto, item por item: o que ajudam a indicar e como o software as usa |
 | [Arquitetura do software](arquitetura) | Offline-first, módulos, fluxo de dados, onde entra o ML |
 | [Design da interface](design-da-interface) | Telas, Monitor geral, wireframes, cores alinhadas às convenções da NASA, perguntas de kickoff |

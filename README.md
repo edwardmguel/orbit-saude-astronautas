@@ -4,6 +4,8 @@ Software de monitoramento de saúde para astronautas em missões de longa duraç
 
 > **Estado em 15/11/2026, 05h50:** Passo 0 concluído. 19 frentes de pesquisa aprovadas, 17 documentos consolidados, configuração de indicadores e perfis de simulação prontos, amostras reais gravadas para a demonstração. O protótipo do software começa no kickoff da equipe.
 >
+> **Atualização em 15/11/2026, 12h:** o prompt ORBITA da equipe foi conectado à pesquisa. O app é responsivo, com a Visão geral também em tela grande. A revisão está em `docs/17`, o design e os desenhos das telas em `docs/18`, e o prompt corrigido para o Lovable em `docs/19`.
+>
 > **Prazo:** pela página oficial do evento, o envio fecha **domingo, 15/11, às 23h59 no horário do evento local**. Ver [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), seção 0.
 
 ## O problema
