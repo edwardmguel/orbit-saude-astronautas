@@ -224,7 +224,7 @@ As duas frentes de pesquisa discordam sobre a unidade dos itens de pressão parc
 | Frente 1 ([`01-eclss-ambiente-radiacao.md`](../pesquisa/bruto/01-eclss-ambiente-radiacao.md), D4) | Mapa comunitário ISS-Mimic [SECUNDÁRIA](https://iss-mimic.github.io/Mimic/) | ppO2, ppN2, ppCO2 e pressão da cabine em **torr** |
 | Frente 6 ([`06-dados-abertos-software-fluxo.md`](../pesquisa/bruto/06-dados-abertos-software-fluxo.md), 1.3) | Dicionário do projeto de exemplo da Lightstreamer [SECUNDÁRIA](https://github.com/Lightstreamer/Lightstreamer-example-ISSLive-client-javascript/blob/master/src/assets/PUIList.xml) | ppO2, ppN2 e ppCO2 de nós e laboratório em **psia** |
 
-As duas fontes são secundárias e nenhuma é dicionário oficial. A mesma discordância aparece, menor, nas temperaturas (°C no mapa comunitário, CNT no dicionário do projeto). **A frente 11 da pesquisa vai resolver com amostras reais do feed.** Até lá, o adaptador ISS Live guarda `valorOriginal` e `unidadeOriginal` como vieram e não gera cor de limiar a partir desses itens.
+As duas fontes são secundárias e nenhuma é dicionário oficial. A mesma discordância aparece, menor, nas temperaturas (°C no mapa comunitário, CNT no dicionário do projeto). **Resolvido pela frente 11 com 2 horas de amostras reais (15/11/2026):** pela ordem de grandeza, os itens de pressão **não estão em psia**; são compatíveis com torr ou mmHg, que na prática são a mesma escala. A pressão parcial de CO2 do laboratório (`USLAB000055`) teve mediana de 2,44, coerente com mmHg. As temperaturas seguem com a dúvida entre °C e contagens (CNT), e os tanques ficaram sem unidade confirmada. O adaptador ISS Live guarda `valorOriginal` e `unidadeOriginal`, trata as pressões como mmHg e não gera cor de limiar a partir das temperaturas e dos tanques. Detalhes, cadência por item e lacunas do feed em [`../pesquisa/bruto/11-amostras-reais.md`](../pesquisa/bruto/11-amostras-reais.md); arquivos em `prototipo/dados/amostras-reais/`.
 
 Pista para a frente 11 [INFERÊNCIA, com as conversões de [`04-cruzamento-de-dados.md`](04-cruzamento-de-dados.md), A1: 1 psia = 6,89476 kPa = 51,71 mmHg; a pesquisa trata torr e mmHg como equivalentes]: a ordem de grandeza da amostra separa as hipóteses.
 
@@ -438,7 +438,7 @@ Regras de ingestão para o Dev B (adaptadores em `src/adapters/`):
 
 ## 8. Lacunas e pendências
 
-- **Unidade dos itens de pressão e temperatura do ISS Live:** torr ou psia, °C ou CNT (seção 2.7.1). A frente 11 resolve com amostras reais.
+- **Unidade dos itens de temperatura e tanques do ISS Live:** °C ou CNT ainda em aberto (seção 2.7.1). As pressões foram resolvidas pela frente 11: torr ou mmHg, não psia.
 - **NÃO ENCONTRADO:** fluxo público de dados fisiológicos individuais, telemetria de saúde ou prontuário da ISS; dicionário oficial versionado do ISS Live com unidades e SLA. [OFICIAL](https://nlsp.nasa.gov/)
 - **DONKI:** a rota de api.nasa.gov deu 404 e a CCMC migrou de host; revalidar endpoint e autenticação na data da integração. [OFICIAL](https://ccmc.gsfc.nasa.gov/news/major-updates/)
 - **NOAA:** aviso de mudança de formatos em 2026; o adaptador precisa validar esquema. [OFICIAL](https://www.weather.gov/media/notification/pdf_2026/scn26-21_Data_Format_Changes_Impacting_SWPC_Products.pdf)

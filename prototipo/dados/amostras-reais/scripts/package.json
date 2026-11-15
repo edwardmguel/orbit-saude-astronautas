@@ -1,0 +1,12 @@
+{
+  "name": "orbit-real-data-samples",
+  "private": true,
+  "description": "Coleta de demonstração dos feeds públicos ISSLIVE, NOAA SWPC e posição da ISS",
+  "type": "commonjs",
+  "scripts": {
+    "record:iss": "node record-isslive.cjs"
+  },
+  "dependencies": {
+    "lightstreamer-client-node": "9.2.2"
+  }
+}

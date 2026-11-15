@@ -1,0 +1,215 @@
+{
+  "periodoDonki": {
+    "inicio": "2026-08-17",
+    "fim": "2026-11-15"
+  },
+  "recuperadoEmUtc": "2026-11-15T05:44:53.867Z",
+  "arquivos": [
+    {
+      "arquivo": "noaa-integral-protons-7-day.json",
+      "url": "https://services.swpc.noaa.gov/json/goes/primary/integral-protons-7-day.json",
+      "recuperadoEmUtc": "2026-11-15T05:44:55.127Z",
+      "statusHttp": 200,
+      "bytes": 2053190,
+      "registros": 16104,
+      "camposDoPrimeiroRegistro": [
+        "time_tag",
+        "satellite",
+        "flux",
+        "energy"
+      ]
+    },
+    {
+      "arquivo": "noaa-planetary-k-index-1m.json",
+      "url": "https://services.swpc.noaa.gov/json/planetary_k_index_1m.json",
+      "recuperadoEmUtc": "2026-11-15T05:44:55.268Z",
+      "statusHttp": 200,
+      "bytes": 38220,
+      "registros": 358,
+      "camposDoPrimeiroRegistro": [
+        "time_tag",
+        "kp_index",
+        "estimated_kp",
+        "kp"
+      ]
+    },
+    {
+      "arquivo": "noaa-alerts.json",
+      "url": "https://services.swpc.noaa.gov/products/alerts.json",
+      "recuperadoEmUtc": "2026-11-15T05:44:55.408Z",
+      "statusHttp": 200,
+      "bytes": 45678,
+      "registros": 72,
+      "camposDoPrimeiroRegistro": [
+        "product_id",
+        "issue_datetime",
+        "message"
+      ]
+    },
+    {
+      "arquivo": "noaa-scales-snapshot.json",
+      "url": "https://services.swpc.noaa.gov/products/noaa-scales.json",
+      "recuperadoEmUtc": "2026-11-15T05:44:55.545Z",
+      "statusHttp": 200,
+      "bytes": 1593,
+      "registros": null,
+      "camposDoPrimeiroRegistro": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "-1"
+      ]
+    },
+    {
+      "arquivo": "donki-flr-2026-08-17-to-2026-10-01.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR?startDate=2026-08-17&endDate=2026-10-01&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:44:56.519Z",
+      "statusHttp": 200,
+      "bytes": 21168,
+      "registros": 31,
+      "camposDoPrimeiroRegistro": [
+        "flrID",
+        "catalog",
+        "instruments",
+        "beginTime",
+        "peakTime",
+        "endTime",
+        "classType",
+        "sourceLocation",
+        "activeRegionNum",
+        "note",
+        "link",
+        "linkedEvents",
+        "sentNotifications",
+        "submissionTime",
+        "versionId"
+      ]
+    },
+    {
+      "arquivo": "donki-flr-2026-10-02-to-2026-11-15.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR?startDate=2026-10-02&endDate=2026-11-15&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:44:57.785Z",
+      "statusHttp": 200,
+      "bytes": 16057,
+      "registros": 24,
+      "camposDoPrimeiroRegistro": [
+        "flrID",
+        "catalog",
+        "instruments",
+        "beginTime",
+        "peakTime",
+        "endTime",
+        "classType",
+        "sourceLocation",
+        "activeRegionNum",
+        "note",
+        "link",
+        "linkedEvents",
+        "sentNotifications",
+        "submissionTime",
+        "versionId"
+      ]
+    },
+    {
+      "arquivo": "donki-sep-2026-08-17-to-2026-10-01.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/SEP?startDate=2026-08-17&endDate=2026-10-01&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:44:59.049Z",
+      "statusHttp": 200,
+      "bytes": 7325,
+      "registros": 11,
+      "camposDoPrimeiroRegistro": [
+        "sepID",
+        "eventTime",
+        "instruments",
+        "link",
+        "linkedEvents",
+        "sentNotifications",
+        "submissionTime",
+        "versionId"
+      ]
+    },
+    {
+      "arquivo": "donki-sep-2026-10-02-to-2026-11-15.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/SEP?startDate=2026-10-02&endDate=2026-11-15&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:45:00.252Z",
+      "statusHttp": 200,
+      "bytes": 3,
+      "registros": 0,
+      "camposDoPrimeiroRegistro": []
+    },
+    {
+      "arquivo": "donki-cme-2026-08-17-to-2026-10-01.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/CME?startDate=2026-08-17&endDate=2026-10-01&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:45:02.463Z",
+      "statusHttp": 200,
+      "bytes": 488031,
+      "registros": 190,
+      "camposDoPrimeiroRegistro": [
+        "activityID",
+        "catalog",
+        "startTime",
+        "instruments",
+        "sourceLocation",
+        "activeRegionNum",
+        "note",
+        "cmeAnalyses",
+        "linkedEvents",
+        "sentNotifications",
+        "link",
+        "submissionTime",
+        "versionId"
+      ]
+    },
+    {
+      "arquivo": "donki-cme-2026-10-02-to-2026-11-15.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/CME?startDate=2026-10-02&endDate=2026-11-15&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:45:04.291Z",
+      "statusHttp": 200,
+      "bytes": 357110,
+      "registros": 133,
+      "camposDoPrimeiroRegistro": [
+        "activityID",
+        "catalog",
+        "startTime",
+        "instruments",
+        "sourceLocation",
+        "activeRegionNum",
+        "note",
+        "cmeAnalyses",
+        "linkedEvents",
+        "sentNotifications",
+        "link",
+        "submissionTime",
+        "versionId"
+      ]
+    },
+    {
+      "arquivo": "donki-gst-2026-08-17-to-2026-10-01.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/GST?startDate=2026-08-17&endDate=2026-10-01&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:45:05.492Z",
+      "statusHttp": 200,
+      "bytes": 3,
+      "registros": 0,
+      "camposDoPrimeiroRegistro": []
+    },
+    {
+      "arquivo": "donki-gst-2026-10-02-to-2026-11-15.json",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/GST?startDate=2026-10-02&endDate=2026-11-15&api_key=DEMO_KEY",
+      "recuperadoEmUtc": "2026-11-15T05:45:06.768Z",
+      "statusHttp": 200,
+      "bytes": 2800,
+      "registros": 3,
+      "camposDoPrimeiroRegistro": [
+        "gstID",
+        "startTime",
+        "allKpIndex",
+        "link",
+        "linkedEvents",
+        "sentNotifications",
+        "submissionTime",
+        "versionId"
+      ]
+    }
+  ]
+}
