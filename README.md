@@ -1,4 +1,4 @@
-# Orbit · Fundação Futuro
+# Orbit · Future Foundation
 
 > Português: [`README.pt-BR.md`](README.pt-BR.md)
 
