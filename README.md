@@ -1,85 +1,114 @@
-# Orbit Saúde · Fundação Futuro
+# Orbit · Fundação Futuro
 
-Software de monitoramento de saúde para astronautas em missões de longa duração, com o óculos **Orbit** (áudio por condução óssea, EEG e EOG) como entregável secundário. Resposta ao desafio **"Create Health Monitoring Software for Astronauts on Space Missions"** do NASA International Space Apps Challenge 2026.
+> Português: [`README.pt-BR.md`](README.pt-BR.md)
 
-> **Estado em 15/11/2026, 05h50:** Passo 0 concluído. 19 frentes de pesquisa aprovadas, 17 documentos consolidados, configuração de indicadores e perfis de simulação prontos, amostras reais gravadas para a demonstração. O protótipo do software começa no kickoff da equipe.
+Health monitoring software for astronauts on long-duration missions, with the **Orbit** glasses (bone-conduction audio, EEG and EOG) as a secondary deliverable. Our response to the **"Create Health Monitoring Software for Astronauts on Space Missions"** challenge of the NASA International Space Apps Challenge 2026.
+
+> **Status as of November 15, 2026:** Step 0 is complete: 19 research tracks approved, 20 consolidated documents (`docs/00` to `docs/19`), indicator configuration and simulation profiles ready, and real samples recorded for the demonstration. The working prototype of the app, named **Orbit**, is in [`orbita/`](orbita/).
 >
-> **Atualização em 15/11/2026, 12h:** o prompt ORBITA da equipe foi conectado à pesquisa. O app é responsivo, com a Visão geral também em tela grande. A revisão está em `docs/17`, o design e os desenhos das telas em `docs/18`, e o prompt corrigido para o Lovable em `docs/19`.
->
-> **Prazo:** pela página oficial do evento, o envio fecha **domingo, 15/11, às 23h59 no horário do evento local**. Ver [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), seção 0.
+> **Deadline:** according to the official event page, submission closes on **Sunday, November 15, at 11:59 pm, local event time**. See [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), section 0.
 
-## O problema
+## The problem
 
-Missões longas expõem a tripulação a radiação, isolamento, distância da Terra, gravidade alterada e um ambiente fechado. Os efeitos no corpo (perda óssea e muscular, mudanças no coração, na imunidade e nos olhos, sono ruim, humor) aparecem devagar, e quanto mais longe da Terra, mais a própria tripulação precisa percebê-los e agir sem esperar o médico de voo em solo. Na ISS, hoje, o ambiente é monitorado continuamente, mas os dados do corpo chegam por sessão, exame ou amostra, em sistemas separados.
+Long missions expose the crew to radiation, isolation, distance from Earth, altered gravity and a closed environment. The effects on the body (bone and muscle loss, changes in the heart, the immune system and the eyes, poor sleep, mood) appear slowly, and the farther from Earth, the more the crew itself has to notice them and act without waiting for the flight surgeon on the ground. On the ISS today, the environment is monitored continuously, but body data arrives per session, exam or sample, in separate systems.
 
-## A solução, em uma frase
+## The solution in one sentence
 
-Um painel **offline** que junta dados do corpo (vestíveis, equipamentos médicos, autoavaliações por texto, cliques e câmera) com dados do ambiente da estação (CO2, O2, pressão, ruído, radiação, clima espacial), compara cada astronauta com a própria linha de base, mostra o estado numa **figura humana clicável** e num **monitor geral da tripulação** (com consentimento de cada um), e diz o que fazer e quando chamar o médico de voo, sempre com a fonte de cada limiar.
+An **offline** dashboard that combines body data (wearables, medical equipment, text self-assessments, clicks and camera) with station environment data (CO2, O2, pressure, noise, radiation, space weather), compares each astronaut with their own baseline, shows the state on a **clickable human figure** and on a **crew-wide monitor** (with each person's consent), and says what to do and when to call the flight surgeon, always with the source of every threshold.
 
-## Comece por aqui
+## Run the app
 
-| Se você é | Leia |
-| --- | --- |
-| Da equipe, primeira vez | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
-| Desenvolvedor | [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) e [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
-| Quem executa o código no Lovable (app ORBITA) | [`docs/17`](docs/17-revisao-prompt-orbita.md) (revisão do prompt da equipe), [`docs/18`](docs/18-design-orbita-responsivo.md) e [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html) (design e desenhos das telas), [`docs/19`](docs/19-prompt-lovable-revisado.md) (prompt para colar) |
-| Uma IA ajudando no código | [`AGENTS.md`](AGENTS.md) |
-| Quem vai apresentar | [`docs/08`](docs/08-plano-prototipo-20h.md) (seções 0 e 6), [`docs/01`](docs/01-contexto-missao.md), [`docs/11`](docs/11-precedentes.md), [`docs/10`](docs/10-massa-energia-lancamento.md), [`docs/16`](docs/16-proximos-passos-e-impacto.md) |
-| Quem constrói o óculos | [`docs/09`](docs/09-oculos-orbit.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) e [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
+The app is in [`orbita/`](orbita/) (React, TypeScript, Vite, Tailwind CSS, Recharts and React Three Fiber). All automatic data is **simulated**. You need Git and Node.js 20 or 22 (LTS).
 
-Wireframes das telas: abra [`docs/wireframes/telas-prototipo.html`](docs/wireframes/telas-prototipo.html) no navegador.
-
-## Organização do repositório
-
-```text
-AGENTS.md                     contexto e regras para a IA de desenvolvimento (CLAUDE.md aponta para cá)
-docs/                         documentação consolidada, didática, com fontes (00 a 19)
-  wireframes/                 telas do protótipo em HTML (telas-prototipo.html e orbita-responsivo.html)
-pesquisa/
-  METODO.md                   regras dadas aos agentes de pesquisa e ciclo de revisão
-  documento-inicial.md        cópia do documento de origem (Google Docs, todas as abas)
-  bruto/                      as 19 frentes de pesquisa completas, com todas as citações
-prototipo/
-  config/
-    indicadores.json          37 indicadores e 6 regras de cruzamento com regra de cor e fonte (de docs/03)
-    perfis-simulacao.rascunho.json   37 indicadores, 7 tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
-    orbita-ia-base.json       65 respostas da ORBITA IA (offline), cada uma com fonte
-  dados/amostras-reais/       telemetria pública da ISS, NOAA SWPC e DONKI gravadas em 15/11/2026, com scripts
-Traycer/                      cópia da EPIC do Traycer deste projeto e instruções para importá-la em outro computador
+```bash
+git clone https://github.com/edwardmguel/orbit-saude-astronautas.git
+cd orbit-saude-astronautas/orbita
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-## Como a pesquisa foi feita
+Production build: `npm run build` (output in `orbita/dist/`). A walkthrough of the demonstration is in [`orbita/README.md`](orbita/README.md).
 
-Dezenove frentes de pesquisa, cada uma com um agente de IA instruído a usar fontes primárias (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, outras agências e artigos revisados por pares), citar a URL de cada fato com uma etiqueta de confiança e escrever "NÃO ENCONTRADO" em vez de inventar. Cada entrega foi revisada pelo coordenador (checagem automática, conferência por amostragem e devolução para correção quando necessário) antes de ser aprovada, e a frente 19 fez uma checagem cruzada final dos números principais. Método completo em [`pesquisa/METODO.md`](pesquisa/METODO.md); todas as fontes em [`docs/15-referencias.md`](docs/15-referencias.md).
+## Start here
 
-| Frente | Arquivo |
+| If you are | Read |
 | --- | --- |
-| 1. ECLSS, ambiente da cabine, radiação e telemetria pública | [`01-eclss-ambiente-radiacao.md`](pesquisa/bruto/01-eclss-ambiente-radiacao.md) |
-| 2. Equipamentos médicos e fisiológicos da tripulação | [`02-equipamentos-medicos-tripulacao.md`](pesquisa/bruto/02-equipamentos-medicos-tripulacao.md) |
-| 3. Riscos, indicadores e limiares de alerta | [`03-riscos-indicadores-limiares.md`](pesquisa/bruto/03-riscos-indicadores-limiares.md) |
-| 4. Precedentes do óculos, sono e rotina | [`04-precedentes-oculos-sono.md`](pesquisa/bruto/04-precedentes-oculos-sono.md) |
-| 5. Massa, computação embarcada e custo de lançamento | [`05-massa-computacao-lancamento.md`](pesquisa/bruto/05-massa-computacao-lancamento.md) |
-| 6. Dados abertos, software da NASA e fluxo de dados | [`06-dados-abertos-software-fluxo.md`](pesquisa/bruto/06-dados-abertos-software-fluxo.md) |
-| 7. Desafio oficial e padrões de interface e alarme da NASA | [`07-desafio-oficial-padroes-interface.md`](pesquisa/bruto/07-desafio-oficial-padroes-interface.md) |
-| 8. Autoavaliações implementáveis | [`08-autoavaliacoes-implementaveis.md`](pesquisa/bruto/08-autoavaliacoes-implementaveis.md) |
-| 9. Perfis de dados simulados | [`09-perfis-dados-simulados.md`](pesquisa/bruto/09-perfis-dados-simulados.md) |
-| 10. Orientações e contramedidas | [`10-orientacoes-contramedidas.md`](pesquisa/bruto/10-orientacoes-contramedidas.md) |
-| 11. Amostras reais para a demonstração | [`11-amostras-reais.md`](pesquisa/bruto/11-amostras-reais.md) |
-| 12. Consolidação dos limiares | resultou em [`docs/03`](docs/03-indicadores-e-limiares.md) e [`indicadores.json`](prototipo/config/indicadores.json) |
-| 13. IA médica embarcada | [`13-ia-medica-embarcada.md`](pesquisa/bruto/13-ia-medica-embarcada.md) |
-| 14. Pipeline de sinais do óculos | [`14-oculos-pipeline-sinais.md`](pesquisa/bruto/14-oculos-pipeline-sinais.md) |
-| 15. Áudio e acervo sonoro do óculos | [`15-oculos-audio-acervo.md`](pesquisa/bruto/15-oculos-audio-acervo.md) |
-| 16. Artemis II, Gateway e Marte | [`16-artemis-marte.md`](pesquisa/bruto/16-artemis-marte.md) |
-| 17. Caminho até voar | [`17-caminho-ate-voar.md`](pesquisa/bruto/17-caminho-ate-voar.md) |
-| 18. Aplicações na Terra e impacto | [`18-aplicacoes-terra-impacto.md`](pesquisa/bruto/18-aplicacoes-terra-impacto.md) |
-| 19. Checagem cruzada final | [`19-checagem-cruzada.md`](pesquisa/bruto/19-checagem-cruzada.md) |
+| On the team, first time | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
+| A developer | [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) and [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
+| Building the app (the design documents call it ORBITA) | [`docs/17`](docs/17-revisao-prompt-orbita.md) (review of the team prompt), [`docs/18`](docs/18-design-orbita-responsivo.md) and [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html) (design and screen drawings), [`docs/19`](docs/19-prompt-lovable-revisado.md) (revised prompt) |
+| An AI assistant helping with the code | [`AGENTS.md`](AGENTS.md) |
+| Presenting | [`docs/08`](docs/08-plano-prototipo-20h.md) (sections 0 and 6), [`docs/01`](docs/01-contexto-missao.md), [`docs/11`](docs/11-precedentes.md), [`docs/10`](docs/10-massa-energia-lancamento.md), [`docs/16`](docs/16-proximos-passos-e-impacto.md) |
+| Building the glasses | [`docs/09`](docs/09-oculos-orbit.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) and [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
 
-## Decisões pendentes do dono
+Screen wireframes: open [`docs/wireframes/telas-prototipo.html`](docs/wireframes/telas-prototipo.html) in your browser.
 
-- **Licença e visibilidade do repositório no envio.** Os termos do Space Apps pedem licença aberta para as contribuições originais (Apache 2.0 é o padrão). O repositório está privado.
-- **Redistribuição das amostras reais.** A licença do conteúdo da telemetria pública da ISS e da API de posição não foi encontrada; decidir antes de tornar o repositório público.
-- **Critérios de julgamento e regra de uso de IA.** A página global estava fora do ar; conferir na página do evento local.
+The documentation in `docs/` and `pesquisa/` is written in Brazilian Portuguese, the team's language.
 
-## Aviso
+## Repository layout
 
-Projeto acadêmico e de demonstração. Não é um dispositivo médico, não foi validado clinicamente e não substitui o julgamento de médicos de voo nem os sistemas de alarme da estação. Nomes de tripulantes e dados individuais nas telas são fictícios. Pesquisa feita com agentes de IA sob revisão humana e do coordenador.
+```text
+AGENTS.md                     context and rules for the AI development assistant (CLAUDE.md points here)
+README.pt-BR.md               this README in Brazilian Portuguese
+orbita/                       the Orbit app (React + TypeScript + Vite), with its own README
+docs/                         consolidated, didactic documentation with sources (00 to 19)
+  wireframes/                 prototype screens in HTML (telas-prototipo.html and orbita-responsivo.html)
+pesquisa/
+  METODO.md                   rules given to the research agents and the review cycle
+  documento-inicial.md        copy of the source document (Google Docs, all tabs)
+  bruto/                      the 19 full research tracks, with all citations
+prototipo/
+  config/
+    indicadores.json          37 indicators and 6 crossing rules with color rule and source (from docs/03)
+    perfis-simulacao.rascunho.json   37 indicators, 7 fictitious crew members, a 180-day script and scenarios C1 to C5
+    orbita-ia-base.json       65 answers of the offline in-app assistant, each with a source
+  dados/amostras-reais/       public ISS telemetry, NOAA SWPC and DONKI recorded on 2026-11-15, with scripts
+Traycer/                      copy of this project's Traycer EPIC and instructions to import it on another computer
+```
+
+## How the research was done
+
+Nineteen research tracks, each run by an AI agent instructed to use primary sources (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, other space agencies and peer-reviewed papers), to cite the URL of every fact with a confidence label, and to write "NOT FOUND" (in the files: "NÃO ENCONTRADO") instead of inventing. Every delivery was reviewed by the coordinator (automatic checks, spot checks and return for correction when needed) before approval, and track 19 ran a final cross-check of the main numbers. Full method in [`pesquisa/METODO.md`](pesquisa/METODO.md); all sources in [`docs/15-referencias.md`](docs/15-referencias.md).
+
+| Track | File |
+| --- | --- |
+| 1. ECLSS, cabin environment, radiation and public telemetry | [`01-eclss-ambiente-radiacao.md`](pesquisa/bruto/01-eclss-ambiente-radiacao.md) |
+| 2. Crew medical and physiological equipment | [`02-equipamentos-medicos-tripulacao.md`](pesquisa/bruto/02-equipamentos-medicos-tripulacao.md) |
+| 3. Risks, indicators and alert thresholds | [`03-riscos-indicadores-limiares.md`](pesquisa/bruto/03-riscos-indicadores-limiares.md) |
+| 4. Precedents for the glasses, sleep and routine | [`04-precedentes-oculos-sono.md`](pesquisa/bruto/04-precedentes-oculos-sono.md) |
+| 5. Mass, onboard computing and launch cost | [`05-massa-computacao-lancamento.md`](pesquisa/bruto/05-massa-computacao-lancamento.md) |
+| 6. Open data, NASA software and data flow | [`06-dados-abertos-software-fluxo.md`](pesquisa/bruto/06-dados-abertos-software-fluxo.md) |
+| 7. Official challenge and NASA interface and alarm standards | [`07-desafio-oficial-padroes-interface.md`](pesquisa/bruto/07-desafio-oficial-padroes-interface.md) |
+| 8. Implementable self-assessments | [`08-autoavaliacoes-implementaveis.md`](pesquisa/bruto/08-autoavaliacoes-implementaveis.md) |
+| 9. Simulated data profiles | [`09-perfis-dados-simulados.md`](pesquisa/bruto/09-perfis-dados-simulados.md) |
+| 10. Guidance and countermeasures | [`10-orientacoes-contramedidas.md`](pesquisa/bruto/10-orientacoes-contramedidas.md) |
+| 11. Real samples for the demonstration | [`11-amostras-reais.md`](pesquisa/bruto/11-amostras-reais.md) |
+| 12. Threshold consolidation | resulted in [`docs/03`](docs/03-indicadores-e-limiares.md) and [`indicadores.json`](prototipo/config/indicadores.json) |
+| 13. Onboard medical AI | [`13-ia-medica-embarcada.md`](pesquisa/bruto/13-ia-medica-embarcada.md) |
+| 14. Glasses signal pipeline | [`14-oculos-pipeline-sinais.md`](pesquisa/bruto/14-oculos-pipeline-sinais.md) |
+| 15. Glasses audio and sound library | [`15-oculos-audio-acervo.md`](pesquisa/bruto/15-oculos-audio-acervo.md) |
+| 16. Artemis II, Gateway and Mars | [`16-artemis-marte.md`](pesquisa/bruto/16-artemis-marte.md) |
+| 17. Path to flight | [`17-caminho-ate-voar.md`](pesquisa/bruto/17-caminho-ate-voar.md) |
+| 18. Applications on Earth and impact | [`18-aplicacoes-terra-impacto.md`](pesquisa/bruto/18-aplicacoes-terra-impacto.md) |
+| 19. Final cross-check | [`19-checagem-cruzada.md`](pesquisa/bruto/19-checagem-cruzada.md) |
+
+## Open decisions for the project owner
+
+- **License and repository visibility at submission.** The Space Apps terms ask for an open license on original contributions (Apache 2.0 is the default). The repository is private.
+- **Redistribution of the real samples.** The content license of the public ISS telemetry and of the position API was not found; decide before making the repository public.
+- **Judging criteria and AI-use rule.** The global page was down; check the local event page.
+
+## Use of Super Intelligence (SI)
+
+This project was developed with the assistance of SI tools:
+
+- Ideation, research and writing: Claude (Anthropic) and ChatGPT (OpenAI) were used for brainstorming, summarizing NASA HRP and CSA public resources, and drafting project texts.
+- Code: the user interface was prototyped with Lovable and developed with Claude Code and Traycer. All generated code was reviewed and adapted by the team.
+- Visual design: the Digital Twin body illustration and UI layout were SI-generated and are marked as such in the application.
+- Data: the 300-day mission dataset used in the demo is synthetic and was SI-assisted. It does not represent real astronaut data.
+- In-app AI: the medical triage assistant uses the Claude API, representing an onboard model in this prototype.
+
+No NASA logos, flags, mission patches or other NASA branding elements were generated or modified with SI tools.
+
+## Disclaimer
+
+Academic and demonstration project. It is not a medical device, has not been clinically validated and does not replace the judgment of flight surgeons or the station's alarm systems. Crew member names and individual data on the screens are fictitious. Research was done with AI agents under human and coordinator review.
