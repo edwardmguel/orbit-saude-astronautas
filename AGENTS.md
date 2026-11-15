@@ -44,7 +44,7 @@ Se o código e um documento discordarem, o documento vence até alguém atualiz�
 
 ## 4. Regras de escrita (do dono do projeto)
 
-- **Nunca use travessão (U+2014) nem meia-risca (U+2013)**, nem hífen solto entre espaços no papel deles. Vale para texto de tela, comentário de código, mensagem de commit, PR e documentação. Use vírgula, dois-pontos, parênteses ou ponto. Quando o código precisar do caractere, use o escape `—`.
+- **Nunca use travessão (U+2014) nem meia-risca (U+2013)**, nem hífen solto entre espaços no papel deles. Vale para texto de tela, comentário de código, mensagem de commit, PR e documentação. Use vírgula, dois-pontos, parênteses ou ponto. Quando o código precisar do caractere, use o escape `\u2014`.
 - Textos de interface em português do Brasil, com dicionário para inglês (`src/i18n/`). Nada de texto fixo espalhado nos componentes.
 - Faixas numéricas por extenso: "60 a 100 bpm".
 
