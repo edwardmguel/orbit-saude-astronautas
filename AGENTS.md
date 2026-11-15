@@ -38,8 +38,9 @@ Se o código e um documento discordarem, o documento vence até alguém atualiz�
 6. **Não substituir o alarme da estação.** Fogo, despressurização e atmosfera tóxica têm alarme próprio da ISS. O software mostra e aponta o procedimento; não comanda nada.
 7. **Explicável.** Todo alerta guarda as evidências (leituras com valor, unidade e estado), o id da regra e a fonte.
 8. **Cor nunca sozinha.** Estado sempre com cor, ícone e palavra: ✓ normal, ! atenção, ✕ acionar médico, ? sem dado.
-9. **Privacidade por perfil e cuidado mútuo.** O Monitor geral (T1) mostra cada colega conforme o nível de compartilhamento que ele escolheu (`Tripulante.compartilhamento` em `docs/06`): estado por sistema sempre, números de sinais vitais se permitido, mente e humor só com permissão, detalhes clínicos nunca. Toda filtragem acontece no motor, antes de chegar à tela.
-10. **Dados simulados são marcados.** Toda leitura tem `origem` (`simulada`, `ao_vivo`, `manual`, `automatica`, `exame`). A tela mostra o selo da origem.
+9. **Privacidade por consentimento e cuidado mútuo.** O Monitor geral (T1) mostra de cada colega só o que ele consentiu compartilhar com aquela audiência (`Tripulante.compartilhamento` em `docs/06`); detalhes clínicos nunca. Toda filtragem acontece no motor, antes de chegar à tela. "Não compartilhado" é texto neutro, nunca cor de alerta. Não existe acesso emergencial irrestrito codificado.
+10. **Não imitar o alarme da estação.** Nada pisca, nada emite som, nenhum rótulo usa Caution, Warning ou Emergency; os estados levam o prefixo "Saúde:". Vermelho, piscar e som são do sistema de Caution and Warning da ISS (`docs/07`, 5.1.1).
+11. **Dados simulados são marcados.** Toda leitura tem `origem` (`simulada`, `ao_vivo`, `manual`, `automatica`, `exame`). A tela mostra o selo da origem.
 
 ## 4. Regras de escrita (do dono do projeto)
 

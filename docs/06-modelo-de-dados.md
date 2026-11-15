@@ -52,7 +52,9 @@ erDiagram
 | `usaOculosOrbit` | booleano | `true` | Participa do estudo do óculos; a condição de cada noite fica em `SessaoSono.condicaoEstudo` (ver `docs/09`) |
 | `horarioSono` | `{ inicio: "21:30", fim: "06:00" }` | | Horário programado em GMT (referência publicada pela NASA, ver `docs/01`) |
 | `moduloAtual` | string | `"node3"` | Onde o tripulante está agora; usado pelo Monitor geral e pelas regras de cruzamento com o ambiente |
-| `compartilhamento` | `{ sinaisVitais: boolean, mente: boolean }` | `{ "sinaisVitais": true, "mente": false }` | O que os colegas veem no Monitor geral; o estado por sistema é sempre compartilhado e detalhes clínicos nunca (ver `docs/07`, T1) |
+| `compartilhamento` | `Consentimento[]` | ver abaixo | O que cada audiência vê no Monitor geral; detalhes clínicos nunca aparecem (ver `docs/07`, T1) |
+
+`Consentimento`: `{ dado: "estado_sistemas" | "valores" | "modulo" | "mente", audiencia: "so_eu" | "cmo" | "medico_voo" | "buddy" | "tripulacao", buddyId?: string, validoAteUtc?: string, atualizadoUtc: string }`. Padrão de um tripulante novo: só `estado_sistemas` para `cmo` e `medico_voo`; o resto `so_eu`. Os tripulantes fictícios da demonstração compartilham com a `tripulacao`, exceto `mente` de um deles. O motor filtra antes de a tela receber o dado; "não compartilhado" nunca vira cor de alerta.
 
 ### 2.3 `Modulo`
 

@@ -78,14 +78,14 @@
   .kv { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 12px; align-items: center; }
   .kv div:nth-child(3n+1) { color: var(--muted); }
   /* Monitor geral (T1 e T1b) */
-  .banner { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: var(--radius); border: 2px solid var(--alert); background: color-mix(in srgb, var(--alert) 12%, var(--surface)); }
+  .banner { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: var(--radius); border: 2px solid var(--alert); background: var(--surface); }
   .envmini { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 12px; color: var(--muted); }
   .envmini b { color: var(--text); margin-left: 4px; }
   .crewgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .crew { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 10px; display: grid; gap: 8px; }
   .crew.ok-b { border-color: color-mix(in srgb, var(--ok) 45%, var(--border)); }
   .crew.warn-b { border-color: var(--warn); }
-  .crew.alert-b { border-color: var(--alert); box-shadow: 0 0 0 3px color-mix(in srgb, var(--alert) 25%, transparent); }
+  .crew.alert-b { border-color: var(--alert); }
   .crew.nd-b { border-color: var(--nodata); border-style: dashed; }
   .crew-h { display: flex; align-items: center; gap: 8px; }
   .avatar { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); font-weight: 800; }
@@ -104,7 +104,7 @@
   table.matrix thead th { text-align: center; color: var(--text); }
   table.matrix td { text-align: center; padding: 8px 4px; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); font-weight: 600; }
   table.matrix td.ok { color: var(--ok); } table.matrix td.w { color: var(--warn); border-color: var(--warn); }
-  table.matrix td.a { color: var(--alert); border-color: var(--alert); background: color-mix(in srgb, var(--alert) 14%, var(--surface)); }
+  table.matrix td.a { color: var(--alert); border-color: var(--alert); border-width: 2px; }
   table.matrix td.n { color: var(--nodata); border-style: dashed; }
   .pulse { animation: pulse 1.2s infinite; }
   @keyframes pulse { 50% { opacity: .35; } }
@@ -149,10 +149,10 @@
   </div>
   <div class="main">
     <div class="banner">
-      <span class="status s-alert" style="font-size:14px">✕ PRECISA DE ATENÇÃO</span>
+      <span class="status s-alert" style="font-size:14px">✕ Saúde: acionar CMO</span>
       <div><b>Tripulante C: oxigenação 89% há 4 min</b><div class="small muted">Pode ser leitura ruim do sensor. Confirme com o oxímetro do kit e chame o CMO se continuar abaixo do limite.</div></div>
       <span class="spacer"></span>
-      <span class="btn primary">Estou indo ver</span><span class="btn">Chamar CMO</span>
+      <span class="btn primary">Oferecer apoio</span><span class="btn">Chamar CMO</span>
     </div>
 
     <div class="envmini">
@@ -167,7 +167,7 @@
     <div class="crewgrid">
       <!-- Tripulante A: normal -->
       <div class="crew ok-b">
-        <div class="crew-h"><span class="avatar">A</span><div><b>Tripulante A</b><div class="small muted">Comandante · Lab Destiny</div></div><span class="status s-ok" style="margin-left:auto">✓ normal</span></div>
+        <div class="crew-h"><span class="avatar">A</span><div><b>Tripulante A</b><div class="small muted">Comandante · Lab Destiny</div></div><span class="status s-ok" style="margin-left:auto">✓ Saúde: normal</span></div>
         <div class="crew-body">
           <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--ok)" fill-opacity=".35"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
           <div class="tiles">
@@ -186,7 +186,7 @@
 
       <!-- Tripulante B: atenção -->
       <div class="crew warn-b">
-        <div class="crew-h"><span class="avatar">B</span><div><b>Tripulante B</b><div class="small muted">Engenheira de voo · Node 3</div></div><span class="status s-warn" style="margin-left:auto">! atenção</span></div>
+        <div class="crew-h"><span class="avatar">B</span><div><b>Tripulante B</b><div class="small muted">Engenheira de voo · Node 3</div></div><span class="status s-warn" style="margin-left:auto">! Saúde: atenção</span></div>
         <div class="crew-body">
           <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--warn)" fill-opacity=".6"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
           <div class="tiles">
@@ -205,7 +205,7 @@
 
       <!-- Tripulante C: perigo -->
       <div class="crew alert-b">
-        <div class="crew-h"><span class="avatar">C</span><div><b>Tripulante C</b><div class="small muted">Engenheiro de voo · Columbus</div></div><span class="status s-alert" style="margin-left:auto">✕ perigo</span></div>
+        <div class="crew-h"><span class="avatar">C</span><div><b>Tripulante C</b><div class="small muted">Engenheiro de voo · Columbus</div></div><span class="status s-alert" style="margin-left:auto">✕ Saúde: CMO</span></div>
         <div class="crew-body">
           <svg class="mini" viewBox="0 0 300 560"><g fill="var(--surface-2)" stroke="var(--border)" stroke-width="4"><circle cx="150" cy="60" r="42"/><rect x="95" y="118" width="110" height="170" rx="30"/><rect x="55" y="125" width="34" height="160" rx="16"/><rect x="211" y="125" width="34" height="160" rx="16"/><rect x="102" y="290" width="44" height="230" rx="18"/><rect x="154" y="290" width="44" height="230" rx="18"/></g><circle cx="150" cy="55" r="30" fill="var(--warn)" fill-opacity=".5"/><rect x="118" y="140" width="64" height="52" fill="var(--alert)" fill-opacity=".6"/><circle cx="160" cy="170" r="20" fill="var(--ok)" fill-opacity=".5"/><rect x="110" y="330" width="80" height="160" rx="14" fill="var(--ok)" fill-opacity=".2"/></svg>
           <div class="tiles">
@@ -219,7 +219,7 @@
             <div class="tile w"><span>Olhos</span><b>Amsler</b><em class="s-warn">!</em></div>
           </div>
         </div>
-        <div class="crew-f"><span class="small" style="color:var(--alert)">✕ Oxigenação abaixo do limite há 4 min.</span> <span class="small muted">Vá até ele, confirme a leitura com o oxímetro do kit e chame o CMO.</span></div>
+        <div class="crew-f"><span class="small" style="color:var(--alert)">✕ Oxigenação abaixo do limite há 4 min.</span> <span class="small muted">Ofereça apoio, ajude a confirmar a leitura com o oxímetro do kit e chame o CMO.</span></div>
       </div>
 
       <!-- Tripulante D: sem dado -->
@@ -246,7 +246,7 @@
       <span class="pill">Cuidado mútuo hoje: <b>3 verificações entre colegas</b></span>
       <span class="pill">Meta da tripulação: hidratação <b>3 de 4</b> 💧</span>
       <span class="spacer"></span>
-      <span class="small muted">Cada tripulante escolhe o que aparece aqui. Detalhes médicos e questionários nunca aparecem no monitor geral.</span>
+      <span class="small muted">Cada tripulante consente com o que aparece aqui e para quem. Na demonstração, todos compartilham com a tripulação. Detalhes médicos nunca aparecem no monitor geral.</span>
     </div>
   </div>
 </div>
@@ -287,7 +287,7 @@
         <tr><th>Atualizado</th><td>2 min</td><td>1 min</td><td>agora</td><td class="n">26 h</td><td>5 min</td><td>3 min</td><td>9 min</td></tr>
       </tbody>
     </table>
-    <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>✓ normal</span><span><i class="dot" style="background:var(--warn)"></i>! atenção</span><span><i class="dot" style="background:var(--alert)"></i>✕ perigo, ir ver o colega</span><span><i class="dot" style="background:var(--nodata)"></i>? sem dado ou privado</span><span>Clique numa célula para abrir o detalhe permitido pelo colega.</span></div>
+    <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>✓ normal</span><span><i class="dot" style="background:var(--warn)"></i>! atenção</span><span><i class="dot" style="background:var(--alert)"></i>✕ Saúde: acionar CMO</span><span><i class="dot" style="background:var(--nodata)"></i>? sem leitura, vencida ou desconectado</span><span>"privado" = não compartilhado, sem cor</span><span>Clique numa célula para abrir o detalhe permitido pelo colega.</span></div>
   </div>
 </div>
 </div>

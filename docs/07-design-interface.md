@@ -59,11 +59,11 @@ Pedido do dono, 15/11: *"uma tela no software que funciona de monitor geral, que
 | Modo | Quando usar | Como é |
 | --- | --- | --- |
 | **Cartões** (T1) | Tripulação de até 4 a 5 pessoas, tela de laptop | Um cartão por tripulante, lado a lado |
-| **Matriz** (T1b) | Tripulação de até 7 pessoas (tamanho típico da ISS), monitor compartilhado | Linhas = indicadores, colunas = tripulantes, cada célula com cor, ícone e valor |
+| **Matriz** (T1b) | Tripulação maior (o protótipo testa até 7 pessoas), monitor compartilhado | Linhas = indicadores, colunas = tripulantes, cada célula com cor, ícone e valor |
 
 **Estrutura da tela (modo cartões):**
 
-1. **Faixa de perigo** no topo, só quando há algum tripulante em nível 3 ou 4: quem, o quê, há quanto tempo, e duas ações diretas para o colega ("Estou indo ver", "Chamar CMO"). Quando alguém toca "Estou indo ver", a faixa mostra para todos quem já está a caminho, para não irem todos ao mesmo tempo.
+1. **Faixa "precisa de apoio"** no topo, só quando há algum tripulante em nível 3 ou 4: quem, há quanto tempo e o que fazer ("Oferecer apoio", "Chamar CMO"). O sintoma ou o valor só aparece se a pessoa compartilhou aquele indicador com a tripulação; sem consentimento, a faixa diz apenas "Tripulante C: atenção do CMO solicitada". Quem toca "Oferecer apoio" aparece como "a caminho" só depois que o colega aceita, para evitar visita não solicitada e respostas duplicadas. A faixa usa superfície neutra com ícone e texto, sem fundo vermelho (ver 4.1).
 2. **Faixa compacta do ambiente**: CO2, O2, pressão, temperatura, taxa de dose e prótons do GOES. Clique leva à T5.
 3. **Um cartão por tripulante**, sempre com os mesmos indicadores na mesma ordem (o olho aprende onde procurar):
    - Cabeçalho: nome ou codinome, função, **módulo onde está agora**, selo de estado geral (✓ normal, ! atenção, ✕ perigo, ? sem dado).
@@ -75,26 +75,28 @@ Pedido do dono, 15/11: *"uma tela no software que funciona de monitor geral, que
 
 **Regras de sinalização:**
 
-| Estado do tripulante | Cartão | Faixa de perigo | Som |
+| Estado do tripulante | Cartão | Faixa "precisa de apoio" | Som |
 | --- | --- | --- | --- |
-| ✓ Normal | Borda verde discreta | Não | Não |
-| ! Atenção (nível 2) | Borda amarela, frase de ajuda no rodapé | Não | Não |
-| ✕ Perigo (nível 3) | Borda vermelha com halo, bloco do indicador em vermelho | Sim | Um aviso curto, só no monitor compartilhado |
-| Emergência (nível 4) | Igual ao perigo | Sim, com o procedimento oficial da estação | Segue o alarme da estação; o software não cria alarme próprio (ver `docs/05`, princípio P5) |
-| ? Sem dado | Borda cinza tracejada, blocos com "há X h" | Não | Não; lembrete para o próprio tripulante |
+| ✓ Saúde: normal | Contorno verde discreto, superfície neutra | Não | Nunca |
+| ! Saúde: atenção (nível 2) | Contorno amarelo estático, frase de ajuda no rodapé | Não | Nunca |
+| ✕ Saúde: acionar CMO (nível 3) | Contorno vermelho estático, sem halo e sem piscar; texto da ação, horário e origem do dado | Sim | Nunca |
+| Saúde: imediato (nível 4) | Igual ao nível 3, com instrução textual estática: "Contatar CMO agora" e "Abrir procedimento oficial" | Sim | Nunca; som e luz vermelha são do sistema de alarmes da estação (ver `docs/05`, princípio P5) |
+| ? Sem leitura / leitura vencida / sensor desconectado | Contorno cinza tracejado com a palavra exata do caso e a idade do dado | Não | Nunca; lembrete para o próprio tripulante |
+| Não compartilhado | Texto neutro "não compartilhado", sem cor de estado e sem clique | Não | Nunca |
 
-**Idade do dado é informação de saúde.** Como boa parte dos dados do corpo na ISS chega por sessão ou por medida pontual (ver `docs/06`, nota sobre disponibilidade), cada bloco mostra a idade da leitura. Um "normal" de 3 dias atrás não é o mesmo que um "normal" de agora; depois do prazo de validade do indicador, o bloco fica cinza.
+**Idade do dado é informação de saúde.** Como boa parte dos dados do corpo na ISS chega por sessão ou por medida pontual (ver `docs/06`, nota sobre disponibilidade), cada bloco mostra a idade da leitura. Um "normal" de 3 dias atrás não é o mesmo que um "normal" de agora; depois do prazo de validade do indicador, o bloco fica cinza. A norma da NASA exige indicar visualmente dado antigo, ausente, indisponível ou desconhecido (NASA-STD-3001 Vol 2 Rev F, V2 10020), e distinguimos os três casos porque a ação muda: medir, transferir a sessão ou reconectar o sensor.
 
-**Privacidade no monitor geral.** Cada tripulante controla, em Configurações, o que os colegas veem:
+**Privacidade no monitor geral: consentimento granular.** Registros e comunicações médicas da tripulação são privados pela norma da NASA (NASA-STD-3001 Vol 1, V1 7003, V1 6003 e V1 6011) e não existe regra pública que autorize um monitor coletivo com dados clínicos. Por isso o Monitor geral só mostra o que cada pessoa escolheu compartilhar, com quem e por quanto tempo:
 
-| Nível de compartilhamento | O que aparece para os colegas | Padrão |
-| --- | --- | --- |
-| Estado por sistema | Cor e ícone de cada bloco, sem números | Sempre ligado (é o mínimo para o cuidado mútuo funcionar) |
-| Sinais vitais com números | Valores de coração, oxigenação, temperatura, sono, hidratação, radiação | Ligado, o tripulante pode desligar |
-| Mente e humor | Só o estado (✓ ou !), nunca respostas | Desligado; aparece como "privado" |
-| Detalhes clínicos, questionários, conversas médicas | Nunca aparecem no monitor geral | Bloqueado |
+| Dado | Audiências possíveis | Padrão de um tripulante novo | Perfil da demonstração |
+| --- | --- | --- | --- |
+| Estado por sistema (cor e ícone, sem números) | Só eu, CMO, médico de voo, colega escolhido (buddy), tripulação | CMO e médico de voo | Tripulação |
+| Valores de sinais vitais, sono, hidratação e radiação | Idem | Só eu | Tripulação |
+| Módulo onde estou | Idem | Só eu | Tripulação |
+| Mente e humor (só o estado) | Só eu, CMO, médico de voo, buddy | Só eu | "Privado" para um dos quatro, para mostrar o conceito |
+| Detalhes clínicos, questionários, conversas médicas | Fluxo autenticado do CMO e do médico de voo | Nunca no monitor | Nunca no monitor |
 
-Em emergência (nível 4), o CMO vê o detalhe necessário independentemente da configuração, conforme o protocolo médico.
+Regras: a tela de consentimento mostra finalidade, efeito, última atualização e botão de revogar; "não compartilhado" nunca vira cor de alerta nem inferência; o monitor em tela cheia exige ativação deliberada, oculta detalhes após inatividade e não abre prontuário por clique. O software **não** codifica acesso emergencial irrestrito do CMO: se a autoridade médica do programa aprovar esse conceito, ele será limitado ao mínimo e registrará quem acessou, quando e por quê. Recomendações completas e fontes em [`../pesquisa/bruto/07-desafio-oficial-padroes-interface.md`](../pesquisa/bruto/07-desafio-oficial-padroes-interface.md), seção D5.
 
 ### T1b. Monitor geral em modo matriz
 
@@ -111,9 +113,9 @@ A figura é a ideia central do desafio. Cada região é um `<path>` SVG com `id`
 | `cerebro` Cérebro e mente | Sono curto, isolamento, carga de trabalho, CO2, radiação | Horas e eficiência do sono, tempo de reação (PVT), fadiga, humor, estresse, sinais de EEG do óculos |
 | `olhos` Olhos | SANS: líquidos sobem para a cabeça | Grade de Amsler, acuidade de perto, sintomas visuais, último OCT e fundo de olho, pressão intraocular |
 | `ouvidos` Ouvidos | Ruído constante de ventiladores e bombas | Dose de ruído (dBA), audiometria periódica, zumbido relatado |
-| `coracao` Coração e vasos | Redistribuição de fluidos, descondicionamento | Frequência cardíaca de repouso, variabilidade (HRV), pressão arterial, ECG |
+| `coracao` Coração e vasos | Redistribuição de fluidos, descondicionamento | Frequência cardíaca de repouso, variabilidade (HRV), **pressão arterial** (citada no desafio oficial), ECG |
 | `pulmoes` Pulmões | Ar fechado, CO2, EVA | Frequência respiratória, SpO2, exposição a CO2 do módulo |
-| `sangue` Sangue e imunidade (ícone sistêmico) | Anemia do voo espacial, imunidade alterada, reativação viral | Hemoglobina, hematócrito, temperatura, sintomas de infecção |
+| `sangue` Sangue e imunidade (ícone sistêmico) | Anemia do voo espacial, imunidade alterada, reativação viral | **Glicose em mg/dL** (exemplo citado no desafio oficial; glicosímetro do kit, entrada manual), hemoglobina, hematócrito, temperatura, sintomas de infecção |
 | `digestao` Digestão e nutrição | Apetite menor, cardápio limitado | Calorias, proteína, apetite, massa corporal, enjoo |
 | `rins` Rins e hidratação | Perda óssea libera cálcio, risco de cálculo | Água ingerida, cor da urina por foto, risco de cálculo |
 | `ossos` Ossos | Sem carga, o osso perde massa | Perda óssea estimada, adesão ao exercício resistido, cálcio e vitamina D |
@@ -177,6 +179,19 @@ Os nomes abaixo são os mesmos do CSS dos wireframes. Use como variáveis CSS ou
 
 Por que tema escuro: os laptops de bordo ficam ligados o dia todo e a tripulação trabalha perto do horário de dormir; um fundo escuro emite menos luz. O modo noturno troca os azuis por âmbar, porque luz azul à noite atrapalha o sono (o tema de iluminação circadiana da ISS está em [`01-contexto-missao.md`](01-contexto-missao.md)).
 
+### 5.1.1 Convivência com as convenções de cor e alarme da NASA
+
+Nas telas de bordo da ISS, vermelho comunica Warning e Emergency, amarelo comunica Caution e azul comunica Advisory, e o piscar vermelho, o som e as luzes pertencem ao sistema de Caution and Warning (C&W) da estação (fonte: frente 7, seção D4, com NASA-STD-3001 Vol 2 Rev F, V2 10114 e Apêndice F). Para não criar um alarme paralelo:
+
+| Regra | Como aplicar |
+| --- | --- |
+| Estados do Orbit são de **saúde**, não do veículo | Rótulo sempre com o prefixo "Saúde:" (por exemplo "Saúde: atenção"); nunca usar as palavras Caution, Warning ou Emergency |
+| Nada pisca, nada toca | Sem animação de pulso, sem halo, sem som em nenhum nível; a ação vem em texto |
+| Cor só como contorno e ícone | Superfícies neutras; o estado aparece no contorno, no ícone e na palavra |
+| Emergência real é da estação | O nível 4 manda abrir o procedimento oficial e falar com o CMO; o software nunca diz que detectou fogo, despressurização ou atmosfera tóxica |
+| Legibilidade medida no hardware real | A norma pede rótulos de pelo menos 12 pontos ou 0,4 grau de ângulo visual na distância de uso (V2 10066); medir no monitor da demonstração, porque pixel de CSS não prova isso |
+| Contraste | Mínimo de 6:1 entre texto e fundo nos dois temas, inclusive no modo noturno |
+
 ### 5.2 Tipografia e espaçamento
 
 - Fonte do sistema (`system-ui`), sem dependência de rede.
@@ -205,7 +220,7 @@ Por que tema escuro: os laptops de bordo ficam ligados o dia todo e a tripulaç�
 
 ### 5.4 Animações (com moderação)
 
-- Pulso suave só no nível 4 (emergência).
+- Nenhum pulso ou piscar, em nenhum nível (ver 5.1.1).
 - Transição de cor de uma região do corpo quando o estado muda (300 ms).
 - Nada de animação contínua em tela que fica aberta o dia todo.
 

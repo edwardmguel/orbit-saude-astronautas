@@ -10,7 +10,7 @@
 
 | # | Princípio | Por quê |
 | --- | --- | --- |
-| P1 | **Offline-first.** Tudo roda dentro da estação, num computador de bordo. Nenhuma função depende de internet ou do solo. | Em Marte a comunicação tem atraso de minutos por trecho e fica dias sem contato na conjunção solar. Na ISS há perdas de sinal ao longo da órbita. Ver [`12-fontes-de-dados-abertas.md`](12-fontes-de-dados-abertas.md) e [`01-contexto-missao.md`](01-contexto-missao.md). |
+| P1 | **Offline-first.** Tudo roda dentro da estação, num computador de bordo. Nenhuma função depende de internet ou do solo. | Quanto mais longe da Terra, maior o atraso de comunicação (minutos por trecho em Marte) e maior a chance de janelas sem contato, que dependem da arquitetura de comunicação e do alinhamento com o Sol. A NASA trata isso como Earth Independent Medical Operations. Detalhes e fontes em [`01-contexto-missao.md`](01-contexto-missao.md), seção 7, e em [`12-fontes-de-dados-abertas.md`](12-fontes-de-dados-abertas.md). |
 | P2 | **O astronauta é o primeiro usuário.** A tela explica o que o número significa e o que fazer, em linguagem simples. | O desafio pede que a tripulação avalie e aja sobre a própria saúde. |
 | P3 | **Cada pessoa contra a própria linha de base.** Além da faixa de referência populacional, comparamos com o histórico do próprio tripulante. | Astronautas são saudáveis e muito diferentes entre si; o desvio pessoal aparece antes de sair da faixa populacional. |
 | P4 | **Todo limiar tem fonte.** A configuração de alertas guarda a referência (norma da NASA, Human Research Roadmap ou diretriz clínica terrestre marcada como tal). | Limiar inventado em software de saúde é defeito grave e derruba a credibilidade do projeto. |
@@ -94,7 +94,7 @@ Os níveis foram desenhados para casar com quem age em cada caso. Os limiares co
 | 1 | Verde | Dentro da faixa de referência e da linha de base pessoal | Ninguém | Mostra tendência e reforço positivo (gamificação) |
 | 2 | Amarelo | Fora da linha de base ou perto do limite | O próprio astronauta | Explica a causa provável, dá a orientação (hidratar, descansar, ajustar exercício, mudar de módulo) e agenda nova medição |
 | 3 | Vermelho | Fora da faixa segura ou piora sustentada | Crew Medical Officer e médico de voo | Gera resumo pronto para a conferência médica e coloca na fila para o solo; em Marte, abre o protocolo autônomo |
-| 4 | Vermelho piscando | Risco imediato à vida | Toda a tripulação, conforme procedimento de emergência da estação | Mostra o procedimento oficial e aponta para o alarme da estação; nunca tenta substituí-lo |
+| 4 | Vermelho estático com a instrução "Contatar CMO agora" | Risco imediato à vida | Toda a tripulação, conforme procedimento de emergência da estação | Mostra o procedimento oficial e aponta para o alarme da estação; não pisca, não toca som e nunca tenta substituir o alarme (piscar, som e luz vermelha são do sistema de Caution and Warning da ISS, ver `docs/07`, 5.1.1) |
 
 ---
 

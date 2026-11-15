@@ -6,6 +6,20 @@
 
 ---
 
+## 0. Prazo e regras do desafio oficial
+
+O desafio é o **"Create Health Monitoring Software for Astronauts on Space Missions"** do NASA International Space Apps Challenge 2026, nível Intermediate ([página do desafio](https://www.spaceappschallenge.org/2026/challenges/health-monitoring-software/)). Detalhes em [`../pesquisa/bruto/07-desafio-oficial-padroes-interface.md`](../pesquisa/bruto/07-desafio-oficial-padroes-interface.md), seção D1.
+
+| Item | O que a pesquisa encontrou | O que fazer |
+| --- | --- | --- |
+| **Prazo de envio** | A página do evento diz que o envio pela Project Tab abriu sábado, 14/11, às 9h, e **fecha domingo, 15/11, às 23h59 no horário local do evento escolhido** ([página 2026](https://www.spaceappschallenge.org/2026/)) | Conferir o horário exato do evento local da equipe; reservar a última hora para o envio |
+| Licença | Os termos pedem licença aberta compatível com OSI para as contribuições originais, com Apache 2.0 como padrão quando nada for escolhido ([termos](https://www.spaceappschallenge.org/legal/)) | O dono decide a licença e se o repositório fica público no envio |
+| Fontes e dados | Citar as fontes, inclusive software de código aberto; não enviar dados pessoais identificáveis; consentimento de quem aparece no vídeo | Os docs já citam as fontes; tripulantes da demo são fictícios |
+| Uso de IA | Regra global de 2026 não encontrada; boa prática: declarar as ferramentas, as tarefas assistidas e a verificação humana | Incluir uma seção "Como usamos IA" no envio (pesquisa por agentes com revisão humana e do coordenador) |
+| Critérios de julgamento | Os cinco critérios citados por eventos locais (impacto, criatividade, validade, relevância, apresentação) não foram confirmados na página global, que estava fora do ar | Conferir na página do evento local |
+
+Indicadores citados como exemplo no texto do desafio: pressão arterial, frequência cardíaca, glicose (mg/dL), temperatura corporal, horas de sono e humor. Todos estão no protótipo (T1, T2 e T3).
+
 ## 1. Objetivo da demonstração
 
 Em até 7 minutos, mostrar:
