@@ -50,6 +50,6 @@ Um painel offline que junta dados do corpo (sensores, vestíveis, exames, autoav
 | Decisão | O que trava | Recomendação |
 | --- | --- | --- |
 | Licença e visibilidade do repositório no envio | Envio ao Space Apps | Escolher licença aberta (Apache 2.0 é o padrão dos termos) e tornar público o que for enviado; decisão do dono |
-| Stack do protótipo | Início do código | React + Vite + TypeScript, rodando no navegador, sem servidor obrigatório. Detalhe em `docs/05-arquitetura-software.md`. |
+| Stack do protótipo | Início do código | React + Vite + TypeScript, rodando no navegador, sem servidor obrigatório. Detalhe em `docs/05-software-architecture.md`. |
 | Estilo visual e cores | Telas finais | Tema escuro com modo noturno âmbar (pouca luz azul antes de dormir) e status em verde, amarelo e vermelho sempre acompanhados de ícone e texto. Ver [Design da interface](../design-da-interface). |
 | Quantas pessoas desenvolvem | Cronograma de 20 h | O plano assume 3 pessoas no software e o dono no óculos. Ver [Plano de 20 horas](../plano-prototipo-20h). |

@@ -256,9 +256,9 @@ Não misturar prontuário identificável com telemetria aberta. Dados pessoais e
 
 ### Documentos do projeto usados como contexto interno
 
-* [docs/01-contexto-missao.md](../../docs/01-contexto-missao.md)
-* [docs/05-arquitetura-software.md](../../docs/05-arquitetura-software.md)
-* [docs/12-fontes-de-dados-abertas.md](../../docs/12-fontes-de-dados-abertas.md)
+* [docs/01-mission-context.md](../../docs/01-mission-context.md)
+* [docs/05-software-architecture.md](../../docs/05-software-architecture.md)
+* [docs/12-open-data-sources.md](../../docs/12-open-data-sources.md)
 * [pesquisa/bruto/03-riscos-indicadores-limiares.md, seção D6](03-riscos-indicadores-limiares.md)
 
 

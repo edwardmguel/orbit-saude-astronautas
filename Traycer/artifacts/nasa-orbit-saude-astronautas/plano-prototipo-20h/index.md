@@ -6,7 +6,7 @@ comments: none
 
 # Plano do protótipo de 20 horas
 
-Texto completo, com cronograma em Gantt e roteiro da apresentação: `docs/08-plano-prototipo-20h.md` no repositório. Premissa: 3 pessoas no software (Dev A interface, Dev B dados e entrada, Dev C motor e ML) e o dono no óculos.
+Texto completo, com cronograma em Gantt e roteiro da apresentação: `docs/08-prototype-plan-20h.md` no repositório. Premissa: 3 pessoas no software (Dev A interface, Dev B dados e entrada, Dev C motor e ML) e o dono no óculos.
 
 ## Prazo real: versão comprimida
 

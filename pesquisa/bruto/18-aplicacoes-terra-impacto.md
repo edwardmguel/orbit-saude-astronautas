@@ -24,7 +24,7 @@ A comunicação da NASA Spinoff conta uma cadeia verificável: problema de explo
 
 ## D2. Ambientes isolados e remotos na Terra
 
-O paralelo é de desenho operacional, não de equivalência clínica: em locais afastados, o registro local e a comparação com a linha de base podem ajudar a pessoa e a equipe a perceber mudanças e organizar uma consulta quando a comunicação retornar. [INFERÊNCIA] O Orbit precisaria dizer quando os dados foram coletados, mostrar sua origem, distinguir ausência de dado de estado normal e não substituir profissionais, protocolos de emergência ou telemedicina. Essa proposta segue os princípios offline, explicabilidade e apoio sem diagnóstico definidos para o protótipo. [OFICIAL, [docs/01-contexto-missao.md, seção 8](../../docs/01-contexto-missao.md); [docs/05-arquitetura-software.md](../../docs/05-arquitetura-software.md)]
+O paralelo é de desenho operacional, não de equivalência clínica: em locais afastados, o registro local e a comparação com a linha de base podem ajudar a pessoa e a equipe a perceber mudanças e organizar uma consulta quando a comunicação retornar. [INFERÊNCIA] O Orbit precisaria dizer quando os dados foram coletados, mostrar sua origem, distinguir ausência de dado de estado normal e não substituir profissionais, protocolos de emergência ou telemedicina. Essa proposta segue os princípios offline, explicabilidade e apoio sem diagnóstico definidos para o protótipo. [OFICIAL, [docs/01-mission-context.md, seção 8](../../docs/01-mission-context.md); [docs/05-software-architecture.md](../../docs/05-software-architecture.md)]
 
 | Ambiente | Problema de saúde e acesso atual documentado | Como o Orbit poderia ajudar, como hipótese | Limite e adaptação necessária |
 | --- | --- | --- | --- |
@@ -163,8 +163,8 @@ Na Terra também, a mesma lógica de apoio pode ser útil onde a distância, o c
 - [NASA Spinoff 2019, Light Research Aids Slumber](https://spinoff.nasa.gov/Spinoff2019/pdf/Spinoff508_2019.pdf)
 - [NASA Fatigue Countermeasures Laboratory](https://www.nasa.gov/human-systems-integration-division/human-performance/fatigue-countermeasures-laboratory/)
 - [NASA-STD-3001 Technical Brief, Sleep Accommodations](https://www.nasa.gov/wp-content/uploads/2023/03/sleep-accomodations-technical-brief-ochmo.pdf)
-- [Contexto do projeto, docs/01, seção 8](../../docs/01-contexto-missao.md)
-- [Princípios da arquitetura, docs/05](../../docs/05-arquitetura-software.md)
+- [Contexto do projeto, docs/01, seção 8](../../docs/01-mission-context.md)
+- [Princípios da arquitetura, docs/05](../../docs/05-software-architecture.md)
 
 ### Acesso, telessaúde e ambientes remotos
 

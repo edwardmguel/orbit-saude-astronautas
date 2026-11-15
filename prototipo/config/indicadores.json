@@ -78,7 +78,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -141,7 +141,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -151,7 +151,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -233,7 +233,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -334,7 +334,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -456,7 +456,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -555,7 +555,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -656,7 +656,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -722,7 +722,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -741,7 +741,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -785,7 +785,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -795,7 +795,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -846,7 +846,7 @@
         "fonte": {
           "etiqueta": "[INFERÊNCIA]",
           "referencia": "Regra C1 em docs/04",
-          "url": "../../docs/04-cruzamento-de-dados.md"
+          "url": "../../docs/04-data-cross-referencing.md"
         },
         "aplicaSomenteEmRegra": "R-CO2-01"
       },
@@ -863,7 +863,7 @@
             "unidade": "% de variação vs linha de base",
             "origem": "[INFERÊNCIA]",
             "texto": "Aumento acima de 10%: demonstração somente em R-CO2-01, sem cutoff operacional público.",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01",
             "justificativa": "Variação ilustrativa para C1, sem cutoff operacional público."
@@ -880,7 +880,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -891,7 +891,7 @@
         "contexto": "Entrada de teste do comparador de linha de base; o delta demonstrativo é separado.",
         "campoAvaliado": "zScore",
         "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -935,7 +935,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -945,7 +945,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -992,7 +992,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -1011,7 +1011,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1059,7 +1059,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -1078,7 +1078,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base; resposta autoral bruta usa escala de 1 a 5.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1127,7 +1127,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1137,7 +1137,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base; o valor bruto de demonstração do ORBITA é 12,4 piscadas/min, simulado.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1179,7 +1179,7 @@
         "fonte": {
           "etiqueta": "[INFERÊNCIA]",
           "referencia": "Regra C1 em docs/04",
-          "url": "../../docs/04-cruzamento-de-dados.md"
+          "url": "../../docs/04-data-cross-referencing.md"
         },
         "aplicaSomenteEmRegra": "R-CO2-01"
       },
@@ -1196,7 +1196,7 @@
             "unidade": "pontos em escala de 0 a 10",
             "origem": "[INFERÊNCIA]",
             "texto": "Cefaleia com pontuação 7 ou mais: escalonamento demonstrativo somente em R-CO2-01, não é corte clínico universal.",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01",
             "justificativa": "Critério de escalonamento de C1, não é corte clínico universal."
@@ -1223,7 +1223,7 @@
             "sintoma": "Cefaleia com pontuação de 7 ou mais no cenário C1",
             "nivel": 3,
             "origem": "[INFERÊNCIA]",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "texto": "Escalonamento demonstrativo somente na regra R-CO2-01.",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01"
@@ -1330,7 +1330,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1430,7 +1430,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -1494,7 +1494,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1504,7 +1504,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1552,7 +1552,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -1571,7 +1571,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base; a resposta bruta usa categoria de 1 a 3 (valor de demonstração do ORBITA: 2, reduzido).",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1624,7 +1624,7 @@
         "fonte": {
           "etiqueta": "[INFERÊNCIA]",
           "referencia": "Regra C5 em docs/04",
-          "url": "../../docs/04-cruzamento-de-dados.md"
+          "url": "../../docs/04-data-cross-referencing.md"
         },
         "aplicaSomenteEmRegra": "R-HID-01"
       },
@@ -1638,7 +1638,7 @@
             "unidade": "mL/24 h",
             "origem": "[INFERÊNCIA]",
             "texto": "Abaixo de 1.200 mL/24 h: demonstração somente em R-HID-01, por 2 dias e junto aos demais critérios; não é meta ou prescrição.",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-HID-01",
             "repeticoes": 2,
@@ -1657,7 +1657,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1668,7 +1668,7 @@
         "contexto": "Entrada de teste do comparador de linha de base; demonstração de R-HID-01 fica condicionada à regra conjunta.",
         "campoAvaliado": "zScore",
         "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1721,7 +1721,7 @@
         "fonte": {
           "etiqueta": "[INFERÊNCIA]",
           "referencia": "Regra C5 em docs/04 e escala descrita em 08",
-          "url": "../../docs/04-cruzamento-de-dados.md"
+          "url": "../../docs/04-data-cross-referencing.md"
         },
         "aplicaSomenteEmRegra": "R-HID-01"
       },
@@ -1735,7 +1735,7 @@
             "unidade": "categoria ordinal de 1 a 8",
             "origem": "[INFERÊNCIA]",
             "texto": "Categoria 6 ou acima: demonstração somente em R-HID-01 e junto aos demais critérios; não é limite clínico de voo.",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-HID-01",
             "justificativa": "Categoria visual escolhida para C5, sem validação de voo."
@@ -1752,7 +1752,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1763,7 +1763,7 @@
         "contexto": "Entrada de teste do comparador de linha de base; demonstração de R-HID-01 fica condicionada à regra conjunta.",
         "campoAvaliado": "zScore",
         "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1807,7 +1807,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1817,7 +1817,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1861,7 +1861,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -1871,7 +1871,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Teste do componente normalizado definido pelo protocolo; dado original é estruturado.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1918,21 +1918,21 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
             "sintoma": "Perda visual súbita, diplopia nova importante ou dor ocular intensa",
             "nivel": 4,
             "origem": "procedimento de saúde e orientações aprovadas",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "texto": "Seguir procedimento ocular e acionar CMO."
           },
           {
             "sintoma": "Cefaleia persistente acompanhada de sintoma visual",
             "nivel": 3,
             "origem": "procedimento de saúde e orientações aprovadas",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "texto": "Antecipar avaliação ocular e contatar CMO."
           }
         ]
@@ -1944,7 +1944,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste da mudança normalizada versus a linha de base pessoal.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -1991,7 +1991,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         },
         "sintomas": [
           {
@@ -2010,7 +2010,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste da mudança normalizada; distorção nova também entra em R-SANS-01.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -2090,7 +2090,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -2161,7 +2161,7 @@
         "fonte": {
           "etiqueta": "[INFERÊNCIA]",
           "referencia": "Regra C1 em docs/04; base ambiental OCHMO-TB-004",
-          "url": "../../docs/04-cruzamento-de-dados.md"
+          "url": "../../docs/04-data-cross-referencing.md"
         },
         "aplicaSomenteEmRegra": "R-CO2-01"
       },
@@ -2188,7 +2188,7 @@
             "unidade": "mmHg, média EWMA de demonstração",
             "origem": "[INFERÊNCIA]",
             "texto": "Acima de 2,8 mmHg: marcador amarelo demonstrativo somente em R-CO2-01, abaixo do requisito de 3 mmHg.",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01",
             "justificativa": "Marcador amarelo ilustrativo de C1 abaixo do requisito oficial de 3 mmHg; não é limite NASA."
@@ -2201,7 +2201,7 @@
             "sintoma": "Cefaleia intensa ou tontura associada no contexto de CO2",
             "nivel": 3,
             "origem": "procedimento de saúde e orientações aprovadas",
-            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "fonteUrl": "../../docs/04-data-cross-referencing.md",
             "texto": "Avaliar sintomas com CMO; controle ambiental segue o procedimento de remoção de CO2."
           }
         ]
@@ -3019,7 +3019,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -3029,7 +3029,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base, sem corte individual numérico publicado.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     },
@@ -3230,7 +3230,7 @@
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
           "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
-          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+          "fonteUrl": "../../docs/04-data-cross-referencing.md"
         }
       },
       "exemplosTeste": {
@@ -3240,7 +3240,7 @@
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
-        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "fonteUrl": "../../docs/04-data-cross-referencing.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
     }
@@ -3351,7 +3351,7 @@
         "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
         "referencia": "Regra em docs/04; OCHMO-TB-004 para relação entre CO2 e sintomas",
         "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       }
     },
     {
@@ -3400,7 +3400,7 @@
         "etiqueta": "[OFICIAL]",
         "referencia": "NOAA SWPC, escala S1 a S5; protocolo local de radiação em docs/04",
         "url": "https://www.swpc.noaa.gov/noaa-scales-explanation",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       }
     },
     {
@@ -3469,7 +3469,7 @@
         "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
         "referencia": "Regra em docs/04; OCHMO-MTB-001, SANS",
         "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       }
     },
     {
@@ -3542,7 +3542,7 @@
         "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
         "referencia": "Regra em docs/04; NASA OCHMO-TB-041, sono e desempenho",
         "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       },
       "contextoOpcional": "Se o ruído na cabine de dormir estiver fora do envelope aprovado, acrescentar apenas que pode ser um fator contribuinte."
     },
@@ -3628,7 +3628,7 @@
         "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
         "referencia": "Regra em docs/04; NASA OCHMO-MTB-003, saúde urinária",
         "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       },
       "agravante": "Fase da missão com perda óssea esperada pode elevar o contexto de risco renal; não altera sozinho o nível."
     },
@@ -3680,7 +3680,7 @@
         "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
         "referencia": "Regra em docs/04; NASA Technical Briefs e OCHMO-TB-004",
         "url": "https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/",
-        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+        "especificacaoLocal": "../../docs/04-data-cross-referencing.md"
       },
       "apenasContextualiza": true
     }

@@ -86,4 +86,4 @@ Antes de enviar, confira que nenhum arquivo tem travessão ou meia-risca (regra 
 - Toda afirmação de fato tem fonte no repositório; limiar sem fonte não entra na configuração de alertas.
 - Uma informação, um lugar: o texto completo fica em `docs/` e `pesquisa/`; a EPIC resume e aponta.
 - Atualizar a EPIC ao fim de cada tarefa; conferir o horário no relógio antes de anotar.
-- Pesquisas longas com agentes GPT-6 Luna: no máximo 3 ao mesmo tempo, cada entrega revisada antes de ser aprovada, roteiro no artefato "Frentes de pesquisa". Método em [`../pesquisa/METODO.md`](../pesquisa/METODO.md).
+- Pesquisas longas com agentes GPT-6 Luna: no máximo 3 ao mesmo tempo, cada entrega revisada antes de ser aprovada, roteiro no artefato "Frentes de pesquisa". Método em [`../pesquisa/METHOD.md`](../pesquisa/METHOD.md).

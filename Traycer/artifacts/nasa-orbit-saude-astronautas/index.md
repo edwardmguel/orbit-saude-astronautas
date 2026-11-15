@@ -21,11 +21,11 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | Configuração do motor: 35 indicadores e 6 regras com regra de cor numérica e fonte | ✅ `prototipo/config/indicadores.json` |
 | Perfis de simulação: 7 tripulantes fictícios, roteiro de 180 dias, cenários C1 a C5 | ✅ `prototipo/config/perfis-simulacao.rascunho.json` |
 | Amostras reais gravadas: 3 h de telemetria pública da ISS, NOAA e DONKI | ✅ `prototipo/dados/amostras-reais/` |
-| Wireframes de 7 telas, com o Monitor geral pedido pelo dono | ✅ `docs/wireframes/telas-prototipo.html` |
+| Wireframes de 7 telas, com o Monitor geral pedido pelo dono | ✅ `docs/wireframes/prototype-screens.html` |
 | Contexto para a IA de desenvolvimento | ✅ `AGENTS.md` |
 | Cópia desta EPIC no repositório, com instruções de importação | ✅ `Traycer/` (15/11, 08h40) |
 | Plano comprimido para caber no prazo de hoje (cerca de 14 horas mais o envio) | ✅ `docs/08`, seção 0.1 |
-| Prompt ORBITA da equipe conectado à pesquisa: revisão, design responsivo com Visão geral em tela grande (aprovada pelo dono), desenhos de 18 telas, prompt corrigido para o Lovable e base da ORBITA IA (15/11, 12h) | ✅ `docs/17` a `docs/19`, `docs/wireframes/orbita-responsivo.html`, `prototipo/config/orbita-ia-base.json`; ver [Revisão do prompt ORBITA](revisao-prompt-orbita) |
+| Prompt ORBITA da equipe conectado à pesquisa: revisão, design responsivo com Visão geral em tela grande (aprovada pelo dono), desenhos de 18 telas, prompt corrigido para o Lovable e base da ORBITA IA (15/11, 12h) | ✅ `docs/17` a `docs/19`, `docs/wireframes/orbita-responsive.html`, `prototipo/config/orbita-ia-base.json`; ver [Revisão do prompt ORBITA](revisao-prompt-orbita) |
 | Correção da PIO2 do módulo: calculada da ppO2 e da pressão total, alvo de normoxia separado dos limites de exposição; indicadores e perfis passam a 37 | ✅ `indicadores.json`, `docs/03`, `docs/04` (A1) |
 
 ## O que o dono precisa decidir ao acordar

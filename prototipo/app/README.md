@@ -1,6 +1,6 @@
 # ORBITA: app
 
-Web app offline de saúde de astronautas (Orbit Saúde). Vite, React 18, TypeScript estrito, Tailwind 3, Zustand, Recharts e Lucide. Regras de domínio em [`AGENTS.md`](../../AGENTS.md); design em [`docs/18`](../../docs/18-design-orbita-responsivo.md).
+Web app offline de saúde de astronautas (Orbit Saúde). Vite, React 18, TypeScript estrito, Tailwind 3, Zustand, Recharts e Lucide. Regras de domínio em [`AGENTS.md`](../../AGENTS.md); design em [`docs/18`](../../docs/18-orbita-responsive-design.md).
 
 ## Desenvolvimento
 

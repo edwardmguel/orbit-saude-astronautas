@@ -8,7 +8,7 @@ Software de monitoramento de saúde para astronautas em missões de longa duraç
 >
 > **Atualização em 15/11/2026, 12h:** o prompt ORBITA da equipe foi conectado à pesquisa. O app é responsivo, com a Visão geral também em tela grande. A revisão está em `docs/17`, o design e os desenhos das telas em `docs/18`, e o prompt corrigido para o Lovable em `docs/19`.
 >
-> **Prazo:** pela página oficial do evento, o envio fecha **domingo, 15/11, às 23h59 no horário do evento local**. Ver [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), seção 0.
+> **Prazo:** pela página oficial do evento, o envio fecha **domingo, 15/11, às 23h59 no horário do evento local**. Ver [`docs/08-prototype-plan-20h.md`](docs/08-prototype-plan-20h.md), seção 0.
 
 ## O problema
 
@@ -22,23 +22,23 @@ Um painel **offline** que junta dados do corpo (vestíveis, equipamentos médico
 
 | Se você é | Leia |
 | --- | --- |
-| Da equipe, primeira vez | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
-| Desenvolvedor | [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) e [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
-| Quem executa o código no Lovable (app ORBITA) | [`docs/17`](docs/17-revisao-prompt-orbita.md) (revisão do prompt da equipe), [`docs/18`](docs/18-design-orbita-responsivo.md) e [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html) (design e desenhos das telas), [`docs/19`](docs/19-prompt-lovable-revisado.md) (prompt para colar) |
+| Da equipe, primeira vez | [`docs/00-reading-guide.md`](docs/00-reading-guide.md) |
+| Desenvolvedor | [`docs/08-prototype-plan-20h.md`](docs/08-prototype-plan-20h.md), [`docs/05-software-architecture.md`](docs/05-software-architecture.md) e [`docs/03-indicators-and-thresholds.md`](docs/03-indicators-and-thresholds.md) |
+| Quem executa o código no Lovable (app ORBITA) | [`docs/17`](docs/17-orbita-prompt-review.md) (revisão do prompt da equipe), [`docs/18`](docs/18-orbita-responsive-design.md) e [`docs/wireframes/orbita-responsive.html`](docs/wireframes/orbita-responsive.html) (design e desenhos das telas), [`docs/19`](docs/19-revised-lovable-prompt.md) (prompt para colar) |
 | Uma IA ajudando no código | [`AGENTS.md`](AGENTS.md) |
-| Quem vai apresentar | [`docs/08`](docs/08-plano-prototipo-20h.md) (seções 0 e 6), [`docs/01`](docs/01-contexto-missao.md), [`docs/11`](docs/11-precedentes.md), [`docs/10`](docs/10-massa-energia-lancamento.md), [`docs/16`](docs/16-proximos-passos-e-impacto.md) |
-| Quem constrói o óculos | [`docs/09`](docs/09-oculos-orbit.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) e [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
+| Quem vai apresentar | [`docs/08`](docs/08-prototype-plan-20h.md) (seções 0 e 6), [`docs/01`](docs/01-mission-context.md), [`docs/11`](docs/11-precedents.md), [`docs/10`](docs/10-mass-energy-launch.md), [`docs/16`](docs/16-next-steps-and-impact.md) |
+| Quem constrói o óculos | [`docs/09`](docs/09-orbit-glasses.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) e [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
 
-Wireframes das telas: abra [`docs/wireframes/telas-prototipo.html`](docs/wireframes/telas-prototipo.html) no navegador.
+Wireframes das telas: abra [`docs/wireframes/prototype-screens.html`](docs/wireframes/prototype-screens.html) no navegador.
 
 ## Organização do repositório
 
 ```text
 AGENTS.md                     contexto e regras para a IA de desenvolvimento (CLAUDE.md aponta para cá)
 docs/                         documentação consolidada, didática, com fontes (00 a 19)
-  wireframes/                 telas do protótipo em HTML (telas-prototipo.html e orbita-responsivo.html)
+  wireframes/                 telas do protótipo em HTML (prototype-screens.html e orbita-responsive.html)
 pesquisa/
-  METODO.md                   regras dadas aos agentes de pesquisa e ciclo de revisão
+  METHOD.md                   regras dadas aos agentes de pesquisa e ciclo de revisão
   documento-inicial.md        cópia do documento de origem (Google Docs, todas as abas)
   bruto/                      as 19 frentes de pesquisa completas, com todas as citações
 prototipo/
@@ -52,7 +52,7 @@ Traycer/                      cópia da EPIC do Traycer deste projeto e instruç
 
 ## Como a pesquisa foi feita
 
-Dezenove frentes de pesquisa, cada uma com um agente de IA instruído a usar fontes primárias (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, outras agências e artigos revisados por pares), citar a URL de cada fato com uma etiqueta de confiança e escrever "NÃO ENCONTRADO" em vez de inventar. Cada entrega foi revisada pelo coordenador (checagem automática, conferência por amostragem e devolução para correção quando necessário) antes de ser aprovada, e a frente 19 fez uma checagem cruzada final dos números principais. Método completo em [`pesquisa/METODO.md`](pesquisa/METODO.md); todas as fontes em [`docs/15-referencias.md`](docs/15-referencias.md).
+Dezenove frentes de pesquisa, cada uma com um agente de IA instruído a usar fontes primárias (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, outras agências e artigos revisados por pares), citar a URL de cada fato com uma etiqueta de confiança e escrever "NÃO ENCONTRADO" em vez de inventar. Cada entrega foi revisada pelo coordenador (checagem automática, conferência por amostragem e devolução para correção quando necessário) antes de ser aprovada, e a frente 19 fez uma checagem cruzada final dos números principais. Método completo em [`pesquisa/METHOD.md`](pesquisa/METHOD.md); todas as fontes em [`docs/15-references.md`](docs/15-references.md).
 
 | Frente | Arquivo |
 | --- | --- |
@@ -67,7 +67,7 @@ Dezenove frentes de pesquisa, cada uma com um agente de IA instruído a usar fon
 | 9. Perfis de dados simulados | [`09-perfis-dados-simulados.md`](pesquisa/bruto/09-perfis-dados-simulados.md) |
 | 10. Orientações e contramedidas | [`10-orientacoes-contramedidas.md`](pesquisa/bruto/10-orientacoes-contramedidas.md) |
 | 11. Amostras reais para a demonstração | [`11-amostras-reais.md`](pesquisa/bruto/11-amostras-reais.md) |
-| 12. Consolidação dos limiares | resultou em [`docs/03`](docs/03-indicadores-e-limiares.md) e [`indicadores.json`](prototipo/config/indicadores.json) |
+| 12. Consolidação dos limiares | resultou em [`docs/03`](docs/03-indicators-and-thresholds.md) e [`indicadores.json`](prototipo/config/indicadores.json) |
 | 13. IA médica embarcada | [`13-ia-medica-embarcada.md`](pesquisa/bruto/13-ia-medica-embarcada.md) |
 | 14. Pipeline de sinais do óculos | [`14-oculos-pipeline-sinais.md`](pesquisa/bruto/14-oculos-pipeline-sinais.md) |
 | 15. Áudio e acervo sonoro do óculos | [`15-oculos-audio-acervo.md`](pesquisa/bruto/15-oculos-audio-acervo.md) |

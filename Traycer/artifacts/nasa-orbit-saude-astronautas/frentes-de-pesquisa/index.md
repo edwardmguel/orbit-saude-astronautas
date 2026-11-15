@@ -8,7 +8,7 @@ comments: none
 
 **Estado em 15/11, 08h45: as 19 frentes estão concluídas e aprovadas.** Período de execução: 01h30 a 05h40. Quatro frentes voltaram uma vez para correção (3, 5, 9 e 12) e todas foram aprovadas na segunda entrega. Nenhum agente parou por falta de cota (a janela de 5 horas do Codex fechou em 68%).
 
-Cada frente foi executada por um agente GPT-6 Luna (Codex, esforço máximo), escreveu só no próprio arquivo em `pesquisa/bruto/`, seguiu as regras de `pesquisa/METODO.md` e foi revisada pelo coordenador antes de aprovada (checagem automática de travessão, meia-risca, fontes e tabelas, mais conferência por amostragem dos números-chave). O texto completo de cada frente está no repositório; aqui ficam o andamento e os achados.
+Cada frente foi executada por um agente GPT-6 Luna (Codex, esforço máximo), escreveu só no próprio arquivo em `pesquisa/bruto/`, seguiu as regras de `pesquisa/METHOD.md` e foi revisada pelo coordenador antes de aprovada (checagem automática de travessão, meia-risca, fontes e tabelas, mais conferência por amostragem dos números-chave). O texto completo de cada frente está no repositório; aqui ficam o andamento e os achados.
 
 Pedidos do dono, 15/11: *"Mantenha os 6 agentes simultâneos por vez."* (02h05), substituído por *"mantenha apenas 3 lunas por vez a partir dos próximos que forem encerrando"* (02h25) · *"Ao passo que o luna for entregando, revise as informações [...] se não informe ele sobre os erros e peça para ele retomar e corrigir"* · *"Já desenhe todas as frentes de pesquisa [...] se encontrar potenciais novas pesquisas adicione nesse mesmo arquivo"* · *"Sempre que terminar uma tarefa atualize a EPIC."*
 
@@ -139,16 +139,16 @@ A redação dos documentos grandes foi delegada a agentes Claude com especifica�
 
 | Documento | Vem das frentes | Estado |
 | --- | --- | --- |
-| `docs/01-contexto-missao.md` | 2, 3, 4 | ✅ 02h45, 320 linhas; lista de dores ampliada de 15 para 36 condições |
-| `docs/02-equipamentos-e-dados.md` | 1, 2 | ✅ 02h42, 494 linhas, 117 fontes |
-| `docs/03-indicadores-e-limiares.md` e `indicadores.json` | 3, 8, 10, 12 | ✅ 04h41; acentos restaurados às 05h51 |
-| `docs/09-oculos-orbit.md` | 4, 5 | ✅ 02h43, 430 linhas |
-| `docs/10-massa-energia-lancamento.md` | 5 | ✅ 02h43, 346 linhas, contas refeitas por script |
-| `docs/11-precedentes.md` | 4, 6, 7, 13 | ✅ 04h56, 281 linhas, 84 fontes conferidas por script |
-| `docs/12-fontes-de-dados-abertas.md` | 1, 6, 11 | ✅ 02h47, 450 linhas |
-| `docs/13-glossario.md` e `docs/15-referencias.md` | todas | ✅ 05h46, 470 termos e 958 URLs únicas |
-| `docs/14-perguntas-respondidas.md` | 1, 2, 3, 4, 6 | ✅ 02h47, 335 linhas, com tabela de correções ao documento inicial |
-| `docs/16-proximos-passos-e-impacto.md` | 16, 17, 18 | ✅ 05h30, 306 linhas, com lista do que não dizer |
+| `docs/01-mission-context.md` | 2, 3, 4 | ✅ 02h45, 320 linhas; lista de dores ampliada de 15 para 36 condições |
+| `docs/02-equipment-and-data.md` | 1, 2 | ✅ 02h42, 494 linhas, 117 fontes |
+| `docs/03-indicators-and-thresholds.md` e `indicadores.json` | 3, 8, 10, 12 | ✅ 04h41; acentos restaurados às 05h51 |
+| `docs/09-orbit-glasses.md` | 4, 5 | ✅ 02h43, 430 linhas |
+| `docs/10-mass-energy-launch.md` | 5 | ✅ 02h43, 346 linhas, contas refeitas por script |
+| `docs/11-precedents.md` | 4, 6, 7, 13 | ✅ 04h56, 281 linhas, 84 fontes conferidas por script |
+| `docs/12-open-data-sources.md` | 1, 6, 11 | ✅ 02h47, 450 linhas |
+| `docs/13-glossary.md` e `docs/15-references.md` | todas | ✅ 05h46, 470 termos e 958 URLs únicas |
+| `docs/14-answered-questions.md` | 1, 2, 3, 4, 6 | ✅ 02h47, 335 linhas, com tabela de correções ao documento inicial |
+| `docs/16-next-steps-and-impact.md` | 16, 17, 18 | ✅ 05h30, 306 linhas, com lista do que não dizer |
 
 Os `docs/00`, `04`, `05`, `06`, `07` e `08` foram escritos pelo coordenador e atualizados com os achados das frentes 2, 7, 8, 9, 11, 12 e 19.
 
@@ -202,4 +202,4 @@ Com 6 agentes o consumo foi de cerca de 33 pontos por hora; com 3, cerca de 10 a
 
 ## 7. Regras dadas aos agentes
 
-Ver `pesquisa/METODO.md` no repositório: fonte primária com URL e etiqueta de confiança em cada fato, "NÃO ENCONTRADO" em vez de número inventado, português sem travessão nem meia-risca, escrever só no próprio arquivo, salvar a cada seção, responder ao coordenador ao terminar.
+Ver `pesquisa/METHOD.md` no repositório: fonte primária com URL e etiqueta de confiança em cada fato, "NÃO ENCONTRADO" em vez de número inventado, português sem travessão nem meia-risca, escrever só no próprio arquivo, salvar a cada seção, responder ao coordenador ao terminar.

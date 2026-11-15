@@ -6,7 +6,7 @@ Health monitoring software for astronauts on long-duration missions, with the **
 
 > **Status as of November 15, 2026:** Step 0 is complete: 19 research tracks approved, 20 consolidated documents (`docs/00` to `docs/19`), indicator configuration and simulation profiles ready, and real samples recorded for the demonstration. The working prototype of the app, named **Orbit**, is in [`orbita/`](orbita/).
 >
-> **Deadline:** according to the official event page, submission closes on **Sunday, November 15, at 11:59 pm, local event time**. See [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), section 0.
+> **Deadline:** according to the official event page, submission closes on **Sunday, November 15, at 11:59 pm, local event time**. See [`docs/08-prototype-plan-20h.md`](docs/08-prototype-plan-20h.md), section 0.
 
 ## The problem
 
@@ -33,14 +33,14 @@ Production build: `npm run build` (output in `orbita/dist/`). A walkthrough of t
 
 | If you are | Read |
 | --- | --- |
-| On the team, first time | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
-| A developer | [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) and [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
-| Building the app (the design documents call it ORBITA) | [`docs/17`](docs/17-revisao-prompt-orbita.md) (review of the team prompt), [`docs/18`](docs/18-design-orbita-responsivo.md) and [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html) (design and screen drawings), [`docs/19`](docs/19-prompt-lovable-revisado.md) (revised prompt) |
+| On the team, first time | [`docs/00-reading-guide.md`](docs/00-reading-guide.md) |
+| A developer | [`docs/08-prototype-plan-20h.md`](docs/08-prototype-plan-20h.md), [`docs/05-software-architecture.md`](docs/05-software-architecture.md) and [`docs/03-indicators-and-thresholds.md`](docs/03-indicators-and-thresholds.md) |
+| Building the app (the design documents call it ORBITA) | [`docs/17`](docs/17-orbita-prompt-review.md) (review of the team prompt), [`docs/18`](docs/18-orbita-responsive-design.md) and [`docs/wireframes/orbita-responsive.html`](docs/wireframes/orbita-responsive.html) (design and screen drawings), [`docs/19`](docs/19-revised-lovable-prompt.md) (revised prompt) |
 | An AI assistant helping with the code | [`AGENTS.md`](AGENTS.md) |
-| Presenting | [`docs/08`](docs/08-plano-prototipo-20h.md) (sections 0 and 6), [`docs/01`](docs/01-contexto-missao.md), [`docs/11`](docs/11-precedentes.md), [`docs/10`](docs/10-massa-energia-lancamento.md), [`docs/16`](docs/16-proximos-passos-e-impacto.md) |
-| Building the glasses | [`docs/09`](docs/09-oculos-orbit.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) and [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
+| Presenting | [`docs/08`](docs/08-prototype-plan-20h.md) (sections 0 and 6), [`docs/01`](docs/01-mission-context.md), [`docs/11`](docs/11-precedents.md), [`docs/10`](docs/10-mass-energy-launch.md), [`docs/16`](docs/16-next-steps-and-impact.md) |
+| Building the glasses | [`docs/09`](docs/09-orbit-glasses.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) and [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
 
-Screen wireframes: open [`docs/wireframes/telas-prototipo.html`](docs/wireframes/telas-prototipo.html) in your browser.
+Screen wireframes: open [`docs/wireframes/prototype-screens.html`](docs/wireframes/prototype-screens.html) in your browser.
 
 The documentation in `docs/` and `pesquisa/` is written in Brazilian Portuguese, the team's language.
 
@@ -51,7 +51,7 @@ AGENTS.md                     context and rules for the AI development assistant
 README.pt-BR.md               this README in Brazilian Portuguese
 orbita/                       the Orbit app (React + TypeScript + Vite), with its own README
 docs/                         consolidated, didactic documentation with sources (00 to 19)
-  wireframes/                 prototype screens in HTML (telas-prototipo.html and orbita-responsivo.html)
+  wireframes/                 prototype screens in HTML (prototype-screens.html and orbita-responsive.html)
 pesquisa/
   METODO.md                   rules given to the research agents and the review cycle
   documento-inicial.md        copy of the source document (Google Docs, all tabs)
@@ -67,7 +67,7 @@ Traycer/                      copy of this project's Traycer EPIC and instructio
 
 ## How the research was done
 
-Nineteen research tracks, each run by an AI agent instructed to use primary sources (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, other space agencies and peer-reviewed papers), to cite the URL of every fact with a confidence label, and to write "NOT FOUND" (in the files: "NÃO ENCONTRADO") instead of inventing. Every delivery was reviewed by the coordinator (automatic checks, spot checks and return for correction when needed) before approval, and track 19 ran a final cross-check of the main numbers. Full method in [`pesquisa/METODO.md`](pesquisa/METODO.md); all sources in [`docs/15-referencias.md`](docs/15-referencias.md).
+Nineteen research tracks, each run by an AI agent instructed to use primary sources (nasa.gov, NASA Technical Reports Server, Human Research Roadmap, NASA-STD-3001, OSDR, other space agencies and peer-reviewed papers), to cite the URL of every fact with a confidence label, and to write "NOT FOUND" (in the files: "NÃO ENCONTRADO") instead of inventing. Every delivery was reviewed by the coordinator (automatic checks, spot checks and return for correction when needed) before approval, and track 19 ran a final cross-check of the main numbers. Full method in [`pesquisa/METHOD.md`](pesquisa/METHOD.md); all sources in [`docs/15-references.md`](docs/15-references.md).
 
 | Track | File |
 | --- | --- |
@@ -82,7 +82,7 @@ Nineteen research tracks, each run by an AI agent instructed to use primary sour
 | 9. Simulated data profiles | [`09-perfis-dados-simulados.md`](pesquisa/bruto/09-perfis-dados-simulados.md) |
 | 10. Guidance and countermeasures | [`10-orientacoes-contramedidas.md`](pesquisa/bruto/10-orientacoes-contramedidas.md) |
 | 11. Real samples for the demonstration | [`11-amostras-reais.md`](pesquisa/bruto/11-amostras-reais.md) |
-| 12. Threshold consolidation | resulted in [`docs/03`](docs/03-indicadores-e-limiares.md) and [`indicadores.json`](prototipo/config/indicadores.json) |
+| 12. Threshold consolidation | resulted in [`docs/03`](docs/03-indicators-and-thresholds.md) and [`indicadores.json`](prototipo/config/indicadores.json) |
 | 13. Onboard medical AI | [`13-ia-medica-embarcada.md`](pesquisa/bruto/13-ia-medica-embarcada.md) |
 | 14. Glasses signal pipeline | [`14-oculos-pipeline-sinais.md`](pesquisa/bruto/14-oculos-pipeline-sinais.md) |
 | 15. Glasses audio and sound library | [`15-oculos-audio-acervo.md`](pesquisa/bruto/15-oculos-audio-acervo.md) |

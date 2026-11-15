@@ -6,7 +6,7 @@ comments: none
 
 # Arquitetura do software
 
-Texto completo: `docs/05-arquitetura-software.md` no repositório.
+Texto completo: `docs/05-software-architecture.md` no repositório.
 
 ## Princípios
 
