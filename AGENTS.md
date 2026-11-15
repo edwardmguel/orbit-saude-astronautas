@@ -21,7 +21,9 @@ Equipe: Fundação Futuro. Prazo do protótipo: 20 horas. Plano em [`docs/08-pla
 | Fórmulas e regras de cruzamento, com exemplos resolvidos | [`docs/04-cruzamento-de-dados.md`](docs/04-cruzamento-de-dados.md) |
 | Arquitetura e stack | [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) |
 | Modelo de dados e unidades canônicas | [`docs/06-modelo-de-dados.md`](docs/06-modelo-de-dados.md) |
-| Telas, tokens de cor, componentes | [`docs/07-design-interface.md`](docs/07-design-interface.md) e [`docs/wireframes/telas-prototipo.html`](docs/wireframes/telas-prototipo.html) |
+| Telas, tokens de cor, componentes do app **ORBITA** (responsivo, com Visão geral em tela grande) | [`docs/18-design-orbita-responsivo.md`](docs/18-design-orbita-responsivo.md) e [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html); prompt para o Lovable em [`docs/19-prompt-lovable-revisado.md`](docs/19-prompt-lovable-revisado.md) |
+| Regras de sinalização, privacidade e convenções da NASA na tela | [`docs/07-design-interface.md`](docs/07-design-interface.md) (proposta inicial; em cor e layout vale o `docs/18`) |
+| Base de conhecimento da ORBITA IA | [`prototipo/config/orbita-ia-base.json`](prototipo/config/orbita-ia-base.json) |
 | Fontes de dados públicas (APIs e arquivos) | [`docs/12-fontes-de-dados-abertas.md`](docs/12-fontes-de-dados-abertas.md) |
 | Siglas | [`docs/13-glossario.md`](docs/13-glossario.md) |
 | Pesquisa bruta com todas as citações | [`pesquisa/bruto/`](pesquisa/bruto/) |

@@ -19,6 +19,7 @@
 | **Dev do motor e ML** (Dev C) | `03` → `04` → `06` → `05` (seções 2 e 4) | Regras, linha de base, cruzamentos, alertas |
 | **Dono do projeto (óculos)** | `09` → `10` → `11` → `pesquisa/bruto/04` e `05` | Óculos Orbit, massa, energia, pitch |
 | **Quem apresenta** | `08` (seção 0 e 6) → `01` → `11` → `10` → `16` → `14` | Prazo, narrativa, precedentes, números de viabilidade e slides finais |
+| **Quem executa o código no Lovable** | `17` → `18` (com os desenhos em `wireframes/orbita-responsivo.html`) → `19` (o prompt para colar) | Construir o ORBITA já conectado à pesquisa |
 | **IA de desenvolvimento** | [`../AGENTS.md`](../AGENTS.md) primeiro, depois o documento da tarefa | Regras de domínio e convenções |
 
 ## Mapa dos documentos
@@ -42,6 +43,9 @@
 | 14 | [Perguntas respondidas](14-perguntas-respondidas.md) | Respostas às dúvidas do documento inicial |
 | 15 | [Referências](15-referencias.md) | Lista de fontes oficiais usadas |
 | 16 | [Próximos passos e impacto](16-proximos-passos-e-impacto.md) | O que muda para Lua e Marte, como chegar à ISS e para que serve na Terra? (base dos slides finais) |
+| 17 | [Revisão do prompt ORBITA](17-revisao-prompt-orbita.md) | O que o prompt da equipe para o Lovable acerta e o que precisa mudar para bater com a pesquisa? |
+| 18 | [Design do ORBITA responsivo](18-design-orbita-responsivo.md) e [desenhos das telas](wireframes/orbita-responsivo.html) | Como é cada tela do ORBITA no celular, no laptop e na tela grande? |
+| 19 | [Prompt do Lovable revisado](19-prompt-lovable-revisado.md) | Qual prompt colar no Lovable para construir o app já alinhado à pesquisa? |
 
 ## Como ler as etiquetas de fonte
 

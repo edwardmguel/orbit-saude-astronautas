@@ -1,8 +1,8 @@
 # 17. Revisão do prompt ORBITA: conectando funcionalidades e pesquisa
 
 > Para quem: a equipe de desenvolvimento e quem vai executar o código no Lovable.
-> O que é: análise, seção por seção, do prompt "ORBITA: Sistema Inteligente de Monitoramento da Saúde de Astronautas" (aba "Prompt de Desenvolvimento" do documento Fundação Futuro, lida em 15/11/2026 às 10h40), comparado com a pesquisa e a documentação deste repositório.
-> Resultado: o que manter, o que corrigir e por quê. O design de cada tela está em [`18-design-orbita-mobile.md`](18-design-orbita-mobile.md) e os desenhos em [`wireframes/orbita-mobile.html`](wireframes/orbita-mobile.html). O prompt corrigido, pronto para colar no Lovable, está em [`19-prompt-lovable-revisado.md`](19-prompt-lovable-revisado.md).
+> O que é: análise, seção por seção, do prompt "ORBITA: Sistema Inteligente de Monitoramento da Saúde de Astronautas" (aba "Prompt de Desenvolvimento" do documento Fundação Futuro, lida em 15/11/2026 às 10h35), comparado com a pesquisa e a documentação deste repositório.
+> Resultado: o que manter, o que corrigir e por quê. O design de cada tela está em [`18-design-orbita-responsivo.md`](18-design-orbita-responsivo.md) e os desenhos em [`wireframes/orbita-responsivo.html`](wireframes/orbita-responsivo.html). O prompt corrigido, pronto para colar no Lovable, está em [`19-prompt-lovable-revisado.md`](19-prompt-lovable-revisado.md).
 
 ---
 
@@ -40,7 +40,7 @@ Legenda: ✅ manter · 🔧 ajustar · ➕ acrescentar.
 | Cores de estado (verde, amarelo, laranja, vermelho) | 🔧 | Acrescentar os valores exatos e o cinza. Laranja = nível 3 (CMO e médico de voo), vermelho = nível 4 (só por sintoma de alarme). Tokens em `docs/18` |
 | Interface escura, cartões, ciano com moderação | ✅ | Igual ao design de `docs/07` |
 | Animações suaves | 🔧 | Permitidas na navegação e na abertura; **proibidas em alertas** (nada pisca, frente 7). Respeitar a preferência do sistema por menos movimento |
-| Somente smartphone de 6 a 6,8 polegadas | 🔧 | Manter mobile como principal, mas o layout deve funcionar em tablet: a tripulação da ISS usa iPads e laptops, não celulares (frente 7) |
+| Somente smartphone de 6 a 6,8 polegadas | 🔧 | **Decisão do dono (15/11, 11h): web app responsivo**, pensado primeiro para o celular e funcionando em tablet e laptop (a tripulação da ISS usa iPads e laptops, frente 7). A **Visão geral** ganha um layout próprio para **tela grande** (monitor compartilhado da estação e telão da apresentação), com ambiente, tripulação e alertas no mesmo quadro. Pontos de quebra e navegação em `docs/18` |
 
 ### Seção 2. Cadastro
 
@@ -91,7 +91,7 @@ Legenda: ✅ manter · 🔧 ajustar · ➕ acrescentar.
 | --- | --- | --- |
 | Verde, amarelo, laranja, vermelho, cinza com texto e ícone | ✅ | Mapeamento: cinza = nível 0, verde = 1, amarelo = 2, laranja = 3, vermelho = 4 |
 | Critérios configuráveis, não apresentar como limites da NASA sem referência | ✅ | É a política de classes do `docs/03` (requisito oficial, referência terrestre, linha de base, sintoma) |
-| Vermelho "crítico" | 🔧 | Só por sintoma de alarme ou requisito oficial excedido; nunca por um número isolado de sinal vital. Rótulos com "Saúde:" para não parecer o alarme da estação |
+| Vermelho "crítico" | 🔧 | Só por sintoma de alarme relatado (`docs/06`: `gatilhosSintoma` é o único caminho para o nível 4); requisito oficial excedido é laranja (nível 3); nunca vermelho por um número isolado de sinal vital. Rótulos com "Saúde:" para não parecer o alarme da estação |
 
 ### Seção 7. Menu lateral
 
@@ -218,10 +218,11 @@ Os dois indicadores novos (`apetite` e `eog_piscadas`) entram no `docs/03` e no 
 | Apetite | Reduzido | Igual | |
 | Sono | Linha de base 7,5 h | Última noite 5,4 h, linha de base 7,5 h | Mostra dívida de sono (amarelo) |
 | Humor | Linha de base 8/10 | 3 de 5, linha de base 4 de 5 | Escala do `indicadores.json` |
-| CO2 do módulo | Ausente | 2,95 mmHg no Node 3 | Dispara R-CO2-01 com a frequência cardíaca e a fadiga |
+| CO2 do módulo | Ausente | 2,95 mmHg no Node 3 | Dispara R-CO2-01 junto com a dificuldade de concentração relatada há 40 minutos (a regra exige um sintoma ou PVT pior); frequência cardíaca e fadiga entram como contexto do alerta |
+| O2 do módulo | Ausente | PIO2 de 141,3 mmHg (18,84 kPa) no Node 3, calculada da ppO2 real de 150,67 mmHg e da pressão total de 757,64 mmHg | Amarelo: fora do alvo de normoxia de 145 a 155 mmHg e muito acima dos limites de exposição; dado real, mostra a conversão de ppO2 em PIO2 (`docs/04`, A1) |
 | Hemograma | Há 7 dias | Coleta há 7 dias, "amostra coletada, análise na Terra"; resultado anterior de 14,8 g/dL de hemoglobina | Estados reais |
 
-Com esses valores, a tela inicial mostra três amarelos (frequência cardíaca, fadiga, sono), um alerta explicável de CO2 e todo o resto verde. É uma história clara para os jurados.
+Com esses valores, a tela inicial mostra três amarelos no corpo (frequência cardíaca, fadiga, sono), um alerta explicável de CO2, o O2 do Node 3 em amarelo no cartão de ambiente e todo o resto verde (com cinza onde não há medida em voo). É uma história clara para os jurados.
 
 ---
 
@@ -233,7 +234,7 @@ Códigos usados no `docs/18`, nos desenhos e no `docs/19`.
 | --- | --- | --- | --- |
 | M01 | Cadastro | Prompt seção 2, ajustada | P0 |
 | M02 | Inicialização orbital | Prompt seção 3 | P0 |
-| M03 | Visão geral (dashboard) | Prompt seção 4, ajustada | P0 |
+| M03 | Visão geral (dashboard): painel pessoal no celular e painel da missão em tela grande | Prompt seção 4, ajustada; tela grande por decisão do dono | P0 |
 | M04 | Avaliação de saúde (diária, sinais vitais, testes) | Prompt seção 4B, ampliada | P0 |
 | M05 | Mapa corporal | Prompt seção 5 | P0 |
 | M06 | Painel da região (folha inferior) | Prompt seção 5 | P0 |
@@ -246,7 +247,7 @@ Códigos usados no `docs/18`, nos desenhos e no `docs/19`.
 | M13 | Riscos espaciais | Prompt seção 12 | P1 |
 | M14 | Notificações | Prompt seção 13 | P1 |
 | M15 | Perfil e privacidade | Prompt seção 7, item 9 | P1 |
-| M16 | Tripulação (monitor geral) | Pedido do dono, `docs/07` T1 | P1 |
+| M16 | Tripulação (monitor geral): lista no celular, quadro da tripulação dentro da Visão geral em tela grande | Pedido do dono, `docs/07` T1 | P1 (o quadro em tela grande é P0, junto com M03) |
 | M17 | Sono e óculos Orbit | `docs/07` T6, `docs/09` | P2 |
 | M18 | Menu lateral | Prompt seção 7 | P0 |
 
@@ -258,5 +259,5 @@ Códigos usados no `docs/18`, nos desenhos e no `docs/19`.
 | --- | --- |
 | Nome da missão de demonstração | ISS EXP-01 (dados reais coerentes); Marte no slide |
 | Mapa corporal 3D ou SVG | SVG de alta qualidade primeiro; 3D se sobrar tempo |
-| Mobile apenas ou também tablet | Mobile primeiro, responsivo até tablet |
+| Formato do app | **Decidido pelo dono em 15/11:** responsivo (celular, tablet e laptop), com a Visão geral também em layout de tela grande (1920 x 1080) para o monitor compartilhado e para o telão da apresentação |
 | Arquivo do ícone ORBITA | Enviar o SVG oficial ao repositório (`prototipo/marca/`) antes de começar a animação |

@@ -1,6 +1,6 @@
 {
     "esquema":  "perfis-simulacao.rascunho.v1.1",
-    "descricao":  "Parâmetros de gerador para missão fictícia de 180 dias, agora com 35 indicadores. Não são dados de voo, limiares clínicos ou especificações operacionais.",
+    "descricao":  "Parâmetros de gerador para missão fictícia de 180 dias, agora com 37 indicadores (35 originais mais apetite e eog_piscadas, do ORBITA). Não são dados de voo, limiares clínicos ou especificações operacionais.",
     "convencoes":  {
                        "unidadesCanonicas":  "Usar docs/06-modelo-de-dados.md onde definidas.",
                        "evidencias":  "[OFICIAL], [PAPER], [DIRETRIZ-TERRA], [INFERÊNCIA], [NÃO ENCONTRADO].",
@@ -1266,6 +1266,68 @@
                             "notaFrequenciaReal":  "Protocolo ou estudo específico; não universal",
                             "frequenciaSimuladorMin":  180,
                             "fonte":  "[INFERÊNCIA] Kp=2 demo; [OFICIAL] https://www.spaceweather.gov/noaa-scales-explanation"
+                        },
+                        {
+                            "indicadorId": "apetite",
+                            "unidade": "categoria ordinal 1 a 3 (1 normal, 2 reduzido, 3 muito reduzido)",
+                            "tipico": 1,
+                            "dpEntrePessoas": null,
+                            "dpEntrePessoasStatus": "NÃO ENCONTRADO; valor do simulador é [INFERÊNCIA]",
+                            "dpEntrePessoasSimulador": 0.3,
+                            "dpDiaADia": null,
+                            "dpDiaADiaStatus": "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador": 0.4,
+                            "ruido": null,
+                            "ruidoEquipamentoStatus": "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador": 0,
+                            "circadiano": {
+                                "amplitude": null,
+                                "horaPicoGmt": null,
+                                "horaPicoPublicada": null,
+                                "unidade": "categoria ordinal 1 a 3 (1 normal, 2 reduzido, 3 muito reduzido)",
+                                "status": "Sem amplitude e pico GMT aplicáveis encontrados"
+                            },
+                            "tendencia180d": {
+                                "tipo": "Sem tendência publicada",
+                                "valor": null,
+                                "unidade": "categoria ordinal 1 a 3 (1 normal, 2 reduzido, 3 muito reduzido)",
+                                "status": "NÃO ENCONTRADO"
+                            },
+                            "frequenciaRealMin": null,
+                            "notaFrequenciaReal": "Pergunta do check-in diário do ORBITA (docs/19); não é medida de voo da NASA",
+                            "frequenciaSimuladorMin": 1440,
+                            "fonte": "[OFICIAL] https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=176; [INFERÊNCIA] típico 1 e dispersões do simulador escolhidos para a demonstração do docs/19 (linha de base 1, 1, 2, 1, 1, 2 e 1); arredondar e limitar a 1 a 3"
+                        },
+                        {
+                            "indicadorId": "eog_piscadas",
+                            "unidade": "piscadas/min",
+                            "tipico": 13,
+                            "dpEntrePessoas": null,
+                            "dpEntrePessoasStatus": "NÃO ENCONTRADO; valor do simulador é [INFERÊNCIA]",
+                            "dpEntrePessoasSimulador": 2.5,
+                            "dpDiaADia": null,
+                            "dpDiaADiaStatus": "NÃO ENCONTRADO como componente separado",
+                            "dpDiaADiaSimulador": 0.6,
+                            "ruido": null,
+                            "ruidoEquipamentoStatus": "NÃO ENCONTRADO: hardware do protótipo não definido",
+                            "ruidoSimulador": 0,
+                            "circadiano": {
+                                "amplitude": null,
+                                "horaPicoGmt": null,
+                                "horaPicoPublicada": null,
+                                "unidade": "piscadas/min",
+                                "status": "Sem amplitude e pico GMT aplicáveis encontrados"
+                            },
+                            "tendencia180d": {
+                                "tipo": "Sem tendência publicada",
+                                "valor": null,
+                                "unidade": "piscadas/min",
+                                "status": "NÃO ENCONTRADO"
+                            },
+                            "frequenciaRealMin": null,
+                            "notaFrequenciaReal": "Janela de 60 s no óculos Orbit (pesquisa/bruto/14); só para quem usa o óculos",
+                            "frequenciaSimuladorMin": 60,
+                            "fonte": "[PAPER] https://kaikunze.de/papers/pdf/tag2019continuous.pdf (associação com PVT, sem valor típico de referência); [INFERÊNCIA] típico de 13 por min igual ao padrão de demonstração do docs/19 (12,4 a 13,5); experimental, óculos Orbit simulado"
                         }
                     ],
     "linhaDeBaseAmbiental":  {
@@ -1381,7 +1443,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  89,
-                                                                       "hemoglobina":  13.7
+                                                                       "hemoglobina":  13.7,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  13
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1418,7 +1482,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  93,
-                                                                       "hemoglobina":  15.4
+                                                                       "hemoglobina":  15.4,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  15
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1455,7 +1521,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  87,
-                                                                       "hemoglobina":  14.2
+                                                                       "hemoglobina":  14.2,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  12
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1492,7 +1560,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  95,
-                                                                       "hemoglobina":  15.9
+                                                                       "hemoglobina":  15.9,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  14
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1529,7 +1599,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  90,
-                                                                       "hemoglobina":  13.3
+                                                                       "hemoglobina":  13.3,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  16
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1566,7 +1638,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  96,
-                                                                       "hemoglobina":  16.1
+                                                                       "hemoglobina":  16.1,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  11
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",
@@ -1603,7 +1677,9 @@
                                                                        "carga_ared":  null,
                                                                        "amsler_distorcao":  0,
                                                                        "glicose":  91,
-                                                                       "hemoglobina":  14.5
+                                                                       "hemoglobina":  14.5,
+                                                                       "apetite":  1,
+                                                                       "eog_piscadas":  13
                                                                    },
                                                    "evidenciaGlicose":  "[INFERÊNCIA] baseline pré-voo fictício em jejum; não é leitura diária",
                                                    "disponibilidadeHemoglobinaEmVoo":  "pendente_laboratorio",

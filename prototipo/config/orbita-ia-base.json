@@ -1,0 +1,1929 @@
+{
+  "versao": "1.0.0",
+  "geradoEm": "2026-11-15",
+  "aviso": "A ORBITA IA responde somente com esta base local e com os estados calculados pelo motor do ORBITA. Não faz diagnóstico, não indica remédio nem dose e não substitui o CMO, o médico de voo nem o alarme e os procedimentos da estação. Em emergência, siga o procedimento oficial e contate o CMO. Conteúdo de apoio e educação, montado a partir dos documentos do projeto (docs/01, 03, 04, 14 e 16, frentes 8, 10 e 14 e prototipo/config/indicadores.json), com a fonte oficial citada em cada resposta. Textos entre chaves, como {indicadoresAmarelos}, são marcadores que o app preenche com os estados atuais; sem dado, o app escreve 'sem dado'.",
+  "entradas": [
+    {
+      "id": "saude-hoje",
+      "perguntas": [
+        "como está minha saúde hoje",
+        "como estou hoje",
+        "resumo do dia",
+        "resumo da minha saúde",
+        "meu estado de saúde",
+        "estou bem",
+        "status de saúde",
+        "como estou"
+      ],
+      "resposta": "Resumo de hoje, dia {diaMissao} da missão {missao}, {horaGmt}: {qtdVerde} indicadores em verde, {qtdAmarelo} em atenção ({indicadoresAmarelos}), {qtdLaranja} pedindo o CMO ({indicadoresLaranja}), {qtdVermelho} com instrução de contatar o CMO agora ({indicadoresVermelhos}) e {qtdSemDado} sem dado recente ({indicadoresSemDado}). Alertas ativos: {alertasAtivos}. Cada estado vem do motor do ORBITA, que compara você com a sua linha de base e com faixas que têm fonte; toque num cartão para ver a regra, a fonte e o que fazer. Isto é apoio ao acompanhamento, não diagnóstico.",
+      "maisDetalhes": "Como o app preenche: cada marcador qtd conta indicadores por nível (cinza 0, verde 1, amarelo 2, laranja 3, vermelho 4). As listas trazem nome, valor e unidade, por exemplo 'frequência cardíaca 86 bpm, acima do seu padrão de 64 bpm'; lista vazia vira 'nenhum'. {alertasAtivos} traz o título e o id de cada alerta de cruzamento, por exemplo 'Possível efeito de CO2 elevado no Node 3 (R-CO2-01)'. Se houver qualquer item vermelho, a resposta começa por 'Contate o CMO agora e abra o procedimento oficial'.",
+      "indicadores": [
+        "fc_repouso",
+        "spo2",
+        "dose_acumulada",
+        "eog_piscadas",
+        "sono_tst",
+        "fadiga",
+        "humor",
+        "apetite",
+        "agua_ingerida",
+        "ppco2_modulo"
+      ],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+          "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+        }
+      ]
+    },
+    {
+      "id": "indicadores-atencao",
+      "perguntas": [
+        "quais indicadores precisam de atenção",
+        "o que está amarelo",
+        "o que está fora do normal",
+        "o que preciso olhar",
+        "alertas de hoje",
+        "o que mudou",
+        "o que está alterado"
+      ],
+      "resposta": "Precisam de atenção agora: {listaAtencao}. Para cada um, o ORBITA mostra o valor com unidade, o motivo da cor (fora de uma faixa com fonte ou diferente do seu padrão) e o que fazer: {oQueFazerAtencao}. Amarelo pede revisão por você; laranja pede o CMO; vermelho só aparece com sintoma de alarme. Se a lista estiver vazia, nada está fora do seu padrão agora; dado ausente aparece em cinza, nunca como verde.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+          "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+        }
+      ]
+    },
+    {
+      "id": "fc-mudou",
+      "perguntas": [
+        "por que minha frequência cardíaca mudou",
+        "frequência cardíaca alta",
+        "coração acelerado",
+        "batimentos acima do normal",
+        "fc mudou",
+        "pulso alterado",
+        "por que meu coração está mais rápido"
+      ],
+      "resposta": "Hoje sua frequência cardíaca de repouso está em {fcValor} bpm; a sua linha de base é {fcLinhaDeBase} bpm e o estado é {fcEstado}. No espaço, a redistribuição de fluidos e o descondicionamento mudam a resposta do coração, e a carga de tarefa também muda a leitura em relação ao seu padrão. O ORBITA não sabe a causa: ele mostra que o valor está diferente do seu normal. Descanse, repita a medida pelo método indicado, registre postura e sintomas e comunique ao CMO se o desvio persistir.",
+      "maisDetalhes": "Regra de cor: fora da referência terrestre de 60 a 100 bpm em repouso é amarelo (referência terrestre, não limite de voo); 2 desvios padrão ou mais em relação à sua linha de base também é amarelo. Dor torácica, desmaio, falta de ar importante ou instabilidade são sintomas de alarme: vermelho, com 'Contatar CMO agora'. O desvio pessoal sozinho nunca gera vermelho.",
+      "indicadores": [
+        "fc_repouso"
+      ],
+      "regioes": [
+        "coracao"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, risco de adaptações cardiovasculares",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=179"
+        },
+        {
+          "titulo": "NASA, Risk of Cardiovascular Adaptations",
+          "url": "https://www.nasa.gov/reference/risk-of-cardiovascular-adaptations/"
+        },
+        {
+          "titulo": "MedlinePlus, sinais vitais (referência terrestre)",
+          "url": "https://medlineplus.gov/ency/article/002341.htm"
+        }
+      ]
+    },
+    {
+      "id": "sans",
+      "perguntas": [
+        "o que é o risco de sans",
+        "o que é sans",
+        "síndrome neuro-ocular",
+        "visão no espaço",
+        "olho no espaço",
+        "neuro ocular",
+        "minha visão mudou"
+      ],
+      "resposta": "SANS é a síndrome neuro-ocular associada ao voo espacial: em missões longas, parte dos tripulantes tem edema do disco óptico, dobras na retina, achatamento do globo ocular e mudança de grau. A hipótese principal é a subida de fluidos para a cabeça em microgravidade, e a causa ainda não é totalmente conhecida. O briefing da NASA cita cerca de 70% da tripulação de missões longas com ao menos um sinal e cerca de 18% com quadro clinicamente preocupante. A NASA vigia com exames oculares em datas fixas (FD30, FD90 e depois a cada 90 dias) e leva óculos de graus diferentes; no ORBITA, a grade de Amsler e a acuidade de perto ajudam você a notar mudança e a falar com o médico de voo, sem diagnosticar.",
+      "maisDetalhes": "Sem queixa não quer dizer sem SANS: há sinais objetivos com pouca percepção. O EOG do óculos Orbit não detecta SANS. A regra R-SANS-01 marca atenção quando a acuidade de perto piora ou aparece distorção nova na Amsler em 2 testes seguidos com até 14 dias entre eles (parâmetros de demonstração) e sobe para laranja com dor de cabeça persistente, visão dupla ou perda súbita de visão.",
+      "indicadores": [
+        "acuidade_perto",
+        "amsler_distorcao"
+      ],
+      "regioes": [
+        "olhos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-001, SANS",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        },
+        {
+          "titulo": "NASA, Risk of Spaceflight Associated Neuro-ocular Syndrome (SANS)",
+          "url": "https://www.nasa.gov/reference/risk-of-spaceflight-associated-neuro-ocular-syndrome-sans/"
+        },
+        {
+          "titulo": "NASA HRP, risco SANS",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=105"
+        }
+      ]
+    },
+    {
+      "id": "microgravidade-efeitos",
+      "perguntas": [
+        "quais são os efeitos da microgravidade no organismo",
+        "efeitos da microgravidade",
+        "o que a microgravidade faz no corpo",
+        "gravidade zero",
+        "falta de gravidade",
+        "corpo sem gravidade"
+      ],
+      "resposta": "Sem gravidade, o líquido do corpo sobe para a cabeça e o tronco (rosto inchado, pernas finas), o osso perde densidade, o músculo e a capacidade aeróbica diminuem, o equilíbrio e o controle motor se adaptam e a visão de perto pode mudar (SANS). Ao voltar à gravidade, pode haver tontura ou desmaio ao ficar de pé. Exercício diário nos aparelhos ARED, T2 e CEVIS é a principal contramedida, sem promessa de prevenção completa. O ORBITA acompanha esses efeitos pelo mapa corporal, sempre comparando você com o seu próprio padrão.",
+      "indicadores": [
+        "fc_repouso",
+        "pa_sistolica",
+        "acuidade_perto",
+        "tempo_exercicio",
+        "massa_corporal"
+      ],
+      "regioes": [
+        "coracao",
+        "ossos",
+        "musculos",
+        "olhos",
+        "vestibular"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo dos campos de gravidade",
+          "url": "https://www.nasa.gov/hrp/hazard-gravity-fields/"
+        },
+        {
+          "titulo": "NASA, The Human Body in Space",
+          "url": "https://www.nasa.gov/humans-in-space/the-human-body-in-space/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-031, Exercise Overview",
+          "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/"
+        }
+      ]
+    },
+    {
+      "id": "radiacao-corpo",
+      "perguntas": [
+        "como a radiação espacial afeta o corpo",
+        "radiação espacial",
+        "dose de radiação",
+        "raios cósmicos",
+        "dosimetria",
+        "radiação faz mal"
+      ],
+      "resposta": "A radiação ionizante do espaço (raios cósmicos galácticos, partículas solares e radiação aprisionada) pode causar dano celular e aumentar o risco de câncer ao longo da vida, além de efeitos em órgãos e no sistema nervoso. O risco depende da dose acumulada, não de sintomas: sentir-se bem não quer dizer dose baixa. Na ISS, a síntese técnica da NASA traz cerca de 50 a 100 mSv em seis meses, perto de 0,28 a 0,56 mSv por dia, e o limite de carreira é menor que 600 mSv de dose efetiva. O ORBITA mostra a dose do dia e o acumulado contra esse limite; em evento solar, quem decide o abrigo é o controle de missão.",
+      "indicadores": [
+        "dose_acumulada",
+        "taxa_dose_radiacao",
+        "fluxo_protons_goes"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo da radiação espacial",
+          "url": "https://www.nasa.gov/hrp/hazard-space-radiation/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, cap. 4, limite V1 4030",
+          "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+        },
+        {
+          "titulo": "NASA, resumo de proteção radiológica (50 a 100 mSv em seis meses)",
+          "url": "https://ntrs.nasa.gov/api/citations/20240008451/downloads/PASM_070124_to%20pubpress_Final.pdf"
+        },
+        {
+          "titulo": "NASA, Risk of Radiation Induced Cancers",
+          "url": "https://www.nasa.gov/reference/risk-of-radiation-induced-cancers/"
+        }
+      ]
+    },
+    {
+      "id": "hidratacao-por-que",
+      "perguntas": [
+        "por que preciso acompanhar minha hidratação",
+        "hidratação",
+        "beber água",
+        "quanto devo beber",
+        "por que registrar água",
+        "sede"
+      ],
+      "resposta": "A água que você bebe influencia o volume de urina e o risco de cálculo renal, que no espaço aumenta porque o osso, sem carga, libera cálcio. A quantidade certa é individual e vem do plano aprovado pela equipe médica e de nutrição; o ORBITA não prescreve litros de água. Registre o que bebe ao longo do dia e avise o CMO se não conseguir beber, se tiver sede persistente ou se a urina diminuir. Enjoo nos primeiros dias de voo também pode reduzir a ingestão.",
+      "indicadores": [
+        "agua_ingerida",
+        "cor_urina"
+      ],
+      "regioes": [
+        "rins"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-003, Urinary Health",
+          "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+        },
+        {
+          "titulo": "NASA HRP, risco de cálculo renal",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=81"
+        }
+      ]
+    },
+    {
+      "id": "dormir-mal-riscos",
+      "perguntas": [
+        "quais são os riscos de dormir inadequadamente",
+        "dormir mal",
+        "sono ruim",
+        "pouco sono",
+        "dívida de sono",
+        "insônia",
+        "dormi pouco"
+      ],
+      "resposta": "Sono curto ou fora de hora reduz a atenção, aumenta lapsos e erros e piora desempenho e humor, o que pesa em tarefas críticas como EVA e chegada de veículo. A norma da NASA reserva 8,5 horas de oportunidade de sono, mas estudos mostram que tripulantes dormem em média de 6 a 6,5 horas por noite. Proteja a janela prevista, reduza luz e ruído no pré-sono conforme o plano e comunique sonolência antes de tarefa crítica. O ORBITA nunca sugere remédio para dormir: medicamento é decisão do médico de voo.",
+      "indicadores": [
+        "sono_tst",
+        "fadiga",
+        "pvt_tempo_reacao",
+        "pvt_lapsos"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk from Inadequate Sleep and Irregular Schedules",
+          "url": "https://www.nasa.gov/reference/risk-from-inadequate-sleep-and-irregular-schedules/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-041, Sleep Accommodations",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations (8,5 h de sono)",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        },
+        {
+          "titulo": "Flynn-Evans et al., 2022, sono em missões de seis meses",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8919197/"
+        }
+      ]
+    },
+    {
+      "id": "proxima-avaliacao",
+      "perguntas": [
+        "quando devo realizar minha próxima avaliação",
+        "próxima avaliação",
+        "quando fazer o check-in",
+        "próximo hemograma",
+        "próximo exame",
+        "quando medir",
+        "quando é o próximo teste"
+      ],
+      "resposta": "Sua próxima avaliação diária: {proximaAvaliacaoDiaria}. Hemograma: {estadoHemograma}; próxima coleta prevista para {proximoHemograma}. Teste de visão: {proximoTesteVisao}; teste de reação (PVT): {proximoPvt}. A avaliação diária volta a ser pedida a cada 24 horas, o hemograma segue a periodicidade configurada (padrão de 15 dias) e nenhum lembrete aparece na sua janela de sono.",
+      "maisDetalhes": "Os exames oculares oficiais de SANS acontecem em FD30, FD90 e depois a cada 90 dias; o teste de visão semanal do ORBITA é proposta do protótipo e só vale se o médico de voo aprovar. Sangue coletado em órbita é centrifugado, congelado e analisado na Terra, por isso o resultado chega dias ou meses depois da coleta.",
+      "indicadores": [
+        "hemoglobina",
+        "acuidade_perto",
+        "amsler_distorcao",
+        "pvt_tempo_reacao"
+      ],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-001, calendário de exames de SANS",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        },
+        {
+          "titulo": "NASA OCHMO-STD-100.1A, calendário médico de referência",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/09/ochmo-std-100-1a-rev-a-signed.pdf"
+        },
+        {
+          "titulo": "NASA, In-Situ Lab Analysis",
+          "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/human-health-performance/exploration-medical-technologies/in-situ-lab-analysis/"
+        }
+      ]
+    },
+    {
+      "id": "alerta-mapa",
+      "perguntas": [
+        "o que significa o alerta apresentado no meu mapa corporal",
+        "alerta no mapa",
+        "por que a região está amarela",
+        "região colorida",
+        "o que significa esse alerta",
+        "cor no corpo",
+        "por que estou vendo este alerta"
+      ],
+      "resposta": "{regiaoSelecionada} está em {estadoRegiao} porque a região assume a cor do pior indicador dela: {indicadoresDaRegiao}. Alerta ativo: {alertaTitulo}, regra {alertaRegra}. Por que: {alertaEvidencias}. O que fazer agora: {alertaOQueFazer}; o alerta sobe de nível se {alertaGatilho}. Fonte: {alertaFonte}.",
+      "maisDetalhes": "O mapa é educativo e de apoio: nem todo risco da região pode ser medido pelos indicadores do ORBITA. Cinza quer dizer sem dado recente, nunca 'normal'. O alerta usa 'possível' e 'sugere' porque é uma hipótese explicável, não um diagnóstico.",
+      "indicadores": [],
+      "regioes": [
+        "cerebro",
+        "olhos",
+        "coracao",
+        "pulmoes",
+        "sangue",
+        "digestao",
+        "ossos",
+        "musculos",
+        "corpo",
+        "vestibular",
+        "rins",
+        "ouvidos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, riscos dos voos tripulados",
+          "url": "https://www.nasa.gov/hrp/risks/"
+        }
+      ]
+    },
+    {
+      "id": "cinco-perigos",
+      "perguntas": [
+        "quais são os cinco perigos",
+        "cinco perigos dos voos espaciais",
+        "ridge",
+        "perigos do espaço",
+        "riscos dos voos espaciais"
+      ],
+      "resposta": "O Human Research Program da NASA organiza os riscos à saúde em cinco perigos, a sigla RIDGE: Radiação, Isolamento e confinamento, Distância da Terra, campos de Gravidade e ambientes hostis e fechados. Cada perigo se desdobra em riscos específicos, como SANS, alterações ósseas, sono inadequado e hipóxia, que o ORBITA liga às regiões do mapa corporal. Pergunte por um perigo ou por uma região, ou abra a tela Riscos espaciais.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, os cinco perigos dos voos espaciais",
+          "url": "https://www.nasa.gov/hrp/hazards/"
+        },
+        {
+          "titulo": "NASA HRR, Evidence",
+          "url": "https://humanresearchroadmap.nasa.gov/Evidence/"
+        }
+      ]
+    },
+    {
+      "id": "perigo-radiacao",
+      "perguntas": [
+        "perigo da radiação",
+        "o que é o perigo radiação",
+        "ridge radiação",
+        "radiação ridge"
+      ],
+      "resposta": "Radiação é o R do RIDGE: radiação ionizante de raios cósmicos galácticos, partículas solares e radiação aprisionada, que pode causar dano celular, câncer e efeitos em órgãos e no sistema nervoso. Depende da órbita, da blindagem, da atividade solar e do lugar dentro da nave; um evento de partículas solares pode subir a dose rapidamente. Dá para monitorar dose acumulada e de evento, alertas solares oficiais e tempo em abrigo; um vestível não mede sozinho o risco biológico, e sintomas não estimam dose. No ORBITA: cartão de dosimetria, clima espacial e regra R-RAD-01.",
+      "indicadores": [
+        "dose_acumulada",
+        "fluxo_protons_goes"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo da radiação espacial",
+          "url": "https://www.nasa.gov/hrp/hazard-space-radiation/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, cap. 4",
+          "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+        }
+      ]
+    },
+    {
+      "id": "perigo-isolamento",
+      "perguntas": [
+        "isolamento e confinamento",
+        "perigo do isolamento",
+        "solidão no espaço",
+        "confinamento",
+        "ridge isolamento"
+      ],
+      "resposta": "Isolamento e confinamento são o I do RIDGE: grupo pequeno, com privacidade e contato social limitados por meses, o que afeta humor, sono, cooperação, cognição e comportamento. Horário, luz, ruído e mudanças de rotina podem reduzir o sono, a fadiga aumenta lapsos e, sob estresse, a comunicação da equipe pode piorar. O ORBITA acompanha sono, fadiga, humor e teste de reação com privacidade: humor é privado por padrão. A NASA oferece conferências psicológicas privadas a cada 14 dias, contato com a família e lazer como apoio.",
+      "indicadores": [
+        "sono_tst",
+        "fadiga",
+        "humor",
+        "pvt_tempo_reacao"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo do isolamento e confinamento",
+          "url": "https://www.nasa.gov/hrp/hazard-isolation-and-confinement/"
+        },
+        {
+          "titulo": "NASA JSC Behavioral Health",
+          "url": "https://www.nasa.gov/reference/jsc-behavioral-health/"
+        }
+      ]
+    },
+    {
+      "id": "perigo-distancia",
+      "perguntas": [
+        "distância da terra",
+        "perigo da distância",
+        "longe da terra",
+        "ridge distância",
+        "sem contato com a terra"
+      ],
+      "resposta": "Distância da Terra é o D do RIDGE: quanto mais longe, maior o atraso e a interrupção da comunicação, e evacuação e reabastecimento rápidos deixam de existir, então o cuidado médico precisa de autonomia. Em Marte, pergunta e resposta ao médico podem levar de 8 a 48 minutos só de sinal. Por isso o ORBITA funciona sem rede, mostra o estado da comunicação com o solo e explica cada alerta à própria tripulação.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo da distância da Terra",
+          "url": "https://www.nasa.gov/hrp/hazard-distance-from-earth/"
+        },
+        {
+          "titulo": "NASA, Space Communications: 7 Things You Need to Know",
+          "url": "https://www.nasa.gov/missions/tech-demonstration/space-communications-7-things-you-need-to-know/"
+        }
+      ]
+    },
+    {
+      "id": "perigo-gravidade",
+      "perguntas": [
+        "campos de gravidade",
+        "perigo da gravidade",
+        "ridge gravidade",
+        "gravidade parcial",
+        "lua e marte gravidade"
+      ],
+      "resposta": "Campos de gravidade são o G do RIDGE: microgravidade, transições e gravidade parcial (Lua e Marte) alteram fluidos, osso, músculo, equilíbrio, controle motor e a tolerância ao voltar à gravidade. Exemplos: rosto inchado e pernas finas no início do voo, osso perdendo densidade mês a mês, visão de perto mudando (SANS) e tontura ao ficar de pé depois do pouso. O ORBITA acompanha sinais vitais, testes de visão, exercício, hidratação e sintomas de equilíbrio, sempre ligados à fase da missão.",
+      "indicadores": [
+        "fc_repouso",
+        "acuidade_perto",
+        "tempo_exercicio",
+        "agua_ingerida"
+      ],
+      "regioes": [
+        "coracao",
+        "ossos",
+        "musculos",
+        "olhos",
+        "vestibular"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo dos campos de gravidade",
+          "url": "https://www.nasa.gov/hrp/hazard-gravity-fields/"
+        },
+        {
+          "titulo": "NASA OCHMO Technical Briefs",
+          "url": "https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/"
+        }
+      ]
+    },
+    {
+      "id": "perigo-ambiente-hostil",
+      "perguntas": [
+        "ambientes hostis e fechados",
+        "perigo do ambiente",
+        "ridge ambiente",
+        "ar da cabine",
+        "ambiente fechado"
+      ],
+      "resposta": "Ambientes hostis e fechados são o E do RIDGE: cabine e traje são sistemas fechados, com pressão, composição do ar, ruído, temperatura, contaminantes e recursos limitados. Falha ambiental é risco agudo, e exposição crônica também afeta a saúde: dados da ISS associaram CO2 mais alto a dor de cabeça, e ventiladores e bombas fazem ruído o dia todo. Condição fora dos limites do veículo dispara o alarme da própria estação; o ORBITA mostra CO2, O2 e pressão do módulo e cruza com seus sintomas, sem comandar nada.",
+      "indicadores": [
+        "ppco2_modulo",
+        "pio2_cabine",
+        "pressao_cabine"
+      ],
+      "regioes": [
+        "pulmoes",
+        "ouvidos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo dos ambientes hostis e fechados",
+          "url": "https://www.nasa.gov/hrp/hazard-hostile-closed-environments/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-004, Carbon Dioxide",
+          "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 2, cap. 6, ambientes",
+          "url": "https://www.nasa.gov/reference/6-0-natural-and-induced-environments-vol-2/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-cerebro",
+      "perguntas": [
+        "cabeça e cérebro",
+        "riscos do cérebro",
+        "região da cabeça",
+        "cérebro no espaço",
+        "cognição",
+        "comportamento",
+        "mente"
+      ],
+      "resposta": "Cabeça e cérebro: isolamento, confinamento, carga de trabalho e sono podem afetar humor, ansiedade, cognição e funcionamento, e a fadiga aumenta lapsos de atenção. Radiação, microgravidade, sono e estresse podem somar efeitos na cognição, sem teste curto que atribua um déficit à radiação; CO2 alto foi associado a dor de cabeça na ISS. No ORBITA a região usa sono, fadiga, humor, teste de reação (PVT) e as piscadas do óculos Orbit (experimental), sempre contra o seu padrão. Escalas servem para tendência e conversa confidencial, não para diagnóstico.",
+      "indicadores": [
+        "sono_tst",
+        "fadiga",
+        "humor",
+        "pvt_tempo_reacao",
+        "pvt_lapsos",
+        "eog_piscadas"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Behavioral Conditions and Psychiatric Disorders",
+          "url": "https://www.nasa.gov/reference/risk-of-behavioral-conditions-and-psychiatric-disorders/"
+        },
+        {
+          "titulo": "NASA, Risk from Inadequate Sleep and Irregular Schedules",
+          "url": "https://www.nasa.gov/reference/risk-from-inadequate-sleep-and-irregular-schedules/"
+        },
+        {
+          "titulo": "NASA HRP, saúde comportamental e cognição",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=99"
+        }
+      ]
+    },
+    {
+      "id": "regiao-olhos",
+      "perguntas": [
+        "olhos e visão",
+        "riscos dos olhos",
+        "região ocular",
+        "visão",
+        "olho"
+      ],
+      "resposta": "Olhos e visão: o risco principal é a SANS, com edema do disco óptico, dobras na retina, achatamento do globo e mudança de grau em missões longas, ligada à subida de fluidos para a cabeça. A NASA faz exames oculares em datas fixas e leva óculos de graus diferentes. No ORBITA a região usa a grade de Amsler e a acuidade de perto, feitas por você, como rastreio comparado ao seu padrão; elas não confirmam nem excluem SANS. O EOG do óculos Orbit não detecta SANS.",
+      "indicadores": [
+        "acuidade_perto",
+        "amsler_distorcao"
+      ],
+      "regioes": [
+        "olhos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of SANS",
+          "url": "https://www.nasa.gov/reference/risk-of-spaceflight-associated-neuro-ocular-syndrome-sans/"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-001, SANS",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        }
+      ]
+    },
+    {
+      "id": "regiao-coracao",
+      "perguntas": [
+        "coração e sistema cardiovascular",
+        "riscos do coração",
+        "região do coração",
+        "sistema cardiovascular",
+        "circulação",
+        "pressão ao ficar de pé"
+      ],
+      "resposta": "Coração e sistema cardiovascular: a redistribuição de fluidos e o descondicionamento mudam o coração e a circulação, e ao voltar à gravidade pode haver tontura, quase desmaio ou desmaio ao ficar de pé (intolerância ortostática). Alteração de ritmo exige profissional; não existe limiar genérico da NASA que diagnostique arritmia. No ORBITA a região usa frequência cardíaca de repouso e pressão arterial, comparadas ao seu padrão e à referência terrestre, que não é limite de voo.",
+      "indicadores": [
+        "fc_repouso",
+        "pa_sistolica",
+        "pa_diastolica"
+      ],
+      "regioes": [
+        "coracao"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Cardiovascular Adaptations",
+          "url": "https://www.nasa.gov/reference/risk-of-cardiovascular-adaptations/"
+        },
+        {
+          "titulo": "NASA HRP, risco cardiovascular",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=179"
+        }
+      ]
+    },
+    {
+      "id": "regiao-pulmoes",
+      "perguntas": [
+        "pulmões e sistema respiratório",
+        "riscos dos pulmões",
+        "região dos pulmões",
+        "respiração",
+        "hipóxia",
+        "falta de oxigênio"
+      ],
+      "resposta": "Pulmões e sistema respiratório: hipóxia é pouca pressão parcial de oxigênio no ar respirado, que afeta oxigenação, cognição, sono e desempenho, em geral após falha ambiental. O limite ambiental de oxigênio não é a mesma coisa que a saturação (SpO2) da pessoa. CO2 alto no módulo foi associado a dor de cabeça, e contaminantes da cabine podem irritar. No ORBITA a região usa SpO2 e o CO2 do módulo onde você está, que entra na regra R-CO2-01.",
+      "indicadores": [
+        "spo2",
+        "ppco2_modulo",
+        "pio2_cabine"
+      ],
+      "regioes": [
+        "pulmoes"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Hypoxia",
+          "url": "https://www.nasa.gov/reference/risk-of-hypoxia/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-004, Carbon Dioxide",
+          "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-sangue",
+      "perguntas": [
+        "sistema imunológico",
+        "imunidade",
+        "riscos do sangue",
+        "infecção",
+        "microrganismos",
+        "anemia no espaço",
+        "sangue e imunidade"
+      ],
+      "resposta": "Sistema imunológico e sangue: células e função imune mudam com voo, estresse, exercício, sono, nutrição e infecção, e vírus que já viviam no corpo (EBV, VZV e CMV) podem voltar a ser detectados na saliva; detectar não é o mesmo que estar doente. Micróbios da cabine e da tripulação interagem com a imunidade, a pele e as mucosas. Um estudo citado pela pesquisa viu a hemoglobina média cair 8,8% quatro dias após o pouso (anemia do voo espacial), em amostra pequena. No ORBITA a região usa glicose e o hemograma, com o resultado do laboratório chegando depois da coleta.",
+      "indicadores": [
+        "hemoglobina",
+        "glicose"
+      ],
+      "regioes": [
+        "sangue"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Altered Immune System Responses",
+          "url": "https://www.nasa.gov/reference/risk-of-altered-immune-system-responses/"
+        },
+        {
+          "titulo": "NASA, Risk of Host-Microorganism Interactions",
+          "url": "https://www.nasa.gov/reference/risk-of-host-microorganism-interactions/"
+        },
+        {
+          "titulo": "Trudel et al., 2022, anemia do voo espacial",
+          "url": "https://www.nature.com/articles/s41591-021-01637-7"
+        }
+      ]
+    },
+    {
+      "id": "regiao-digestao",
+      "perguntas": [
+        "abdômen e sistema digestivo",
+        "riscos da digestão",
+        "nutrição",
+        "alimentação no espaço",
+        "enjoo espacial",
+        "comer no espaço"
+      ],
+      "resposta": "Abdômen e sistema digestivo: comer e beber pouco afeta energia, recuperação, osso, imunidade e trabalho, e apetite, cardápio limitado e agenda pesam; a necessidade é individual, sem percentual universal de perda de peso. Nos primeiros dias de voo, o enjoo espacial pode trazer náusea, perda de apetite e vômito. No ORBITA a região usa apetite e massa corporal, comparados ao seu padrão. Dieta e suplemento são ajustados pelo médico de voo e pela equipe de nutrição.",
+      "indicadores": [
+        "apetite",
+        "massa_corporal"
+      ],
+      "regioes": [
+        "digestao"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Inadequate Food and Nutrition",
+          "url": "https://www.nasa.gov/reference/risk-of-inadequate-food-and-nutrition/"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-004, Space Adaptation Sickness",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/09/ochmo-mtb-004-space-adaptation-sickness-sas.pdf"
+        }
+      ]
+    },
+    {
+      "id": "regiao-ossos",
+      "perguntas": [
+        "ossos",
+        "riscos dos ossos",
+        "perda óssea",
+        "osteoporose no espaço",
+        "densidade óssea",
+        "fratura"
+      ],
+      "resposta": "Ossos: sem carga, o osso perde densidade, sobretudo no quadril e na coluna; a literatura reporta média de cerca de 1 a 1,5% ao mês, descrição e não limiar. O risco ativo se chama fratura. A meta da NASA (V1 4027) é manter quadril e coluna em pelo menos 95% da linha de base, e a densitometria é feita antes e depois do voo; por isso no ORBITA a região aparece em cinza, 'sem medida em voo', e não em verde. O cálcio liberado do osso também aumenta o risco de cálculo renal.",
+      "indicadores": [
+        "densidade_ossea"
+      ],
+      "regioes": [
+        "ossos",
+        "rins"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Spaceflight-Induced Bone Changes",
+          "url": "https://www.nasa.gov/reference/risk-of-spaceflight-induced-bone-changes/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, cap. 4, meta V1 4027",
+          "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-musculos",
+      "perguntas": [
+        "músculos e membros",
+        "riscos dos músculos",
+        "perda muscular",
+        "força muscular",
+        "lesão em eva",
+        "condicionamento físico"
+      ],
+      "resposta": "Músculos e membros: menos carga reduz força, resistência e capacidade aeróbica, e séries históricas observaram perda de 10 a 30% da capacidade aeróbica. Luvas pressurizadas e trabalho repetitivo na EVA podem causar dor e lesão de mão e unha, e aceleração, vibração e pouso podem causar lesões por cargas dinâmicas. No ORBITA a região usa o tempo de exercício registrado; o plano de exercício é individual e aprovado pela equipe.",
+      "indicadores": [
+        "tempo_exercicio",
+        "carga_ared"
+      ],
+      "regioes": [
+        "musculos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Reduced Cardiorespiratory and Musculoskeletal Fitness",
+          "url": "https://www.nasa.gov/reference/risk-of-reduced-cardiorespiratory-and-musculoskeletal-fitness/"
+        },
+        {
+          "titulo": "NASA, Risk of Injury and Compromised Performance from EVA",
+          "url": "https://www.nasa.gov/reference/risk-of-injury-and-compromised-performance-from-extravehicular-activity-eva/"
+        },
+        {
+          "titulo": "NASA, Risk of Injury from Dynamic Loads",
+          "url": "https://www.nasa.gov/reference/risk-of-injury-from-dynamic-loads/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-corpo",
+      "perguntas": [
+        "corpo inteiro",
+        "riscos do corpo inteiro",
+        "doença descompressiva",
+        "radiação no corpo todo",
+        "exposição ambiental"
+      ],
+      "resposta": "Corpo inteiro: reúne o que atinge o corpo todo, como a radiação (risco de câncer ao longo da vida, que depende da dose e não de sintomas), a doença descompressiva ligada à EVA (bolhas de gás com sintomas articulares, neurológicos ou cardiopulmonares) e a exposição ao isolamento e ao ambiente fechado. No ORBITA a região usa a dose acumulada contra o limite de carreira de 600 mSv e a temperatura corporal. O mapa é educativo: nem todo risco desta região é medido pelos indicadores.",
+      "indicadores": [
+        "dose_acumulada",
+        "temperatura_corporal"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, perigo da radiação espacial",
+          "url": "https://www.nasa.gov/hrp/hazard-space-radiation/"
+        },
+        {
+          "titulo": "NASA, Risk of Decompression Sickness",
+          "url": "https://www.nasa.gov/reference/risk-of-decompression-sickness/"
+        },
+        {
+          "titulo": "NASA HRP, perigo dos ambientes hostis e fechados",
+          "url": "https://www.nasa.gov/hrp/hazard-hostile-closed-environments/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-vestibular",
+      "perguntas": [
+        "sistema vestibular e equilíbrio",
+        "equilíbrio",
+        "tontura",
+        "desorientação",
+        "labirinto",
+        "vestibular"
+      ],
+      "resposta": "Sistema vestibular e equilíbrio: o conflito entre o ouvido interno, a visão e a percepção do corpo pode causar náusea, mal-estar, desorientação e piora temporária de tarefas motoras, na adaptação ao voo e no retorno à gravidade. O enjoo espacial aparece em 70 a 90% dos tripulantes, com sintomas nos primeiros 3 a 7 dias. No ORBITA esta região é educativa e fica em cinza, 'sem indicador no protótipo'; registre tontura ou enjoo nos sintomas da avaliação diária. Tratamento é decisão do CMO e do médico de voo.",
+      "indicadores": [],
+      "regioes": [
+        "vestibular"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Risk of Altered Sensorimotor and Vestibular Function",
+          "url": "https://www.nasa.gov/reference/risk-of-altered-sensorimotor-and-vestibular-function/"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-004, Space Adaptation Sickness",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/09/ochmo-mtb-004-space-adaptation-sickness-sas.pdf"
+        }
+      ]
+    },
+    {
+      "id": "regiao-rins",
+      "perguntas": [
+        "rins e hidratação",
+        "riscos dos rins",
+        "cálculo renal",
+        "pedra no rim",
+        "urina",
+        "rim"
+      ],
+      "resposta": "Rins e hidratação: cálcio liberado do osso, sal, pouca água e pouca urina podem favorecer a formação de cálculo renal no espaço. Dor no flanco, sangue na urina ou dificuldade para urinar pedem o CMO. A NASA usa hidratação, exercício e plano alimentar como contramedidas, sem prometer prevenção completa. No ORBITA a região usa a água registrada e a cor da urina, comparadas ao seu padrão e ao plano individual.",
+      "indicadores": [
+        "agua_ingerida",
+        "cor_urina"
+      ],
+      "regioes": [
+        "rins"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, risco de cálculo renal",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=81"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-003, Urinary Health",
+          "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+        }
+      ]
+    },
+    {
+      "id": "regiao-ouvidos",
+      "perguntas": [
+        "ouvidos",
+        "riscos dos ouvidos",
+        "audição",
+        "ruído na estação",
+        "barulho",
+        "zumbido"
+      ],
+      "resposta": "Ouvidos: ventiladores e bombas fazem ruído o dia todo, e o ruído acumulado prejudica a audição; medições publicadas em 2010 mostram 56 a 69 dBA nos módulos e 77 dBA perto da esteira, valor histórico. O critério de 24 horas usa dose de ruído, e uma leitura isolada em dBA não é dose diária. Perda auditiva súbita ou vertigem intensa pedem avaliação urgente pelo CMO. No ORBITA esta região é educativa e fica em cinza, 'sem indicador no protótipo'.",
+      "indicadores": [
+        "ruido_trabalho",
+        "ruido_dormitorio"
+      ],
+      "regioes": [
+        "ouvidos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-TB-035, Acoustics",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf"
+        },
+        {
+          "titulo": "NASA, Acoustic Issues (medições de 2010)",
+          "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20100031889.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-fc-repouso",
+      "perguntas": [
+        "o que é frequência cardíaca de repouso",
+        "frequência cardíaca",
+        "bpm",
+        "batimentos por minuto",
+        "frequência cardíaca amarela"
+      ],
+      "resposta": "É quantas vezes o coração bate por minuto em repouso, em bpm. No espaço, a redistribuição de fluidos e o descondicionamento mudam a resposta do coração, por isso o ORBITA compara você com o seu próprio padrão, além da referência terrestre de 60 a 100 bpm, que não é limite de voo. Em amarelo: descanse e repita pelo método indicado, registre postura e sintomas e comunique desvio persistente ao CMO. Dor torácica, desmaio, falta de ar importante ou instabilidade são sintomas de alarme: contate o CMO agora.",
+      "indicadores": [
+        "fc_repouso"
+      ],
+      "regioes": [
+        "coracao"
+      ],
+      "fontes": [
+        {
+          "titulo": "MedlinePlus, sinais vitais (referência terrestre)",
+          "url": "https://medlineplus.gov/ency/article/002341.htm"
+        },
+        {
+          "titulo": "NASA HRP, risco cardiovascular",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=179"
+        }
+      ]
+    },
+    {
+      "id": "ind-pressao-arterial",
+      "perguntas": [
+        "pressão arterial",
+        "pressão alta",
+        "pressão baixa",
+        "sistólica",
+        "diastólica",
+        "medir pressão"
+      ],
+      "resposta": "Pressão arterial sistólica e diastólica, em mmHg, medida com o kit quando indicado. A redistribuição de fluidos e o retorno à gravidade podem alterar a circulação e a tolerância postural. Referência terrestre: sistólica de 90 a 120 mmHg e diastólica de 60 a 80 mmHg, não limite de voo; fora dela fica amarelo. Em amarelo: repita na postura indicada, anote tontura ou fraqueza e avise o CMO sobre desvio repetido; desmaio, confusão, dor torácica ou déficit neurológico pedem o CMO agora.",
+      "indicadores": [
+        "pa_sistolica",
+        "pa_diastolica"
+      ],
+      "regioes": [
+        "coracao"
+      ],
+      "fontes": [
+        {
+          "titulo": "MedlinePlus, sinais vitais (referência terrestre)",
+          "url": "https://medlineplus.gov/ency/article/002341.htm"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        }
+      ]
+    },
+    {
+      "id": "ind-spo2",
+      "perguntas": [
+        "oximetria",
+        "saturação de oxigênio",
+        "spo2",
+        "oxímetro",
+        "oxigênio no sangue"
+      ],
+      "resposta": "SpO2 é a saturação de oxigênio no sangue medida pelo oxímetro de pulso, em %. Na ISS a medida é pontual, com o oxímetro do kit, e não substitui a pressão parcial de oxigênio da cabine, que é medida por sensores ambientais. Referência terrestre de 95 a 100% em repouso, não limite de voo: fora dela fica amarelo; em ou abaixo de 92% fica laranja (contato clínico) e em ou abaixo de 88% o contato é imediato. Em amarelo: estabilize a mão, confira contato e sinal, repita a medida e informe o CMO se persistir; frio, movimento, esmalte e baixa perfusão alteram a leitura.",
+      "indicadores": [
+        "spo2"
+      ],
+      "regioes": [
+        "pulmoes"
+      ],
+      "fontes": [
+        {
+          "titulo": "MedlinePlus, oximetria de pulso (referência terrestre)",
+          "url": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
+        },
+        {
+          "titulo": "FDA, oxímetros de pulso",
+          "url": "https://www.fda.gov/medical-devices/products-and-medical-procedures/pulse-oximeters"
+        }
+      ]
+    },
+    {
+      "id": "ind-temperatura",
+      "perguntas": [
+        "temperatura corporal",
+        "febre",
+        "termômetro",
+        "temperatura do corpo"
+      ],
+      "resposta": "Temperatura corporal em °C, oral, medida com o termômetro do kit quando houver sintoma ou conforme o plano. Ajuda a contextualizar possível infecção ou a resposta ao ambiente fechado, sempre junto com sintomas. Referência terrestre oral de 36,5 a 37,3 °C, não limite de voo; fora dela fica amarelo. Em amarelo: confira método e horário, repita e registre sintomas; febre com mal-estar pede avaliação do CMO (laranja).",
+      "indicadores": [
+        "temperatura_corporal"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "MedlinePlus, sinais vitais (referência terrestre)",
+          "url": "https://medlineplus.gov/ency/article/002341.htm"
+        },
+        {
+          "titulo": "NASA HRP, condições médicas em missão",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=95"
+        }
+      ]
+    },
+    {
+      "id": "ind-glicose",
+      "perguntas": [
+        "glicose",
+        "glicemia",
+        "açúcar no sangue",
+        "glicosímetro",
+        "mg/dl"
+      ],
+      "resposta": "Glicose em jejum, em mg/dL, medida com o glicosímetro do kit e registrada à mão. Alimentação, exercício e a falta de laboratório completo a bordo mudam o contexto da leitura. Referência terrestre: abaixo de 100 mg/dL em jejum é a faixa normal; de 100 a 125 mg/dL e também 126 mg/dL ou mais ficam amarelos e pedem interpretação e confirmação, nunca diagnóstico pelo app. Em amarelo: confirme jejum, aparelho e mãos limpas, registre sintomas e siga o plano médico; alteração de consciência pede o CMO agora.",
+      "indicadores": [
+        "glicose"
+      ],
+      "regioes": [
+        "sangue"
+      ],
+      "fontes": [
+        {
+          "titulo": "American Diabetes Association, diagnóstico (referência terrestre)",
+          "url": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+          "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+        }
+      ]
+    },
+    {
+      "id": "ind-dose-radiacao",
+      "perguntas": [
+        "o que é a dosimetria",
+        "dose acumulada",
+        "milisievert",
+        "msv",
+        "limite de carreira",
+        "quanto de radiação recebi"
+      ],
+      "resposta": "A dosimetria do ORBITA mostra a dose efetiva estimada do dia, em mSv, e o acumulado da missão contra o limite de carreira de 600 mSv (NASA-STD-3001 Vol. 1, V1 4030). Na ISS a dose típica fica perto de 0,28 a 0,56 mSv por dia. Os dosímetros pessoais medem dose absorvida (gray) e o grupo SRAG da NASA calcula a dose efetiva (sievert); uma não vira a outra sem o fator do tipo de radiação. Acumulado em ou acima de 600 mSv fica laranja para revisão pela proteção radiológica, sem diagnóstico; durante evento solar, confira local e horário, siga a instrução do controle e registre a dose do evento.",
+      "indicadores": [
+        "dose_acumulada",
+        "taxa_dose_radiacao"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, cap. 4, limite V1 4030",
+          "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+        },
+        {
+          "titulo": "NASA SRAG, como a radiação é medida",
+          "url": "https://srag.jsc.nasa.gov/SpaceRadiation/How/How.cfm"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1 Rev. C (PDF)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/11/nasa-std-3001-vol-1-rev-c-with-signature.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-eog-piscadas",
+      "perguntas": [
+        "atenção ocular",
+        "eog",
+        "piscadas por minuto",
+        "o que é o eog",
+        "piscadas",
+        "fadiga pelo olho"
+      ],
+      "resposta": "O EOG (eletrooculografia) do óculos Orbit, que ainda é uma proposta, conta piscadas por minuto; no protótipo o dado é sempre simulado e experimental. O ORBITA compara com o seu padrão, como contexto de sonolência junto com sono, fadiga e PVT, e só muda a cor por desvio da sua linha de base, nunca por limiar. Não diagnostica desatenção nem fadiga e não detecta SANS: a frequência de piscadas varia com tarefa, luz, sonolência e pessoa. Em amarelo: confira o contato do óculos, compare com sono e PVT do dia e comente com o CMO se a mudança persistir.",
+      "maisDetalhes": "Um estudo em 16 pessoas por 14 dias, citado pela pesquisa do óculos, encontrou associação entre frequência de piscadas por EOG e tempo de reação no PVT em população terrestre, sem limiar individual nem previsão clínica.",
+      "indicadores": [
+        "eog_piscadas"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "Tag et al., CHI 2019, piscadas por EOG e PVT",
+          "url": "https://kaikunze.de/papers/pdf/tag2019continuous.pdf"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-001, SANS se acompanha por exame ocular",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-co2-modulo",
+      "perguntas": [
+        "co2 do módulo",
+        "dióxido de carbono",
+        "gás carbônico",
+        "ppco2",
+        "co2 alto",
+        "ar abafado"
+      ],
+      "resposta": "É a pressão parcial de CO2 do ar do módulo, em mmHg, medida pelos sensores da estação. O CO2 pode se acumular localmente em microgravidade, e dados da ISS associaram CO2 mais alto a dor de cabeça. O requisito da NASA é a média de 1 hora até 3 mmHg (NASA-STD-3001 Vol. 2, V2 6004); acima disso fica laranja, e o marcador de 2,8 mmHg é só valor de demonstração dentro da regra R-CO2-01. Em amarelo: confira módulo, sensor e ventilação; se autorizado, vá para um módulo com leitura menor e informe controle ambiental e CMO; o ORBITA não comanda ventiladores nem a remoção de CO2.",
+      "indicadores": [
+        "ppco2_modulo"
+      ],
+      "regioes": [
+        "pulmoes",
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-TB-004, Carbon Dioxide",
+          "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-o2-cabine",
+      "perguntas": [
+        "oxigênio da cabine",
+        "o2 do módulo",
+        "pio2",
+        "pressão parcial de oxigênio",
+        "ar da estação tem oxigênio"
+      ],
+      "resposta": "PIO2 é a pressão de oxigênio que chega ao seu pulmão depois que o ar é umedecido na respiração, em kPa; o ORBITA a calcula da ppO2 do módulo e da pressão total da cabine. O alvo de normoxia da NASA é de 145 a 155 mmHg, cerca de 19,33 a 20,67 kPa: fora do alvo fica amarelo, para conferir o sensor e acompanhar a tendência. Laranja só quando um limite de exposição é excedido: média de 1 hora abaixo de 127 mmHg, qualquer leitura abaixo de 122 mmHg ou acima de 356 mmHg. Atmosfera perigosa tem alarme próprio da estação, que sempre tem prioridade sobre o ORBITA.",
+      "maisDetalhes": "Conta: PIO2 = (pressão total menos 47 mmHg) × ppO2 ÷ pressão total, porque o vapor d'água ocupa 47 mmHg a 37 °C. Na leitura real gravada do Node 3 em 15/11/2026: (757,64 menos 47) × 150,67 ÷ 757,64 = 141,3 mmHg, ou 18,84 kPa, um pouco abaixo do alvo e muito acima dos limites.",
+      "indicadores": [
+        "pio2_cabine"
+      ],
+      "regioes": [
+        "pulmoes"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-002, ECLSS (alvo de normoxia)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-002-eclss.pdf"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-003, Habitable Atmosphere (fórmula da PIO2)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-003-habitable-atmosphere.pdf"
+        },
+        {
+          "titulo": "NASA, Risk of Hypoxia",
+          "url": "https://www.nasa.gov/reference/risk-of-hypoxia/"
+        }
+      ]
+    },
+    {
+      "id": "ind-pressao-cabine",
+      "perguntas": [
+        "pressão da cabine",
+        "pressão do módulo",
+        "despressurização",
+        "vazamento de ar",
+        "pressão total"
+      ],
+      "resposta": "Pressão total da cabine, em kPa. O requisito vai de mais de 5 até 15 psia, cerca de 34,47 a 103,42 kPa; fora disso fica laranja. Perda de pressão é risco ambiental que exige resposta antes de sintomas, e despressurização tem alarme e procedimento próprios da estação: siga o painel e o alarme oficiais. O ORBITA só mostra o valor e aponta o procedimento.",
+      "indicadores": [
+        "pressao_cabine"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-clima-espacial",
+      "perguntas": [
+        "clima espacial",
+        "prótons goes",
+        "tempestade solar",
+        "evento solar",
+        "índice kp",
+        "noaa"
+      ],
+      "resposta": "O clima espacial no ORBITA é o fluxo de prótons do satélite GOES (canal de 10 MeV ou mais, em pfu) e o índice Kp, ambos da NOAA. O nível S1 de tempestade de radiação começa em 10 pfu: o ORBITA mostra atenção para toda a tripulação, porque a dose pode subir. Isso descreve o ambiente fora da estação, não a dose de cada pessoa. A decisão de abrigo é do controle de missão com o grupo SRAG; siga a instrução oficial.",
+      "indicadores": [
+        "fluxo_protons_goes",
+        "kp"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NOAA SWPC, escalas de clima espacial",
+          "url": "https://www.swpc.noaa.gov/noaa-scales-explanation"
+        },
+        {
+          "titulo": "NOAA SWPC, limiares e notificações",
+          "url": "https://www.swpc.noaa.gov/products/notifications-timeline"
+        },
+        {
+          "titulo": "NASA SRAG",
+          "url": "https://srag.jsc.nasa.gov/SpaceRadiation/How/How.cfm"
+        }
+      ]
+    },
+    {
+      "id": "ind-agua-ingerida",
+      "perguntas": [
+        "água ingerida",
+        "registro de água",
+        "hidratação amarela",
+        "litros de água",
+        "bebi pouca água"
+      ],
+      "resposta": "É a água que você registra, guardada em mL e mostrada em litros. Não existe meta universal: a referência é o plano individual aprovado. Em amarelo: confira o registro e a meta individual, hidrate-se conforme o plano e anote sintomas. O valor de 1.200 mL em 24 horas é só parâmetro de demonstração da regra R-HID-01, não meta nem prescrição.",
+      "indicadores": [
+        "agua_ingerida"
+      ],
+      "regioes": [
+        "rins"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-003, Urinary Health",
+          "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F, V2 6109",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-fadiga",
+      "perguntas": [
+        "fadiga",
+        "cansaço",
+        "escala de fadiga",
+        "estou cansado",
+        "fadiga alta"
+      ],
+      "resposta": "Fadiga autorrelatada em escala de 1 a 7, de sete posições, em que número maior é mais cansaço. Não existe corte em voo: o ORBITA compara com o seu padrão e fica amarelo quando você se afasta 2 desvios padrão ou mais dele. Em amarelo: registre contexto de sono, turno e carga, compare com a sua série e informe o CMO se persistir. Não conseguir cumprir tarefa crítica com segurança leva a laranja.",
+      "indicadores": [
+        "fadiga"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, tarefa de saúde comportamental",
+          "url": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623"
+        },
+        {
+          "titulo": "EASA, revisão de escalas de fadiga (Samn-Perelli)",
+          "url": "https://www.easa.europa.eu/en/downloads/138572/en"
+        }
+      ]
+    },
+    {
+      "id": "ind-apetite",
+      "perguntas": [
+        "apetite",
+        "apetite reduzido",
+        "sem fome",
+        "não estou comendo",
+        "comer pouco"
+      ],
+      "resposta": "Apetite em três categorias: normal, reduzido e muito reduzido. Comer pouco afeta energia, recuperação, osso, imunidade e trabalho, e no espaço o apetite pode cair com cardápio limitado, agenda e enjoo nos primeiros dias. Não há corte: o ORBITA compara com o seu padrão e chega no máximo a amarelo. Em amarelo: confira o registro das refeições, relate apetite baixo ao CMO e peça revisão nutricional antes de mudar a dieta, sem começar suplemento nem cortar calorias por conta própria. Não conseguir comer ou beber com piora clínica leva a laranja.",
+      "indicadores": [
+        "apetite"
+      ],
+      "regioes": [
+        "digestao"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, risco de alimentação e nutrição",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=176"
+        },
+        {
+          "titulo": "NASA, Nutritional Biochemistry e ISS FIT",
+          "url": "https://www.nasa.gov/directorates/esdmd/hhp/nutritional-biochemistry/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-013, Food and Nutrition",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-013-food-and-nutrition.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-sono",
+      "perguntas": [
+        "horas de sono",
+        "quanto dormi",
+        "sono da última noite",
+        "registro de sono",
+        "sono amarelo"
+      ],
+      "resposta": "São as horas de sono obtidas na última noite, guardadas em minutos. A NASA programa 8,5 horas de oportunidade de sono (na ISS, de 21h30 a 06h00 GMT como referência), mas sono programado não é sono dormido. Não há corte fixo: o ORBITA compara com a sua linha de base e mostra a dívida de sono. Em amarelo: registre contexto de sono, turno e carga, proteja a próxima janela e informe o CMO se persistir ou se houver tarefa crítica próxima.",
+      "indicadores": [
+        "sono_tst"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-TB-041, Sleep Accommodations",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf"
+        },
+        {
+          "titulo": "NASA, ISS Operating an Outpost (horário GMT)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2018/04/iss-operating_an_outpost-tagged.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-humor",
+      "perguntas": [
+        "humor",
+        "como está meu humor",
+        "estou triste",
+        "bem-estar",
+        "humor baixo"
+      ],
+      "resposta": "Humor autorrelatado em escala de 1 a 5, autoral e não clínica. Isolamento, confinamento e carga de missão podem afetar o bem-estar; o registro é privado e só aparece na tela Tripulação se você consentir. Em amarelo: use o canal privado, escolha se quer conversar com a equipe de saúde comportamental e compartilhe com colegas só o que quiser. Se sentir risco imediato para você, peça contato humano agora: o CMO segue o procedimento de saúde mental.",
+      "indicadores": [
+        "humor"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA JSC Behavioral Health",
+          "url": "https://www.nasa.gov/reference/jsc-behavioral-health/"
+        },
+        {
+          "titulo": "NASA HRP, tarefa de saúde comportamental",
+          "url": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623"
+        }
+      ]
+    },
+    {
+      "id": "ind-hemograma",
+      "perguntas": [
+        "hemograma",
+        "exame de sangue",
+        "hemoglobina",
+        "hematócrito",
+        "leucócitos",
+        "plaquetas",
+        "resultado do exame"
+      ],
+      "resposta": "O hemograma reúne hemoglobina, hematócrito, leucócitos e plaquetas. Em órbita, quase todo sangue é centrifugado, congelado e analisado na Terra, então o resultado chega dias ou meses depois: o ORBITA mostra 'coleta agendada', 'amostra coletada, análise na Terra' e 'resultado disponível'. A hemoglobina fica amarela quando sai da faixa terrestre (13 a 18 g/dL em homens e 12 a 16 g/dL em mulheres) e nunca vermelha automaticamente; os demais itens mostram a faixa do próprio laudo e a tendência, interpretados pela equipe médica. Desmaio ou falta de ar em repouso pedem o CMO.",
+      "maisDetalhes": "Um estudo citado pela pesquisa viu a hemoglobina média cair 8,8% quatro dias após o pouso e 5 de 13 astronautas chegarem a anemia clínica, em amostra pequena.",
+      "indicadores": [
+        "hemoglobina"
+      ],
+      "regioes": [
+        "sangue"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, In-Situ Lab Analysis",
+          "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/human-health-performance/exploration-medical-technologies/in-situ-lab-analysis/"
+        },
+        {
+          "titulo": "MedlinePlus, hemograma completo (referência terrestre)",
+          "url": "https://medlineplus.gov/ency/article/003642.htm"
+        },
+        {
+          "titulo": "Trudel et al., 2022, anemia do voo espacial",
+          "url": "https://www.nature.com/articles/s41591-021-01637-7"
+        }
+      ]
+    },
+    {
+      "id": "ind-testes-visao",
+      "perguntas": [
+        "teste de visão",
+        "grade de amsler",
+        "acuidade de perto",
+        "como fazer o teste de visão",
+        "linhas tortas"
+      ],
+      "resposta": "São dois testes rápidos, um olho de cada vez, sempre com a mesma distância, luz e óculos: a grade de Amsler (linhas onduladas, borradas, escuras ou ausentes) e a acuidade de perto (menor símbolo identificado a uma distância fixa de 35 a 40 cm). A NASA usa esses testes no acompanhamento de SANS, mas no tablet eles são rastreio, não diagnóstico. Em amarelo: repita uma vez nas mesmas condições, confirme os óculos prescritos e envie o resumo ao CMO. Perda súbita de visão, visão dupla nova ou dor ocular intensa pedem avaliação imediata.",
+      "indicadores": [
+        "acuidade_perto",
+        "amsler_distorcao"
+      ],
+      "regioes": [
+        "olhos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-001, SANS",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        },
+        {
+          "titulo": "AAO, grade de Amsler",
+          "url": "https://www.aao.org/eye-health/tips-prevention/facts-about-amsler-grid-daily-vision-test"
+        }
+      ]
+    },
+    {
+      "id": "ind-pvt",
+      "perguntas": [
+        "teste de reação",
+        "pvt",
+        "tempo de reação",
+        "lapsos",
+        "reaction self test"
+      ],
+      "resposta": "É o teste de reação de 3 minutos (PVT-B), o mesmo paradigma do Reaction Self Test usado na ISS: você toca na tela assim que o estímulo aparece, em intervalos sorteados de 1 a 4 segundos. O ORBITA guarda o tempo médio de reação em ms, os lapsos (respostas de 355 ms ou mais, e também a contagem de 500 ms ou mais) e os falsos inícios; nenhum deles é limiar clínico. A cor vem só da comparação com o seu padrão. Em amarelo: registre sono e contexto e repita conforme o plano, sem usar um lapso como diagnóstico.",
+      "indicadores": [
+        "pvt_tempo_reacao",
+        "pvt_lapsos"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA TechPort, Reaction Self Test",
+          "url": "https://techport.nasa.gov/projects/23201"
+        },
+        {
+          "titulo": "NASA, relatório RST e PVT-B",
+          "url": "https://ntrs.nasa.gov/api/citations/20210022966/downloads/Final%20Tu%20et%20al%20TRISH_Updated_2021-11-12.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-massa-corporal",
+      "perguntas": [
+        "massa corporal",
+        "peso",
+        "perdi peso",
+        "quanto peso no espaço",
+        "balança"
+      ],
+      "resposta": "No espaço se mede massa, não peso, em kg, com aparelhos próprios como o SLAMMD. A tendência ajuda a equipe a revisar ingestão, exercício e adaptação; não há percentual universal de perda aceitável em voo. Em amarelo: confirme horário e condições da medida, registre ingestão e atividade e comunique queda sustentada ao CMO e à equipe de nutrição.",
+      "indicadores": [
+        "massa_corporal"
+      ],
+      "regioes": [
+        "digestao"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA HRP, risco de alimentação e nutrição",
+          "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=176"
+        },
+        {
+          "titulo": "NASA OCHMO-STD-100.1A (massa corporal na missão)",
+          "url": "https://ntrs.nasa.gov/api/citations/20240006194/downloads/OCHMO%20STD%20100%201A%2005142024.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ind-exercicio",
+      "perguntas": [
+        "exercício",
+        "tempo de exercício",
+        "ared",
+        "cevis",
+        "esteira",
+        "treino no espaço"
+      ],
+      "resposta": "É o tempo de exercício registrado, em minutos por dia, nos aparelhos ARED (resistido), T2 (esteira) e CEVIS (bicicleta). A NASA relata média próxima de duas horas de exercício por dia na ISS para proteger força, capacidade aeróbica, osso e músculo, sem prometer prevenção completa, e o plano é individual. Em amarelo: siga a sessão aprovada e registre equipamento, duração e sintomas; não compense sessão perdida com carga extra sem orientação.",
+      "indicadores": [
+        "tempo_exercicio",
+        "carga_ared"
+      ],
+      "regioes": [
+        "musculos",
+        "ossos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Astronaut Exercise",
+          "url": "https://www.nasa.gov/missions/station/iss-research/astronaut-exercise/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-031, Exercise Overview",
+          "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-co2-01",
+      "perguntas": [
+        "possível efeito de co2 elevado",
+        "alerta de co2",
+        "r-co2-01",
+        "co2 e dor de cabeça",
+        "co2 e concentração",
+        "por que tenho alerta de co2"
+      ],
+      "resposta": "O alerta 'Possível efeito de CO2 elevado' aparece quando o CO2 do módulo onde você está fica acima de 2,8 mmHg na média móvel (EWMA) dentro de 3 horas e, ao mesmo tempo, você relata dor de cabeça ou dificuldade de concentração, ou seu teste de reação piora mais de 10% em relação ao seu padrão. Os números 2,8 mmHg, 3 horas e 10% são valores de demonstração do protótipo, não limites da NASA; o requisito oficial é a média de 1 hora até 3 mmHg. O que fazer: confira módulo, sensor e ventilação; se autorizado, vá para um módulo com leitura menor; hidrate-se conforme o plano; repita o PVT em 2 horas e avise controle ambiental e CMO. Sobe para laranja com dor de cabeça de 7 ou mais em 10, tontura ou média de 1 hora acima de 3 mmHg.",
+      "indicadores": [
+        "ppco2_modulo",
+        "pvt_tempo_reacao",
+        "dor"
+      ],
+      "regioes": [
+        "pulmoes",
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-TB-004, Carbon Dioxide",
+          "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-rad-01",
+      "perguntas": [
+        "evento solar em andamento",
+        "alerta de radiação",
+        "r-rad-01",
+        "tempestade de radiação",
+        "abrigo de radiação"
+      ],
+      "resposta": "O alerta 'Evento solar em andamento: a dose pode subir' aparece para toda a tripulação quando o fluxo de prótons do GOES chega a 10 pfu (início do nível S1 da NOAA) ou há alerta de partículas solares na base DONKI da NASA. Vale enquanto durar o evento e fica amarelo; laranja depende de patamar de dose aprovado pela missão, sem número público universal. O que fazer: leia a instrução do controle de voo, siga o procedimento de abrigo só conforme a ordem e registre dose e duração. O ORBITA não escolhe abrigo: a decisão é do controle de missão com o grupo SRAG.",
+      "indicadores": [
+        "fluxo_protons_goes",
+        "taxa_dose_radiacao",
+        "dose_acumulada"
+      ],
+      "regioes": [
+        "corpo"
+      ],
+      "fontes": [
+        {
+          "titulo": "NOAA SWPC, escalas de clima espacial",
+          "url": "https://www.swpc.noaa.gov/noaa-scales-explanation"
+        },
+        {
+          "titulo": "NASA SRAG",
+          "url": "https://srag.jsc.nasa.gov/SpaceRadiation/How/How.cfm"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-sans-01",
+      "perguntas": [
+        "mudança na visão",
+        "alerta de visão",
+        "r-sans-01",
+        "antecipar exame de olhos",
+        "teste de visão piorou"
+      ],
+      "resposta": "O alerta 'Mudança na visão: vale antecipar o exame de olhos com o médico de voo' aparece quando a acuidade de perto piora em relação ao seu padrão ou surge distorção nova na grade de Amsler em 2 testes seguidos, com até 14 dias entre eles, com ou sem visão borrada; 2 testes e 14 dias são parâmetros de demonstração. O que fazer: repita no mesmo horário, distância e luz, confirme os óculos prescritos e envie o resumo ao CMO; o médico de voo decide sobre OCT e fundo de olho. Sobe para laranja com dor de cabeça persistente, visão dupla ou perda súbita de visão. O alerta não diagnostica SANS.",
+      "indicadores": [
+        "acuidade_perto",
+        "amsler_distorcao"
+      ],
+      "regioes": [
+        "olhos"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-001, SANS",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-sono-01",
+      "perguntas": [
+        "sono abaixo do programado antes de atividade crítica",
+        "alerta de sono",
+        "r-sono-01",
+        "dormi pouco antes da eva",
+        "sono e tarefa crítica"
+      ],
+      "resposta": "O alerta 'Sono abaixo do programado antes de uma atividade crítica' aparece quando há dívida de sono nos últimos 3 dias e uma atividade crítica (EVA, chegada de veículo, operação de braço robótico) nos próximos 2 dias; os prazos são parâmetros de demonstração. Fica amarelo, sem vermelho automático. O que fazer: proteja as próximas janelas de sono, reduza ruído e luz conforme o plano, ajuste a paisagem sonora do óculos para o pré-sono se aprovada e informe o CMO sobre a tarefa e a sonolência. Ruído alto na cabine de dormir entra como fator possível, não como diagnóstico.",
+      "indicadores": [
+        "sono_tst",
+        "ruido_dormitorio"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-TB-041, Sleep Accommodations",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-hid-01",
+      "perguntas": [
+        "registro de hidratação abaixo",
+        "alerta de hidratação",
+        "r-hid-01",
+        "urina escura",
+        "hidratação baixa e rim"
+      ],
+      "resposta": "O alerta de hidratação aparece quando a água registrada fica abaixo de 1.200 mL em 24 horas por 2 dias seguidos e a cor da urina está em 6 ou mais na escala de 8; esses números são do cenário de demonstração, não meta de água nem corte de desidratação. A fase da missão com perda óssea entra como agravante, porque o cálcio do osso aumenta o risco de cálculo. O que fazer: compare com a meta individual aprovada e hidrate-se conforme o plano, sem forçar volume. Não há vermelho automático; dor intensa, febre, vômitos persistentes ou retenção urinária pedem avaliação urgente pelo CMO.",
+      "indicadores": [
+        "agua_ingerida",
+        "cor_urina"
+      ],
+      "regioes": [
+        "rins"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO-MTB-003, Urinary Health",
+          "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+        },
+        {
+          "titulo": "NASA, modelo de incidência de cálculo renal",
+          "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/human-health-performance/computational-modeling/renal-stone-incidence-rate-quantification/"
+        }
+      ]
+    },
+    {
+      "id": "regra-r-amb-01",
+      "perguntas": [
+        "ambiente explica o sintoma",
+        "fatores ambientais possíveis",
+        "r-amb-01",
+        "o ambiente pode causar meu sintoma",
+        "sintoma e ambiente"
+      ],
+      "resposta": "Quando você relata um sintoma, o ORBITA procura grandezas ambientais fora do verde no módulo onde você passou mais tempo nas últimas 6 horas e as lista como fatores possíveis: dor de cabeça com CO2 e temperatura; dificuldade de concentração com CO2, ruído e sono da última noite; sono ruim com ruído, luz e temperatura; irritação nos olhos ou na pele com umidade e qualidade do ar; náusea com movimento recente e qualidade do ar. A regra não muda a cor: só acrescenta contexto, e coincidir no tempo não prova causa. Confira módulo, horário e sensor, registre o sintoma e informe o CMO ou o controle ambiental.",
+      "indicadores": [
+        "ppco2_modulo",
+        "ruido_trabalho",
+        "temperatura_cabine",
+        "umidade_cabine",
+        "sono_tst"
+      ],
+      "regioes": [
+        "pulmoes",
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA OCHMO Technical Briefs",
+          "url": "https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/"
+        },
+        {
+          "titulo": "NASA OCHMO-TB-004, Carbon Dioxide",
+          "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+        }
+      ]
+    },
+    {
+      "id": "linha-de-base",
+      "perguntas": [
+        "como funciona a linha de base",
+        "linha de base",
+        "meu padrão",
+        "meu normal",
+        "z-score",
+        "diferente do seu normal"
+      ],
+      "resposta": "A linha de base é o seu normal: a média e o desvio padrão de pelo menos 7 leituras válidas suas. Para cada leitura nova, o ORBITA calcula quantos desvios padrão ela se afasta da média: de 2 em diante fica amarelo ('diferente do seu normal') e acima de 3 em 2 leituras seguidas fica amarelo persistente, com sugestão de conversar com o CMO. A linha de base sozinha nunca gera laranja nem vermelho e não é atualizada com dias em amarelo ou vermelho; antes de 7 leituras, a tela mostra 'linha de base em formação'. Esses cortes são regra do protótipo, não da NASA.",
+      "maisDetalhes": "Exemplo dos documentos do projeto: frequência cardíaca de 7 manhãs com média de 57,43 bpm e desvio padrão de 1,72 bpm; 63 bpm hoje dá z = (63 menos 57,43) dividido por 1,72 = 3,24, valor incomum para essa pessoa mesmo dentro da faixa terrestre.",
+      "indicadores": [
+        "fc_repouso",
+        "sono_tst",
+        "fadiga",
+        "humor",
+        "apetite",
+        "eog_piscadas"
+      ],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001, escopo e adequação por missão",
+          "url": "https://www.nasa.gov/reference/1-0-scope/"
+        }
+      ]
+    },
+    {
+      "id": "dados-simulados",
+      "perguntas": [
+        "por que os dados são simulados",
+        "dados simulados",
+        "esses dados são reais",
+        "de onde vêm os dados",
+        "dado de demonstração"
+      ],
+      "resposta": "Os dados do corpo na demonstração são simulados porque não há dado médico individual de astronauta aberto ao público: bases como o NLSP e o LSDA só liberam por pedido formal e revisão ética, e a privacidade médica é requisito da NASA. Cada leitura tem um selo de origem (simulada, manual, automática, exame, histórica ou ao vivo), e o perfil Astronauta 001 é fictício. Os dados de ambiente marcados como históricos são reais, gravados da telemetria pública da ISS e da NOAA em 15/11/2026. O ORBITA é protótipo e ainda não foi avaliado em pessoas, em análogo nem em voo.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA Life Sciences Portal (NLSP)",
+          "url": "https://nlsp.nasa.gov/"
+        },
+        {
+          "titulo": "NASA Open Science Data Repository (OSDR)",
+          "url": "https://science.nasa.gov/biological-physical/data/osdr/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations (privacidade)",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        }
+      ]
+    },
+    {
+      "id": "emergencia",
+      "perguntas": [
+        "o que fazer em emergência",
+        "emergência",
+        "fogo",
+        "incêndio",
+        "despressurização",
+        "atmosfera tóxica",
+        "alarme da estação",
+        "socorro",
+        "estou passando mal",
+        "dor no peito"
+      ],
+      "resposta": "Em emergência ambiental ou do veículo (fogo, despressurização ou atmosfera tóxica), siga o alarme e o procedimento oficial da estação: o ORBITA não substitui o alarme, não detecta essas emergências e não comanda nenhum equipamento. Em emergência clínica, como dor no peito, desmaio, falta de ar importante ou confusão, acione o CMO agora e siga o procedimento médico de bordo; o CMO segue o médico de voo. No ORBITA, use 'Contatar CMO agora' e 'Abrir procedimento oficial'. A resposta é a mesma com ou sem conexão com a Terra.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+          "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 2, cap. 6, ambientes",
+          "url": "https://www.nasa.gov/reference/6-0-natural-and-induced-environments-vol-2/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        }
+      ]
+    },
+    {
+      "id": "privacidade-tripulacao",
+      "perguntas": [
+        "privacidade da tela tripulação",
+        "quem vê meus dados",
+        "tripulação vê meus dados",
+        "consentimento",
+        "compartilhar com a tripulação",
+        "não compartilhado",
+        "monitor geral"
+      ],
+      "resposta": "A tela Tripulação mostra de cada colega só o que ele consentiu compartilhar, com quem e até quando: estado por sistema (cor e ícone, sem números), valores, módulo onde está e estado de mente e humor. O padrão de um tripulante novo é conservador: só o estado por sistema para o CMO e o médico de voo, e o resto 'só eu'; detalhes clínicos, questionários e conversas médicas nunca aparecem. 'Não compartilhado' é texto neutro, nunca cor de alerta, e a filtragem acontece no motor antes de chegar à tela. Não existe acesso emergencial irrestrito codificado no app; você muda ou revoga o consentimento em Perfil e privacidade.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations (V1 6003 e V1 6011)",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1 Rev. C (V1 7003)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/11/nasa-std-3001-vol-1-rev-c-with-signature.pdf"
+        }
+      ]
+    },
+    {
+      "id": "codigo-cores",
+      "perguntas": [
+        "o que significam as cores",
+        "código de cores",
+        "o que é laranja",
+        "o que é vermelho",
+        "o que é cinza",
+        "níveis de alerta",
+        "sem dado"
+      ],
+      "resposta": "O ORBITA usa 5 níveis, sempre com cor, ícone e palavra: cinza (sem dado recente, inválido ou vencido), verde (normal), amarelo (atenção, revisão por você), laranja (acionar o CMO e o médico de voo) e vermelho (contatar o CMO agora e abrir o procedimento oficial). Vermelho só vem de sintoma de alarme relatado; requisito oficial excedido e corte clínico com fonte chegam a laranja; desvio do seu padrão chega no máximo a amarelo. Nada pisca, nada toca som e os rótulos começam com 'Saúde:' para não confundir com o alarme da estação. A cor final é o maior nível entre faixa com fonte, desvio pessoal e regras de cruzamento, e cada região do corpo assume a cor do pior indicador dela.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 2 Rev. F (alarmes e telas)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cmo-medico-voo",
+      "perguntas": [
+        "quem é o cmo",
+        "o que é cmo",
+        "médico de voo",
+        "flight surgeon",
+        "quem cuida da saúde a bordo",
+        "conferência médica privada"
+      ],
+      "resposta": "O CMO (Crew Medical Officer) é o tripulante designado como cuidador médico a bordo: não precisa ser médico e examina e trata colegas com equipamentos e procedimentos treinados, seguindo o médico de voo. O médico de voo (Flight Surgeon) fica em Houston e é o responsável clínico. Há conferência médica privada semanal e conferência psicológica privada a cada 14 dias, além de chamadas antes e depois de EVA. O ORBITA organiza evidências para o CMO e o médico de voo; não decide por eles.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1 Rev. C (V1 5003)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2023/11/nasa-std-3001-vol-1-rev-c-with-signature.pdf"
+        },
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Medical Operations",
+          "url": "https://www.nasa.gov/reference/6-0-medical-operations/"
+        },
+        {
+          "titulo": "NASA OCHMO-STD-100.1A",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/09/ochmo-std-100-1a-rev-a-signed.pdf"
+        }
+      ]
+    },
+    {
+      "id": "offline-marte",
+      "perguntas": [
+        "por que funciona sem internet",
+        "offline",
+        "sem conexão",
+        "marte",
+        "atraso de comunicação",
+        "comunicação com o solo"
+      ],
+      "resposta": "Na ISS a conversa médica em tempo real é a preferida e o Controle de Missão opera 24 horas, mas em Marte cada mensagem leva de 4 a 24 minutos por trecho e a conjunção solar pode cortar o contato direto por cerca de duas a três semanas. Por isso o ORBITA funciona a bordo, sem rede: guarda os dados, explica cada alerta e mostra o estado da comunicação com o solo. A NASA chama de EIMO a passagem gradual da decisão médica para bordo; o sistema de apoio à decisão da NASA para isso ainda é pesquisa, e o ORBITA também é protótipo.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA, Space Communications: 7 Things You Need to Know",
+          "url": "https://www.nasa.gov/missions/tech-demonstration/space-communications-7-things-you-need-to-know/"
+        },
+        {
+          "titulo": "NASA Ames, apoio à decisão clínica para EIMO",
+          "url": "https://www.nasa.gov/centers-and-facilities/ames/ames-science/ames-space-biosciences/a-clinical-decision-support-system-for-earth-independent-medical-operations/"
+        },
+        {
+          "titulo": "NASA NTRS, comunicação com Marte",
+          "url": "https://ntrs.nasa.gov/api/citations/20240011265/downloads/12-3-24%2020240011265.pdf?attachment=true"
+        }
+      ]
+    },
+    {
+      "id": "horario-gmt",
+      "perguntas": [
+        "por que o horário é gmt",
+        "horário da estação",
+        "que horas são na iss",
+        "dia do ano",
+        "utc"
+      ],
+      "resposta": "A ISS vive num dia de 24 horas em GMT, equivalente ao UTC no uso operacional, com referência de acordar por volta de 06h00 e janela de sono de 21h30 a 06h00. Por isso o ORBITA guarda tudo em UTC e mostra 'GMT dia do ano / hh:mm' no cabeçalho. A estação dá cerca de 16 voltas na Terra por dia, então a janela não serve de relógio.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA, ISS Operating an Outpost",
+          "url": "https://www.nasa.gov/wp-content/uploads/2018/04/iss-operating_an_outpost-tagged.pdf"
+        },
+        {
+          "titulo": "ESA, An astronaut's rhythm",
+          "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Astronauts/An_astronaut_s_rhythm"
+        }
+      ]
+    },
+    {
+      "id": "oculos-orbit",
+      "perguntas": [
+        "o que é o óculos orbit",
+        "óculos orbit",
+        "condução óssea",
+        "eeg",
+        "paisagem sonora",
+        "óculos melhora o sono"
+      ],
+      "resposta": "O óculos Orbit é uma proposta da equipe, ainda sem uso em voo: áudio por condução óssea, EEG para estimar estágios do sono e EOG para piscadas, com uma paisagem sonora escolhida pelo tripulante. A NASA testou fones de condução óssea em 2024 só quanto a ajuste e conforto, e EEG e EOG já voaram em experimentos, não como monitor de rotina. EEG de poucos eletrodos estima o sono, não é polissonografia, e EOG não detecta SANS. Não há estudo que mostre que o óculos melhora o sono ou reduz a fadiga; isso só um estudo poderá dizer.",
+      "indicadores": [
+        "eog_piscadas",
+        "sono_tst"
+      ],
+      "regioes": [
+        "cerebro"
+      ],
+      "fontes": [
+        {
+          "titulo": "NASA, Cavanaugh, ICES-2024-209, condução óssea",
+          "url": "https://ntrs.nasa.gov/api/citations/20240005885/downloads/ICES_final_manuscript_Cavanaugh.pdf"
+        },
+        {
+          "titulo": "NASA, Neurolab, polissonografia em voo",
+          "url": "https://ntrs.nasa.gov/api/citations/20020073385/downloads/20020073385.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ia-limites",
+      "perguntas": [
+        "você pode me diagnosticar",
+        "qual remédio tomar",
+        "posso tomar remédio",
+        "dose de remédio",
+        "você é médico",
+        "o que eu tenho",
+        "tenho alguma doença"
+      ],
+      "resposta": "Não. A ORBITA IA não faz diagnóstico, não indica remédio nem dose e não substitui o CMO, o médico de voo ou o procedimento da estação. Ela responde com o conteúdo desta base local, cita a fonte e lê os estados calculados pelo motor do ORBITA; quando não encontra a resposta, diz que não encontrou. Remédio, dose e conduta clínica são decisão do médico de voo, e o CMO executa o que está autorizado no procedimento médico.",
+      "indicadores": [],
+      "regioes": [],
+      "fontes": [
+        {
+          "titulo": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+          "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+        },
+        {
+          "titulo": "NASA OCHMO-MTB-012, Pharmaceutical Care",
+          "url": "https://www.nasa.gov/wp-content/uploads/2026/01/ochmo-mtb-012-pharmaceutical-care.pdf"
+        }
+      ]
+    }
+  ]
+}

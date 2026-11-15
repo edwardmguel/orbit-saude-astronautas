@@ -48,6 +48,8 @@ erDiagram
 | `funcao` | string | `"Engenheira de voo"` | |
 | `agencia` | string | `"NASA"` | Para a demo multinacional |
 | `massaPreVooKg` | número | `64,2` | Base para variação de massa |
+| `sexo` | `"feminino"` \| `"masculino"` | `"feminino"` | Escolhe a faixa de referência terrestre que muda por sexo (hemoglobina, hematócrito); cadastro do ORBITA (`docs/18`, M01) |
+| `alturaCm` | número | `168` | Cadastro do ORBITA; usada só em contas que pedem altura, nunca para julgar o peso |
 | `perfilSonoro` | string | `"mata-atlantica"` | Paisagem sonora do óculos Orbit |
 | `usaOculosOrbit` | booleano | `true` | Participa do estudo do óculos; a condição de cada noite fica em `SessaoSono.condicaoEstudo` (ver `docs/09`) |
 | `horarioSono` | `{ inicio: "21:30", fim: "06:00" }` | | Horário programado em GMT (referência publicada pela NASA, ver `docs/01`) |

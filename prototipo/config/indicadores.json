@@ -808,7 +808,7 @@
       "direcao": "ambos",
       "classe": "linha_de_base",
       "usaLinhaDeBase": true,
-      "validadeHoras": 24,
+      "validadeHoras": 168,
       "fonte": {
         "etiqueta": "OFICIAL",
         "referencia": "NASA TechPort, Reaction Self Test",
@@ -904,7 +904,7 @@
       "direcao": "ambos",
       "classe": "linha_de_base",
       "usaLinhaDeBase": true,
-      "validadeHoras": 24,
+      "validadeHoras": 168,
       "fonte": {
         "etiqueta": "OFICIAL",
         "referencia": "NASA TechPort, Reaction Self Test",
@@ -1077,6 +1077,65 @@
         "vermelho": null,
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base; resposta autoral bruta usa escala de 1 a 5.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "eog_piscadas",
+      "nome": "Piscadas por minuto, EOG do óculos Orbit",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "piscadas/min",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "experimental": true,
+      "observacaoOrigem": "Origem: óculos Orbit (proposto), ainda sem hardware nem uso em voo; no protótipo a leitura é sempre simulada e a tela mostra o selo de dado simulado e experimental.",
+      "fonte": {
+        "etiqueta": "PAPER",
+        "referencia": "Tag et al., CHI 2019, via frente 14: frequência de piscadas medida por EOG em óculos associada ao tempo de reação no PVT em 16 pessoas por 14 dias; associação em população terrestre, sem limiar individual",
+        "url": "https://kaikunze.de/papers/pdf/tag2019continuous.pdf"
+      },
+      "explicacao": "Sinal experimental: o EOG do óculos conta piscadas por minuto e o ORBITA compara com o padrão da própria pessoa, como contexto de sonolência junto com sono, fadiga e PVT. Não diagnostica desatenção nem fadiga, não detecta nem diagnostica SANS (que se acompanha por exame ocular, OCT e fundo de olho, conforme OCHMO-MTB-001) e não tem limiar publicado; a frequência de piscadas varia com tarefa, luz, sonolência e pessoa.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira contato e qualidade do sinal do óculos; compare com sono, fadiga e PVT do dia e, se a mudança persistir, comente com o CMO, sem tratar o número como diagnóstico."
+        ],
+        "colega": "Ofereça ajuda para proteger a janela de descanso ou reorganizar a tarefa, se a pessoa pedir.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; dificuldade em tarefa crítica ou sintoma segue o procedimento de fadiga com o CMO."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou sintoma urgente; o EOG sozinho nunca sobe o nível."
+      },
+      "gatilhosSintoma": [
+        "Não gera vermelho sozinho; sintomas visuais seguem os testes de visão e o procedimento ocular, não o EOG."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padrão",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base; o valor bruto de demonstração do ORBITA é 12,4 piscadas/min, simulado.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -1293,7 +1352,7 @@
       "direcao": "ambos",
       "classe": "referencia_terrestre",
       "usaLinhaDeBase": true,
-      "validadeHoras": 24,
+      "validadeHoras": 360,
       "fonte": {
         "etiqueta": "DIRETRIZ-TERRA",
         "referencia": "MedlinePlus, complete blood count",
@@ -1444,6 +1503,73 @@
         "vermelho": null,
         "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "apetite",
+      "nome": "Apetite autorrelatado",
+      "escopo": "tripulante",
+      "regiaoCorpo": "digestao",
+      "unidade": "categoria ordinal 1 a 3",
+      "direcao": "acima",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA HRP, risco de alimentação e nutrição inadequadas",
+        "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=176"
+      },
+      "explicacao": "Comer pouco afeta energia, recuperação, osso, imunidade e trabalho; apetite, cardápio limitado e agenda pesam, e a necessidade de energia é individual. O registro de apetite mostra a tendência da própria pessoa e não mede déficit de energia nem faz diagnóstico nutricional.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira se o registro das refeições está completo; relate apetite baixo ou dificuldade de comer ao CMO e peça revisão nutricional antes de mudar a dieta. Não inicie suplemento nem reduza calorias, sal, cálcio ou ferro por conta própria."
+        ],
+        "colega": "Ofereça ajuda para organizar a refeição planejada, sem julgar a escolha alimentar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; incapacidade de comer ou beber com piora clínica segue avaliação urgente com o CMO, que encaminha ao médico de voo e à equipe de nutrição."
+        ],
+        "gatilhoParaSubir": "Incapacidade de ingerir alimentos ou líquidos, desidratação ou sintoma clínico agudo."
+      },
+      "gatilhosSintoma": [
+        "Incapacidade de comer ou beber com deterioração clínica."
+      ],
+      "observacaoEscala": "Escala autoral do ORBITA: 1 normal, 2 reduzido, 3 muito reduzido. Categoria ordinal sem validação e sem corte; a diferença entre categorias não é uma quantidade fixa de apetite. No ORBITA substitui a proposta de 0 a 100 da frente 8; não converter registros antigos sem regra explícita. Direção acima: categoria maior é o lado que pede atenção.",
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padrão",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Incapacidade de comer ou beber com deterioração clínica",
+            "nivel": 3,
+            "origem": "procedimento de saúde e orientações aprovadas",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "texto": "Contatar CMO para avaliação urgente; o médico de voo e a equipe de nutrição recebem o registro."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base; a resposta bruta usa categoria de 1 a 3 (valor de demonstração do ORBITA: 2, reduzido).",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -2104,7 +2230,7 @@
         "referencia": "NASA-STD-3001 Vol. 2 Rev. F",
         "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
       },
-      "explicacao": "A pressão parcial de oxigênio caracteriza a atmosfera respirada e ajuda a acompanhar o envelope ambiental da missão.",
+      "explicacao": "A pressão parcial inspirada de oxigênio (PIO2) diz quanto oxigênio chega de fato ao pulmão depois que o ar é umedecido na respiração. Não é a ppO2 da cabine: o adaptador calcula PIO2 = (pressão total da cabine menos 47 mmHg) × ppO2 ÷ pressão total, com ppO2 e pressão total na mesma unidade (OCHMO-TB-003; docs/04).",
       "orientacoes": {
         "amarelo": [
           "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
@@ -2126,21 +2252,22 @@
             "max": 20.67
           },
           "mediaUmaHoraMinMmHg": 127,
-          "pisoAbsolutoCurtaDuracaoMmHg": 122
+          "pisoAbsolutoCurtaDuracaoMmHg": 122,
+          "limiteSuperiorIndefinidoMmHg": 356
         },
         "etiqueta": "[OFICIAL]",
-        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "rotulo": "alvo de normoxia e limites de exposição oficiais, sujeitos ao perfil da missão",
         "verde": {
-          "criterio": "145 a 155 mmHg, aproximadamente 19,33 a 20,67 kPa.",
-          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+          "criterio": "Alvo de normoxia: 145 a 155 mmHg, aproximadamente 19,33 a 20,67 kPa.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003; OCHMO-TB-002"
         },
         "amarelo": {
-          "criterio": "Fora da normoxia, aplicar envelope e duração aprovados.",
-          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+          "criterio": "Fora do alvo de normoxia, ainda dentro dos limites de exposição: conferir sensor e módulo e acompanhar a tendência com o controle ambiental.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003; OCHMO-TB-002"
         },
         "vermelho": {
-          "criterio": "Alarme e resposta são do veículo.",
-          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+          "criterio": "Limite de exposição excedido: média de 1 h abaixo de 127 mmHg (16,93 kPa), qualquer leitura abaixo de 122 mmHg (16,27 kPa) ou acima de 356 mmHg (47,46 kPa). Nível 3; alarme e resposta são do veículo.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003, Table 6.2-1"
         }
       },
       "gatilhosSintoma": [
@@ -2151,6 +2278,36 @@
         "regras": [
           {
             "nivel": 3,
+            "operador": "<",
+            "valor": 16.93,
+            "unidade": "kPa, média de 1 h",
+            "origem": "OFICIAL",
+            "texto": "PIO2 média de 1 h abaixo de 127 mmHg (16,93 kPa): limite de exposição excedido; seguir o procedimento do controle ambiental e informar o CMO.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003, Table 6.2-1"
+          },
+          {
+            "nivel": 3,
+            "operador": "<",
+            "valor": 16.27,
+            "unidade": "kPa",
+            "origem": "OFICIAL",
+            "texto": "Leitura abaixo de 122 mmHg (16,27 kPa), mínimo absoluto: seguir o procedimento do controle ambiental e informar o CMO.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003, Table 6.2-1"
+          },
+          {
+            "nivel": 3,
+            "operador": ">",
+            "valor": 47.46,
+            "unidade": "kPa",
+            "origem": "OFICIAL",
+            "texto": "Acima de 356 mmHg (47,46 kPa), limite superior para exposição indefinida: seguir o procedimento do controle ambiental e informar o CMO.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003, Table 6.2-1"
+          },
+          {
+            "nivel": 2,
             "operador": "fora_do_intervalo_inclusivo",
             "valor": {
               "min": 19.33,
@@ -2158,9 +2315,9 @@
             },
             "unidade": "kPa",
             "origem": "OFICIAL",
-            "texto": "Fora da faixa oficial de normoxia, solicitar avaliação do controle ambiental e aplicar envelope e duração aprovados pelo veículo.",
-            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-            "requisito": "NASA-STD-3001 Vol. 2 Rev. F"
+            "texto": "Fora do alvo de normoxia de 145 a 155 mmHg, dentro dos limites de exposição: conferir sensor e módulo e acompanhar a tendência com o controle ambiental.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-002-eclss.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6003 (alvo de normoxia)"
           }
         ],
         "nivelMaximoSemSintoma": 3,
@@ -2168,13 +2325,21 @@
       },
       "exemplosTeste": {
         "verde": 20,
-        "amarelo": null,
-        "vermelho": null,
+        "amarelo": 18.84,
+        "vermelho": 16,
         "unidade": "kPa",
-        "contexto": "Leitura do perfil dentro da faixa de normoxia publicada; não há amostra fora da faixa entre os valores aprovados.",
-        "motivoSemExemploVermelho": "Os valores publicados fora da faixa são limites de exposição dependentes de duração; não há amostra canônica aprovada fora da faixa.",
-        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
+        "contexto": "20 kPa (150 mmHg) está no alvo de normoxia; 18,84 kPa (141,3 mmHg) é a PIO2 calculada da leitura real do Node 3 gravada em 15/11/2026 (ppO2 150,67 mmHg, pressão total 757,64 mmHg), fora do alvo e dentro dos limites; 16 kPa (120 mmHg) fica abaixo do mínimo absoluto de 122 mmHg.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "conversaoEntrada": {
+        "formula": "PIO2 = (pressão total da cabine menos 47 mmHg) × (ppO2 ÷ pressão total da cabine)",
+        "entradas": [
+          "ppO2 do módulo (mmHg)",
+          "pressão total da cabine (mmHg)"
+        ],
+        "constante": "47 mmHg: pressão de vapor d'água a 37 °C",
+        "exemplo": "Node 3 em 15/11/2026: (757,64 menos 47) × (150,67 ÷ 757,64) = 141,3 mmHg = 18,84 kPa",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-003-habitable-atmosphere.pdf"
       }
     },
     {

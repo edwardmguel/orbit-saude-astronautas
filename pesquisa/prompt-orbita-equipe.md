@@ -1,6 +1,6 @@
 # Prompt da equipe: ORBITA (cópia para referência)
 
-> Cópia da aba "Prompt de Desenvolvimento" do documento Fundação Futuro, lida em 15/11/2026 às 10h40.
+> Cópia da aba "Prompt de Desenvolvimento" do documento Fundação Futuro, lida em 15/11/2026 às 10h35.
 > Mudanças só de forma: escapes do Google Docs removidos e travessões trocados por dois-pontos (regra de escrita do dono). O conteúdo é o da equipe.
 > Revisão: [`../docs/17-revisao-prompt-orbita.md`](../docs/17-revisao-prompt-orbita.md). Versão corrigida: [`../docs/19-prompt-lovable-revisado.md`](../docs/19-prompt-lovable-revisado.md).
 

@@ -172,7 +172,7 @@ prototipo/
       ui/                    telas e componentes
       i18n/                  textos PT-BR e EN
   config/
-    indicadores.json                 35 indicadores e 6 regras, com regraCor e fonte (de docs/03)
+    indicadores.json                 37 indicadores e 6 regras, com regraCor e fonte (de docs/03)
     perfis-simulacao.rascunho.json   tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
   dados/
     amostras-reais/          telemetria pública da ISS, NOAA e DONKI gravadas em 15/11/2026

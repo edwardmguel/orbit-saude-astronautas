@@ -20,6 +20,7 @@ Um painel **offline** que junta dados do corpo (vestíveis, equipamentos médico
 | --- | --- |
 | Da equipe, primeira vez | [`docs/00-guia-de-leitura.md`](docs/00-guia-de-leitura.md) |
 | Desenvolvedor | [`docs/08-plano-prototipo-20h.md`](docs/08-plano-prototipo-20h.md), [`docs/05-arquitetura-software.md`](docs/05-arquitetura-software.md) e [`docs/03-indicadores-e-limiares.md`](docs/03-indicadores-e-limiares.md) |
+| Quem executa o código no Lovable (app ORBITA) | [`docs/17`](docs/17-revisao-prompt-orbita.md) (revisão do prompt da equipe), [`docs/18`](docs/18-design-orbita-responsivo.md) e [`docs/wireframes/orbita-responsivo.html`](docs/wireframes/orbita-responsivo.html) (design e desenhos das telas), [`docs/19`](docs/19-prompt-lovable-revisado.md) (prompt para colar) |
 | Uma IA ajudando no código | [`AGENTS.md`](AGENTS.md) |
 | Quem vai apresentar | [`docs/08`](docs/08-plano-prototipo-20h.md) (seções 0 e 6), [`docs/01`](docs/01-contexto-missao.md), [`docs/11`](docs/11-precedentes.md), [`docs/10`](docs/10-massa-energia-lancamento.md), [`docs/16`](docs/16-proximos-passos-e-impacto.md) |
 | Quem constrói o óculos | [`docs/09`](docs/09-oculos-orbit.md), [`pesquisa/bruto/14`](pesquisa/bruto/14-oculos-pipeline-sinais.md) e [`pesquisa/bruto/15`](pesquisa/bruto/15-oculos-audio-acervo.md) |
@@ -30,16 +31,17 @@ Wireframes das telas: abra [`docs/wireframes/telas-prototipo.html`](docs/wirefra
 
 ```text
 AGENTS.md                     contexto e regras para a IA de desenvolvimento (CLAUDE.md aponta para cá)
-docs/                         documentação consolidada, didática, com fontes (00 a 16)
-  wireframes/                 telas do protótipo em HTML
+docs/                         documentação consolidada, didática, com fontes (00 a 19)
+  wireframes/                 telas do protótipo em HTML (telas-prototipo.html e orbita-responsivo.html)
 pesquisa/
   METODO.md                   regras dadas aos agentes de pesquisa e ciclo de revisão
   documento-inicial.md        cópia do documento de origem (Google Docs, todas as abas)
   bruto/                      as 19 frentes de pesquisa completas, com todas as citações
 prototipo/
   config/
-    indicadores.json          35 indicadores e 6 regras de cruzamento com regra de cor e fonte (de docs/03)
-    perfis-simulacao.rascunho.json   35 indicadores, 7 tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
+    indicadores.json          37 indicadores e 6 regras de cruzamento com regra de cor e fonte (de docs/03)
+    perfis-simulacao.rascunho.json   37 indicadores, 7 tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
+    orbita-ia-base.json       65 respostas da ORBITA IA (offline), cada uma com fonte
   dados/amostras-reais/       telemetria pública da ISS, NOAA SWPC e DONKI gravadas em 15/11/2026, com scripts
 Traycer/                      cópia da EPIC do Traycer deste projeto e instruções para importá-la em outro computador
 ```

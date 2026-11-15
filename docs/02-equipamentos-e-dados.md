@@ -436,7 +436,7 @@ A NASA publica um subconjunto da telemetria da ISS (originalmente descrito como 
 
 | ID | Descrição no mapa | Unidade segundo a frente 1 | Módulo | Ressalva |
 | --- | --- | --- | --- | --- |
-| USLAB000053 | ppO2 | torr | US Lab | Validar escala antes de converter ou alertar |
+| USLAB000053 | ppO2 | torr | US Lab | Validar escala antes de converter ou alertar; para comparar com o alvo de normoxia, converter em PIO2 com a pressão total (USLAB000058), ver `docs/04`, A1 |
 | USLAB000054 | ppN2 | torr | US Lab | Não mede CO2 nem contaminantes |
 | USLAB000055 | ppCO2 | torr | US Lab | Comparar com a regra de 3 mmHg só depois de validar unidade, calibração e janela de média |
 | USLAB000056 e 57 | Água de coolant de baixa e média temperatura | ? | US Lab | Circuito de refrigeração, não água potável |

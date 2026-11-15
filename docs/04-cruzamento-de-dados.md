@@ -23,6 +23,9 @@ Todo dado entra convertido para a unidade canônica de [`06-modelo-de-dados.md`]
 | lb | kg | kg = lb × 0,453592 | 150 lb × 0,453592 = 68,0 kg |
 | mGy | mSv | Depende do tipo de radiação (fator de qualidade). Nunca converter "um para um" sem o fator informado pelo instrumento. | Ver A7 |
 | glicose mg/dL | mmol/L | mmol/L = mg/dL ÷ 18,016 | 90 mg/dL ÷ 18,016 = 5,0 mmol/L |
+| ppO2 da cabine e pressão total (mmHg) | PIO2, pressão parcial **inspirada** de O2 (mmHg, depois kPa) | PIO2 = (pressão total menos 47) × ppO2 ÷ pressão total | Node 3, 15/11/2026: (757,64 menos 47) × 150,67 ÷ 757,64 = 141,3 mmHg = 18,84 kPa |
+
+**PIO2 não é a ppO2 da cabine.** Ao respirar, o ar é umedecido e o vapor d'água ocupa 47 mmHg da pressão (a 37 °C). A PIO2 é a pressão de O2 que sobra para o pulmão: ao nível do mar, (760 menos 47) × 0,21 = 149,7 mmHg ([OCHMO-TB-003](https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-003-habitable-atmosphere.pdf)). A NASA pede que a ppO2 seca do ambiente seja lida "no contexto da PIO2", com alvo de normoxia de 145 a 155 mmHg ([OCHMO-TB-002](https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-002-eclss.pdf)). O adaptador da telemetria (NODE3000001 ou USLAB000053 para ppO2, USLAB000058 para pressão total) calcula a PIO2 antes de entregar a `Leitura` de `pio2_cabine` e guarda os dois valores originais. Na amostra gravada, o Node 3 dá 141,3 mmHg e o US Lab dá (757,64 menos 47) × 165,85 ÷ 757,64 = 155,6 mmHg: os dois fora do alvo e muito longe dos limites de exposição (127 mmHg em média de 1 h, 122 mmHg absoluto, 356 mmHg), então ficam amarelos, nunca laranja (`docs/03`).
 
 Por que a pressão parcial importa mais que a porcentagem: o corpo responde à **pressão parcial** do gás. Uma mesma porcentagem de CO2 vale mais pressão parcial numa cabine a 101 kPa do que numa cabine de pressão reduzida. Por isso a ISS e as normas da NASA falam de CO2 em **mmHg**.
 

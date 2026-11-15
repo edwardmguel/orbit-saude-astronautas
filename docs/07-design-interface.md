@@ -2,6 +2,7 @@
 
 > Para quem: quem desenha e quem implementa as telas.
 > Wireframes navegáveis: abra [`wireframes/telas-prototipo.html`](wireframes/telas-prototipo.html) no navegador.
+> **Atualização de 15/11:** o app passou a se chamar ORBITA e o visual final está em [`18-design-orbita-responsivo.md`](18-design-orbita-responsivo.md), com os desenhos em [`wireframes/orbita-responsivo.html`](wireframes/orbita-responsivo.html). Quando os dois discordarem em cor, componente ou layout, vale o `docs/18`; as regras de sinalização, privacidade e convenções da NASA deste documento continuam valendo. O nível 3 agora é laranja.
 > Esta é uma **proposta inicial** para acelerar o kickoff. A seção 8 lista as perguntas que a equipe responde juntos antes de fechar o visual; os padrões recomendados permitem começar a codar mesmo antes das respostas.
 
 ---
@@ -79,8 +80,8 @@ Pedido do dono, 15/11: *"uma tela no software que funciona de monitor geral, que
 | --- | --- | --- | --- |
 | ✓ Saúde: normal | Contorno verde discreto, superfície neutra | Não | Nunca |
 | ! Saúde: atenção (nível 2) | Contorno amarelo estático, frase de ajuda no rodapé | Não | Nunca |
-| ✕ Saúde: acionar CMO (nível 3) | Contorno vermelho estático, sem halo e sem piscar; texto da ação, horário e origem do dado | Sim | Nunca |
-| Saúde: imediato (nível 4) | Igual ao nível 3, com instrução textual estática: "Contatar CMO agora" e "Abrir procedimento oficial" | Sim | Nunca; som e luz vermelha são do sistema de alarmes da estação (ver `docs/05`, princípio P5) |
+| ✕ Saúde: acionar CMO (nível 3) | Contorno laranja estático (`--estado-alerta` `#F97316`, `docs/18`), sem halo e sem piscar; texto da ação, horário e origem do dado | Sim | Nunca |
+| Saúde: imediato (nível 4, só por sintoma de alarme) | Contorno vermelho estático (`--estado-critico` `#FF6B6B`), com instrução textual estática: "Contatar CMO agora" e "Abrir procedimento oficial" | Sim | Nunca; som e luz vermelha são do sistema de alarmes da estação (ver `docs/05`, princípio P5) |
 | ? Sem leitura / leitura vencida / sensor desconectado | Contorno cinza tracejado com a palavra exata do caso e a idade do dado | Não | Nunca; lembrete para o próprio tripulante |
 | Não compartilhado | Texto neutro "não compartilhado", sem cor de estado e sem clique | Não | Nunca |
 
@@ -113,6 +114,7 @@ A figura é a ideia central do desafio. Cada região é um `<path>` SVG com `id`
 | `cerebro` Cérebro e mente | Sono curto, isolamento, carga de trabalho, CO2, radiação | Horas e eficiência do sono, tempo de reação (PVT), fadiga, humor, estresse, sinais de EEG do óculos |
 | `olhos` Olhos | SANS: líquidos sobem para a cabeça | Grade de Amsler, acuidade de perto, sintomas visuais, último OCT e fundo de olho, pressão intraocular |
 | `ouvidos` Ouvidos | Ruído constante de ventiladores e bombas | Dose de ruído (dBA), audiometria periódica, zumbido relatado |
+| `vestibular` Equilíbrio e orientação (entrou pelo prompt ORBITA, `docs/17`) | Sem gravidade, o ouvido interno perde a referência de cima e baixo: enjoo espacial nos primeiros dias e desorientação na volta | Enjoo, tontura e desorientação relatados; sem indicador numérico em voo, por isso fica cinza até haver sintoma ou teste |
 | `coracao` Coração e vasos | Redistribuição de fluidos, descondicionamento | Frequência cardíaca de repouso, variabilidade (HRV), **pressão arterial** (citada no desafio oficial), ECG |
 | `pulmoes` Pulmões | Ar fechado, CO2, EVA | Frequência respiratória, SpO2, exposição a CO2 do módulo |
 | `sangue` Sangue e imunidade (ícone sistêmico) | Anemia do voo espacial, imunidade alterada, reativação viral | **Glicose em mg/dL** (exemplo citado no desafio oficial; glicosímetro do kit, entrada manual), hemoglobina, hematócrito, temperatura, sintomas de infecção |

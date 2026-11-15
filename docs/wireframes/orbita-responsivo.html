@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORBITA: wireframes responsivos</title>
+<style>
+/* Tokens do design system (docs/18, seções 2.1 e 2.2) */
+:root{
+  --bg:#07111F;--surface:#0B1B2B;--surface-2:#11243A;--border:rgba(145,164,184,.2);--border-strong:#2A4A6B;
+  --text:#F4F8FC;--muted:#91A4B8;--primary:#21C5EF;--primary-2:#16A9C4;--on-accent:#07111F;
+  --estado-sem-dado:#A3ADBA;--estado-normal:#22C55E;--estado-atencao:#F5B800;--estado-alerta:#F97316;--estado-critico:#FF6B6B;
+  --estado-sem-dado-bg:#202F3F;--estado-normal-bg:#0E3332;--estado-atencao-bg:#2C3125;--estado-alerta-bg:#2C2728;--estado-critico-bg:#2D2634;
+  --glow:0 0 0 1px rgba(33,197,239,.35),0 0 16px rgba(33,197,239,.22);
+}
+/* Modo noturno âmbar (docs/18, seção 2.6) */
+.night{
+  --bg:#120A04;--surface:#1C1108;--surface-2:#26170B;--border:#3A2414;--border-strong:#553620;
+  --text:#F2C79B;--muted:#BC9672;--primary:#E8963F;--primary-2:#C77B30;--on-accent:#120A04;
+  --estado-sem-dado:#AC9884;--estado-normal:#A9C25A;--estado-atencao:#F2B544;--estado-alerta:#EE8A45;--estado-critico:#F07A62;
+  --estado-sem-dado-bg:#2F2319;--estado-normal-bg:#302A13;--estado-atencao-bg:#3A2810;--estado-alerta-bg:#392211;--estado-critico-bg:#3A2015;
+  --glow:none;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#030810;color:#DCE6F1;font:14px/1.45 "Segoe UI",Roboto,system-ui,sans-serif}
+.pg{padding:28px 32px 4px;max-width:1340px}
+.pg h1{font-size:24px;margin:0 0 6px;color:#F4F8FC}
+.pg p{margin:0 0 10px;color:#9FB2C6;max-width:1150px}
+.idx{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.idx a{font-size:12px;color:#9FDDF2;text-decoration:none;border:1px solid #22405F;border-radius:999px;padding:3px 10px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 6px;padding:12px;border:1px solid #1E3550;border-radius:14px;background:#07111F;max-width:1276px}
+h2.sec{font-size:19px;color:#F4F8FC;margin:30px 32px 2px}
+p.secp{margin:0 32px 16px;color:#9FB2C6;font-size:13px;max-width:1240px}
+.frames{display:flex;flex-wrap:wrap;gap:34px 40px;padding:0 32px 18px}
+.frame{width:390px}
+.frame>h3{font-size:15px;margin:0 0 2px;color:#F4F8FC}
+.frame>.fn{font-size:12px;color:#8FA3B8;margin:0 0 10px;min-height:36px}
+.phone{position:relative;width:390px;height:844px;background:var(--bg);color:var(--text);border-radius:40px;border:1px solid #22405F;box-shadow:0 0 0 6px #0A1626,0 18px 40px rgba(0,0,0,.55);overflow:hidden;display:flex;flex-direction:column}
+.sb{flex:none;height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:12px;color:var(--muted);font-weight:600}
+.scr{flex:1;min-height:0;overflow:hidden;padding:0 16px 8px;display:flex;flex-direction:column;gap:8px}
+.nav{flex:none;height:62px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border-top:1px solid var(--border)}
+.nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;color:var(--muted)}
+.nav a.on{color:var(--primary);font-weight:700}
+.hi{flex:none;height:18px;background:var(--surface);display:flex;align-items:center;justify-content:center}
+.hi i{width:120px;height:4px;border-radius:2px;background:var(--border-strong)}
+.hi.bare{background:transparent}
+.ic{width:20px;height:20px;flex:none}
+.ic.s{width:16px;height:16px}
+.lg{width:26px;height:26px;flex:none}
+.hdr{flex:none;display:flex;align-items:center;gap:8px;height:48px}
+.brand{display:flex;align-items:center;gap:7px;height:40px;padding:0 10px 0 6px;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+.brand b{font-size:15px;letter-spacing:.14em}
+.brand .ic{color:var(--muted)}
+.sp{flex:1}
+.ib{position:relative;width:40px;height:40px;display:inline-grid;place-items:center;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);flex:none}
+.ib em{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--primary);color:var(--on-accent);font:700 11px/18px "Segoe UI",sans-serif;font-style:normal;text-align:center}
+.ib.pri{background:var(--primary);border-color:var(--primary);color:var(--on-accent)}
+.ctx{flex:none;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);letter-spacing:.03em}
+.ctx b{color:var(--text)}
+.t1{font-size:20px;font-weight:700;margin:0;line-height:1.25}
+.sub{font-size:13px;color:var(--muted);margin:0}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:12px}
+.card.b1{border:1px solid rgba(34,197,94,.45)}
+.card.b2{border:1.5px solid var(--estado-atencao)}
+.card.b0{border:1.5px dashed var(--estado-sem-dado)}
+.card.b3{border:1.5px solid var(--estado-alerta)}
+.kv.a{border-color:var(--estado-alerta)}
+.row{display:flex;align-items:center;gap:8px}
+.col{display:flex;flex-direction:column;gap:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.small{font-size:13px}
+.xs{font-size:12px;color:var(--muted)}
+.mut{color:var(--muted)}
+.h3{font-size:15px;font-weight:700;margin:0}
+.st{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 9px 0 3px;border-radius:999px;border:1px solid currentColor;font-size:12px;font-weight:700;white-space:nowrap;flex:none}
+.st i,.cb i{font-style:normal;width:16px;height:16px;border-radius:50%;display:inline-grid;place-items:center;font-size:11px;font-weight:900;color:var(--bg);line-height:1;flex:none}
+.l0{color:var(--estado-sem-dado)}.l1{color:var(--estado-normal)}.l2{color:var(--estado-atencao)}.l3{color:var(--estado-alerta)}.l4{color:var(--estado-critico)}
+.st.l0{background:var(--estado-sem-dado-bg);border-style:dashed}.st.l1{background:var(--estado-normal-bg)}.st.l2{background:var(--estado-atencao-bg)}.st.l3{background:var(--estado-alerta-bg)}.st.l4{background:var(--estado-critico-bg)}
+.l0>i{background:var(--estado-sem-dado)}.l1>i{background:var(--estado-normal)}.l2>i{background:var(--estado-atencao)}.l3>i{background:var(--estado-alerta)}.l4>i{background:var(--estado-critico)}
+.cb{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;white-space:nowrap}
+.sy{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:11px;font-weight:900;line-height:1;flex:none;color:var(--bg)}
+.sy.l0{background:var(--estado-sem-dado);color:var(--bg)}.sy.l4{background:var(--estado-critico);color:var(--bg)}.sy.l1{background:var(--estado-normal);color:var(--bg)}.sy.l2{background:var(--estado-atencao);color:var(--bg)}.sy.l3{background:var(--estado-alerta);color:var(--bg)}
+.og{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 6px;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);color:var(--muted);font-size:12px;white-space:nowrap;flex:none}
+.og .ic{width:13px;height:13px}
+.og.av{border-style:dashed;height:auto;min-height:20px;white-space:normal;padding:2px 6px}
+.num{font-family:Bahnschrift,"Segoe UI",sans-serif;font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.u{font-size:13px;color:var(--muted);margin-left:3px;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text);font-weight:600;font-size:14px;white-space:nowrap;flex:none}
+.btn.sm{height:36px;font-size:13px;padding:0 12px}
+.btn.pri{background:var(--primary);border-color:var(--primary);color:var(--on-accent);font-weight:800;letter-spacing:.02em}
+.btn.block{display:flex;width:100%}
+.lnk{color:var(--primary);font-size:13px;font-weight:600;white-space:nowrap}
+.seg{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:3px;flex:none}
+.seg span{flex:1;text-align:center;padding:6px 6px;border-radius:9px;font-size:13px;color:var(--muted);white-space:nowrap}
+.seg span.on{background:var(--surface-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--primary);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 11px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);font-size:13px;color:var(--text);white-space:nowrap}
+.chip.sm{height:28px;font-size:12px;padding:0 10px}
+.chip.on{border-color:var(--primary);color:var(--primary);background:rgba(33,197,239,.08);font-weight:700}
+.scale{display:grid;gap:5px}
+.scale span{height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--border-strong);background:var(--surface-2);font-weight:700;position:relative}
+.scale span.on{border-color:var(--primary);color:var(--primary);box-shadow:var(--glow)}
+.scale span.hab::after{content:"";position:absolute;bottom:4px;width:14px;height:2px;border-radius:1px;background:var(--muted)}
+.li{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--border)}
+.li:first-child{border-top:0}
+.bar{height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden;width:100%}
+.bar i{display:block;height:100%;background:var(--primary-2)}
+.ann{border:1px dashed #3B6A8F;color:#A9CBE3;font-size:12px;border-radius:10px;padding:6px 8px;background:rgba(33,197,239,.05)}
+.fld{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+.in{display:flex;align-items:center;height:42px;padding:0 12px;border-radius:12px;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text);font-size:14px}
+.in.ph{color:var(--muted)}
+.in.ta{height:50px;align-items:flex-start;padding-top:9px}
+.sw{width:40px;height:24px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border-strong);position:relative;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--muted)}
+.sw.on{background:var(--primary);border-color:var(--primary)}
+.sw.on::after{left:19px;background:var(--on-accent)}
+.dim{position:absolute;inset:0;background:rgba(2,6,12,.6)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--border-strong);border-radius:24px 24px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.5);padding:8px 16px 24px;display:flex;flex-direction:column;gap:8px}
+.handle{align-self:center;width:44px;height:5px;border-radius:3px;background:var(--border-strong)}
+.drawer{position:absolute;top:0;bottom:0;left:0;width:300px;background:var(--surface);border-right:1px solid var(--border-strong);box-shadow:10px 0 30px rgba(0,0,0,.5);display:flex;flex-direction:column;padding:44px 12px 26px}
+.dit{display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;border-radius:10px;color:var(--muted);font-size:14px;position:relative;flex:none}
+.dit.on{background:var(--surface-2);color:var(--text);font-weight:700}
+.dit.on::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:2px;background:var(--primary)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--primary);margin-left:auto;flex:none}
+.bubble{border-radius:16px;padding:10px 12px;font-size:14px}
+.bubble.me{align-self:flex-end;background:var(--surface-2);border-bottom-right-radius:4px;max-width:80%}
+.bubble.ai{background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:4px}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{color:var(--muted);text-align:left;font-weight:700;font-size:12px;padding:4px 4px;border-bottom:1px solid var(--border)}
+.tbl td{padding:5px 4px;border-bottom:1px solid var(--border);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl.tight td{padding:3px 4px}
+.tbl td.r{text-align:right;white-space:nowrap}
+.mc{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:10px}
+.mt{font-size:12px;color:var(--muted);display:flex;gap:5px;align-items:center;font-weight:600}
+.env{display:flex;flex-direction:column;gap:1px}
+.env b{font-family:Bahnschrift,"Segoe UI",sans-serif;font-size:19px}
+.step{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;text-align:center;font-size:12px;color:var(--muted)}
+.step b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--border-strong);color:var(--muted);font-size:13px}
+.step.done b{background:var(--primary);border-color:var(--primary);color:var(--on-accent)}
+.step.cur b{border-color:var(--primary);color:var(--primary)}
+.step.cur{color:var(--text);font-weight:700}
+.task{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--border)}
+.task:first-child{border-top:0}
+.ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--border-strong);display:grid;place-items:center;flex:none;font-size:12px;font-weight:900}
+.ck.ok{background:var(--primary);border-color:var(--primary);color:var(--on-accent)}
+.crew{display:flex;flex-direction:column;gap:7px}
+.mini3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kv{display:flex;flex-direction:column;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:4px 7px}
+.kv span{font-size:12px;color:var(--muted)}
+.kv b{font-size:14px;display:flex;align-items:center;gap:4px;justify-content:space-between}
+.kv.w{border-color:var(--estado-atencao)}.kv.n{border-style:dashed;border-color:var(--estado-sem-dado)}
+.strip{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;color:var(--muted)}
+.strip span{display:inline-flex;align-items:center;gap:3px}
+.mx{width:100%;border-collapse:separate;border-spacing:3px;font-size:13px;table-layout:fixed}
+.mx th{font-size:12px;color:var(--muted);text-align:left;font-weight:700;padding:2px}
+.mx th:first-child{width:76px}
+.mx thead th{text-align:center;color:var(--text)}
+.mx td{text-align:center;padding:6px 2px;border-radius:8px;background:var(--surface);border:1px solid var(--border);font-weight:700;white-space:nowrap}
+.mx td.w{border-color:var(--estado-atencao)}.mx td.n{border-style:dashed;border-color:var(--estado-sem-dado);color:var(--estado-sem-dado)}.mx td.ns{font-weight:500;color:var(--muted);font-size:12px;white-space:normal}
+/* Figura do corpo */
+.bs{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.5}
+.lo{fill:none;stroke:var(--border-strong);stroke-linecap:round}
+.li2{fill:none;stroke:var(--surface-2);stroke-linecap:round}
+.rg .l0{fill:var(--estado-sem-dado);fill-opacity:.14;stroke:var(--estado-sem-dado);stroke-width:1.2;stroke-dasharray:3 2}
+.rg .l1{fill:var(--estado-normal);fill-opacity:.26;stroke:var(--estado-normal);stroke-width:1.2}
+.rg .l2{fill:var(--estado-atencao);fill-opacity:.34;stroke:var(--estado-atencao);stroke-width:1.6}
+.rg .m0{fill:none;stroke:var(--estado-sem-dado);stroke-opacity:.4;stroke-linecap:round}
+.rg .m1{fill:none;stroke:var(--estado-normal);stroke-opacity:.45;stroke-linecap:round}
+.rad{fill:var(--text);font-size:14px;text-anchor:middle;font-family:"Segoe UI Symbol","Segoe UI",sans-serif}
+.bdg text{fill:var(--bg);font-size:10px;font-weight:900;text-anchor:middle;font-family:"Segoe UI Symbol","Segoe UI",sans-serif}
+.bdg.l0 circle{fill:var(--estado-sem-dado)}.bdg.l1 circle{fill:var(--estado-normal)}.bdg.l2 circle{fill:var(--estado-atencao)}
+.selr{fill:none;stroke:var(--primary);stroke-width:2.5}
+/* Gráficos */
+.gl{stroke:var(--border);stroke-width:1}
+.ln{fill:none;stroke:var(--primary);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.band{fill:var(--primary-2);fill-opacity:.18}
+.ref{stroke:var(--muted);stroke-dasharray:4 4;stroke-width:1;fill:none}
+.ax{fill:var(--muted);font-size:12px;font-family:"Segoe UI",sans-serif}
+.pt{fill:var(--bg);stroke:var(--primary);stroke-width:2}
+.ptw{fill:var(--estado-atencao);stroke:var(--bg);stroke-width:2}
+.hyp{fill:none;stroke:var(--primary);stroke-width:2.5;stroke-linejoin:round}
+/* Moldura de tela grande, 1920 x 1080 exibida a 66% */
+.disp-wrap{width:1268px;height:713px;overflow:hidden;border-radius:14px;border:1px solid #22405F;box-shadow:0 0 0 6px #0A1626,0 18px 40px rgba(0,0,0,.55);margin:0 32px 30px}
+.disp{width:1920px;height:1080px;transform:scale(.66);transform-origin:0 0;background:var(--bg);color:var(--text);padding:0 48px 24px;display:flex;flex-direction:column;gap:24px;font-size:24px}
+.dtop{height:80px;flex:none;display:flex;align-items:center;gap:24px;border-bottom:1px solid var(--border)}
+.dwm{font-size:28px;letter-spacing:.16em;font-weight:800}
+.dtitle{font-size:32px;font-weight:700}
+.dctx{font-size:24px;color:var(--muted)}.dctx b{color:var(--text)}
+.dclock{font-family:Bahnschrift,"Segoe UI",sans-serif;font-size:34px;font-weight:700}
+.og.L{height:36px;font-size:20px;padding:0 12px;border-radius:8px;gap:8px}.og.L .ic{width:20px;height:20px}
+.dlbl{font-size:22px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dcard{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:18px 22px}
+.dcard.b1{border:2px solid rgba(34,197,94,.45)}.dcard.b2{border:2px solid var(--estado-atencao)}.dcard.b0{border:2px dashed var(--estado-sem-dado)}
+.st.L{height:40px;font-size:22px;padding:0 16px 0 5px;gap:8px}.st.L i{width:30px;height:30px;font-size:19px}
+.cb.L{font-size:22px;gap:8px}.cb.L i{width:30px;height:30px;font-size:19px}
+.dnum{font-family:Bahnschrift,"Segoe UI",sans-serif;font-size:56px;font-weight:700;line-height:1}
+.du{font-size:24px;color:var(--muted);margin-left:8px;font-weight:600}
+.dsm{font-size:20px;color:var(--muted)}
+.drow1{display:grid;grid-template-columns:5fr 7fr;gap:24px;height:146px;flex:none}
+.denv{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;height:164px}
+.dcrew{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;flex:1;min-height:0;align-items:start}
+.dfoot{height:40px;flex:none;display:flex;align-items:center;gap:32px;font-size:20px;color:var(--muted)}
+.dname{font-size:26px;font-weight:700}
+.dtiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dt{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:4px 12px 5px}
+.dt.w{border:2px solid var(--estado-atencao)}.dt.n{border:2px dashed var(--estado-sem-dado)}
+.dt .tl{display:flex;justify-content:space-between;align-items:center;font-size:17px;color:var(--muted)}
+.dt .tv{font-family:Bahnschrift,"Segoe UI",sans-serif;font-size:25px;font-weight:700;line-height:1.15}
+.dt .tv small{font-size:19px;color:var(--muted);font-family:"Segoe UI",sans-serif;font-weight:600;margin-left:4px}
+.dt .tv.ns{font-family:"Segoe UI",sans-serif;font-size:18px;color:var(--muted);font-weight:600;line-height:1.6}
+.dt .sy{width:26px;height:26px;font-size:16px}
+.dhelp{font-size:19px;color:var(--muted);line-height:1.35}
+.dhelp b{color:var(--text)}
+/* Moldura de laptop, 1366 x 768 exibida a 92% */
+.lap-wrap{width:1257px;height:707px;overflow:hidden;border-radius:14px;border:1px solid #22405F;box-shadow:0 0 0 6px #0A1626,0 18px 40px rgba(0,0,0,.55);margin:0 32px 40px}
+.lap{width:1366px;height:768px;transform:scale(.92);transform-origin:0 0;background:var(--bg);color:var(--text);display:grid;grid-template-columns:240px 1fr}
+.side{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:14px 10px 16px}
+.lmain{padding:16px 24px 18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="logo" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="20" ry="9" transform="rotate(-25 24 24)" fill="none" stroke="#21C5EF" stroke-width="2.4"/><circle cx="24" cy="24" r="9" fill="#16A9C4"/><circle cx="42.1" cy="15.5" r="3.6" fill="#21C5EF"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></g></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></g></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></g></symbol>
+<symbol id="i-body" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M12 8v6M6.5 9.5l5.5 1 5.5-1M9 21l3-7 3 7"/></g></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></g></symbol>
+<symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M12 5v4M9 14v1M15 14v1"/><circle cx="12" cy="4" r="1"/></g></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/><path d="M3.2 12H9l1-2 2 4.5 2-7 1.5 4.5h5.3"/></g></symbol>
+<symbol id="i-rad" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.5"/><path d="M12 3.5v5M4.6 16.3l4.3-2.5M19.4 16.3l-4.3-2.5"/></g></symbol>
+<symbol id="i-act" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></g></symbol>
+<symbol id="i-glasses" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-4 0M2.5 13 5 7c.7-1.3 1.4-2 3-2M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></g></symbol>
+<symbol id="i-wind" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2"/></g></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></g></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/></g></symbol>
+<symbol id="i-water" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14l-2 18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><path d="M6 10c2-1 4-1 6 0s4 1 6 0"/></g></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M2 17h20M12 4v6"/></g></symbol>
+<symbol id="i-test" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2M8.5 2h7M14.5 16h-5"/></g></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></g></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></g></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></g></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></g></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></g></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></g></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></g></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></g></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></g></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3 8-10V5l-8-3-8 3v7c0 7 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></g></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4"/><circle cx="18" cy="18" r="3"/></g></symbol>
+<symbol id="i-wifioff" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l20 20M8.5 16.5a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5.2-2.8M19 12.9a10 10 0 0 0-2.3-1.7M12 20h.01"/></g></symbol>
+<symbol id="i-sat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 9 3 5 7l4 4M17 11l4 4-4 4-4-4M8 12l4 4 6-6-4-4z"/><path d="m16 8 3-3M9 21a6 6 0 0 0-6-6"/></g></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></g></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></g></symbol>
+<symbol id="i-earth" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></g></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8l-4.2 3.9"/><path d="m2 15 6 6"/></g></symbol>
+<symbol id="i-steth" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a4 4 0 0 0 8 0V3M9 13v2a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/></g></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2M8.5 2h7M7 16h10"/></g></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></g></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4z"/></g></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-eyeoff" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 5.1A10.7 10.7 0 0 1 12 5c7 0 10 7 10 7a13.2 13.2 0 0 1-1.7 2.7"/><path d="M6.6 6.6A13.5 13.5 0 0 0 2 12s3 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M2 2l20 20"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></g></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></g></symbol>
+<symbol id="i-panel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9l-3 3 3 3"/></g></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></g></symbol>
+<symbol id="i-batt" viewBox="0 0 26 12"><rect x="1" y="1" width="21" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="3" width="15" height="6" rx="1" fill="currentColor"/><rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor"/></symbol>
+</defs>
+</svg>
+
+<div class="pg">
+<h1>ORBITA: wireframes responsivos das telas M01 a M18</h1>
+<p>Desenhos de média fidelidade para quem executa o código no Lovable. A especificação de cada tela, os tokens e os critérios de pronto estão em <b>docs/18-design-orbita-responsivo.md</b>. Dados de demonstração do docs/17, seção 4: missão ISS EXP-01, dia 45, Astronauta 001. Valores e textos alinhados ao docs/19, seção 14. O2, pressão, prótons e Kp vêm da gravação real da ISS e da NOAA de 15/11/2026 (selo "Real gravado"); o resto é simulado. Nada pisca, nada toca som; todo estado tem cor, ícone e palavra.</p>
+<div class="legend">
+  <span class="st l0"><i>?</i>Sem dado</span>
+  <span class="st l1"><i>✓</i>Saúde: normal</span>
+  <span class="st l2"><i>!</i>Saúde: atenção</span>
+  <span class="st l3"><i>✕</i>Saúde: alerta, acionar CMO</span>
+  <span class="st l4"><i>✕</i>Saúde: crítico, contatar CMO agora</span>
+  <span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span>
+  <span class="og"><svg class="ic"><use href="#i-pencil"/></svg>Registrado por você</span>
+  <span class="og"><svg class="ic"><use href="#i-db"/></svg>Real gravado 15/11</span>
+  <span class="og"><svg class="ic"><use href="#i-test"/></svg>Exame de laboratório</span>
+  <span class="og"><svg class="ic"><use href="#i-glasses"/></svg>óculos Orbit (proposto) · simulado · experimental</span>
+  <span class="og av"><svg class="ic"><use href="#i-earth"/></svg>Amostra coletada, análise na Terra</span>
+</div>
+<nav class="idx">
+  <a href="#m01">M01 Cadastro</a><a href="#m02">M02 Inicialização orbital</a><a href="#m03a">M03 Visão geral (celular)</a><a href="#m03b">M03 Visão geral (tela grande)</a><a href="#m04">M04 Avaliação de saúde</a><a href="#m05">M05 Mapa corporal</a><a href="#m06">M06 Painel da região</a><a href="#m07">M07 Detalhe do alerta</a><a href="#m08">M08 Exames laboratoriais</a><a href="#m09">M09 ORBITA IA</a><a href="#m10">M10 Relatórios</a><a href="#m10l">M10 Relatórios (laptop)</a><a href="#m11">M11 Rotina da missão</a><a href="#m12">M12 Missão: Saúde em Dia</a><a href="#m13">M13 Riscos espaciais</a><a href="#m14">M14 Notificações</a><a href="#m15">M15 Perfil e privacidade</a><a href="#m16">M16 Tripulação</a><a href="#m16m">M16 Tripulação (matriz)</a><a href="#m16e">M16 Exemplo de escalonamento</a><a href="#m17">M17 Sono e óculos Orbit</a><a href="#m18">M18 Menu lateral</a>
+</nav>
+</div>
+
+<h2 class="sec">Celular, 390 x 844 px</h2>
+<p class="secp">Barra inferior com Início, Mapa, Avaliar e IA; menu lateral (M18) aberto pelo logo mais o ícone de menu; sino no cabeçalho. Horário de exemplo: GMT 319 / 06:40, depois do check-in das 06:00.</p>
+<div class="frames">
+
+<!-- ===================== M01 ===================== -->
+<div class="frame" id="m01"><h3>M01 Cadastro</h3><p class="fn">Primeiro acesso, obrigatório. Não reaparece depois de salvo; volta só por "Editar perfil" (M15).</p>
+<div class="phone">
+<div class="sb"><span>06:40</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr" style="gap:7px">
+  <div class="row" style="gap:10px;margin-top:2px"><svg class="lg" style="width:34px;height:34px"><use href="#logo"/></svg><b style="font-size:18px;letter-spacing:.16em">ORBITA</b></div>
+  <div><h1 class="t1">Cadastro do Astronauta</h1><p class="sub">Crie seu perfil para personalizar o monitoramento da sua saúde durante a missão.</p></div>
+  <div class="lbl">Você</div>
+  <div class="fld">Nome completo<span class="in">Astronauta 001</span></div>
+  <div class="fld">Sexo: define o mapa corporal e a faixa do hemograma<div class="seg"><span class="on">Masculino</span><span>Feminino</span></div></div>
+  <div class="g2"><div class="fld">Massa corporal (kg)<span class="in">78</span></div><div class="fld">Altura (cm)<span class="in">180</span></div></div>
+  <div class="fld"><span class="row" style="gap:4px">Observações pessoais (opcional)<svg class="ic s"><use href="#i-lock"/></svg>privado</span><span class="in ta ph">Restrições ou condições preexistentes</span></div>
+  <div class="lbl">Missão</div>
+  <div class="g2"><div class="fld">Nome da missão<span class="in">ISS EXP-01</span></div><div class="fld">Data de início<span class="in">02/10/2026</span></div></div>
+  <div class="xs">Hoje é o dia 45 da missão · Sono programado: 21:30 a 06:00 GMT</div>
+  <div class="lbl">O que a tripulação pode ver</div>
+  <div class="card" style="padding:2px 12px">
+    <div class="li"><span class="small sp">Estado por sistema (cor e ícone)</span><i class="sw on"></i></div>
+    <div class="li"><span class="small sp">Valores (sinais vitais, sono, hidratação)</span><i class="sw on"></i></div>
+    <div class="li"><span class="small sp">Humor</span><i class="sw on"></i></div>
+  </div>
+  <span class="btn pri block">SALVAR E CONTINUAR</span>
+</div>
+<div class="hi bare"><i></i></div>
+</div></div>
+
+<!-- ===================== M02 ===================== -->
+<div class="frame" id="m02"><h3>M02 Inicialização orbital</h3><p class="fn">Até 2,5 s no primeiro acesso, 1 s depois; toque pula. Ícone provisório até o SVG oficial chegar.</p>
+<div class="phone">
+<div class="sb"><span>06:40</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr" style="align-items:center;justify-content:center;gap:14px;text-align:center">
+  <svg viewBox="0 0 200 200" style="width:230px;height:230px" aria-label="Ícone ORBITA com o ponto orbital">
+    <ellipse cx="100" cy="100" rx="84" ry="36" transform="rotate(-25 100 100)" fill="none" stroke="#21C5EF" stroke-width="4"/>
+    <circle cx="100" cy="100" r="34" fill="#16A9C4"/>
+    <circle cx="84.8" cy="67.4" r="3" fill="#21C5EF" opacity=".18"/>
+    <circle cx="124.9" cy="54" r="4" fill="#21C5EF" opacity=".32"/>
+    <circle cx="158.3" cy="52.9" r="5" fill="#21C5EF" opacity=".55"/>
+    <circle cx="176.1" cy="64.5" r="8" fill="#21C5EF" style="filter:drop-shadow(0 0 8px #21C5EF)"/>
+  </svg>
+  <b style="font-size:30px;letter-spacing:.22em">ORBITA</b>
+  <p class="sub" style="max-width:290px">Sistema de Monitoramento de Saúde para Astronautas em Missões Espaciais.</p>
+  <div class="ann" style="text-align:left;max-width:330px;margin-top:10px">Roteiro: 0 a 0,3 s ícone parado · 0,3 a 1,7 s o ponto ciano dá uma volta de 360 graus sobre o anel (as marcas claras mostram o caminho) · 1,7 a 2,3 s o ícone se dissolve · até 2,5 s transição para a Visão geral. Com menos movimento no sistema: imagem estática.</div>
+  <div class="xs" style="position:absolute;bottom:44px;left:0;right:0;text-align:center">Toque para pular</div>
+</div>
+<div class="hi bare"><i></i></div>
+</div></div>
+
+<!-- ===================== M03a topo ===================== -->
+<div class="frame" id="m03a"><h3>M03 Visão geral, celular (topo)</h3><p class="fn">Painel pessoal. Três amarelos no corpo (FC, fadiga, sono), um alerta explicável de CO2 e o O2 do módulo em amarelo (próxima moldura).</p>
+<div class="phone">
+<div class="sb"><span>06:40</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="ctx"><span><b>ASTRONAUTA 001</b> · ISS EXP-01 · <b>DIA 045</b></span><span>GMT <b>319 / 06:40</b></span></div>
+  <div class="row"><span class="og"><svg class="ic"><use href="#i-flask"/></svg>DADOS SIMULADOS</span><span class="og"><svg class="ic"><use href="#i-wifioff"/></svg>Offline: funcionando localmente</span></div>
+  <div class="card b2" style="padding:9px 12px"><div class="row"><span class="st l2"><i>!</i>Saúde: atenção</span><span class="small sp">3 indicadores e 1 alerta</span><span class="lnk">Ver o que fazer ›</span></div></div>
+  <div class="card b2" style="padding:10px 12px">
+    <div class="row"><b class="h3 sp">Possível efeito de CO2 elevado</b><span class="og">R-CO2-01</span></div>
+    <p class="small mut" style="margin:3px 0 7px">CO2 do Node 3 em 2,95 mmHg e dificuldade de concentração há 40 min. Frequência cardíaca e fadiga também fora do seu padrão.</p>
+    <div class="row"><span class="st l2"><i>!</i>Saúde: atenção</span><span class="sp"></span><span class="btn sm">Por que estou vendo isto ›</span></div>
+  </div>
+  <div class="lbl">Monitoramento automático</div>
+  <div class="g2">
+    <div class="card b2 mc">
+      <div class="mt"><svg class="ic s"><use href="#i-heart"/></svg>Frequência cardíaca</div>
+      <div class="row" style="width:100%;justify-content:space-between"><div><span class="num">86</span><span class="u">bpm</span></div>
+        <svg viewBox="0 0 140 28" preserveAspectRatio="none" style="width:58px;height:24px"><line x1="0" y1="23.5" x2="140" y2="23.5" class="ref"/><polyline class="ln" style="stroke-width:3" points="2,25.3 25,23.5 48,20.1 71,21.8 94,25.3 117,21.8 138,4.5"/></svg></div>
+      <div class="xs">Seu padrão: 64 bpm</div>
+      <span class="st l2"><i>!</i>Saúde: atenção</span>
+      <span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado · há 5 min</span>
+    </div>
+    <div class="card b1 mc">
+      <div class="mt"><svg class="ic s"><use href="#i-rad"/></svg>Dosimetria</div>
+      <div><span class="num">18,9</span><span class="u">mSv na missão</span></div>
+      <div class="xs">Hoje: 0,42 mSv</div>
+      <div class="bar"><i style="width:3.2%"></i></div>
+      <div class="xs">3,2% do limite de carreira de 600 mSv</div>
+      <span class="st l1"><i>✓</i>Saúde: normal</span>
+      <span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span>
+    </div>
+    <div class="card b1 mc">
+      <div class="mt"><svg class="ic s"><use href="#i-act"/></svg>Oximetria (SpO2)</div>
+      <div><span class="num">97</span><span class="u">%</span></div>
+      <div class="xs">Referência terrestre: 95 a 100%, não limite de voo</div>
+      <span class="st l1"><i>✓</i>Saúde: normal</span>
+      <span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span>
+    </div>
+    <div class="card b1 mc">
+      <div class="mt"><svg class="ic s"><use href="#i-glasses"/></svg>Atenção ocular (EOG)</div>
+      <div><span class="num">12,4</span><span class="u">piscadas/min</span></div>
+      <div class="xs">Óculos Orbit (proposto), experimental</div>
+      <span class="st l1"><i>✓</i>Saúde: normal</span>
+      <span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado · há 5 min</span>
+    </div>
+  </div>
+</div>
+<nav class="nav"><a class="on"><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M03a rolagem ===================== -->
+<div class="frame" id="m03a2"><h3>M03 Visão geral, celular (depois de rolar)</h3><p class="fn">Ambiente do módulo, avaliação pessoal (diária, sinais vitais, hemograma, testes) e prévia do mapa corporal.</p>
+<div class="phone">
+<div class="sb"><span>06:41</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr" style="gap:7px">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="card" style="padding:10px 12px">
+    <div class="row"><span class="lbl">Ambiente · Node 3</span><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-db"/></svg>Real gravado 15/11</span></div>
+    <div class="g4" style="margin-top:6px">
+      <div class="env"><span class="xs">CO2</span><b>2,95</b><span class="xs">mmHg</span><span class="cb l2"><i>!</i>atenção</span></div>
+      <div class="env"><span class="xs">O2 (PIO2)</span><b>18,84</b><span class="xs">kPa</span><span class="cb l2"><i>!</i>atenção</span></div>
+      <div class="env"><span class="xs">Pressão</span><b>101,0</b><span class="xs">kPa</span><span class="cb l1"><i>✓</i>normal</span></div>
+      <div class="env"><span class="xs">Prótons</span><b>0,21</b><span class="xs">pfu</span><span class="cb l1"><i>✓</i>normal</span></div>
+    </div>
+    <div class="xs" style="margin-top:5px">O2 um pouco abaixo do alvo: confira o sensor. CO2 simulado (cenário C1). Kp 1 <span class="cb l1"><i>✓</i>normal</span></div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <div class="row"><span class="lbl">Avaliação pessoal · diária</span><span class="sp"></span><span class="lnk">Atualizar ›</span></div>
+    <div class="row xs" style="margin-top:2px"><span class="sp">Últimas 24 h · registrada às 06:00 GMT</span><span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span></div>
+    <table class="tbl tight" style="margin-top:2px">
+      <tr><td>Hidratação</td><td><b>1,8 L</b></td><td class="xs"></td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+      <tr><td>Fadiga</td><td><b>6 de 7</b></td><td class="xs">habitual 2</td><td class="r"><span class="cb l2"><i>!</i>atenção</span></td></tr>
+      <tr><td>Apetite</td><td><b>Reduzido</b></td><td class="xs">habitual normal</td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+      <tr><td>Sono</td><td><b>5,4 h</b></td><td class="xs">habitual 7,5 h</td><td class="r"><span class="cb l2"><i>!</i>atenção</span></td></tr>
+      <tr><td>Humor</td><td><b>3 de 5</b></td><td class="xs">habitual 4</td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+    </table>
+  </div>
+  <div class="card" style="padding:2px 12px">
+    <div class="li"><div class="col sp" style="gap:0"><b class="small">Sinais vitais (kit, opcional)</b><span class="xs">120 por 80 mmHg · 90 mg/dL · 36,8 °C</span></div><span class="cb l1"><i>✓</i>normal</span></div>
+    <div class="li"><div class="col sp" style="gap:2px"><b class="small">Hemograma · a cada 15 dias</b><span class="og av"><svg class="ic"><use href="#i-earth"/></svg>Amostra do FD 38 em análise na Terra</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><div class="col sp" style="gap:0"><b class="small">Testes de visão e PVT · semanal</b><span class="xs">Último há 6 dias · próximo no FD 46</span></div><span class="cb l1"><i>✓</i>normal</span></div>
+  </div>
+  <div class="card row" style="align-items:center;gap:12px;padding:8px 12px">
+    <svg viewBox="0 0 200 420" style="width:48px;height:101px;flex:none" aria-label="Prévia do mapa corporal">
+      <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><circle class="bs" cx="33" cy="246" r="9"/><circle class="bs" cx="167" cy="246" r="9"/><ellipse class="bs" cx="79" cy="402" rx="13" ry="6"/><ellipse class="bs" cx="121" cy="402" rx="13" ry="6"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+      <g class="rg"><ellipse class="l2" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><ellipse class="l0" cx="75" cy="44" rx="4" ry="8"/><ellipse class="l0" cx="125" cy="44" rx="4" ry="8"/><circle class="l0" cx="83" cy="56" r="3.5"/><circle class="l0" cx="117" cy="56" r="3.5"/><path class="l2" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l2" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/><path class="l1" d="M161 178C161 178 153 188 153 193A8 8 0 0 0 169 193C169 188 161 178 161 178Z"/><path class="m1" stroke-width="12" d="M58 99Q43 120 41 158M142 99Q157 120 159 158M86 232Q84 268 83 298M114 232Q116 268 117 298"/><path class="m0" stroke-width="7" d="M82 314L82 384M118 314L118 384"/><circle class="l0" cx="82" cy="306" r="5"/><circle class="l0" cx="118" cy="306" r="5"/><circle class="l1" cx="176" cy="380" r="13"/></g>
+    </svg>
+    <div class="col sp" style="gap:4px">
+      <span class="lbl">Mapa corporal</span>
+      <span class="small"><span class="cb l2"><i>!</i></span> Atenção: Cabeça e cérebro, Coração, Pulmões</span>
+      <span class="xs"><span class="cb l0"><i>?</i></span> Sem dado: 3 regiões</span>
+    </div>
+    <span class="lnk">Abrir ›</span>
+  </div>
+</div>
+<nav class="nav"><a class="on"><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M04 ===================== -->
+<div class="frame" id="m04"><h3>M04 Avaliação de saúde</h3><p class="fn">Aba Diária: cerca de 2 minutos, por toque. Abas Sinais vitais (pressão, glicose, temperatura), Testes (Amsler, acuidade, PVT) e Exames (M08).</p>
+<div class="phone">
+<div class="sb"><span>06:00</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <h1 class="t1">Avaliação de saúde</h1>
+  <div class="seg"><span class="on">Diária</span><span>Sinais vitais</span><span>Testes</span><span>Exames</span></div>
+  <div class="row xs"><span>Últimas 24 horas · último registro 06:00 GMT</span><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span></div>
+  <div class="row"><div class="col" style="gap:0"><b class="small">Hidratação</b><span class="xs">últimas 24 h</span></div><span class="sp"></span><span class="btn sm">−0,25 L</span><span class="num" style="font-size:24px;min-width:62px;text-align:center">1,8<span class="u">L</span></span><span class="btn sm">+0,25 L</span></div>
+  <div><div class="row"><b class="small">Fadiga agora (1 a 7)</b><span class="sp"></span><span class="xs">habitual 2</span></div>
+    <div class="scale" style="grid-template-columns:repeat(7,1fr);margin-top:5px"><span>1</span><span class="hab">2</span><span>3</span><span>4</span><span>5</span><span class="on">6</span><span>7</span></div>
+    <div class="xs" style="margin-top:3px">6: extremamente cansado, muito difícil se concentrar</div></div>
+  <div><div class="row"><b class="small">Apetite</b><span class="sp"></span><span class="xs">habitual normal</span></div>
+    <div class="chips" style="margin-top:5px"><span class="chip">Normal</span><span class="chip on">Reduzido</span><span class="chip">Muito reduzido</span></div></div>
+  <div class="row"><div class="col" style="gap:0"><b class="small">Sono da última noite</b><span class="xs">programado 8,5 h · habitual 7,5 h</span></div><span class="sp"></span><span class="ib">−</span><span class="num" style="font-size:24px;min-width:62px;text-align:center">5,4<span class="u">h</span></span><span class="ib">+</span></div>
+  <div><div class="row"><b class="small">Humor (1 a 5)</b><span class="sp"></span><span class="xs">3: neutro · habitual 4</span></div>
+    <div class="scale" style="grid-template-columns:repeat(5,1fr);margin-top:5px"><span>1</span><span>2</span><span class="on">3</span><span class="hab">4</span><span>5</span></div></div>
+  <div><b class="small">Sintomas de hoje (opcional)</b>
+    <div class="chips" style="margin-top:5px"><span class="chip sm">Nenhum</span><span class="chip sm">Dor de cabeça</span><span class="chip sm on">Dificuldade de concentração</span><span class="chip sm">Tontura</span><span class="chip sm">Enjoo</span><span class="chip sm">Visão borrada</span></div></div>
+  <span class="btn pri block">SALVAR AVALIAÇÃO</span>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a class="on"><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M05 ===================== -->
+<div class="frame" id="m05"><h3>M05 Mapa corporal</h3><p class="fn">12 regiões coloridas pelo pior indicador com leitura válida. Alternância Frente e Costas. Lista equivalente para leitor de tela.</p>
+<div class="phone">
+<div class="sb"><span>06:42</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><h1 class="t1">Mapa corporal</h1><span class="sp"></span><div class="seg" style="width:160px"><span class="on">Frente</span><span>Costas</span></div></div>
+  <span class="og" style="align-self:flex-start">Educativo: nem todo risco é detectado pelos indicadores</span>
+  <div style="display:flex;justify-content:center">
+    <svg viewBox="0 0 200 420" style="width:166px;height:349px" aria-label="Figura humana de frente com 12 regiões">
+      <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><circle class="bs" cx="33" cy="246" r="9"/><circle class="bs" cx="167" cy="246" r="9"/><ellipse class="bs" cx="79" cy="402" rx="13" ry="6"/><ellipse class="bs" cx="121" cy="402" rx="13" ry="6"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+      <g class="rg"><ellipse class="l2" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><ellipse class="l0" cx="75" cy="44" rx="4" ry="8"/><ellipse class="l0" cx="125" cy="44" rx="4" ry="8"/><circle class="l0" cx="83" cy="56" r="3.5"/><circle class="l0" cx="117" cy="56" r="3.5"/><path class="l2" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l2" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/><path class="l1" d="M161 178C161 178 153 188 153 193A8 8 0 0 0 169 193C169 188 161 178 161 178Z"/><path class="m1" stroke-width="12" d="M58 99Q43 120 41 158M142 99Q157 120 159 158M86 232Q84 268 83 298M114 232Q116 268 117 298"/><path class="m0" stroke-width="7" d="M82 314L82 384M118 314L118 384"/><circle class="l0" cx="82" cy="306" r="5"/><circle class="l0" cx="118" cy="306" r="5"/><circle class="l1" cx="176" cy="380" r="13"/></g>
+      <text class="rad" x="176" y="385">☢</text>
+      <g class="bdg l2" transform="translate(100 27)"><circle r="7"/><text y="3.5">!</text></g>
+      <g class="bdg l2" transform="translate(111 128)"><circle r="7"/><text y="3.5">!</text></g>
+      <g class="bdg l2" transform="translate(83 136)"><circle r="7"/><text y="3.5">!</text></g>
+      <g class="bdg l1" transform="translate(100 190)"><circle r="7"/><text y="3.5">✓</text></g>
+      <g class="bdg l1" transform="translate(161 194)"><circle r="7"/><text y="3.5">✓</text></g>
+      <g class="bdg l1" transform="translate(44 130)"><circle r="7"/><text y="3.5">✓</text></g>
+      <g class="bdg l0" transform="translate(82 350)"><circle r="7"/><text y="3.5">?</text></g>
+      <g class="bdg l1" transform="translate(190 362)"><circle r="7"/><text y="3.5">✓</text></g>
+    </svg>
+  </div>
+  <div class="xs" style="text-align:center">✓ normal · ! atenção · ✕ alerta · ? sem dado · toque numa região</div>
+  <div class="g2" style="gap:5px 10px;font-size:12px">
+    <span class="row" style="gap:6px"><b class="sy l2">!</b>Cabeça e cérebro</span>
+    <span class="row" style="gap:6px"><b class="sy l2">!</b>Coração</span>
+    <span class="row" style="gap:6px"><b class="sy l2">!</b>Pulmões (alerta de CO2)</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Olhos e visão</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Sistema imunológico e sangue</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Abdômen e digestão</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Rins e hidratação</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Músculos e membros</span>
+    <span class="row" style="gap:6px"><b class="sy l1">✓</b>Corpo inteiro e radiação</span>
+    <span class="row" style="gap:6px"><b class="sy l0">?</b>Ouvidos</span>
+    <span class="row" style="gap:6px"><b class="sy l0">?</b>Sistema vestibular e equilíbrio</span>
+    <span class="row" style="gap:6px"><b class="sy l0">?</b>Ossos</span>
+  </div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a class="on"><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M06 ===================== -->
+<div class="frame" id="m06"><h3>M06 Painel da região</h3><p class="fn">Folha inferior sobre o mapa escurecido. Exemplo: Cabeça e cérebro, com contorno ciano de seleção.</p>
+<div class="phone">
+<div class="sb"><span>06:42</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><h1 class="t1">Mapa corporal</h1><span class="sp"></span><div class="seg" style="width:160px"><span class="on">Frente</span><span>Costas</span></div></div>
+  <div style="display:flex;justify-content:center">
+    <svg viewBox="0 0 200 420" style="width:166px;height:349px">
+      <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+      <g class="rg"><ellipse class="l2" cx="100" cy="32" rx="19" ry="15"/><path class="l2" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l2" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/></g>
+      <ellipse class="selr" cx="100" cy="33" rx="24" ry="20"/>
+    </svg>
+  </div>
+</div>
+<div class="dim"></div>
+<div class="sheet" style="height:636px">
+  <div class="handle"></div>
+  <div class="row"><b style="font-size:18px">Cabeça e cérebro</b><span class="sp"></span><span class="st l2"><i>!</i>Saúde: atenção</span></div>
+  <p class="small mut" style="margin:0">Sono curto, isolamento, carga de trabalho e CO2 podem afetar atenção, humor e tempo de reação.</p>
+  <div class="lbl">Possíveis riscos</div>
+  <div class="chips"><span class="chip sm">Alterações neurológicas</span><span class="chip sm">Comportamentais</span><span class="chip sm">Cognitivas</span><span class="chip sm">Sensorimotoras</span></div>
+  <div class="lbl">Indicadores relacionados</div>
+  <table class="tbl">
+    <tr><td>Fadiga</td><td class="xs">6 de 7 · habitual 2</td><td class="r"><span class="cb l2"><i>!</i>atenção</span></td></tr>
+    <tr><td>Sono</td><td class="xs">5,4 h · habitual 7,5 h</td><td class="r"><span class="cb l2"><i>!</i>atenção</span></td></tr>
+    <tr><td>Humor</td><td class="xs">3 de 5 · habitual 4</td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+    <tr><td>Reação (PVT)</td><td class="xs">268 ms · padrão 270 ms</td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+    <tr><td>Piscadas (EOG)</td><td class="xs">12,4/min · experimental</td><td class="r"><span class="cb l1"><i>✓</i>normal</span></td></tr>
+    <tr><td>Sintoma</td><td class="xs" colspan="2">dificuldade de concentração · <span style="color:var(--primary)">alerta de CO2 ›</span></td></tr>
+  </table>
+  <div class="card" style="padding:9px 12px;background:var(--surface-2)"><b class="small">O que fazer</b><p class="small" style="margin:3px 0">Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir.</p><p class="xs" style="margin:0">Sobe de nível se: incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado.</p></div>
+  <div class="row"><span class="btn sm">Fazer teste PVT</span><span class="sp"></span><span class="btn sm"><svg class="ic s"><use href="#i-ext"/></svg>Saiba mais (HRP)</span></div>
+</div>
+</div></div>
+
+<!-- ===================== M07 ===================== -->
+<div class="frame" id="m07"><h3>M07 Detalhe do alerta</h3><p class="fn">Quatro blocos fixos: cabeçalho, por que estou vendo isto, o que fazer agora, fonte e quem já sabe. O gráfico de CO2 fica abaixo, ao rolar.</p>
+<div class="phone">
+<div class="sb"><span>06:43</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr" style="gap:7px">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row small mut"><svg class="ic s"><use href="#i-back"/></svg>Visão geral</div>
+  <div class="card b2" style="padding:10px 12px">
+    <div class="row"><span class="st l2"><i>!</i>Saúde: atenção</span><span class="sp"></span><span class="xs">Quem age: você · aviso ao CMO</span></div>
+    <p class="h3" style="margin:6px 0 2px">Possível efeito de CO2 elevado no Node 3</p>
+    <div class="xs">Astronauta 001 · 06:00 GMT, há 40 min · R-CO2-01</div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <b class="small">Por que estou vendo isto</b>
+    <div class="li"><div class="col sp" style="gap:0"><div class="row"><span class="small sp">CO2 do Node 3 (EWMA)</span><b class="small">2,95 mmHg</b><b class="sy l2">!</b></div><span class="xs">Acima de 2,8 mmHg há mais de 1 h; média de 1 h abaixo de 3 · Simulado, C1</span></div></div>
+    <div class="li"><div class="col sp" style="gap:0"><div class="row"><span class="small sp">Sintoma relatado</span><b class="small">Dificuldade de concentração</b></div><span class="xs">Há 40 min, no check-in · Simulado</span></div></div>
+    <div class="li"><span class="xs">Fatores possíveis: CO2 e sono curto (5,4 h). Contexto: frequência cardíaca 86 bpm <b class="sy l2">!</b> e fadiga 6 de 7 <b class="sy l2">!</b></span></div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <b class="small">O que fazer agora</b>
+    <ol class="small" style="margin:4px 0 4px;padding-left:20px">
+      <li>Confira o módulo, o sensor e a ventilação.</li>
+      <li>Se autorizado, vá para um módulo com leitura menor.</li>
+      <li>Hidrate-se conforme o plano.</li>
+      <li>Repita o teste de reação em 2 horas.</li>
+      <li>Avise o controle ambiental e o CMO.</li>
+    </ol>
+    <div class="xs">Sobe para <span class="cb l3"><i>✕</i>laranja</span> se: dor de cabeça de 7 ou mais em 10, tontura ou média de 1 h acima de 3 mmHg (V2 6004).</div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <b class="small">Fonte da regra e quem já sabe</b>
+    <div class="xs" style="margin:2px 0 3px">R-CO2-01 (demonstração); OCHMO-TB-004; NASA-STD-3001 Vol. 2, V2 6004. 2,8 mmHg não é limite da NASA.</div>
+    <div class="xs">Você: <b style="color:var(--text)">avisado</b> · CMO: <b style="color:var(--text)">na fila</b> · Solo: <b style="color:var(--text)">na fila</b> (próxima passagem)</div>
+  </div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M08 ===================== -->
+<div class="frame" id="m08"><h3>M08 Exames laboratoriais</h3><p class="fn">Hemograma com os estados reais do voo. A faixa vem do laudo; nunca vermelho automático.</p>
+<div class="phone">
+<div class="sb"><span>06:44</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><svg class="ic s mut"><use href="#i-back"/></svg><h1 class="t1">Exames laboratoriais</h1></div>
+  <div class="card">
+    <div class="row"><svg class="ic"><use href="#i-test"/></svg><b>Hemograma</b><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-test"/></svg>Exame de laboratório</span></div>
+    <div class="row" style="margin:12px 0 10px;align-items:flex-start">
+      <div class="step done"><b>✓</b>Coleta agendada</div>
+      <div class="step cur"><b>2</b>Amostra coletada</div>
+      <div class="step"><b>3</b>Resultado disponível</div>
+    </div>
+    <span class="og av"><svg class="ic"><use href="#i-earth"/></svg>Amostra coletada no FD 38 (há 7 dias) · análise na Terra</span>
+    <p class="xs" style="margin:6px 0 8px">Em órbita, o sangue é congelado e analisado na Terra. O resultado chega depois.</p>
+    <div class="row"><svg class="ic s" style="color:var(--primary)"><use href="#i-cal"/></svg><b class="small">Próxima coleta: FD 53 (em 8 dias)</b><span class="sp"></span><span class="xs">a cada 15 dias</span></div>
+  </div>
+  <div class="card">
+    <b class="small">Último resultado disponível · coleta do FD 23</b>
+    <table class="tbl" style="margin-top:4px">
+      <tr><th>Parâmetro</th><th>Valor</th><th>Faixa do laudo</th></tr>
+      <tr><td>Hemoglobina</td><td><b>14,8 g/dL</b></td><td class="xs">13 a 18 g/dL · dentro</td></tr>
+      <tr><td>Hematócrito</td><td class="xs">sem dado</td><td class="xs">do laudo</td></tr>
+      <tr><td>Leucócitos</td><td class="xs">sem dado</td><td class="xs">do laudo</td></tr>
+      <tr><td>Plaquetas</td><td class="xs">sem dado</td><td class="xs">do laudo</td></tr>
+    </table>
+    <p class="xs" style="margin:6px 0 0">Fora da faixa do laudo: "revisar com o CMO". Nunca vermelho automático; a interpretação é da equipe médica.</p>
+  </div>
+  <div class="card" style="padding:10px 12px"><b class="small">Evolução</b><div class="xs" style="margin-top:6px;border:1px dashed var(--border-strong);border-radius:10px;padding:14px;text-align:center">O gráfico aparece a partir de 2 resultados.</div></div>
+  <div class="g2"><span class="btn">Registrar coleta</span><span class="btn pri">Registrar resultado</span></div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a class="on"><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M09 ===================== -->
+<div class="frame" id="m09"><h3>M09 ORBITA IA</h3><p class="fn">Offline, sem chave de API. Lê os estados do motor e cita regra e fonte; não diagnostica nem indica remédio.</p>
+<div class="phone">
+<div class="sb"><span>06:45</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div><div class="row"><h1 class="t1">ORBITA IA</h1><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-wifioff"/></svg>Offline: base local</span></div><p class="sub">Assistente inteligente de saúde espacial</p></div>
+  <div class="bubble me">Como está minha saúde hoje?</div>
+  <div class="bubble ai">
+    Hoje três indicadores estão diferentes do seu padrão: frequência cardíaca de 86 bpm (seu padrão é 64 bpm), fadiga 6 de 7 (seu padrão é 2) e sono de 5,4 h (seu padrão é 7,5 h). Há um alerta aberto: possível efeito de CO2 elevado no Node 3 (2,95 mmHg), junto com a dificuldade de concentração que você relatou. O O2 do Node 3 está um pouco abaixo do alvo, dentro dos limites. O que a missão recomenda: conferir a ventilação, ir para um módulo com leitura menor se autorizado, hidratar-se, repetir o teste de reação em 2 h e avisar o controle ambiental e o CMO.
+    <div class="chips" style="margin-top:8px"><span class="og">Regra R-CO2-01 (docs/04)</span><span class="og">NASA-STD-3001 Vol. 2, V2 6004</span><span class="og">Linha de base pessoal (A3)</span></div>
+  </div>
+  <div class="lbl">Sugestões</div>
+  <div class="chips"><span class="chip sm">Quais indicadores precisam de atenção?</span><span class="chip sm">O que é o risco de SANS?</span><span class="chip sm">Por que minha frequência cardíaca mudou?</span></div>
+  <div class="row"><span class="in ph" style="flex:1">Pergunte sobre sua saúde</span><span class="ib pri"><svg class="ic"><use href="#i-send"/></svg></span></div>
+  <div class="xs">Não faz diagnóstico nem indica remédio. Em caso de sintoma, fale com o CMO.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a class="on"><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M10 celular ===================== -->
+<div class="frame" id="m10"><h3>M10 Relatórios</h3><p class="fn">Período e indicador sem sair da página. Faixa do seu padrão separada da referência terrestre com fonte.</p>
+<div class="phone">
+<div class="sb"><span>06:46</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <h1 class="t1">Relatórios de saúde</h1>
+  <div class="seg"><span class="on">7 dias</span><span>15 dias</span><span>30 dias</span><span>Missão</span></div>
+  <div class="chips"><span class="chip sm on">Frequência cardíaca</span><span class="chip sm">Dosimetria</span><span class="chip sm">Oximetria</span><span class="chip sm">EOG</span><span class="chip sm">Hidratação</span><span class="chip sm">Fadiga</span><span class="chip sm">Apetite</span><span class="chip sm">Sono</span><span class="chip sm">Humor</span><span class="chip sm">Hemograma</span></div>
+  <div class="card" style="padding:10px 12px">
+    <div class="row"><b class="small">Frequência cardíaca · bpm</b><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span></div>
+    <svg viewBox="0 0 302 150" style="width:100%;height:150px;margin-top:4px">
+      <rect class="band" x="30" y="86.7" width="268" height="25"/>
+      <line class="ref" x1="30" y1="20" x2="298" y2="20"/><line class="ref" x1="30" y1="108" x2="298" y2="108"/>
+      <text class="ax" x="2" y="24">100</text><text class="ax" x="8" y="112">60</text>
+      <polyline class="ln" points="34,103.6 76,99.2 118,90.4 160,94.8 202,103.6 244,94.8 286,50.8"/>
+      <circle class="pt" cx="34" cy="103.6" r="3.5"/><circle class="pt" cx="76" cy="99.2" r="3.5"/><circle class="pt" cx="118" cy="90.4" r="3.5"/><circle class="pt" cx="160" cy="94.8" r="3.5"/><circle class="pt" cx="202" cy="103.6" r="3.5"/><circle class="pt" cx="244" cy="94.8" r="3.5"/><circle class="ptw" cx="286" cy="50.8" r="6"/>
+      <rect x="168" y="30" width="104" height="38" rx="8" fill="var(--surface-2)" stroke="var(--border-strong)"/>
+      <text x="176" y="46" style="fill:var(--text);font-size:12px;font-weight:700">FD 45 · 86 bpm</text>
+      <text x="176" y="61" style="fill:var(--estado-atencao);font-size:12px;font-weight:700">! atenção</text>
+      <text class="ax" x="22" y="140">FD 39</text><text class="ax" x="106" y="140">FD 41</text><text class="ax" x="190" y="140">FD 43</text><text class="ax" x="268" y="140">FD 45</text>
+    </svg>
+    <div class="row xs" style="flex-wrap:wrap;gap:4px 12px"><span class="row" style="gap:4px"><i style="display:inline-block;width:14px;height:8px;background:rgba(22,169,196,.35)"></i>seu padrão</span><span>tracejado: referência terrestre de 60 a 100 bpm, não limite de voo</span></div>
+  </div>
+  <div class="card" style="padding:8px 12px">
+    <table class="tbl"><tr><th>Data</th><th>Indicador</th><th>Valor</th><th>Estado</th></tr>
+      <tr><td>FD 45</td><td>Freq. cardíaca</td><td>86 bpm</td><td><span class="cb l2"><i>!</i>atenção</span></td></tr>
+      <tr><td>FD 45</td><td>Fadiga</td><td>6 de 7</td><td><span class="cb l2"><i>!</i>atenção</span></td></tr>
+      <tr><td>FD 45</td><td>Sono</td><td>5,4 h</td><td><span class="cb l2"><i>!</i>atenção</span></td></tr>
+      <tr><td>FD 45</td><td>Hidratação</td><td>1,8 L</td><td><span class="cb l1"><i>✓</i>normal</span></td></tr>
+    </table>
+  </div>
+  <div class="xs">Uma variação isolada não é diagnóstico.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M11 ===================== -->
+<div class="frame" id="m11"><h3>M11 Rotina da missão</h3><p class="fn">Prazos em GMT. Sem lembretes no sono nem em atividade crítica. Lembretes em ciano, nunca em cor de estado.</p>
+<div class="phone">
+<div class="sb"><span>06:47</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div><h1 class="t1">Rotina da missão</h1><p class="sub">FD 045 · GMT 319</p></div>
+  <div class="card"><div class="row"><b class="small">Hoje</b><span class="sp"></span><span class="small"><b>3 de 6</b> concluídas</span></div><div class="bar" style="margin-top:8px"><i style="width:50%;background:var(--primary)"></i></div></div>
+  <div class="card" style="padding:4px 12px">
+    <div class="task"><span class="ck ok">✓</span><div class="col sp" style="gap:0"><b class="small">Avaliação diária</b><span class="xs">Diária · até 06:30 GMT · concluída às 06:00</span></div></div>
+    <div class="task"><span class="ck ok">✓</span><div class="col sp" style="gap:0"><b class="small">Conferir indicadores automáticos</b><span class="xs">Diária · até 07:30 GMT · concluída</span></div></div>
+    <div class="task"><span class="ck ok">✓</span><div class="col sp" style="gap:0"><b class="small">Registrar sinais vitais com o kit</b><span class="xs">Diária, opcional · concluída às 06:05</span></div></div>
+    <div class="task"><span class="ck"></span><div class="col sp" style="gap:0"><b class="small">Repetir o teste de reação (PVT)</b><span class="xs">Pedido pelo alerta de CO2 · até 08:00 GMT · pendente</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="task"><span class="ck"></span><div class="col sp" style="gap:0"><b class="small">Atualizar hidratação</b><span class="xs">Diária · até 13:00 GMT · pendente</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="task"><span class="ck"></span><div class="col sp" style="gap:0"><b class="small">Revisar o histórico da semana</b><span class="xs">Semanal · até 19:00 GMT · pendente</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  </div>
+  <div class="lbl">Próximas</div>
+  <div class="card" style="padding:4px 12px">
+    <div class="task"><svg class="ic s"><use href="#i-eye"/></svg><div class="col sp" style="gap:0"><b class="small">Testes de visão e PVT · semanal</b><span class="xs">FD 46 (amanhã) · último no FD 39</span></div></div>
+    <div class="task"><svg class="ic s"><use href="#i-test"/></svg><div class="col sp" style="gap:3px"><b class="small">Hemograma · a cada 15 dias</b><span class="og av"><svg class="ic"><use href="#i-earth"/></svg>Amostra do FD 38 em análise na Terra · próxima no FD 53</span></div></div>
+  </div>
+  <div class="row xs"><svg class="ic s"><use href="#i-moon"/></svg>Sem lembretes das 21:30 às 06:00 GMT nem durante atividades críticas.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M12 ===================== -->
+<div class="frame" id="m12"><h3>M12 Missão: Saúde em Dia</h3><p class="fn">Pontos por ação de cuidado, nunca por resultado de saúde. Meta cooperativa, sem ranking.</p>
+<div class="phone">
+<div class="sb"><span>06:48</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <h1 class="t1">Missão: Saúde em Dia</h1>
+  <div class="card">
+    <div class="row"><svg class="ic" style="color:var(--primary)"><use href="#i-trophy"/></svg><b>Nível 4 · Navegador</b><span class="sp"></span><span class="num" style="font-size:20px">1.240<span class="u">XP</span></span></div>
+    <div class="bar" style="margin:10px 0 6px"><i style="width:48%;background:var(--primary)"></i></div>
+    <div class="row xs"><span>faltam 260 XP para o nível 5</span><span class="sp"></span><span>Sequência: 12 dias</span></div>
+  </div>
+  <div class="card row"><div class="col sp" style="gap:2px"><span class="lbl">Desafio do dia</span><b class="small">Fazer os testes semanais de visão e PVT</b></div><span class="chip on">+40 XP</span></div>
+  <div class="card"><span class="lbl">Meta da tripulação</span><div class="row" style="margin-top:4px"><b class="small sp">Hidratação registrada hoje: 3 de 4 tripulantes</b><span class="row" style="gap:4px"><i style="width:12px;height:12px;border-radius:50%;background:var(--primary)"></i><i style="width:12px;height:12px;border-radius:50%;background:var(--primary)"></i><i style="width:12px;height:12px;border-radius:50%;background:var(--primary)"></i><i style="width:12px;height:12px;border-radius:50%;border:2px solid var(--border-strong)"></i></span></div><div class="xs">Meta cooperativa, sem nomes e sem ranking.</div></div>
+  <div class="lbl">Conquistas</div>
+  <div class="g2">
+    <div class="card" style="padding:10px"><b class="small">Hidratação consistente</b><div class="xs">5 dias seguidos · desbloqueada</div><div class="bar" style="margin-top:6px"><i style="width:100%;background:var(--primary)"></i></div></div>
+    <div class="card" style="padding:10px"><b class="small">Rotina em dia</b><div class="xs">5 de 7 dias</div><div class="bar" style="margin-top:6px"><i style="width:71%"></i></div></div>
+    <div class="card" style="padding:10px"><b class="small">Explorador da saúde</b><div class="xs">9 de 12 regiões consultadas</div><div class="bar" style="margin-top:6px"><i style="width:75%"></i></div></div>
+    <div class="card" style="padding:10px"><b class="small">Sono monitorado</b><div class="xs">7 dias · desbloqueada</div><div class="bar" style="margin-top:6px"><i style="width:100%;background:var(--primary)"></i></div></div>
+  </div>
+  <div class="card row"><svg class="ic"><use href="#i-glasses"/></svg><div class="col" style="gap:0"><b class="small">Sons do óculos Orbit</b><span class="xs">Desbloqueado: Rio Limpo (perfil Mata Atlântica)</span></div></div>
+  <div class="xs">Pontos por ação de cuidado, nunca por resultado de saúde.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M13 ===================== -->
+<div class="frame" id="m13"><h3>M13 Riscos espaciais</h3><p class="fn">Os cinco perigos do Human Research Program, com link oficial, regiões e indicadores. Riscos específicos por categoria.</p>
+<div class="phone">
+<div class="sb"><span>06:49</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div><h1 class="t1">Riscos dos voos espaciais</h1><p class="sub">Os cinco perigos do Human Research Program da NASA</p></div>
+  <div class="card">
+    <div class="row"><svg class="ic" style="color:var(--primary)"><use href="#i-rad"/></svg><b>Radiação espacial</b><span class="sp"></span><svg class="ic s mut" style="transform:rotate(-90deg)"><use href="#i-chev"/></svg></div>
+    <p class="small" style="margin:6px 0">Fora do campo magnético da Terra, partículas de alta energia atravessam a nave e o corpo.</p>
+    <div class="xs">Possíveis impactos: câncer induzido por radiação e efeitos em tecidos ao longo da carreira.</div>
+    <div class="chips" style="margin:8px 0 6px"><span class="chip sm">Corpo inteiro ›</span><span class="chip sm">Cabeça e cérebro ›</span></div>
+    <div class="xs">Indicadores: dose_acumulada, taxa_dose_radiacao, fluxo_protons_goes</div>
+    <div class="row lnk" style="margin-top:6px"><svg class="ic s"><use href="#i-ext"/></svg>nasa.gov/hrp/hazard-space-radiation</div>
+  </div>
+  <div class="card row" style="padding:10px 12px"><svg class="ic" style="color:var(--primary)"><use href="#i-users"/></svg><b class="small sp">Isolamento e confinamento</b><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  <div class="card row" style="padding:10px 12px"><svg class="ic" style="color:var(--primary)"><use href="#i-earth"/></svg><b class="small sp">Distância da Terra</b><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  <div class="card row" style="padding:10px 12px"><svg class="ic" style="color:var(--primary)"><use href="#i-gauge"/></svg><b class="small sp">Campos gravitacionais</b><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  <div class="card row" style="padding:10px 12px"><svg class="ic" style="color:var(--primary)"><use href="#i-wind"/></svg><b class="small sp">Ambientes hostis e fechados</b><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  <div class="lbl">Riscos específicos</div>
+  <div class="card" style="padding:4px 12px">
+    <div class="li"><span class="small sp">Corpo e movimento (5)</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><span class="small sp">Mente, sono e equipe (4)</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><span class="small sp">Mais 5 categorias (8 riscos)</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  </div>
+  <div class="xs">Normas dos limiares: NASA-STD-3001 Vol. 1 e Vol. 2; OCHMO-MTB-001 (SANS).</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M14 ===================== -->
+<div class="frame" id="m14"><h3>M14 Notificações</h3><p class="fn">Aberta pelo sino. Saúde com cor, ícone e palavra; rotina em ciano; informação em cinza. Sem som e sem vibração.</p>
+<div class="phone">
+<div class="sb"><span>06:50</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib" style="border-color:var(--primary)"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><h1 class="t1">Notificações</h1><span class="sp"></span><span class="lnk">Marcar todas como lidas</span></div>
+  <div class="chips"><span class="chip on">Todas</span><span class="chip">Saúde</span><span class="chip">Rotina</span></div>
+  <div class="card" style="padding:4px 12px">
+    <div class="li" style="align-items:flex-start;padding:9px 0"><span class="dot" style="margin:6px 0 0"></span><div class="col sp" style="gap:3px"><span class="st l2" style="align-self:flex-start"><i>!</i>Saúde: atenção</span><b class="small">Possível efeito de CO2 elevado no Node 3.</b><span class="xs">06:00 GMT</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="align-items:flex-start;padding:9px 0"><span class="dot" style="margin:6px 0 0"></span><div class="col sp" style="gap:3px"><span class="st l2" style="align-self:flex-start"><i>!</i>Saúde: atenção</span><b class="small">Sua frequência cardíaca está diferente do seu padrão: 86 bpm (habitual 64 bpm).</b><span class="xs">05:50 GMT</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="align-items:flex-start;padding:9px 0"><span class="dot" style="margin:6px 0 0;background:transparent"></span><div class="col sp" style="gap:3px"><span class="cb l2"><i>!</i>atenção · ambiente</span><span class="small">O2 um pouco abaixo do alvo no Node 3; confira o sensor e acompanhe a tendência.</span><span class="xs">05:45 GMT</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="padding:9px 0"><svg class="ic" style="color:var(--primary)"><use href="#i-list"/></svg><div class="col sp" style="gap:0"><span class="small">Repita o teste de reação às 08:00 GMT (alerta de CO2).</span><span class="xs">06:00 GMT</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="padding:9px 0"><svg class="ic" style="color:var(--primary)"><use href="#i-cal"/></svg><div class="col sp" style="gap:0"><span class="small">Próxima coleta de hemograma em 8 dias (FD 53).</span><span class="xs">06:00 GMT</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="padding:9px 0"><svg class="ic" style="color:var(--estado-sem-dado)"><use href="#i-earth"/></svg><div class="col sp" style="gap:0"><span class="small mut">Hemograma do FD 38: amostra coletada, análise na Terra.</span><span class="xs">ontem</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li" style="padding:9px 0"><svg class="ic" style="color:var(--estado-sem-dado)"><use href="#i-trophy"/></svg><div class="col sp" style="gap:0"><span class="small mut">Conquista desbloqueada: Sono monitorado.</span><span class="xs">ontem</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  </div>
+  <div class="xs">Nenhuma notificação toca som, vibra ou pisca.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M15 ===================== -->
+<div class="frame" id="m15"><h3>M15 Perfil e privacidade</h3><p class="fn">Consentimento por audiência, com revogação. Botão de demonstração "Restaurar dados iniciais" com confirmação.</p>
+<div class="phone">
+<div class="sb"><span>06:51</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <h1 class="t1">Perfil e privacidade</h1>
+  <div class="card row"><span class="ib" style="width:44px;height:44px;border-radius:50%;font-weight:800">001</span><div class="col sp" style="gap:0"><b>Astronauta 001</b><span class="xs">Masculino · 78 kg · 180 cm</span></div><span class="btn sm">Editar perfil</span></div>
+  <div class="card row" style="padding:10px 12px"><svg class="ic"><use href="#i-lock"/></svg><div class="col sp" style="gap:0"><b class="small">Observações pessoais</b><span class="xs">Privado: fica só neste aparelho</span></div><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+  <div class="card" style="padding:10px 12px"><span class="lbl">Missão</span><div class="small" style="margin-top:4px"><b>ISS EXP-01</b> · início 02/10/2026 · dia 45</div><div class="xs">Sono programado: 21:30 a 06:00 GMT</div></div>
+  <div class="card" style="padding:8px 12px">
+    <span class="lbl">O que cada audiência vê</span>
+    <div class="li"><span class="small sp">Estado por sistema</span><span class="small mut">Tripulação</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><span class="small sp">Valores</span><span class="small mut">Tripulação</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><span class="small sp">Módulo onde estou</span><span class="small mut">Tripulação</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="li"><span class="small sp">Mente e humor</span><span class="small mut">Tripulação</span><svg class="ic s mut"><use href="#i-chev"/></svg></div>
+    <div class="xs" style="margin-top:2px">Atualizado em 15/11, 06:00 GMT · <span style="color:var(--primary)">Revogar</span>. Detalhes clínicos nunca aparecem na Tripulação.</div>
+  </div>
+  <div class="card" style="padding:4px 12px">
+    <div class="li"><span class="small sp">Idioma</span><span class="small mut">Português (Brasil)</span></div>
+    <div class="li"><span class="small sp">Modo noturno</span><span class="small mut">Automático no pré-sono</span></div>
+  </div>
+  <span class="btn block">RESTAURAR DADOS INICIAIS</span>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M16 lista ===================== -->
+<div class="frame" id="m16"><h3>M16 Tripulação, celular (lista)</h3><p class="fn">Só o que cada um compartilhou com a tripulação. Quem está em atenção abre com valores; quem está normal fica recolhido (toque abre).</p>
+<div class="phone">
+<div class="sb"><span>06:52</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><h1 class="t1">Tripulação</h1><span class="sp"></span><div class="seg" style="width:150px"><span class="on">Lista</span><span>Matriz</span></div></div>
+  <div class="row small mut"><svg class="ic s"><use href="#i-hand"/></svg>Ninguém precisa de apoio agora.</div>
+  <div class="card b2 crew">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Astronauta 001 (você)</b><span class="xs">Especialista de missão · Node 3</span></div><span class="st l2"><i>!</i>Saúde: atenção</span></div>
+    <div class="mini3">
+      <div class="kv w"><span>Coração</span><b>86 bpm<i class="sy l2">!</i></b></div>
+      <div class="kv"><span>Oxigenação</span><b>97 %<i class="sy l1">✓</i></b></div>
+      <div class="kv"><span>Temperatura</span><b>36,8 °C<i class="sy l1">✓</i></b></div>
+      <div class="kv w"><span>Sono</span><b>5,4 h<i class="sy l2">!</i></b></div>
+      <div class="kv"><span>Hidratação</span><b>1,8 L<i class="sy l1">✓</i></b></div>
+      <div class="kv"><span>Radiação</span><b>18,9 mSv<i class="sy l1">✓</i></b></div>
+      <div class="kv w"><span>Mente</span><b>atenção<i class="sy l2">!</i></b></div>
+    </div>
+    <div class="row xs"><span class="sp">Atualizado há 5 min · alerta de CO2 aberto</span><span class="lnk">Pedir apoio ›</span></div>
+  </div>
+  <div class="card b1 crew" style="padding:9px 12px">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Tripulante A</b><span class="xs">Comandante · Lab (Destiny)</span></div><span class="st l1"><i>✓</i>Saúde: normal</span></div>
+    <div class="strip"><span><b class="sy l1">✓</b>Coração</span><span><b class="sy l1">✓</b>Oxigenação</span><span><b class="sy l1">✓</b>Temperatura</span><span><b class="sy l1">✓</b>Sono</span><span><b class="sy l1">✓</b>Hidratação</span><span><b class="sy l1">✓</b>Radiação</span><span><b class="sy l1">✓</b>Mente</span></div>
+  </div>
+  <div class="card b1 crew" style="padding:9px 12px">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Tripulante B</b><span class="xs">Engenheiro de voo · só estados</span></div><span class="st l1"><i>✓</i>Saúde: normal</span></div>
+    <div class="strip"><span><b class="sy l1">✓</b>Coração</span><span><b class="sy l1">✓</b>Oxigenação</span><span><b class="sy l1">✓</b>Temperatura</span><span><b class="sy l1">✓</b>Sono</span><span><b class="sy l1">✓</b>Hidratação</span><span><b class="sy l1">✓</b>Radiação</span><span>Mente: não compartilhado</span></div>
+ </div>
+  <div class="card b1 crew" style="padding:9px 12px">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Tripulante C</b><span class="xs">Engenheira de voo · Node 1 (Unity)</span></div><span class="st l1"><i>✓</i>Saúde: normal</span></div>
+    <div class="strip"><span><b class="sy l1">✓</b>Coração</span><span><b class="sy l1">✓</b>Oxigenação</span><span><b class="sy l1">✓</b>Temperatura</span><span><b class="sy l1">✓</b>Sono</span><span><b class="sy l1">✓</b>Hidratação</span><span><b class="sy l1">✓</b>Radiação</span><span>Mente: não compartilhado</span></div>
+  </div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M16 matriz ===================== -->
+<div class="frame" id="m16m"><h3>M16 Tripulação, modo matriz</h3><p class="fn">Mesmos dados da lista: linhas são indicadores, colunas são tripulantes. "Não compartilhado" em texto neutro, sem cor.</p>
+<div class="phone">
+<div class="sb"><span>06:52</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="row"><h1 class="t1">Tripulação</h1><span class="sp"></span><div class="seg" style="width:150px"><span>Lista</span><span class="on">Matriz</span></div></div>
+  <div class="row small mut"><svg class="ic s"><use href="#i-hand"/></svg>Ninguém precisa de apoio agora.</div>
+  <table class="mx">
+    <thead><tr><th></th><th>Você</th><th>A</th><th>B</th><th>C</th></tr></thead>
+    <tr><th>Estado</th><td class="w"><span class="cb l2" style="flex-direction:column;gap:1px"><i>!</i>atenção</span></td><td><span class="cb l1" style="flex-direction:column;gap:1px"><i>✓</i>normal</span></td><td><span class="cb l1" style="flex-direction:column;gap:1px"><i>✓</i>normal</span></td><td><span class="cb l1" style="flex-direction:column;gap:1px"><i>✓</i>normal</span></td></tr>
+    <tr><th>Coração bpm</th><td class="w">86 <span class="l2">!</span></td><td>64 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>68 <span class="l1">✓</span></td></tr>
+    <tr><th>Oxigenação %</th><td>97 <span class="l1">✓</span></td><td>98 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>99 <span class="l1">✓</span></td></tr>
+    <tr><th>Temperatura °C</th><td>36,8 <span class="l1">✓</span></td><td>36,7 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>36,6 <span class="l1">✓</span></td></tr>
+    <tr><th>Sono h</th><td class="w">5,4 <span class="l2">!</span></td><td>6,2 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>6,5 <span class="l1">✓</span></td></tr>
+    <tr><th>Hidratação L</th><td>1,8 <span class="l1">✓</span></td><td>2,5 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>2,4 <span class="l1">✓</span></td></tr>
+    <tr><th>Radiação mSv</th><td>18,9 <span class="l1">✓</span></td><td>18,9 <span class="l1">✓</span></td><td><span class="l1">✓</span></td><td>18,9 <span class="l1">✓</span></td></tr>
+    <tr><th>Mente</th><td class="w"><span class="l2">!</span></td><td class="l1">✓</td><td class="ns"><svg class="ic s"><use href="#i-eyeoff"/></svg></td><td class="ns"><svg class="ic s"><use href="#i-eyeoff"/></svg></td></tr>
+    <tr><th>Módulo</th><td class="ns">Node 3</td><td class="ns">Lab</td><td class="ns"><svg class="ic s"><use href="#i-eyeoff"/></svg></td><td class="ns">Node 1</td></tr>
+    <tr><th>Atualizado</th><td class="ns">5 min</td><td class="ns">5 min</td><td class="ns">12 min</td><td class="ns">8 min</td></tr>
+  </table>
+  <div class="row xs"><svg class="ic s"><use href="#i-eyeoff"/></svg>não compartilhado (neutro, sem cor e sem clique)</div>
+  <div class="xs">B compartilha só o estado por sistema: aparecem o ícone e a cor, sem o valor. Nenhum detalhe clínico.</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M16 escalonamento ===================== -->
+<div class="frame" id="m16e"><h3>M16 Tripulação, exemplo de escalonamento</h3><p class="fn">Fora dos dados iniciais: a demonstração registra SpO2 de 92% para o Astronauta 001. Visto pelo Tripulante A. Laranja estático, sem piscar e sem som.</p>
+<div class="phone">
+<div class="sb"><span>07:10</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>3</em></span></div>
+  <div class="row"><h1 class="t1">Tripulação</h1><span class="sp"></span><div class="seg" style="width:150px"><span class="on">Lista</span><span>Matriz</span></div></div>
+  <div class="card b3">
+    <div class="row"><span class="lbl sp">Precisa de apoio</span><span class="xs">há 2 min</span></div>
+    <div class="row" style="margin:6px 0"><span class="st l3"><i>✕</i>Saúde: alerta, acionar CMO</span></div>
+    <b class="small">Astronauta 001 · oximetria 92% · Node 3</b>
+    <div class="xs" style="margin:3px 0 8px">Como ajudar: ofereça ajuda para repetir a medida e contatar o CMO.</div>
+    <div class="row"><span class="btn sm"><svg class="ic s"><use href="#i-hand"/></svg>Oferecer apoio</span><span class="btn sm"><svg class="ic s"><use href="#i-steth"/></svg>Chamar CMO</span></div>
+  </div>
+  <div class="card b3 crew">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Astronauta 001</b><span class="xs">Especialista de missão · Node 3</span></div><span class="st l3"><i>✕</i>Saúde: alerta</span></div>
+    <div class="mini3">
+      <div class="kv w"><span>Coração</span><b>86 bpm<i class="sy l2">!</i></b></div>
+      <div class="kv a"><span>Oxigenação</span><b>92 %<i class="sy l3">✕</i></b></div>
+      <div class="kv"><span>Temperatura</span><b>36,8 °C<i class="sy l1">✓</i></b></div>
+      <div class="kv w"><span>Sono</span><b>5,4 h<i class="sy l2">!</i></b></div>
+      <div class="kv"><span>Hidratação</span><b>1,8 L<i class="sy l1">✓</i></b></div>
+      <div class="kv"><span>Radiação</span><b>18,9 mSv<i class="sy l1">✓</i></b></div>
+      <div class="kv w"><span>Mente</span><b>atenção<i class="sy l2">!</i></b></div>
+    </div>
+  </div>
+  <div class="card b1 crew" style="padding:9px 12px">
+    <div class="row"><div class="col sp" style="gap:0"><b class="small">Tripulante A (você)</b><span class="xs">Comandante · Lab (Destiny)</span></div><span class="st l1"><i>✓</i>Saúde: normal</span></div>
+  </div>
+  <div class="ann">"A caminho" só aparece depois que o Astronauta 001 aceita a ajuda. Sem consentimento para o valor, a faixa diria apenas "Astronauta 001: atenção do CMO solicitada". Sintoma de alarme relatado (por exemplo dor no peito) levaria a vermelho, "Saúde: crítico, contatar CMO agora".</div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M17 (noturno) ===================== -->
+<div class="frame" id="m17"><h3>M17 Sono e óculos Orbit (modo noturno)</h3><p class="fn">Como aparece no pré-sono, em âmbar. EOG só por linha de base. Áudio silencioso durante o sono, travado.</p>
+<div class="phone night">
+<div class="sb"><span>20:30</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr" style="gap:7px">
+  <div class="hdr"><span class="brand"><svg class="lg" style="opacity:.8"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div><h1 class="t1">Sono e óculos Orbit</h1><span class="og" style="margin-top:3px"><svg class="ic"><use href="#i-glasses"/></svg>óculos Orbit (proposto) · simulado · experimental</span></div>
+  <div class="card b2" style="padding:9px 12px">
+    <div class="row"><b class="small">Última noite</b><span class="sp"></span><span class="st l2"><i>!</i>Saúde: atenção</span></div>
+    <div><span class="num">5,4</span><span class="u">h de sono</span></div>
+    <div class="xs">Programado 8,5 h · habitual 7,5 h · dívida desta noite 3,1 h</div>
+    <div class="g2" style="margin-top:6px"><span class="og av" style="border-color:var(--estado-sem-dado)"><b class="sy l0">?</b>Eficiência: sem dado</span><span class="og av" style="border-color:var(--estado-sem-dado)"><b class="sy l0">?</b>Ruído: sem dado</span></div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <b class="small">Hipnograma</b>
+    <svg viewBox="0 0 302 112" style="width:100%;height:96px">
+      <g class="ax"><text x="0" y="16">Acordado</text><text x="0" y="36">REM</text><text x="0" y="56">N1</text><text x="0" y="76">N2</text><text x="0" y="96">N3</text></g>
+      <line class="gl" x1="60" y1="12" x2="296" y2="12"/><line class="gl" x1="60" y1="32" x2="296" y2="32"/><line class="gl" x1="60" y1="52" x2="296" y2="52"/><line class="gl" x1="60" y1="72" x2="296" y2="72"/><line class="gl" x1="60" y1="92" x2="296" y2="92"/>
+      <path class="hyp" d="M60 12H76.9V52H81.9V72H97.1V92H119V72H129.1V32H137.6V72H152.7V92H166.2V72H179.7V32H191.5V12H198.3V72H216.8V32H230.3V52H237V72H252.2V32H265.7V12H296"/>
+      <text class="ax" x="58" y="110">21:30</text><text class="ax" x="166" y="110">01:45</text><text class="ax" x="266" y="110">06:00</text>
+    </svg>
+    <div class="xs">Estimativa de demonstração, não é polissonografia (base pública Sleep-EDF).</div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <div class="row"><svg class="ic s"><use href="#i-glasses"/></svg><b class="small sp">Piscadas (EOG): 12,4 por minuto</b><span class="cb l1"><i>✓</i>normal</span></div>
+    <div class="xs">Experimental, no seu padrão. EOG não detecta SANS. Potência alfa (EEG): sem dado.</div>
+  </div>
+  <div class="card" style="padding:9px 12px">
+    <div class="row"><b class="small">Paisagem sonora · Mata Atlântica</b><span class="sp"></span><span class="xs">sua escolha</span></div>
+    <div class="g2" style="margin-top:6px;gap:6px">
+      <div class="kv"><span>Manhã · 06:00 a 07:30</span><b style="font-size:13px">sons do dia</b></div>
+      <div class="kv"><span>Tarde · 17:00 a 19:30</span><b style="font-size:13px">opcional</b></div>
+      <div class="kv" style="border-color:var(--primary)"><span>Pré-sono · 19:30 a 21:30</span><b style="font-size:13px">transição suave</b></div>
+      <div class="kv"><span>Dormir · a partir de 21:30</span><b style="font-size:13px">silêncio</b></div>
+    </div>
+    <div class="li" style="margin-top:4px"><span class="small sp">Áudio durante o sono: desligado (padrão)</span><svg class="ic s mut"><use href="#i-lock"/></svg><i class="sw"></i></div>
+    <div class="xs">O som pausa na hora diante de qualquer alarme da estação e nunca cobre alarmes. Ainda não há estudo que mostre que o óculos melhora o sono.</div>
+  </div>
+</div>
+<nav class="nav"><a><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+</div></div>
+
+<!-- ===================== M18 ===================== -->
+<div class="frame" id="m18"><h3>M18 Menu lateral (celular)</h3><p class="fn">Gaveta aberta pelo logo mais o ícone de menu. No tablet e no laptop vira o menu fixo (ver M10 no laptop).</p>
+<div class="phone">
+<div class="sb"><span>06:53</span><svg class="ic" style="width:26px;height:12px"><use href="#i-batt"/></svg></div>
+<div class="scr">
+  <div class="hdr"><span class="brand"><svg class="lg"><use href="#logo"/></svg><b>ORBITA</b><svg class="ic"><use href="#i-menu"/></svg></span><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span></div>
+  <div class="card b2" style="height:52px"></div><div class="card b2" style="height:140px"></div><div class="g2"><div class="card" style="height:170px"></div><div class="card" style="height:170px"></div></div><div class="g2"><div class="card" style="height:170px"></div><div class="card" style="height:170px"></div></div>
+</div>
+<nav class="nav"><a class="on"><svg class="ic"><use href="#i-home"/></svg>Início</a><a><svg class="ic"><use href="#i-body"/></svg>Mapa</a><a><svg class="ic"><use href="#i-clip"/></svg>Avaliar</a><a><svg class="ic"><use href="#i-bot"/></svg>IA</a></nav><div class="hi"><i></i></div>
+<div class="dim"></div>
+<div class="drawer">
+  <div class="row" style="padding:0 6px 12px"><svg class="lg" style="width:30px;height:30px"><use href="#logo"/></svg><b style="font-size:16px;letter-spacing:.14em">ORBITA</b><span class="sp"></span><span class="ib"><svg class="ic"><use href="#i-x"/></svg></span></div>
+  <div class="dit on"><svg class="ic"><use href="#i-home"/></svg>Visão geral</div>
+  <div class="dit"><svg class="ic"><use href="#i-body"/></svg>Mapa corporal</div>
+  <div class="dit"><svg class="ic"><use href="#i-clip"/></svg>Avaliação de saúde</div>
+  <div class="dit"><svg class="ic"><use href="#i-test"/></svg>Exames laboratoriais</div>
+  <div class="dit"><svg class="ic"><use href="#i-bot"/></svg>ORBITA IA</div>
+  <div class="dit"><svg class="ic"><use href="#i-chart"/></svg>Relatórios</div>
+  <div class="dit"><svg class="ic"><use href="#i-list"/></svg>Rotina da missão<span class="dot"></span></div>
+  <div class="dit"><svg class="ic"><use href="#i-users"/></svg>Tripulação</div>
+  <div class="dit"><svg class="ic"><use href="#i-moon"/></svg>Sono e óculos Orbit</div>
+  <div class="dit"><svg class="ic"><use href="#i-shield"/></svg>Riscos espaciais</div>
+  <div class="dit"><svg class="ic"><use href="#i-trophy"/></svg>Missão: Saúde em Dia</div>
+  <div class="dit"><svg class="ic"><use href="#i-user"/></svg>Perfil e privacidade</div>
+  <span class="sp"></span>
+  <div style="border-top:1px solid var(--border);padding:12px 8px 0" class="col">
+    <b class="small">Astronauta 001 · ISS EXP-01 · Dia 045</b>
+    <span class="row xs"><svg class="ic s"><use href="#i-wifioff"/></svg>Offline: funcionando localmente</span>
+    <span class="row xs" style="align-items:flex-start"><svg class="ic s"><use href="#i-sat"/></svg>Comunicação com o solo: sem contato (protótipo offline)</span>
+  </div>
+</div>
+</div></div>
+
+</div><!-- fim das molduras de celular -->
+
+<!-- ===================== M03 tela grande ===================== -->
+<h2 class="sec" id="m03b">M03 Visão geral em tela grande, 1920 x 1080 px (exibida a 66%)</h2>
+<p class="secp">Painel da missão em modo de exibição, para o monitor compartilhado da estação, um laptop ou o telão. Sem menu, sem rolagem, legível a distância. Mostra só o que cada tripulante compartilhou com a audiência tripulação; nenhum sintoma, exame ou observação.</p>
+<div class="disp-wrap"><div class="disp">
+  <div class="dtop" style="gap:18px">
+    <svg class="lg" style="width:48px;height:48px"><use href="#logo"/></svg><b class="dwm">ORBITA</b>
+    <span class="dtitle" style="font-size:30px">Painel da missão</span>
+    <span class="dctx"><b>ISS EXP-01</b> · DIA 045</span>
+    <span class="sp"></span>
+    <span class="og L"><svg class="ic"><use href="#i-flask"/></svg>DADOS SIMULADOS</span>
+    <span class="og L"><svg class="ic"><use href="#i-wifioff"/></svg>Offline · solo: sem contato</span>
+    <span class="og L"><svg class="ic"><use href="#i-monitor"/></svg>Modo exibição</span>
+    <span class="dclock" style="font-size:32px">GMT 319 / 06:40</span>
+  </div>
+  <div class="drow1">
+    <div class="dcard col" style="gap:10px"><span class="dlbl">Precisa de apoio</span><span class="row" style="gap:14px;font-size:30px;font-weight:600"><svg class="ic" style="width:34px;height:34px;color:var(--muted)"><use href="#i-hand"/></svg>Ninguém precisa de apoio agora.</span></div>
+    <div class="dcard b2 col" style="gap:10px"><span class="dlbl">Alertas abertos (1)</span><div class="row" style="gap:16px"><span class="st L l2"><i>!</i>Saúde: atenção</span><b style="font-size:28px">Possível efeito de CO2 elevado no Node 3</b></div><span class="dsm">Astronauta 001 · há 40 min · conferir a ventilação; trocar de módulo só se autorizado · CMO informado</span></div>
+  </div>
+  <div class="col" style="gap:12px;flex:none">
+    <div class="row" style="gap:16px"><span class="dlbl">Ambiente da estação</span><span class="og L"><svg class="ic"><use href="#i-db"/></svg>Real gravado 15/11: O2, pressão, prótons e Kp</span><span class="og L"><svg class="ic"><use href="#i-flask"/></svg>Simulado: CO2 (cenário C1) e dose</span></div>
+    <div class="denv">
+      <div class="dcard b2 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">CO2 · Node 3</span><div><span class="dnum">2,95</span><span class="du">mmHg</span></div><span class="cb L l2"><i>!</i>atenção</span></div>
+      <div class="dcard b2 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">O2 (PIO2) · Node 3</span><div><span class="dnum">18,84</span><span class="du">kPa</span></div><div class="row" style="gap:12px"><span class="cb L l2"><i>!</i>atenção</span></div></div>
+      <div class="dcard b1 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">Pressão · US Lab</span><div><span class="dnum">101,0</span><span class="du">kPa</span></div><span class="cb L l1"><i>✓</i>normal</span></div>
+      <div class="dcard b1 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">Dose da missão</span><div><span class="dnum">18,9</span><span class="du">mSv</span></div><div class="row" style="gap:12px"><span class="cb L l1"><i>✓</i>normal</span><span class="dsm">3,2% de 600</span></div></div>
+      <div class="dcard b1 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">Prótons GOES</span><div><span class="dnum">0,21</span><span class="du">pfu</span></div><div class="row" style="gap:12px"><span class="cb L l1"><i>✓</i>normal</span><span class="dsm">S1 em 10</span></div></div>
+      <div class="dcard b1 col" style="gap:8px"><span class="dsm" style="color:var(--text);font-size:22px">Índice Kp</span><div><span class="dnum">1</span></div><span class="cb L l1"><i>✓</i>normal</span></div>
+    </div>
+  </div>
+  <div class="dcrew">
+    <div class="dcard b2 col" style="gap:10px;padding:14px 20px">
+      <div class="row" style="gap:14px;align-items:center"><svg viewBox="0 0 200 420" style="width:46px;height:97px;flex:none">
+          <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+          <g class="rg"><ellipse class="l2" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><path class="l2" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l2" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/><path class="m1" stroke-width="12" d="M58 99Q43 120 41 158M142 99Q157 120 159 158M86 232Q84 268 83 298M114 232Q116 268 117 298"/></g>
+        </svg><div class="col sp" style="gap:4px"><b class="dname">Astronauta 001</b><span class="dsm">Especialista · Node 3</span><span style="align-self:flex-start;height:34px;font-size:20px" class="st L l2"><i>!</i>Saúde: atenção</span></div></div>
+      <div class="dtiles">
+          <div class="dt w"><div class="tl">Coração<b class="sy l2">!</b></div><div class="tv">86<small>bpm</small></div></div>
+          <div class="dt"><div class="tl">Oxigenação<b class="sy l1">✓</b></div><div class="tv">97<small>%</small></div></div>
+          <div class="dt"><div class="tl">Temperatura<b class="sy l1">✓</b></div><div class="tv">36,8<small>°C</small></div></div>
+          <div class="dt w"><div class="tl">Sono<b class="sy l2">!</b></div><div class="tv">5,4<small>h</small></div></div>
+          <div class="dt"><div class="tl">Hidratação<b class="sy l1">✓</b></div><div class="tv">1,8<small>L</small></div></div>
+          <div class="dt"><div class="tl">Radiação<b class="sy l1">✓</b></div><div class="tv">18,9<small>mSv</small></div></div>
+          <div class="dt w"><div class="tl">Mente<b class="sy l2">!</b></div><div class="tv ns">atenção</div></div>
+          <div class="dt" style="background:transparent"><div class="tl">Atualizado</div><div class="tv ns">há 5 min</div></div>
+        </div>
+      <div class="dhelp"><b>Como ajudar:</b> ofereça acompanhar a pessoa ou avisar o controle ambiental.</div>
+    </div>
+    <div class="dcard b1 col" style="gap:10px;padding:14px 20px">
+      <div class="row" style="gap:14px;align-items:center"><svg viewBox="0 0 200 420" style="width:46px;height:97px;flex:none">
+          <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+          <g class="rg"><ellipse class="l1" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><path class="l1" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l1" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/></g>
+        </svg><div class="col sp" style="gap:4px"><b class="dname">Tripulante A</b><span class="dsm">Comandante · Lab (Destiny)</span><span style="align-self:flex-start;height:34px;font-size:20px" class="st L l1"><i>✓</i>Saúde: normal</span></div></div>
+      <div class="dtiles">
+          <div class="dt"><div class="tl">Coração<b class="sy l1">✓</b></div><div class="tv">64<small>bpm</small></div></div>
+          <div class="dt"><div class="tl">Oxigenação<b class="sy l1">✓</b></div><div class="tv">98<small>%</small></div></div>
+          <div class="dt"><div class="tl">Temperatura<b class="sy l1">✓</b></div><div class="tv">36,7<small>°C</small></div></div>
+          <div class="dt"><div class="tl">Sono<b class="sy l1">✓</b></div><div class="tv">6,2<small>h</small></div></div>
+          <div class="dt"><div class="tl">Hidratação<b class="sy l1">✓</b></div><div class="tv">2,5<small>L</small></div></div>
+          <div class="dt"><div class="tl">Radiação<b class="sy l1">✓</b></div><div class="tv">18,9<small>mSv</small></div></div>
+          <div class="dt"><div class="tl">Mente<b class="sy l1">✓</b></div><div class="tv ns">normal</div></div>
+          <div class="dt" style="background:transparent"><div class="tl">Atualizado</div><div class="tv ns">há 5 min</div></div>
+        </div>
+    </div>
+    <div class="dcard b1 col" style="gap:10px;padding:14px 20px">
+      <div class="row" style="gap:14px;align-items:center"><svg viewBox="0 0 200 420" style="width:46px;height:97px;flex:none">
+          <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+          <g class="rg"><ellipse class="l1" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><path class="l1" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l1" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/></g>
+        </svg><div class="col sp" style="gap:4px"><b class="dname">Tripulante B</b><span class="dsm">Engenheiro · só estados</span><span style="align-self:flex-start;height:34px;font-size:20px" class="st L l1"><i>✓</i>Saúde: normal</span></div></div>
+      <div class="dtiles">
+          <div class="dt"><div class="tl">Coração<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Oxigenação<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Temperatura<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Sono<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Hidratação<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Radiação<b class="sy l1">✓</b></div><div class="tv ns">só o estado</div></div>
+          <div class="dt"><div class="tl">Mente</div><div class="tv ns">não compartilhado</div></div>
+          <div class="dt" style="background:transparent"><div class="tl">Atualizado</div><div class="tv ns">há 12 min</div></div>
+        </div>
+    </div>
+    <div class="dcard b1 col" style="gap:10px;padding:14px 20px">
+      <div class="row" style="gap:14px;align-items:center"><svg viewBox="0 0 200 420" style="width:46px;height:97px;flex:none">
+          <g><path class="lo" stroke-width="21" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="lo" stroke-width="29" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="li2" stroke-width="18" d="M58 96Q42 120 40 160Q38 196 34 236M142 96Q158 120 160 160Q162 196 166 236"/><path class="li2" stroke-width="26" d="M86 222Q82 300 82 392M114 222Q118 300 118 392"/><path class="bs" d="M62 86Q100 74 138 86Q148 90 148 104L142 170Q140 206 130 226L70 226Q60 206 58 170L52 104Q52 90 62 86Z"/><rect class="bs" x="91" y="62" width="18" height="18" rx="6"/><ellipse class="bs" cx="100" cy="40" rx="24" ry="28"/></g>
+          <g class="rg"><ellipse class="l1" cx="100" cy="32" rx="19" ry="15"/><ellipse class="l1" cx="91" cy="46" rx="5.5" ry="3.2"/><ellipse class="l1" cx="109" cy="46" rx="5.5" ry="3.2"/><path class="l1" d="M74 100Q86 94 96 100L96 150Q84 156 72 148Q68 124 74 100ZM126 100Q114 94 104 100L104 150Q116 156 128 148Q132 124 126 100Z"/><path class="l1" d="M110 142C94 130 96 116 104 116C108 116 110 119 110 121C110 119 112 116 116 116C124 116 126 130 110 142Z"/><ellipse class="l1" cx="100" cy="188" rx="20" ry="19"/><ellipse class="l1" cx="71" cy="184" rx="5" ry="9"/><ellipse class="l1" cx="129" cy="184" rx="5" ry="9"/></g>
+        </svg><div class="col sp" style="gap:4px"><b class="dname">Tripulante C</b><span class="dsm">Engenheira · Node 1 (Unity)</span><span style="align-self:flex-start;height:34px;font-size:20px" class="st L l1"><i>✓</i>Saúde: normal</span></div></div>
+      <div class="dtiles">
+          <div class="dt"><div class="tl">Coração<b class="sy l1">✓</b></div><div class="tv">68<small>bpm</small></div></div>
+          <div class="dt"><div class="tl">Oxigenação<b class="sy l1">✓</b></div><div class="tv">99<small>%</small></div></div>
+          <div class="dt"><div class="tl">Temperatura<b class="sy l1">✓</b></div><div class="tv">36,6<small>°C</small></div></div>
+          <div class="dt"><div class="tl">Sono<b class="sy l1">✓</b></div><div class="tv">6,5<small>h</small></div></div>
+          <div class="dt"><div class="tl">Hidratação<b class="sy l1">✓</b></div><div class="tv">2,4<small>L</small></div></div>
+          <div class="dt"><div class="tl">Radiação<b class="sy l1">✓</b></div><div class="tv">18,9<small>mSv</small></div></div>
+          <div class="dt"><div class="tl">Mente</div><div class="tv ns">não compartilhado</div></div>
+          <div class="dt" style="background:transparent"><div class="tl">Atualizado</div><div class="tv ns">há 8 min</div></div>
+        </div>
+    </div>
+  </div>
+  <div class="dfoot">
+    <span class="row" style="gap:10px"><svg class="ic"><use href="#i-hand"/></svg>Verificações entre colegas hoje: 2</span>
+    <span>Meta da tripulação: hidratação 3 de 4</span>
+    <span>✓ normal · ! atenção · ✕ alerta · ? sem dado</span>
+    <span class="sp"></span>
+    <span>Só o que cada tripulante compartilhou com a tripulação</span>
+  </div>
+</div></div>
+
+<!-- ===================== M10 laptop ===================== -->
+<h2 class="sec" id="m10l">M10 Relatórios no laptop, 1366 x 768 px (exibido a 92%)</h2>
+<p class="secp">Menu lateral fixo de 240 px, recolhível a 72 px (botão no topo do menu). Sem barra inferior. Gráfico largo à esquerda e tabela de histórico à direita, sem rolagem da página.</p>
+<div class="lap-wrap"><div class="lap">
+  <aside class="side">
+    <div class="row" style="padding:2px 6px 14px"><svg class="lg" style="width:30px;height:30px"><use href="#logo"/></svg><b style="font-size:16px;letter-spacing:.14em">ORBITA</b><span class="sp"></span><span class="ib" style="width:34px;height:34px" title="Recolher menu"><svg class="ic s"><use href="#i-panel"/></svg></span></div>
+    <div class="dit"><svg class="ic"><use href="#i-home"/></svg>Visão geral</div>
+    <div class="dit"><svg class="ic"><use href="#i-body"/></svg>Mapa corporal</div>
+    <div class="dit"><svg class="ic"><use href="#i-clip"/></svg>Avaliação de saúde</div>
+    <div class="dit"><svg class="ic"><use href="#i-test"/></svg>Exames laboratoriais</div>
+    <div class="dit"><svg class="ic"><use href="#i-bot"/></svg>ORBITA IA</div>
+    <div class="dit on"><svg class="ic"><use href="#i-chart"/></svg>Relatórios</div>
+    <div class="dit"><svg class="ic"><use href="#i-list"/></svg>Rotina da missão<span class="dot"></span></div>
+    <div class="dit"><svg class="ic"><use href="#i-users"/></svg>Tripulação</div>
+    <div class="dit"><svg class="ic"><use href="#i-moon"/></svg>Sono e óculos Orbit</div>
+    <div class="dit"><svg class="ic"><use href="#i-shield"/></svg>Riscos espaciais</div>
+    <div class="dit"><svg class="ic"><use href="#i-trophy"/></svg>Missão: Saúde em Dia</div>
+    <div class="dit"><svg class="ic"><use href="#i-user"/></svg>Perfil e privacidade</div>
+    <span class="sp"></span>
+    <div class="col" style="border-top:1px solid var(--border);padding:10px 8px 0;gap:4px">
+      <span class="row xs"><svg class="ic s"><use href="#i-wifioff"/></svg>Offline: funcionando localmente</span>
+      <span class="row xs"><svg class="ic s"><use href="#i-sat"/></svg>Solo: sem contato</span>
+    </div>
+  </aside>
+  <main class="lmain">
+    <div class="row" style="gap:16px">
+      <div class="col" style="gap:0"><h1 class="t1" style="font-size:24px">Relatórios de saúde</h1><span class="xs">Astronauta 001 · ISS EXP-01 · Dia 045 · GMT 319 / 06:46</span></div>
+      <span class="sp"></span>
+      <span class="og"><svg class="ic"><use href="#i-flask"/></svg>DADOS SIMULADOS</span>
+      <span class="ib"><svg class="ic"><use href="#i-bell"/></svg><em>2</em></span>
+    </div>
+    <div class="row" style="gap:14px;flex-wrap:wrap">
+      <div class="seg" style="width:340px"><span class="on">7 dias</span><span>15 dias</span><span>30 dias</span><span>Missão</span></div>
+      <div class="chips"><span class="chip sm on">Frequência cardíaca</span><span class="chip sm">Dosimetria</span><span class="chip sm">Oximetria</span><span class="chip sm">EOG</span><span class="chip sm">Hidratação</span><span class="chip sm">Fadiga</span><span class="chip sm">Apetite</span><span class="chip sm">Sono</span><span class="chip sm">Humor</span><span class="chip sm">Hemograma</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:18px;flex:1;min-height:0">
+      <div class="card col" style="gap:8px">
+        <div class="row"><b>Frequência cardíaca · bpm · últimos 7 dias</b><span class="sp"></span><span class="og"><svg class="ic"><use href="#i-flask"/></svg>Simulado</span></div>
+        <svg viewBox="0 0 640 352" style="width:100%;height:auto">
+          <rect class="band" x="50" y="197.6" width="580" height="59.2"/>
+          <line class="gl" x1="50" y1="248" x2="630" y2="248"/><line class="gl" x1="50" y1="196" x2="630" y2="196"/><line class="gl" x1="50" y1="144" x2="630" y2="144"/><line class="gl" x1="50" y1="92" x2="630" y2="92"/>
+          <line class="ref" x1="50" y1="40" x2="630" y2="40"/><line class="ref" x1="50" y1="248" x2="630" y2="248"/>
+          <text class="ax" x="14" y="44">100</text><text class="ax" x="20" y="96">90</text><text class="ax" x="20" y="148">80</text><text class="ax" x="20" y="200">70</text><text class="ax" x="20" y="252">60</text>
+          <polyline class="ln" points="60,237.6 150,227.2 240,206.4 330,216.8 420,237.6 510,216.8 600,112.8"/>
+          <circle class="pt" cx="60" cy="237.6" r="5"/><circle class="pt" cx="150" cy="227.2" r="5"/><circle class="pt" cx="240" cy="206.4" r="5"/><circle class="pt" cx="330" cy="216.8" r="5"/><circle class="pt" cx="420" cy="237.6" r="5"/><circle class="pt" cx="510" cy="216.8" r="5"/><circle class="ptw" cx="600" cy="112.8" r="8"/>
+          <rect x="430" y="58" width="150" height="50" rx="10" fill="var(--surface-2)" stroke="var(--border-strong)"/>
+          <text x="444" y="79" style="fill:var(--text);font-size:14px;font-weight:700">FD 45 · 86 bpm</text>
+          <text x="444" y="98" style="fill:var(--estado-atencao);font-size:13px;font-weight:700">! Saúde: atenção</text>
+          <text class="ax" x="42" y="290">FD 39</text><text class="ax" x="132" y="290">FD 40</text><text class="ax" x="222" y="290">FD 41</text><text class="ax" x="312" y="290">FD 42</text><text class="ax" x="402" y="290">FD 43</text><text class="ax" x="492" y="290">FD 44</text><text class="ax" x="582" y="290">FD 45</text>
+          <rect x="50" y="312" width="16" height="10" fill="var(--primary-2)" fill-opacity=".35"/><text class="ax" x="72" y="322">seu padrão (linha de base pessoal)</text>
+          <line class="ref" x1="50" y1="339" x2="66" y2="339"/><text class="ax" x="72" y="344">referência terrestre de 60 a 100 bpm, não limite de voo</text>
+        </svg>
+        <div class="xs">Uma variação isolada não é diagnóstico. Série de demonstração do simulador.</div>
+      </div>
+      <div class="card col" style="gap:6px">
+        <div class="row"><b>Histórico · FD 45</b><span class="sp"></span><span class="xs">mais recentes primeiro</span></div>
+        <table class="tbl">
+          <tr><th>Indicador</th><th>Valor</th><th>Estado</th><th>Observações</th></tr>
+          <tr><td>Freq. cardíaca</td><td>86 bpm</td><td><span class="cb l2"><i>!</i>atenção</span></td><td class="xs">padrão 64 bpm</td></tr>
+          <tr><td>Fadiga</td><td>6 de 7</td><td><span class="cb l2"><i>!</i>atenção</span></td><td class="xs">habitual 2</td></tr>
+          <tr><td>Sono</td><td>5,4 h</td><td><span class="cb l2"><i>!</i>atenção</span></td><td class="xs">habitual 7,5 h</td></tr>
+          <tr><td>Hidratação</td><td>1,8 L</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs"></td></tr>
+          <tr><td>Humor</td><td>3 de 5</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs">habitual 4</td></tr>
+          <tr><td>Apetite</td><td>Reduzido</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs">habitual normal</td></tr>
+          <tr><td>Oximetria</td><td>97 %</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs">ref. terrestre</td></tr>
+          <tr><td>EOG</td><td>12,4 /min</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs">experimental</td></tr>
+          <tr><td>Dose da missão</td><td>18,9 mSv</td><td><span class="cb l1"><i>✓</i>normal</span></td><td class="xs">3,2% de 600 mSv</td></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div></div>
+
+</body>
+</html>
