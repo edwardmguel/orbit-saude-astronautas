@@ -14,7 +14,7 @@ Traycer/
       index.md                                resultado do Passo 0, decisões pendentes do dono, lista de artefatos
       brief/index.md                          problema, escopo, entregáveis, decisões tomadas e em aberto
       frentes-de-pesquisa/index.md            roteiro das 19 frentes de pesquisa, andamento, achados, revisões, lacunas, consolidação, cota
-      fontes-de-dados/index.md                as 33 fontes de dados do software, item por item
+      fontes-de-dados/index.md                as 33 fontes de dados do software e os 3 arquivos do projeto, item por item
       arquitetura/index.md                    princípios, fluxo de dados, níveis de alerta, protótipo
       design-da-interface/index.md            telas, Monitor geral, wireframes renderizáveis no Traycer, perguntas de kickoff
       plano-prototipo-20h/index.md            escopo, versão comprimida do plano, pontos de controle

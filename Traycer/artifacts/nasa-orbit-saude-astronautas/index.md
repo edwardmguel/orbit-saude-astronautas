@@ -43,7 +43,7 @@ Repositório: [github.com/edwardmguel/orbit-saude-astronautas](https://github.co
 | --- | --- |
 | [Brief do épico](brief) | Problema, escopo, entregáveis, decisões tomadas e em aberto |
 | [Frentes de pesquisa](frentes-de-pesquisa) | Roteiro das 19 frentes, revisões, achados, lacunas encontradas no caminho, consolidação e cota do Codex |
-| [Fontes de dados do software](fontes-de-dados) | As 33 fontes de dados (a bordo, públicas, terrestres e do projeto), item por item: o que ajudam a indicar e como o software as usa |
+| [Fontes de dados do software](fontes-de-dados) | As 33 fontes de dados (18 a bordo, 9 públicas, 6 terrestres e análogos) e os 3 arquivos do projeto, item por item: o que ajudam a indicar e como o software as usa |
 | [Arquitetura do software](arquitetura) | Offline-first, módulos, fluxo de dados, onde entra o ML |
 | [Design da interface](design-da-interface) | Telas, Monitor geral, wireframes, cores alinhadas às convenções da NASA, perguntas de kickoff |
 | [Plano do protótipo de 20 horas](plano-prototipo-20h) | Escopo do MVP, cronograma por pessoa, critérios de pronto |
