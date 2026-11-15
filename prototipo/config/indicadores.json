@@ -63,7 +63,7 @@
             },
             "unidade": "bpm",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da refer?ncia terrestre de 60 a 100 bpm: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "texto": "Fora da referência terrestre de 60 a 100 bpm: repetir conforme protocolo e revisar, sem diagnosticar.",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
           }
         ],
@@ -72,21 +72,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Dor tor?cica, s?ncope, falta de ar importante ou instabilidade",
+            "sintoma": "Dor torácica, síncope, falta de ar importante ou instabilidade",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+            "texto": "Relato de sintoma de alarme; acionar o procedimento médico."
           }
         ]
       },
@@ -95,10 +95,10 @@
         "amarelo": null,
         "vermelho": null,
         "unidade": "bpm",
-        "contexto": "Leitura de exemplo no perfil de simula??o.",
+        "contexto": "Leitura de exemplo no perfil de simulação.",
         "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -135,12 +135,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -148,7 +148,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -218,7 +218,7 @@
             },
             "unidade": "mmHg",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da refer?ncia terrestre de 90 a 120 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "texto": "Fora da referência terrestre de 90 a 120 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
           }
         ],
@@ -227,21 +227,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "S?ncope, confus?o, dor tor?cica ou d?ficit neurol?gico",
+            "sintoma": "Síncope, confusão, dor torácica ou déficit neurológico",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+            "texto": "Relato de sintoma de alarme; acionar o procedimento médico."
           }
         ]
       },
@@ -252,8 +252,8 @@
         "unidade": "mmHg",
         "contexto": "Extremo publicado e leitura de exemplo do perfil.",
         "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -319,7 +319,7 @@
             },
             "unidade": "mmHg",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da refer?ncia terrestre de 60 a 80 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "texto": "Fora da referência terrestre de 60 a 80 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
           }
         ],
@@ -328,21 +328,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "S?ncope, confus?o, dor tor?cica ou d?ficit neurol?gico",
+            "sintoma": "Síncope, confusão, dor torácica ou déficit neurológico",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+            "texto": "Relato de sintoma de alarme; acionar o procedimento médico."
           }
         ]
       },
@@ -353,8 +353,8 @@
         "unidade": "mmHg",
         "contexto": "Extremo publicado e leitura de exemplo do perfil.",
         "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -419,7 +419,7 @@
             "valor": 88,
             "unidade": "%",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "SpO2 em ou abaixo de 88%: contato cl?nico imediato conforme refer?ncia terrestre.",
+            "texto": "SpO2 em ou abaixo de 88%: contato clínico imediato conforme referência terrestre.",
             "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
             "nivelDeUrgencia": "imediata"
           },
@@ -429,7 +429,7 @@
             "valor": 92,
             "unidade": "%",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "SpO2 em ou abaixo de 92%: contato cl?nico conforme refer?ncia terrestre.",
+            "texto": "SpO2 em ou abaixo de 92%: contato clínico conforme referência terrestre.",
             "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
           },
           {
@@ -441,7 +441,7 @@
             },
             "unidade": "%",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora de 95% a 100%: validar a leitura e revisar com contexto cl?nico; refer?ncia terrestre, n?o limite de voo.",
+            "texto": "Fora de 95% a 100%: validar a leitura e revisar com contexto clínico; referência terrestre, não limite de voo.",
             "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
           }
         ],
@@ -450,21 +450,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Dificuldade respirat?ria importante ou sinais compat?veis com hip?xia",
+            "sintoma": "Dificuldade respiratória importante ou sinais compatíveis com hipóxia",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
-            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+            "texto": "Relato de sintoma de alarme; acionar o procedimento médico."
           }
         ]
       },
@@ -473,9 +473,9 @@
         "amarelo": null,
         "vermelho": 92,
         "unidade": "%",
-        "contexto": "Vermelho usa o corte terrestre publicado para contato cl?nico.",
+        "contexto": "Vermelho usa o corte terrestre publicado para contato clínico.",
         "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste."
       }
     },
     {
@@ -538,9 +538,9 @@
               "min": 36.5,
               "max": 37.3
             },
-            "unidade": "?C oral",
+            "unidade": "°C oral",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da refer?ncia terrestre oral de 36,5 a 37,3 ?C: repetir conforme plano cl?nico e revisar, sem diagnosticar.",
+            "texto": "Fora da referência terrestre oral de 36,5 a 37,3 °C: repetir conforme plano clínico e revisar, sem diagnosticar.",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
           }
         ],
@@ -549,21 +549,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Febre ou hipotermia suspeita junto a sintomas, conforme plano cl?nico",
+            "sintoma": "Febre ou hipotermia suspeita junto a sintomas, conforme plano clínico",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-            "texto": "Contatar CMO para avalia??o pelo plano cl?nico."
+            "texto": "Contatar CMO para avaliação pelo plano clínico."
           }
         ]
       },
@@ -571,11 +571,11 @@
         "verde": 36.8,
         "amarelo": null,
         "vermelho": null,
-        "unidade": "?C",
-        "contexto": "Leitura de exemplo do perfil dentro da refer?ncia oral publicada.",
+        "unidade": "°C",
+        "contexto": "Leitura de exemplo do perfil dentro da referência oral publicada.",
         "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -641,7 +641,7 @@
             },
             "unidade": "respirações/min",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da refer?ncia terrestre de 12 a 18 respirações/min: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "texto": "Fora da referência terrestre de 12 a 18 respirações/min: repetir conforme protocolo e revisar, sem diagnosticar.",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
           }
         ],
@@ -650,21 +650,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Dificuldade respirat?ria importante ou deteriora??o aguda",
+            "sintoma": "Dificuldade respiratória importante ou deterioração aguda",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-            "texto": "Relato de sintoma de alarme; seguir procedimento m?dico."
+            "texto": "Relato de sintoma de alarme; seguir procedimento médico."
           }
         ]
       },
@@ -672,11 +672,11 @@
         "verde": 15,
         "amarelo": null,
         "vermelho": null,
-        "unidade": "respira??es/min",
-        "contexto": "Leitura de exemplo do perfil dentro da refer?ncia publicada.",
+        "unidade": "respirações/min",
+        "contexto": "Leitura de exemplo do perfil dentro da referência publicada.",
         "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
-        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploAmarelo": "Não há valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -716,21 +716,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Incapacidade de cumprir tarefa cr?tica com seguran?a",
+            "sintoma": "Incapacidade de cumprir tarefa crítica com segurança",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf",
-            "texto": "Acionar CMO para avalia??o de seguran?a da tarefa."
+            "texto": "Acionar CMO para avaliação de segurança da tarefa."
           }
         ]
       },
@@ -738,7 +738,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -779,12 +779,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -792,7 +792,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -860,9 +860,9 @@
             "nivel": 2,
             "operador": ">",
             "valor": 10,
-            "unidade": "% de varia??o vs linha de base",
-            "origem": "[INFER?NCIA]",
-            "texto": "Aumento acima de 10%: demonstra??o somente em R-CO2-01, sem cutoff operacional p?blico.",
+            "unidade": "% de variação vs linha de base",
+            "origem": "[INFERÊNCIA]",
+            "texto": "Aumento acima de 10%: demonstração somente em R-CO2-01, sem cutoff operacional público.",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01",
@@ -874,12 +874,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -887,10 +887,10 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste do comparador de linha de base; o delta demonstrativo ? separado.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base; o delta demonstrativo é separado.",
         "campoAvaliado": "zScore",
-        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
@@ -929,12 +929,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -942,7 +942,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -986,21 +986,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Incapacidade de cumprir tarefa cr?tica com seguran?a",
+            "sintoma": "Incapacidade de cumprir tarefa crítica com segurança",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623",
-            "texto": "Acionar CMO para avalia??o de seguran?a da tarefa."
+            "texto": "Acionar CMO para avaliação de segurança da tarefa."
           }
         ]
       },
@@ -1008,7 +1008,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -1044,7 +1044,7 @@
       "gatilhosSintoma": [
         "Risco imediato informado no check-in exige contato humano conforme procedimento de saúde mental."
       ],
-      "observacaoEscala": "Check-in de 2 minutos: resposta autoral de 1 a 5 conforme tela T3 e ?ndice de prontid?o A12 em docs/04; n?o equivale a instrumento cl?nico validado.",
+      "observacaoEscala": "Check-in de 2 minutos: resposta autoral de 1 a 5 conforme tela T3 e índice de prontidão A12 em docs/04; não equivale a instrumento clínico validado.",
       "regraCor": {
         "tipo": "linha_de_base",
         "regras": [],
@@ -1053,21 +1053,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
             "sintoma": "Risco imediato informado no check-in",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623",
-            "texto": "Contato humano imediato conforme procedimento de sa?de mental."
+            "texto": "Contato humano imediato conforme procedimento de saúde mental."
           }
         ]
       },
@@ -1075,7 +1075,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base; resposta autoral bruta usa escala de 1 a 5.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -1135,8 +1135,8 @@
             "operador": ">=",
             "valor": 7,
             "unidade": "pontos em escala de 0 a 10",
-            "origem": "[INFER?NCIA]",
-            "texto": "Cefaleia com pontua??o 7 ou mais: escalonamento demonstrativo somente em R-CO2-01, n?o ? corte cl?nico universal.",
+            "origem": "[INFERÊNCIA]",
+            "texto": "Cefaleia com pontuação 7 ou mais: escalonamento demonstrativo somente em R-CO2-01, não é corte clínico universal.",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-CO2-01",
@@ -1147,23 +1147,23 @@
         "linhaDeBase": null,
         "sintomas": [
           {
-            "sintoma": "Dor nova ou persistente sem sinal de emerg?ncia",
+            "sintoma": "Dor nova ou persistente sem sinal de emergência",
             "nivel": 2,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
-            "texto": "Registrar local, in?cio, intensidade e interfer?ncia; comunicar persist?ncia ao CMO."
+            "texto": "Registrar local, início, intensidade e interferência; comunicar persistência ao CMO."
           },
           {
-            "sintoma": "Dor tor?cica, s?ncope, perda s?bita de fun??o ou outro sinal de emerg?ncia descrito no procedimento",
+            "sintoma": "Dor torácica, síncope, perda súbita de função ou outro sinal de emergência descrito no procedimento",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
-            "texto": "Acionar CMO e seguir o procedimento m?dico aplic?vel."
+            "texto": "Acionar CMO e seguir o procedimento médico aplicável."
           },
           {
-            "sintoma": "Cefaleia com pontua??o de 7 ou mais no cen?rio C1",
+            "sintoma": "Cefaleia com pontuação de 7 ou mais no cenário C1",
             "nivel": 3,
-            "origem": "[INFER?NCIA]",
+            "origem": "[INFERÊNCIA]",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "texto": "Escalonamento demonstrativo somente na regra R-CO2-01.",
             "valorDeDemonstracao": true,
@@ -1176,9 +1176,9 @@
         "amarelo": null,
         "vermelho": 7,
         "unidade": "pontos, escala de 0 a 10",
-        "contexto": "O valor 7 ? gatilho de demonstra??o somente em R-CO2-01.",
+        "contexto": "O valor 7 é gatilho de demonstração somente em R-CO2-01.",
         "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
-        "motivoSemExemploAmarelo": "N?o h? pontua??o amarela num?rica universal; o estado depende de sintoma descrito."
+        "motivoSemExemploAmarelo": "Não há pontuação amarela numérica universal; o estado depende de sintoma descrito."
       }
     },
     {
@@ -1247,7 +1247,7 @@
             },
             "unidade": "mg/dL em jejum",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "100 a 125 mg/dL em jejum: faixa terrestre que pede interpreta??o cl?nica, sem diagn?stico.",
+            "texto": "100 a 125 mg/dL em jejum: faixa terrestre que pede interpretação clínica, sem diagnóstico.",
             "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
           },
           {
@@ -1256,7 +1256,7 @@
             "valor": 126,
             "unidade": "mg/dL em jejum",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "126 mg/dL ou mais em jejum: requer confirma??o cl?nica, sem diagn?stico pelo software.",
+            "texto": "126 mg/dL ou mais em jejum: requer confirmação clínica, sem diagnóstico pelo software.",
             "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
           }
         ],
@@ -1265,12 +1265,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1279,9 +1279,9 @@
         "amarelo": 100,
         "vermelho": null,
         "unidade": "mg/dL",
-        "contexto": "Verde ? exemplo do perfil; amarelo come?a no corte terrestre publicado.",
+        "contexto": "Verde é exemplo do perfil; amarelo começa no corte terrestre publicado.",
         "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -1355,7 +1355,7 @@
             },
             "unidade": "g/dL",
             "origem": "DIRETRIZ-TERRA",
-            "texto": "Fora da faixa terrestre correspondente ao intervalo informado pelo laborat?rio: revisar com equipe cl?nica.",
+            "texto": "Fora da faixa terrestre correspondente ao intervalo informado pelo laboratório: revisar com equipe clínica.",
             "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
             "contextoNecessario": "categoriaDeReferenciaDoLaboratorio"
           }
@@ -1365,21 +1365,21 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "S?ncope ou dispneia em repouso",
+            "sintoma": "Síncope ou dispneia em repouso",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
-            "texto": "Contatar CMO para revis?o cl?nica; n?o inferir diagn?stico pelo valor."
+            "texto": "Contatar CMO para revisão clínica; não inferir diagnóstico pelo valor."
           }
         ]
       },
@@ -1388,11 +1388,11 @@
         "amarelo": 12,
         "vermelho": null,
         "unidade": "g/dL",
-        "contexto": "Contexto verde: categoria de refer?ncia masculina; amarelo: abaixo da faixa masculina, usando valor publicado para a faixa feminina.",
-        "contextoVerde": "categoria de refer?ncia masculina",
-        "contextoAmarelo": "categoria de refer?ncia masculina",
+        "contexto": "Contexto verde: categoria de referência masculina; amarelo: abaixo da faixa masculina, usando valor publicado para a faixa feminina.",
+        "contextoVerde": "categoria de referência masculina",
+        "contextoAmarelo": "categoria de referência masculina",
         "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
-        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+        "motivoSemExemploVermelho": "A fonte não publica corte numérico vermelho para este indicador; escalonamento depende de sintoma e avaliação clínica."
       }
     },
     {
@@ -1429,12 +1429,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1442,7 +1442,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -1510,8 +1510,8 @@
             "operador": "<",
             "valor": 1200,
             "unidade": "mL/24 h",
-            "origem": "[INFER?NCIA]",
-            "texto": "Abaixo de 1.200 mL/24 h: demonstra??o somente em R-HID-01, por 2 dias e junto aos demais crit?rios; n?o ? meta ou prescri??o.",
+            "origem": "[INFERÊNCIA]",
+            "texto": "Abaixo de 1.200 mL/24 h: demonstração somente em R-HID-01, por 2 dias e junto aos demais critérios; não é meta ou prescrição.",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-HID-01",
@@ -1525,12 +1525,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1538,10 +1538,10 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste do comparador de linha de base; demonstra??o de R-HID-01 fica condicionada ? regra conjunta.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base; demonstração de R-HID-01 fica condicionada à regra conjunta.",
         "campoAvaliado": "zScore",
-        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
@@ -1607,8 +1607,8 @@
             "operador": ">=",
             "valor": 6,
             "unidade": "categoria ordinal de 1 a 8",
-            "origem": "[INFER?NCIA]",
-            "texto": "Categoria 6 ou acima: demonstra??o somente em R-HID-01 e junto aos demais crit?rios; n?o ? limite cl?nico de voo.",
+            "origem": "[INFERÊNCIA]",
+            "texto": "Categoria 6 ou acima: demonstração somente em R-HID-01 e junto aos demais critérios; não é limite clínico de voo.",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "valorDeDemonstracao": true,
             "aplicaSomenteEmRegra": "R-HID-01",
@@ -1620,12 +1620,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1633,10 +1633,10 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste do comparador de linha de base; demonstra??o de R-HID-01 fica condicionada ? regra conjunta.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base; demonstração de R-HID-01 fica condicionada à regra conjunta.",
         "campoAvaliado": "zScore",
-        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "demonstracaoSeparada": "A regra demonstrativa só atua dentro da regra de cruzamento indicada em regraCor.regras.",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
       }
@@ -1675,12 +1675,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1688,7 +1688,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
@@ -1729,12 +1729,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1742,8 +1742,8 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Teste do componente normalizado definido pelo protocolo; dado original ? estruturado.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Teste do componente normalizado definido pelo protocolo; dado original é estruturado.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -1786,28 +1786,28 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Perda visual s?bita, diplopia nova importante ou dor ocular intensa",
+            "sintoma": "Perda visual súbita, diplopia nova importante ou dor ocular intensa",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "texto": "Seguir procedimento ocular e acionar CMO."
           },
           {
             "sintoma": "Cefaleia persistente acompanhada de sintoma visual",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
-            "texto": "Antecipar avalia??o ocular e contatar CMO."
+            "texto": "Antecipar avaliação ocular e contatar CMO."
           }
         ]
       },
@@ -1815,8 +1815,8 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste da mudan?a normalizada versus a linha de base pessoal.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste da mudança normalizada versus a linha de base pessoal.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -1859,19 +1859,19 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         },
         "sintomas": [
           {
-            "sintoma": "Perda visual repentina ou ?rea escura s?bita",
+            "sintoma": "Perda visual repentina ou área escura súbita",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf",
             "texto": "Seguir procedimento ocular e acionar CMO."
           }
@@ -1881,8 +1881,8 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste da mudan?a normalizada; distor??o nova tamb?m entra em R-SANS-01.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste da mudança normalizada; distorção nova também entra em R-SANS-01.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -1946,9 +1946,9 @@
               "coluna": 95,
               "coloFemoral": 90
             },
-            "unidade": "% da linha de base por s?tio",
+            "unidade": "% da linha de base por sítio",
             "origem": "OFICIAL",
-            "texto": "Abaixo da meta oficial para o s?tio: revis?o pela equipe m?dica ou de contramedidas ?sseas, sem diagn?stico.",
+            "texto": "Abaixo da meta oficial para o sítio: revisão pela equipe médica ou de contramedidas ósseas, sem diagnóstico.",
             "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
             "criterio": "meta_de_contramedida"
           }
@@ -1958,12 +1958,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -1971,12 +1971,12 @@
         "verde": 95,
         "amarelo": null,
         "vermelho": 90,
-        "unidade": "% da linha de base por s?tio",
-        "contexto": "Verde: quadril ou coluna no alvo publicado. Vermelho: 90% no quadril, abaixo do alvo de 95%; a??o da equipe m?dica ou de contramedidas ?sseas, sem diagn?stico.",
+        "unidade": "% da linha de base por sítio",
+        "contexto": "Verde: quadril ou coluna no alvo publicado. Vermelho: 90% no quadril, abaixo do alvo de 95%; ação da equipe médica ou de contramedidas ósseas, sem diagnóstico.",
         "contextoVerde": "quadril ou coluna",
         "contextoVermelho": "quadril",
         "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2049,9 +2049,9 @@
             "nivel": 3,
             "operador": ">",
             "valor": 3,
-            "unidade": "mmHg, m?dia de 1 h",
+            "unidade": "mmHg, média de 1 h",
             "origem": "OFICIAL",
-            "texto": "M?dia de 1 h acima de 3 mmHg: seguir procedimento do controle ambiental e informar CMO.",
+            "texto": "Média de 1 h acima de 3 mmHg: seguir procedimento do controle ambiental e informar CMO.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
             "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004"
           },
@@ -2059,8 +2059,8 @@
             "nivel": 2,
             "operador": ">",
             "valor": 2.8,
-            "unidade": "mmHg, m?dia EWMA de demonstra??o",
-            "origem": "[INFER?NCIA]",
+            "unidade": "mmHg, média EWMA de demonstração",
+            "origem": "[INFERÊNCIA]",
             "texto": "Acima de 2,8 mmHg: marcador amarelo demonstrativo somente em R-CO2-01, abaixo do requisito de 3 mmHg.",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
             "valorDeDemonstracao": true,
@@ -2074,9 +2074,9 @@
           {
             "sintoma": "Cefaleia intensa ou tontura associada no contexto de CO2",
             "nivel": 3,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
-            "texto": "Avaliar sintomas com CMO; controle ambiental segue o procedimento de remo??o de CO2."
+            "texto": "Avaliar sintomas com CMO; controle ambiental segue o procedimento de remoção de CO2."
           }
         ]
       },
@@ -2084,8 +2084,8 @@
         "verde": 1.9,
         "amarelo": 3,
         "vermelho": 3.2,
-        "unidade": "mmHg, m?dia m?vel de 1 h",
-        "contexto": "1,9 mmHg ? leitura do perfil; 3 mmHg ativa o marcador amarelo demonstrativo acima de 2,8 mmHg; 3,2 mmHg do cen?rio excede o requisito oficial.",
+        "unidade": "mmHg, média móvel de 1 h",
+        "contexto": "1,9 mmHg é leitura do perfil; 3 mmHg ativa o marcador amarelo demonstrativo acima de 2,8 mmHg; 3,2 mmHg do cenário excede o requisito oficial.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
       }
     },
@@ -2158,7 +2158,7 @@
             },
             "unidade": "kPa",
             "origem": "OFICIAL",
-            "texto": "Fora da faixa oficial de normoxia, solicitar avalia??o do controle ambiental e aplicar envelope e dura??o aprovados pelo ve?culo.",
+            "texto": "Fora da faixa oficial de normoxia, solicitar avaliação do controle ambiental e aplicar envelope e duração aprovados pelo veículo.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
             "requisito": "NASA-STD-3001 Vol. 2 Rev. F"
           }
@@ -2171,10 +2171,10 @@
         "amarelo": null,
         "vermelho": null,
         "unidade": "kPa",
-        "contexto": "Leitura do perfil dentro da faixa de normoxia publicada; n?o h? amostra fora da faixa entre os valores aprovados.",
-        "motivoSemExemploVermelho": "Os valores publicados fora da faixa s?o limites de exposi??o dependentes de dura??o; n?o h? amostra can?nica aprovada fora da faixa.",
+        "contexto": "Leitura do perfil dentro da faixa de normoxia publicada; não há amostra fora da faixa entre os valores aprovados.",
+        "motivoSemExemploVermelho": "Os valores publicados fora da faixa são limites de exposição dependentes de duração; não há amostra canônica aprovada fora da faixa.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2241,7 +2241,7 @@
             "valor": 34.47,
             "unidade": "kPa, equivalente aproximado a 5 psia",
             "origem": "OFICIAL",
-            "texto": "Press?o no limite inferior exclusivo ou abaixo: seguir o procedimento oficial do ve?culo e do controle ambiental.",
+            "texto": "Pressão no limite inferior exclusivo ou abaixo: seguir o procedimento oficial do veículo e do controle ambiental.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
           },
           {
@@ -2250,7 +2250,7 @@
             "valor": 103.42,
             "unidade": "kPa, equivalente aproximado a 15 psia",
             "origem": "OFICIAL",
-            "texto": "Press?o acima do limite superior: seguir o procedimento oficial do ve?culo e do controle ambiental.",
+            "texto": "Pressão acima do limite superior: seguir o procedimento oficial do veículo e do controle ambiental.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
           }
         ],
@@ -2262,9 +2262,9 @@
         "amarelo": null,
         "vermelho": 34.47,
         "unidade": "kPa",
-        "contexto": "Limites publicados convertidos para a unidade can?nica; 34,47 kPa representa aproximadamente 5 psia e fica fora pelo limite inferior exclusivo.",
+        "contexto": "Limites publicados convertidos para a unidade canônica; 34,47 kPa representa aproximadamente 5 psia e fica fora pelo limite inferior exclusivo.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2356,9 +2356,9 @@
                 "umidadePct": 25
               }
             ],
-            "unidade": "?C e %",
+            "unidade": "°C e %",
             "origem": "OFICIAL",
-            "texto": "Par temperatura e umidade fora do pol?gono V2 6012: a??o do controle ambiental conforme procedimento do ve?culo.",
+            "texto": "Par temperatura e umidade fora do polígono V2 6012: ação do controle ambiental conforme procedimento do veículo.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
             "dependencias": [
               "temperatura_cabine",
@@ -2374,13 +2374,13 @@
         "verde": 22,
         "amarelo": null,
         "vermelho": null,
-        "unidade": "?C",
-        "contexto": "Exemplo do perfil com umidade de 50%, dentro do pol?gono ambiental publicado.",
+        "unidade": "°C",
+        "contexto": "Exemplo do perfil com umidade de 50%, dentro do polígono ambiental publicado.",
         "valorPareado": 50,
         "unidadePareada": "% de umidade",
-        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "motivoSemExemploVermelho": "O valor escalar ou os vértices publicados não fornecem uma amostra fora do requisito sem criar dado de teste.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2472,9 +2472,9 @@
                 "umidadePct": 25
               }
             ],
-            "unidade": "?C e %",
+            "unidade": "°C e %",
             "origem": "OFICIAL",
-            "texto": "Par temperatura e umidade fora do pol?gono V2 6012: a??o do controle ambiental conforme procedimento do ve?culo.",
+            "texto": "Par temperatura e umidade fora do polígono V2 6012: ação do controle ambiental conforme procedimento do veículo.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
             "dependencias": [
               "temperatura_cabine",
@@ -2491,12 +2491,12 @@
         "amarelo": null,
         "vermelho": null,
         "unidade": "%",
-        "contexto": "Exemplo do perfil com temperatura de 22 ?C, dentro do pol?gono ambiental publicado.",
+        "contexto": "Exemplo do perfil com temperatura de 22 °C, dentro do polígono ambiental publicado.",
         "valorPareado": 22,
-        "unidadePareada": "?C",
-        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "unidadePareada": "°C",
+        "motivoSemExemploVermelho": "O valor escalar ou os vértices publicados não fornecem uma amostra fora do requisito sem criar dado de teste.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2603,7 +2603,7 @@
             },
             "unidade": "Hz e dB por banda de oitava",
             "origem": "OFICIAL",
-            "texto": "Qualquer banda acima da curva NC-50 aplic?vel: revis?o da fonte pela equipe de controle ambiental e ac?stica.",
+            "texto": "Qualquer banda acima da curva NC-50 aplicável: revisão da fonte pela equipe de controle ambiental e acústica.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
             "operadorDeCurva": "uma_frequencia_comparada_ao_limite_correspondente"
           }
@@ -2612,9 +2612,9 @@
         "linhaDeBase": null,
         "sintomas": [
           {
-            "sintoma": "Perda auditiva s?bita ou vertigem",
+            "sintoma": "Perda auditiva súbita ou vertigem",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
             "texto": "Acionar CMO conforme procedimento auditivo."
           }
@@ -2625,12 +2625,12 @@
         "amarelo": null,
         "vermelho": null,
         "unidade": "dB por banda de oitava",
-        "contexto": "Limite publicado a 1.000 Hz; aprova??o completa exige todas as bandas.",
+        "contexto": "Limite publicado a 1.000 Hz; aprovação completa exige todas as bandas.",
         "frequenciaTeste": 1000,
         "unidadeFrequenciaTeste": "Hz",
-        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "motivoSemExemploVermelho": "O valor escalar ou os vértices publicados não fornecem uma amostra fora do requisito sem criar dado de teste.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2773,7 +2773,7 @@
             },
             "unidade": "Hz e dB por banda de oitava",
             "origem": "OFICIAL",
-            "texto": "Qualquer banda acima da curva correspondente ? dura??o da miss?o: revis?o da fonte pela equipe de controle ambiental e ac?stica.",
+            "texto": "Qualquer banda acima da curva correspondente à duração da missão: revisão da fonte pela equipe de controle ambiental e acústica.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
             "contextoNecessario": "diasNaMissao"
           },
@@ -2783,7 +2783,7 @@
             "valor": 100,
             "unidade": "% da dose em 24 h",
             "origem": "OFICIAL",
-            "texto": "Dose de ru?do em 24 h acima de 100%: revis?o pelo controle ambiental e pela equipe cl?nica.",
+            "texto": "Dose de ruído em 24 h acima de 100%: revisão pelo controle ambiental e pela equipe clínica.",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf"
           }
         ],
@@ -2791,9 +2791,9 @@
         "linhaDeBase": null,
         "sintomas": [
           {
-            "sintoma": "Perda auditiva s?bita ou vertigem",
+            "sintoma": "Perda auditiva súbita ou vertigem",
             "nivel": 4,
-            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "origem": "procedimento de saúde e orientações aprovadas",
             "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
             "texto": "Acionar CMO conforme procedimento auditivo."
           }
@@ -2804,14 +2804,14 @@
         "amarelo": null,
         "vermelho": null,
         "unidade": "dB por banda de oitava",
-        "contexto": "Curva NC-40 publicada a 1.000 Hz ap?s 30 dias; aprova??o completa exige todas as bandas e dose.",
+        "contexto": "Curva NC-40 publicada a 1.000 Hz após 30 dias; aprovação completa exige todas as bandas e dose.",
         "frequenciaTeste": 1000,
         "unidadeFrequenciaTeste": "Hz",
         "diasNaMissaoTeste": 31,
         "unidadeDiasNaMissaoTeste": "dias",
-        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "motivoSemExemploVermelho": "O valor escalar ou os vértices publicados não fornecem uma amostra fora do requisito sem criar dado de teste.",
         "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -2848,12 +2848,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -2861,8 +2861,8 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
-        "contexto": "Entrada de teste do comparador de linha de base, sem corte individual num?rico publicado.",
+        "unidade": "z-score, desvios padrão",
+        "contexto": "Entrada de teste do comparador de linha de base, sem corte individual numérico publicado.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
         "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
@@ -2925,7 +2925,7 @@
             "valor": 600,
             "unidade": "mSv de carreira",
             "origem": "OFICIAL",
-            "texto": "Dose efetiva de carreira em ou acima de 600 mSv: revis?o pela equipe de prote??o radiol?gica, sem diagn?stico.",
+            "texto": "Dose efetiva de carreira em ou acima de 600 mSv: revisão pela equipe de proteção radiológica, sem diagnóstico.",
             "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
             "requisito": "NASA-STD-3001 Vol. 1 Rev. C, V1 4030"
           }
@@ -2938,10 +2938,10 @@
         "amarelo": null,
         "vermelho": 600,
         "unidade": "mSv de carreira",
-        "contexto": "O perfil n?o cont?m uma dose verde de carreira; 600 mSv ? o limite oficial para revis?o do programa de prote??o radiol?gica.",
-        "motivoSemExemploVerde": "O perfil n?o cont?m uma dose efetiva de carreira para teste verde.",
+        "contexto": "O perfil não contém uma dose verde de carreira; 600 mSv é o limite oficial para revisão do programa de proteção radiológica.",
+        "motivoSemExemploVerde": "O perfil não contém uma dose efetiva de carreira para teste verde.",
         "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
-        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+        "motivoSemExemploAmarelo": "Não há corte amarelo numérico oficial ou demonstrativo aplicável a este indicador."
       }
     },
     {
@@ -3003,9 +3003,9 @@
             "nivel": 2,
             "operador": ">=",
             "valor": 10,
-            "unidade": "pfu para pr?tons de 10 MeV ou mais",
+            "unidade": "pfu para prótons de 10 MeV ou mais",
             "origem": "OFICIAL",
-            "texto": "In?cio NOAA S1: mostrar contexto ambiental ? tripula??o; n?o representa dose individual nem vermelho.",
+            "texto": "Início NOAA S1: mostrar contexto ambiental à tripulação; não representa dose individual nem vermelho.",
             "fonteUrl": "https://www.swpc.noaa.gov/products/notifications-timeline",
             "natureza": "limiar_de_evento_ambiental",
             "nivelMaximoSemSintomaDaRegra": 2
@@ -3018,11 +3018,11 @@
         "verde": null,
         "amarelo": 10,
         "vermelho": null,
-        "unidade": "pfu para pr?tons de 10 MeV ou mais",
-        "contexto": "10 pfu ? o limiar oficial NOAA S1 e resulta em contexto amarelo, n?o em dose pessoal ou vermelho.",
-        "motivoSemExemploVerde": "N?o h? valor abaixo do evento S1 publicado ou no perfil para exemplo verde.",
+        "unidade": "pfu para prótons de 10 MeV ou mais",
+        "contexto": "10 pfu é o limiar oficial NOAA S1 e resulta em contexto amarelo, não em dose pessoal ou vermelho.",
+        "motivoSemExemploVerde": "Não há valor abaixo do evento S1 publicado ou no perfil para exemplo verde.",
         "fonteUrl": "https://www.swpc.noaa.gov/products/notifications-timeline",
-        "motivoSemExemploVermelho": "N?o h? amostra publicada ou de demonstra??o autorizada para este estado; nenhum n?mero foi criado."
+        "motivoSemExemploVermelho": "Não há amostra publicada ou de demonstração autorizada para este estado; nenhum número foi criado."
       }
     },
     {
@@ -3059,12 +3059,12 @@
           "zAmarelo": 2,
           "zPersistenteAcima": 3,
           "repeticoesParaPersistente": 2,
-          "unidadeZScore": "desvios padr?o",
+          "unidadeZScore": "desvios padrão",
           "unidadeRepeticoes": "leituras consecutivas",
           "minimoLeiturasValidas": 7,
           "unidadeMinimoLeiturasValidas": "leituras",
           "nuncaVermelho": true,
-          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonte": "docs/04, regra de linha de base [INFERÊNCIA]",
           "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
         }
       },
@@ -3072,7 +3072,7 @@
         "verde": 0,
         "amarelo": 2,
         "vermelho": null,
-        "unidade": "z-score, desvios padr?o",
+        "unidade": "z-score, desvios padrão",
         "contexto": "Entrada de teste do comparador de linha de base.",
         "campoAvaliado": "zScore",
         "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
