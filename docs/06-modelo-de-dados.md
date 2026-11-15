@@ -90,7 +90,8 @@ Toda medida, venha de onde vier, vira uma `Leitura`.
 | `tripulanteId` | string opcional | `"trip-b"` | Leituras do corpo |
 | `moduloId` | string opcional | `"node3"` | Leituras do ambiente |
 | `dispositivoId` | string | `"eclss-node3"` | |
-| `origem` | `"automatica"` \| `"manual"` \| `"exame"` \| `"simulada"` \| `"ao_vivo"` | `"simulada"` | A tela mostra o selo |
+| `origem` | `"automatica"` \| `"manual"` \| `"exame"` \| `"simulada"` \| `"ao_vivo"` \| `"historica"` | `"simulada"` | A tela mostra o selo; `historica` é dado real gravado e reproduzido (amostras da frente 11, conjuntos do EDA ou do RadLab) |
+| `conjuntoDados` | string opcional | `"issl-2026-11-15"`, `"cenario-C1"` | Arquivo de amostra ou cenário de onde a leitura veio (ver `docs/12`, seção 7) |
 | `qualidade` | `"boa"` \| `"duvidosa"` \| `"invalida"` | `"boa"` | Leitura inválida não gera alerta |
 | `disponibilidade` | `"disponivel"` \| `"aguardando_transferencia"` \| `"pendente_laboratorio"` | `"disponivel"` | Ver nota abaixo |
 | `instanteDisponivelUtc` | string ISO opcional | | Quando o valor chegou ao software (pode ser horas ou meses depois de `instanteUtc`) |
