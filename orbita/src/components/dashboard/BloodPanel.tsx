@@ -165,7 +165,7 @@ export function BloodPanel({ snap }: { snap: Snapshot }) {
               </div>
               {last.other && <p className="mt-2 text-[12px] text-mist">Other: {last.other}</p>}
               <p className="mt-3 text-[11px] leading-relaxed text-faint">
-                Demonstration laboratory references ({sex === "M" ? "male" : "female"}). ORBITA does not provide diagnoses: results must be interpreted against laboratory references and with professional follow-up.
+                Demonstration laboratory references ({sex === "M" ? "male" : "female"}). Orbit does not provide diagnoses: results must be interpreted against laboratory references and with professional follow-up.
               </p>
             </div>
           ) : (

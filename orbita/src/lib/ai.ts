@@ -1,5 +1,5 @@
 /**
- * ORBITA AI — offline assistant.
+ * Orbit IA: offline assistant.
  * Intent-based answer engine + retrieval from the local knowledge base
  * (NASA HRP risk library). Uses no external API and performs no diagnoses.
  */
@@ -131,7 +131,7 @@ function intentMicrogravity(): AiAnswer {
 
 function intentSans(s: Snapshot): AiAnswer {
   return {
-    text: `**SANS — Spaceflight Associated Neuro-ocular Syndrome** groups changes seen in astronauts on long missions, such as optic disc edema, posterior flattening of the eyeball, choroidal folds and refractive shifts (difficulty seeing up close). Fluid redistribution toward the head is one of the hypotheses studied.\n\nMonitoring uses specialized exams: optical coherence tomography (OCT), fundoscopy, visual acuity and tonometry.\n\nIn ORBITA, the (experimental) **EOG** indicator is at ${s.indicators.eog.value} — ${statusWord(s.indicators.eog.status)}. It does not assess SANS and is not a diagnosis.\n${DISCLAIMER}`,
+    text: `**SANS — Spaceflight Associated Neuro-ocular Syndrome** groups changes seen in astronauts on long missions, such as optic disc edema, posterior flattening of the eyeball, choroidal folds and refractive shifts (difficulty seeing up close). Fluid redistribution toward the head is one of the hypotheses studied.\n\nMonitoring uses specialized exams: optical coherence tomography (OCT), fundoscopy, visual acuity and tonometry.\n\nIn Orbit, the (experimental) **EOG** indicator is at ${s.indicators.eog.value} (${statusWord(s.indicators.eog.status)}). It does not assess SANS and is not a diagnosis.\n${DISCLAIMER}`,
     refs: ["risk-sans"],
   };
 }
@@ -239,7 +239,7 @@ export function answer(question: string, state: AppState, selectedId: string, no
   const r = retrieve(q);
   if (r) return r;
   if (/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(q))
-    return { text: `Hello, ${s.profile.name.split(" ")[0]}. I'm ORBITA AI, working offline with the local knowledge base. I can summarize your health, explain indicators and spaceflight risks, or report the crew's status.`, refs: [] };
+    return { text: `Hello, ${s.profile.name.split(" ")[0]}. I'm Orbit IA, working offline with the local knowledge base. I can summarize your health, explain indicators and spaceflight risks, or report the crew's status.`, refs: [] };
   return {
     text: "I couldn't find that information in the local knowledge base. To avoid inaccurate information, I'd rather not answer. Try asking about your indicators, the crew, or risks such as radiation, SANS, microgravity, sleep, bones or nutrition.",
     refs: [],

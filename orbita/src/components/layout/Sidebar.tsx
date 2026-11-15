@@ -11,7 +11,7 @@ export const MENU = [
   { key: "crew", label: "Crew", icon: Users, to: "/crew" },
   { key: "map", label: "Body map", icon: PersonStanding, to: "/?s=map" },
   { key: "assessment", label: "Health assessment", icon: ClipboardPlus, to: "/?s=assessment" },
-  { key: "ai", label: "ORBITA AI", icon: Bot, to: "/ai" },
+  { key: "ai", label: "Orbit IA", icon: Bot, to: "/ai" },
   { key: "reports", label: "Reports", icon: BarChart3, to: "/reports" },
   { key: "routine", label: "Mission routine", icon: CalendarCheck2, to: "/routine" },
   { key: "risks", label: "Space risks", icon: ShieldAlert, to: "/risks" },
@@ -63,7 +63,7 @@ export function Sidebar({ open, onClose, route }: { open: boolean; onClose: () =
         <div className="flex items-center justify-between px-5 pb-4 pt-5">
           <div className="flex items-center gap-2.5">
             <OrbitaLogo size={32} />
-            <span className="font-display text-[17px] font-semibold tracking-[0.28em]">ORBITA</span>
+            <span className="font-display text-[17px] font-semibold tracking-[0.28em]">ORBIT</span>
           </div>
           <button onClick={onClose} className="rounded-lg p-1.5 text-mist hover:bg-white/5 hover:text-ink" aria-label="Close menu">
             <X size={18} />

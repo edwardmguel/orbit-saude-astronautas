@@ -65,7 +65,7 @@ export function GuidanceCard({ ind, compact }: { ind: IndicatorEval; compact?: b
         )}
       </div>
       <div className="mt-3 text-[10.5px] text-faint">
-        Guidance from the mission research library · ORBITA never prescribes medication or changes vehicle systems.
+        Guidance from the mission research library · Orbit never prescribes medication or changes vehicle systems.
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ export function saveState(s: AppState) {
   try {
     localStorage.setItem(KEY, JSON.stringify(s));
   } catch (e) {
-    console.warn("ORBITA: failed to save local state", e);
+    console.warn("Orbit: failed to save local state", e);
   }
 }
 
@@ -65,7 +65,7 @@ export async function savePhoto(id: string, dataUrl: string) {
   try {
     await tx("readwrite", (s) => s.put(dataUrl, id));
   } catch (e) {
-    console.warn("ORBITA: IndexedDB unavailable, using localStorage", e);
+    console.warn("Orbit: IndexedDB unavailable, using localStorage", e);
     try {
       localStorage.setItem(`orbita:photo:${id}`, dataUrl);
     } catch {

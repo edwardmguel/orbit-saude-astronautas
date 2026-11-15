@@ -1,5 +1,5 @@
 /**
- * Official ORBITA icon rebuilt in SVG (same geometry and colors as the original):
+ * Official Orbit icon rebuilt in SVG (same geometry and colors as the original):
  * navy square, central ring, tilted elliptical orbit and a small circle on the orbit.
  */
 export const ORBIT = { cx: 150, cy: 150, rx: 110, ry: 40, rot: -27 };
@@ -29,7 +29,7 @@ interface Props {
   trail?: number[];
 }
 
-export function OrbitaLogo({ size = 40, t = DOT_T0, glow = 0, rounded = true, className, title = "ORBITA", trail }: Props) {
+export function OrbitaLogo({ size = 40, t = DOT_T0, glow = 0, rounded = true, className, title = "Orbit", trail }: Props) {
   const p = orbitPoint(t);
   const back = `M${ORBIT.cx - ORBIT.rx} ${ORBIT.cy} A${ORBIT.rx} ${ORBIT.ry} 0 0 1 ${ORBIT.cx + ORBIT.rx} ${ORBIT.cy}`;
   const front = `M${ORBIT.cx + ORBIT.rx} ${ORBIT.cy} A${ORBIT.rx} ${ORBIT.ry} 0 0 1 ${ORBIT.cx - ORBIT.rx} ${ORBIT.cy}`;

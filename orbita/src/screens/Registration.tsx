@@ -10,7 +10,7 @@ export function Registration({ onDone }: { onDone: () => void }) {
         <div className="mb-6 flex flex-col items-center text-center">
           <div className="flex items-center gap-3">
             <OrbitaLogo size={44} />
-            <span className="font-display text-2xl font-semibold tracking-[0.3em] text-ink">ORBITA</span>
+            <span className="font-display text-2xl font-semibold tracking-[0.3em] text-ink">ORBIT</span>
           </div>
           <h1 className="mt-6 font-display text-xl font-semibold tracking-[0.08em] text-ink">Astronaut Registration</h1>
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-mist">
@@ -26,7 +26,7 @@ export function Registration({ onDone }: { onDone: () => void }) {
           />
         </div>
         <p className="mt-4 text-center text-[11px] text-faint">Data stored locally on this device · NASA Space Apps Challenge 2026</p>
-        <p className="mt-1 text-center text-[11px] text-faint">This software and the ORBITA logo were created with the assistance of artificial intelligence (AI).</p>
+        <p className="mt-1 text-center text-[11px] text-faint">This software and the Orbit logo were created with the assistance of artificial intelligence (AI).</p>
       </div>
     </div>
   );

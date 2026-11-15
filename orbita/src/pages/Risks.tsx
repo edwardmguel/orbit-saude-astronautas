@@ -132,7 +132,7 @@ export default function Risks({ route }: { route: Route }) {
               </span>
               <ExternalLink size={15} className="text-faint" />
             </a>
-            <p className="text-[11px] text-faint">Educational plain-language summary. Consult the official source for complete information. ORBITA does not provide diagnoses.</p>
+            <p className="text-[11px] text-faint">Educational plain-language summary. Consult the official source for complete information. Orbit does not provide diagnoses.</p>
           </div>
         )}
       </Modal>

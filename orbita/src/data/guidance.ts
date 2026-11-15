@@ -4,7 +4,7 @@
  *    block of prototipo/config/indicadores.json (yellow, red, gatilhoParaSubir, colega).
  *  - "Who acts" comes from the master table of docs/03.
  *  - "Prevention" comes from the NASA countermeasure library (raw research note 10, section D1).
- * ORBITA never prescribes medication or changes vehicle systems.
+ * Orbit never prescribes medication or changes vehicle systems.
  */
 import type { IndicatorKey } from "@/types";
 
