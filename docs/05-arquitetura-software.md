@@ -172,10 +172,11 @@ prototipo/
       ui/                    telas e componentes
       i18n/                  textos PT-BR e EN
   config/
-    indicadores.json         definição de cada indicador, faixas e fonte (gerado a partir de docs/03)
-    cenarios.json            roteiro dos cenários C1 a C5
+    indicadores.json                 35 indicadores e 6 regras, com regraCor e fonte (de docs/03)
+    perfis-simulacao.rascunho.json   tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
   dados/
-    sono-exemplo.json        hipnograma pré-calculado
+    amostras-reais/          telemetria pública da ISS, NOAA e DONKI gravadas em 15/11/2026
+    sono-exemplo.json        hipnograma pré-calculado (a equipe gera a partir do Sleep-EDF)
     clima-espacial-exemplo.json
 ```
 

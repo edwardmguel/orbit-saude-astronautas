@@ -41,6 +41,7 @@ prototipo/
     indicadores.json          35 indicadores e 6 regras de cruzamento com regra de cor e fonte (de docs/03)
     perfis-simulacao.rascunho.json   35 indicadores, 7 tripulantes fictícios, roteiro de 180 dias e cenários C1 a C5
   dados/amostras-reais/       telemetria pública da ISS, NOAA SWPC e DONKI gravadas em 15/11/2026, com scripts
+Traycer/                      cópia da EPIC do Traycer deste projeto e instruções para importá-la em outro computador
 ```
 
 ## Como a pesquisa foi feita

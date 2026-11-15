@@ -26,6 +26,8 @@ Equipe: Fundação Futuro. Prazo do protótipo: 20 horas. Plano em [`docs/08-pla
 | Siglas | [`docs/13-glossario.md`](docs/13-glossario.md) |
 | Pesquisa bruta com todas as citações | [`pesquisa/bruto/`](pesquisa/bruto/) |
 
+Se o dono pedir para importar ou atualizar a EPIC do Traycer, siga [`Traycer/README.md`](Traycer/README.md): a pasta `Traycer/` guarda a cópia dos artefatos da EPIC deste projeto.
+
 Se o código e um documento discordarem, o documento vence até alguém atualizá-lo. Se dois documentos discordarem, `docs/03` vence para limiares e `docs/06` vence para nomes de campos e unidades.
 
 ## 3. Regras de domínio (não negociáveis)
@@ -40,7 +42,7 @@ Se o código e um documento discordarem, o documento vence até alguém atualiz�
 8. **Cor nunca sozinha.** Estado sempre com cor, ícone e palavra: ✓ normal, ! atenção, ✕ acionar médico, ? sem dado.
 9. **Privacidade por consentimento e cuidado mútuo.** O Monitor geral (T1) mostra de cada colega só o que ele consentiu compartilhar com aquela audiência (`Tripulante.compartilhamento` em `docs/06`); detalhes clínicos nunca. Toda filtragem acontece no motor, antes de chegar à tela. "Não compartilhado" é texto neutro, nunca cor de alerta. Não existe acesso emergencial irrestrito codificado.
 10. **Não imitar o alarme da estação.** Nada pisca, nada emite som, nenhum rótulo usa Caution, Warning ou Emergency; os estados levam o prefixo "Saúde:". Vermelho, piscar e som são do sistema de Caution and Warning da ISS (`docs/07`, 5.1.1).
-11. **Dados simulados são marcados.** Toda leitura tem `origem` (`simulada`, `ao_vivo`, `manual`, `automatica`, `exame`). A tela mostra o selo da origem.
+11. **Dados simulados são marcados.** Toda leitura tem `origem` (`simulada`, `ao_vivo`, `historica`, `manual`, `automatica`, `exame`). A tela mostra o selo da origem. Os cenários C1 a C5 e os perfis dos tripulantes fictícios estão em `prototipo/config/perfis-simulacao.rascunho.json`; as amostras reais gravadas, em `prototipo/dados/amostras-reais/`.
 
 ## 4. Regras de escrita (do dono do projeto)
 

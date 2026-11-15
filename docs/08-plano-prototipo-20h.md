@@ -20,6 +20,21 @@ O desafio é o **"Create Health Monitoring Software for Astronauts on Space Miss
 
 Indicadores citados como exemplo no texto do desafio: pressão arterial, frequência cardíaca, glicose (mg/dL), temperatura corporal, horas de sono e humor. Todos estão no protótipo (T1, T2 e T3).
 
+## 0.1 Se o tempo até o prazo for menor que 20 horas
+
+O plano das seções 2 e 3 foi escrito para 20 horas. Como o envio fecha às 23h59 do dia 15/11 (às 08h40 restavam cerca de 15 horas e 20 minutos), um kickoff até as 9h deixa cerca de 14 horas de trabalho mais 1 hora para o envio. Nesse caso, use esta versão comprimida (horas contadas a partir do kickoff):
+
+| Hora | Marco | O que precisa estar pronto |
+| --- | --- | --- |
+| 0h45 | Fim do kickoff | Stack e perguntas K1 a K8 decididas em no máximo 20 minutos; repositório do app criado |
+| 5h30 | Integração 1 | T1 Monitor geral com 4 tripulantes, cores vindas da `regraCor` do `indicadores.json` e dados do perfil de simulação |
+| 9h | Integração 2 e congelamento | Cenário C1 de ponta a ponta (T1, T2 e T4); nenhuma funcionalidade nova depois daqui fora a lista abaixo |
+| 11h | Essenciais da demo | T3 check-in com o PVT de 3 minutos; T5 com o fluxo de prótons gravado da NOAA (cenário C2) |
+| 12h | Só correção | Gravar o vídeo ou preparar a página do projeto e a seção "Como usamos IA" |
+| 13h | Envio | Enviar com pelo menos 1 hora de folga antes das 23h59 do horário do evento local (kickoff às 9h significa envio às 22h) |
+
+Sai do escopo na versão comprimida, e só volta se sobrar tempo: T1b (matriz), T6 (sono e óculos), gamificação, grade de Amsler interativa, modo ao vivo, anomalia multivariada e T7. O T6 pode aparecer na apresentação como wireframe ([`wireframes/telas-prototipo.html`](wireframes/telas-prototipo.html)).
+
 ## 1. Objetivo da demonstração
 
 Em até 7 minutos, mostrar:
