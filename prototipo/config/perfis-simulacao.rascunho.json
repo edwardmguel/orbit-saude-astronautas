@@ -1729,15 +1729,15 @@
                                 "indicadorId":  "ppco2_modulo",
                                 "evento":  {
                                                "valorBase":  1.9,
-                                               "valorEvento":  3.2,
+                                               "valorEvento":  2.95,
                                                "unidade":  "mmHg",
                                                "duracaoMin":  120,
-                                               "delta":  1.3,
-                                               "deltaPercentual":  68
+                                               "delta":  1.05,
+                                               "deltaPercentual":  55
                                            },
-                                "classificacao":  "[INFERÊNCIA] evento fictício; média horária acima de 3 mmHg cruza padrão citado",
+                                "classificacao":  "[INFERÊNCIA] evento fictício; pico de 2,95 mmHg fica acima do marcador de demonstração de 2,8 mmHg e abaixo do requisito de 3 mmHg, gerando amarelo (ajuste do coordenador em 15/11 para casar com docs/03)",
                                 "coocorrencia":  {
-                                                     "pvtTempoReacaoDeltaPercentual":  10,
+                                                     "pvtTempoReacaoDeltaPercentual":  15,
                                                      "dorCabecaPontos":  2,
                                                      "status":  "[INFERÊNCIA] coocorrência, não causalidade"
                                                  },
@@ -1842,7 +1842,7 @@
                                                 ],
                                 "agua":  {
                                              "baseMlDia":  2500,
-                                             "eventoMlDia":  1500,
+                                             "eventoMlDia":  1000,
                                              "duracaoDias":  2
                                          },
                                 "urina":  {

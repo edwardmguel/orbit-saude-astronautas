@@ -1,0 +1,3523 @@
+{
+  "indicadores": [
+    {
+      "id": "fc_repouso",
+      "nome": "Frequência cardíaca em repouso",
+      "escopo": "tripulante",
+      "regiaoCorpo": "coracao",
+      "unidade": "bpm",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, vital signs",
+        "url": "https://medlineplus.gov/ency/article/002341.htm"
+      },
+      "explicacao": "A redistribuição de fluidos e o descondicionamento podem mudar a resposta cardiovascular em microgravidade.",
+      "orientacoes": {
+        "amarelo": [
+          "Descanse e repita pelo método indicado; registre postura e sintomas e comunique desvio persistente ao CMO."
+        ],
+        "colega": "Pergunte em privado se a pessoa quer ajuda para repetir a medida ou chamar o CMO.",
+        "vermelho": [
+          "O CMO confirma a medida e avalia sintomas; instabilidade segue o procedimento de emergência."
+        ],
+        "gatilhoParaSubir": "Dor torácica, síncope, falta de ar importante, confusão, déficit neurológico ou limite individual aprovado."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "min": 60,
+          "max": 100,
+          "unidade": "bpm",
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "60 a 100 bpm, referência terrestre em repouso.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "amarelo": {
+          "criterio": "Fora da referência ou linha de base pede revisão.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "vermelho": {
+          "criterio": "Sinais críticos, não referência isolada.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        }
+      },
+      "gatilhosSintoma": [
+        "Dor torácica, síncope, falta de ar importante ou instabilidade."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 60,
+              "max": 100
+            },
+            "unidade": "bpm",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da refer?ncia terrestre de 60 a 100 bpm: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Dor tor?cica, s?ncope, falta de ar importante ou instabilidade",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 70,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "bpm",
+        "contexto": "Leitura de exemplo no perfil de simula??o.",
+        "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "hrv_rmssd",
+      "nome": "Variabilidade da frequência cardíaca, RMSSD",
+      "escopo": "tripulante",
+      "regiaoCorpo": "coracao",
+      "unidade": "ms",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA HRP, risco cardiovascular",
+        "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=179"
+      },
+      "explicacao": "A tendência da variabilidade cardíaca pode contextualizar recuperação e adaptação individual durante a missão.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira qualidade, unidade, horário e contexto; compare com a série pessoal ou com o plano e comunique persistência ao CMO."
+        ],
+        "colega": "Ofereça ajuda prática se a pessoa pedir e respeite a privacidade.",
+        "vermelho": [
+          "O CMO segue o procedimento médico ou operacional aprovado e encaminha os dados ao médico de voo."
+        ],
+        "gatilhoParaSubir": "Sintoma urgente, piora aguda ou critério individual ou operacional aprovado."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "pa_sistolica",
+      "nome": "Pressão arterial sistólica",
+      "escopo": "tripulante",
+      "regiaoCorpo": "coracao",
+      "unidade": "mmHg",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, vital signs",
+        "url": "https://medlineplus.gov/ency/article/002341.htm"
+      },
+      "explicacao": "A redistribuição de fluidos e a transição de gravidade podem alterar circulação e tolerância postural.",
+      "orientacoes": {
+        "amarelo": [
+          "Descanse e repita pelo método indicado; registre postura e sintomas e comunique desvio persistente ao CMO."
+        ],
+        "colega": "Pergunte em privado se a pessoa quer ajuda para repetir a medida ou chamar o CMO.",
+        "vermelho": [
+          "O CMO confirma a medida e avalia sintomas; instabilidade segue o procedimento de emergência."
+        ],
+        "gatilhoParaSubir": "Dor torácica, síncope, falta de ar importante, confusão, déficit neurológico ou limite individual aprovado."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "min": 90,
+          "max": 120,
+          "unidade": "mmHg",
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "90 a 120 mmHg, referência terrestre.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "amarelo": {
+          "criterio": "Fora da referência ou linha de base pede revisão.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "vermelho": {
+          "criterio": "Sinais críticos, não referência isolada.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        }
+      },
+      "gatilhosSintoma": [
+        "Síncope, confusão, dor torácica ou déficit neurológico."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 90,
+              "max": 120
+            },
+            "unidade": "mmHg",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da refer?ncia terrestre de 90 a 120 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "S?ncope, confus?o, dor tor?cica ou d?ficit neurol?gico",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 120,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "mmHg",
+        "contexto": "Extremo publicado e leitura de exemplo do perfil.",
+        "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "pa_diastolica",
+      "nome": "Pressão arterial diastólica",
+      "escopo": "tripulante",
+      "regiaoCorpo": "coracao",
+      "unidade": "mmHg",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, vital signs",
+        "url": "https://medlineplus.gov/ency/article/002341.htm"
+      },
+      "explicacao": "A redistribuição de fluidos e a transição de gravidade podem alterar circulação e tolerância postural.",
+      "orientacoes": {
+        "amarelo": [
+          "Descanse e repita pelo método indicado; registre postura e sintomas e comunique desvio persistente ao CMO."
+        ],
+        "colega": "Pergunte em privado se a pessoa quer ajuda para repetir a medida ou chamar o CMO.",
+        "vermelho": [
+          "O CMO confirma a medida e avalia sintomas; instabilidade segue o procedimento de emergência."
+        ],
+        "gatilhoParaSubir": "Dor torácica, síncope, falta de ar importante, confusão, déficit neurológico ou limite individual aprovado."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "min": 60,
+          "max": 80,
+          "unidade": "mmHg",
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "60 a 80 mmHg, referência terrestre.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "amarelo": {
+          "criterio": "Fora da referência ou linha de base pede revisão.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "vermelho": {
+          "criterio": "Sinais críticos, não referência isolada.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        }
+      },
+      "gatilhosSintoma": [
+        "Síncope, confusão, dor torácica ou déficit neurológico."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 60,
+              "max": 80
+            },
+            "unidade": "mmHg",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da refer?ncia terrestre de 60 a 80 mmHg: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "S?ncope, confus?o, dor tor?cica ou d?ficit neurol?gico",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 80,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "mmHg",
+        "contexto": "Extremo publicado e leitura de exemplo do perfil.",
+        "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "spo2",
+      "nome": "Saturação periférica de oxigênio, SpO2",
+      "escopo": "tripulante",
+      "regiaoCorpo": "pulmoes",
+      "unidade": "%",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, pulse oximetry",
+        "url": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
+      },
+      "explicacao": "A medida contextualiza oxigenação junto a sintomas e condições da cabine, mas não substitui a pressão parcial inspirada de oxigênio.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme o sinal e a condição de repouso; registre sintomas e comunique alteração repetida ao CMO."
+        ],
+        "colega": "Ofereça ajuda para repetir a medida e contatar o CMO.",
+        "vermelho": [
+          "O CMO avalia a pessoa e segue o procedimento respiratório aprovado; dificuldade importante exige resposta imediata."
+        ],
+        "gatilhoParaSubir": "Dificuldade respiratória importante, deterioração aguda ou critério médico aprovado."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "min": 95,
+          "max": 100,
+          "etiqueta": "[DIRETRIZ-TERRA]",
+          "contatoClinicoTerrestreEmOuAbaixo": 92,
+          "atendimentoImediatoTerrestreEmOuAbaixo": 88,
+          "aplicaComoLimiteDeVoo": false
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "95 a 100% é referência terrestre, não limite de voo.",
+          "fonteDoValor": "MedlinePlus, pulse oximetry"
+        },
+        "amarelo": {
+          "criterio": "Validar sinal e sintomas; valores terrestres não são cutoffs de voo.",
+          "fonteDoValor": "MedlinePlus, pulse oximetry"
+        },
+        "vermelho": {
+          "criterio": "Dificuldade respiratória ou confusão segue procedimento.",
+          "fonteDoValor": "MedlinePlus, pulse oximetry"
+        }
+      },
+      "gatilhosSintoma": [
+        "Dificuldade respiratória importante, sinais compatíveis com hipóxia ou queda repetida confirmada."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "<=",
+            "valor": 88,
+            "unidade": "%",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "SpO2 em ou abaixo de 88%: contato cl?nico imediato conforme refer?ncia terrestre.",
+            "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
+            "nivelDeUrgencia": "imediata"
+          },
+          {
+            "nivel": 3,
+            "operador": "<=",
+            "valor": 92,
+            "unidade": "%",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "SpO2 em ou abaixo de 92%: contato cl?nico conforme refer?ncia terrestre.",
+            "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
+          },
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 95,
+              "max": 100
+            },
+            "unidade": "%",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora de 95% a 100%: validar a leitura e revisar com contexto cl?nico; refer?ncia terrestre, n?o limite de voo.",
+            "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Dificuldade respirat?ria importante ou sinais compat?veis com hip?xia",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
+            "texto": "Relato de sintoma de alarme; acionar o procedimento m?dico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 98,
+        "amarelo": null,
+        "vermelho": 92,
+        "unidade": "%",
+        "contexto": "Vermelho usa o corte terrestre publicado para contato cl?nico.",
+        "fonteUrl": "https://www.medlineplus.gov/lab-tests/pulse-oximetry/",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste."
+      }
+    },
+    {
+      "id": "temperatura_corporal",
+      "nome": "Temperatura corporal",
+      "escopo": "tripulante",
+      "regiaoCorpo": "corpo",
+      "unidade": "°C",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, vital signs",
+        "url": "https://medlineplus.gov/ency/article/002341.htm"
+      },
+      "explicacao": "Temperatura e sintomas ajudam a contextualizar doença ou resposta ao ambiente fechado da cabine.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, horário e contexto; revisão clínica considera tendência e protocolo, sem diagnóstico por leitura isolada."
+        ],
+        "colega": "Ajude a organizar a medida ou coleta se solicitado, sem interpretar resultado.",
+        "vermelho": [
+          "O CMO confirma pelo método clínico e segue o procedimento aprovado diante de sintomas ou resultado crítico."
+        ],
+        "gatilhoParaSubir": "Sintomas de alarme ou critério individual aprovado pelo médico de voo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "oralMinC": 36.5,
+          "oralMaxC": 37.3,
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "36,5 a 37,3 °C oral, referência terrestre.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "amarelo": {
+          "criterio": "Fora da referência ou linha de base pede repetição.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "vermelho": {
+          "criterio": "Sintoma crítico segue plano médico.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        }
+      },
+      "gatilhosSintoma": [
+        "Febre ou hipotermia suspeita junto a sintomas, conforme plano clínico."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 36.5,
+              "max": 37.3
+            },
+            "unidade": "?C oral",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da refer?ncia terrestre oral de 36,5 a 37,3 ?C: repetir conforme plano cl?nico e revisar, sem diagnosticar.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Febre ou hipotermia suspeita junto a sintomas, conforme plano cl?nico",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+            "texto": "Contatar CMO para avalia??o pelo plano cl?nico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 36.8,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "?C",
+        "contexto": "Leitura de exemplo do perfil dentro da refer?ncia oral publicada.",
+        "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "frequencia_respiratoria",
+      "nome": "Frequência respiratória em repouso",
+      "escopo": "tripulante",
+      "regiaoCorpo": "pulmoes",
+      "unidade": "respirações/min",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, vital signs",
+        "url": "https://medlineplus.gov/ency/article/002341.htm"
+      },
+      "explicacao": "A frequência respiratória ajuda a contextualizar esforço, qualidade do ar e sintomas respiratórios.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme o sinal e a condição de repouso; registre sintomas e comunique alteração repetida ao CMO."
+        ],
+        "colega": "Ofereça ajuda para repetir a medida e contatar o CMO.",
+        "vermelho": [
+          "O CMO avalia a pessoa e segue o procedimento respiratório aprovado; dificuldade importante exige resposta imediata."
+        ],
+        "gatilhoParaSubir": "Dificuldade respiratória importante, deterioração aguda ou critério médico aprovado."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "min": 12,
+          "max": 18,
+          "unidade": "respirações/min",
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "12 a 18 respirações/min em repouso, referência terrestre.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "amarelo": {
+          "criterio": "Fora da referência ou linha de base pede repetição.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        },
+        "vermelho": {
+          "criterio": "Dispneia grave ou cianose segue procedimento.",
+          "fonteDoValor": "MedlinePlus, vital signs"
+        }
+      },
+      "gatilhosSintoma": [
+        "Dificuldade respiratória importante ou deterioração aguda."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 12,
+              "max": 18
+            },
+            "unidade": "respirações/min",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da refer?ncia terrestre de 12 a 18 respirações/min: repetir conforme protocolo e revisar, sem diagnosticar.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Dificuldade respirat?ria importante ou deteriora??o aguda",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+            "texto": "Relato de sintoma de alarme; seguir procedimento m?dico."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 15,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "respira??es/min",
+        "contexto": "Leitura de exemplo do perfil dentro da refer?ncia publicada.",
+        "fonteUrl": "https://medlineplus.gov/ency/article/002341.htm",
+        "motivoSemExemploAmarelo": "N?o h? valor fora da faixa publicado que possa ser usado como amostra sem inventar um dado de teste.",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "sono_tst",
+      "nome": "Horas de sono obtidas, tempo total de sono",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "min",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-TB-041, Sleep Accommodations",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf"
+      },
+      "explicacao": "Sono suficiente sustenta atenção, desempenho psicomotor e segurança em tarefas críticas.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "gatilhosSintoma": [
+        "Incapacidade de cumprir tarefa crítica com segurança ou sintoma urgente."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Incapacidade de cumprir tarefa cr?tica com seguran?a",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf",
+            "texto": "Acionar CMO para avalia??o de seguran?a da tarefa."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "sono_eficiencia",
+      "nome": "Eficiência do sono",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "%",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-TB-041, Sleep Accommodations",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf"
+      },
+      "explicacao": "A eficiência do sono ajuda a observar fragmentação e recuperação durante a rotina da missão.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "pvt_tempo_reacao",
+      "nome": "Tempo de reação no PVT-B ou RST",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "ms",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA TechPort, Reaction Self Test",
+        "url": "https://techport.nasa.gov/projects/23201"
+      },
+      "explicacao": "O tempo de reação acompanha vigilância psicomotora relevante para tarefas críticas e turnos de sono.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "faixas": {
+        "demonstracao": {
+          "deltaPercentualMaiorQue": 10,
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Variação ilustrativa para C1, sem corte NASA.",
+          "aplicaSomenteEmRegra": "R-CO2-01"
+        },
+        "etiqueta": "[INFERÊNCIA]",
+        "justificativa": "Variação ilustrativa para C1, sem corte NASA."
+      },
+      "valorDeDemonstracao": true,
+      "demonstracao": {
+        "valores": {
+          "deltaPercentualMaiorQue": 10,
+          "unidade": "%",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        "justificativa": "Variação ilustrativa para C1, sem cutoff operacional público.",
+        "fonte": {
+          "etiqueta": "[INFERÊNCIA]",
+          "referencia": "Regra C1 em docs/04",
+          "url": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "aplicaSomenteEmRegra": "R-CO2-01"
+      },
+      "gatilhosSintoma": [
+        "Não gera vermelho sozinho; aplicar regras cruzadas e procedimento aprovado."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": ">",
+            "valor": 10,
+            "unidade": "% de varia??o vs linha de base",
+            "origem": "[INFER?NCIA]",
+            "texto": "Aumento acima de 10%: demonstra??o somente em R-CO2-01, sem cutoff operacional p?blico.",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-CO2-01",
+            "justificativa": "Variação ilustrativa para C1, sem cutoff operacional público."
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base; o delta demonstrativo ? separado.",
+        "campoAvaliado": "zScore",
+        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "pvt_lapsos",
+      "nome": "Lapsos no PVT-B de 3 minutos",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "eventos por sessão",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA TechPort, Reaction Self Test",
+        "url": "https://techport.nasa.gov/projects/23201"
+      },
+      "explicacao": "Lapsos no teste de vigilância podem contextualizar atenção junto ao sono e à carga de trabalho.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "fadiga",
+      "nome": "Fadiga autorrelatada",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "pontos, escala interna 1 a 7",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA HRP, behavioral health task",
+        "url": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623"
+      },
+      "explicacao": "O autorrelato permite notar mudança pessoal de energia e capacidade funcional sem produzir diagnóstico.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "gatilhosSintoma": [
+        "Incapacidade de cumprir tarefa crítica com segurança ou sintoma urgente."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Incapacidade de cumprir tarefa cr?tica com seguran?a",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623",
+            "texto": "Acionar CMO para avalia??o de seguran?a da tarefa."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "humor",
+      "nome": "Humor autorrelatado",
+      "escopo": "tripulante",
+      "regiaoCorpo": "cerebro",
+      "unidade": "pontos, escala autoral de 1 a 5",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA HRP, behavioral health task",
+        "url": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623"
+      },
+      "explicacao": "O acompanhamento privado do humor pode revelar mudança pessoal e apoiar cuidado comportamental em confinamento.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre contexto de sono, turno e carga; compare com a própria série e informe o CMO se persistir."
+        ],
+        "colega": "Ajude a proteger a janela de descanso ou a organizar a tarefa se a pessoa solicitar.",
+        "vermelho": [
+          "A linha de base não gera vermelho sozinha; o CMO avalia segurança da tarefa conforme procedimento."
+        ],
+        "gatilhoParaSubir": "Incapacidade de cumprir tarefa crítica com segurança ou risco imediato informado."
+      },
+      "gatilhosSintoma": [
+        "Risco imediato informado no check-in exige contato humano conforme procedimento de saúde mental."
+      ],
+      "observacaoEscala": "Check-in de 2 minutos: resposta autoral de 1 a 5 conforme tela T3 e ?ndice de prontid?o A12 em docs/04; n?o equivale a instrumento cl?nico validado.",
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Risco imediato informado no check-in",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://humanresearchroadmap.nasa.gov/tasks/task.aspx?i=1623",
+            "texto": "Contato humano imediato conforme procedimento de sa?de mental."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base; resposta autoral bruta usa escala de 1 a 5.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "dor",
+      "nome": "Dor autorrelatada por região",
+      "escopo": "tripulante",
+      "regiaoCorpo": "corpo",
+      "unidade": "pontos, NRS 0 a 10 se aprovada",
+      "direcao": "ambos",
+      "classe": "gatilho_sintoma",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 1, Health and Medical Care",
+        "url": "https://www.nasa.gov/reference/3-0-health-and-medical-care/"
+      },
+      "explicacao": "Local e intensidade da dor ajudam a registrar lesão, tarefa e necessidade de apoio médico a bordo.",
+      "orientacoes": {
+        "amarelo": [
+          "Registre local, início, intensidade e interferência; comunique sintoma persistente ao CMO."
+        ],
+        "colega": "Pergunte em privado se a pessoa quer ajuda ou contato com o CMO.",
+        "vermelho": [
+          "O CMO avalia a dor pelo procedimento de bordo; sinais de emergência seguem o procedimento oficial."
+        ],
+        "gatilhoParaSubir": "Dor torácica, síncope, perda súbita de função ou outro sinal de emergência do procedimento."
+      },
+      "valorDeDemonstracao": true,
+      "demonstracao": {
+        "valores": {
+          "cefaleiaIntensaMaiorOuIgual": 7,
+          "escala": "0 a 10",
+          "unidade": "pontos",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        "justificativa": "Critério de escalonamento de C1, não é corte clínico universal.",
+        "fonte": {
+          "etiqueta": "[INFERÊNCIA]",
+          "referencia": "Regra C1 em docs/04",
+          "url": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "aplicaSomenteEmRegra": "R-CO2-01"
+      },
+      "gatilhosSintoma": [
+        "Dor torácica, síncope, perda súbita de função ou outro sinal de emergência descrito no procedimento."
+      ],
+      "regraCor": {
+        "tipo": "somente_sintoma",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": ">=",
+            "valor": 7,
+            "unidade": "pontos em escala de 0 a 10",
+            "origem": "[INFER?NCIA]",
+            "texto": "Cefaleia com pontua??o 7 ou mais: escalonamento demonstrativo somente em R-CO2-01, n?o ? corte cl?nico universal.",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-CO2-01",
+            "justificativa": "Critério de escalonamento de C1, não é corte clínico universal."
+          }
+        ],
+        "nivelMaximoSemSintoma": 0,
+        "linhaDeBase": null,
+        "sintomas": [
+          {
+            "sintoma": "Dor nova ou persistente sem sinal de emerg?ncia",
+            "nivel": 2,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
+            "texto": "Registrar local, in?cio, intensidade e interfer?ncia; comunicar persist?ncia ao CMO."
+          },
+          {
+            "sintoma": "Dor tor?cica, s?ncope, perda s?bita de fun??o ou outro sinal de emerg?ncia descrito no procedimento",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
+            "texto": "Acionar CMO e seguir o procedimento m?dico aplic?vel."
+          },
+          {
+            "sintoma": "Cefaleia com pontua??o de 7 ou mais no cen?rio C1",
+            "nivel": 3,
+            "origem": "[INFER?NCIA]",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "texto": "Escalonamento demonstrativo somente na regra R-CO2-01.",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-CO2-01"
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": null,
+        "vermelho": 7,
+        "unidade": "pontos, escala de 0 a 10",
+        "contexto": "O valor 7 ? gatilho de demonstra??o somente em R-CO2-01.",
+        "fonteUrl": "https://www.nasa.gov/reference/3-0-health-and-medical-care/",
+        "motivoSemExemploAmarelo": "N?o h? pontua??o amarela num?rica universal; o estado depende de sintoma descrito."
+      }
+    },
+    {
+      "id": "glicose",
+      "nome": "Glicose em jejum",
+      "escopo": "tripulante",
+      "regiaoCorpo": "sangue",
+      "unidade": "mg/dL",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "American Diabetes Association, diagnosis",
+        "url": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
+      },
+      "explicacao": "A glicemia contextualiza estado metabólico e ingestão alimentar, com confirmação clínica e sem diagnóstico automático.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, horário e contexto; revisão clínica considera tendência e protocolo, sem diagnóstico por leitura isolada."
+        ],
+        "colega": "Ajude a organizar a medida ou coleta se solicitado, sem interpretar resultado.",
+        "vermelho": [
+          "O CMO confirma pelo método clínico e segue o procedimento aprovado diante de sintomas ou resultado crítico."
+        ],
+        "gatilhoParaSubir": "Sintomas de alarme ou critério individual aprovado pelo médico de voo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "normalMenorQueMgDl": 100,
+          "prediabetesMgDl": {
+            "min": 100,
+            "max": 125
+          },
+          "diagnosticoRequerConfirmacaoMgDl": {
+            "min": 126
+          },
+          "naoDiagnosticar": true,
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "<100 mg/dL em jejum, faixa terrestre normal.",
+          "fonteDoValor": "American Diabetes Association, diagnosis"
+        },
+        "amarelo": {
+          "criterio": "100 a 125 mg/dL requer interpretação; ≥126 mg/dL exige confirmação.",
+          "fonteDoValor": "American Diabetes Association, diagnosis"
+        },
+        "vermelho": {
+          "criterio": "Sintoma agudo, não o app, determina urgência.",
+          "fonteDoValor": "American Diabetes Association, diagnosis"
+        }
+      },
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "entre_inclusivo",
+            "valor": {
+              "min": 100,
+              "max": 125
+            },
+            "unidade": "mg/dL em jejum",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "100 a 125 mg/dL em jejum: faixa terrestre que pede interpreta??o cl?nica, sem diagn?stico.",
+            "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
+          },
+          {
+            "nivel": 2,
+            "operador": ">=",
+            "valor": 126,
+            "unidade": "mg/dL em jejum",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "126 mg/dL ou mais em jejum: requer confirma??o cl?nica, sem diagn?stico pelo software.",
+            "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 90,
+        "amarelo": 100,
+        "vermelho": null,
+        "unidade": "mg/dL",
+        "contexto": "Verde ? exemplo do perfil; amarelo come?a no corte terrestre publicado.",
+        "fonteUrl": "https://diabetes.org/about-diabetes/diagnosis?loc=db-slabnav",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "hemoglobina",
+      "nome": "Hemoglobina",
+      "escopo": "tripulante",
+      "regiaoCorpo": "sangue",
+      "unidade": "g/dL",
+      "direcao": "ambos",
+      "classe": "referencia_terrestre",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "DIRETRIZ-TERRA",
+        "referencia": "MedlinePlus, complete blood count",
+        "url": "https://medlineplus.gov/ency/article/003642.htm"
+      },
+      "explicacao": "A hemoglobina participa do transporte de oxigênio e sua tendência é relevante diante da hemólise associada ao voo.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, horário e contexto; revisão clínica considera tendência e protocolo, sem diagnóstico por leitura isolada."
+        ],
+        "colega": "Ajude a organizar a medida ou coleta se solicitado, sem interpretar resultado.",
+        "vermelho": [
+          "O CMO confirma pelo método clínico e segue o procedimento aprovado diante de sintomas ou resultado crítico."
+        ],
+        "gatilhoParaSubir": "Sintomas de alarme ou critério individual aprovado pelo médico de voo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "homensGdl": {
+            "min": 13,
+            "max": 18
+          },
+          "mulheresGdl": {
+            "min": 12,
+            "max": 16
+          },
+          "etiqueta": "[DIRETRIZ-TERRA]"
+        },
+        "etiqueta": "[DIRETRIZ-TERRA]",
+        "rotulo": "referência terrestre, não limite de voo",
+        "verde": {
+          "criterio": "13 a 18 g/dL em homens e 12 a 16 em mulheres.",
+          "fonteDoValor": "MedlinePlus, complete blood count"
+        },
+        "amarelo": {
+          "criterio": "Interpretar com laboratório, linha de base e tendência.",
+          "fonteDoValor": "MedlinePlus, complete blood count"
+        },
+        "vermelho": {
+          "criterio": "Síncope ou dispneia em repouso exige revisão.",
+          "fonteDoValor": "MedlinePlus, complete blood count"
+        }
+      },
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "fora_da_faixa_por_contexto",
+            "valor": {
+              "homens": {
+                "min": 13,
+                "max": 18
+              },
+              "mulheres": {
+                "min": 12,
+                "max": 16
+              }
+            },
+            "unidade": "g/dL",
+            "origem": "DIRETRIZ-TERRA",
+            "texto": "Fora da faixa terrestre correspondente ao intervalo informado pelo laborat?rio: revisar com equipe cl?nica.",
+            "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
+            "contextoNecessario": "categoriaDeReferenciaDoLaboratorio"
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "S?ncope ou dispneia em repouso",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
+            "texto": "Contatar CMO para revis?o cl?nica; n?o inferir diagn?stico pelo valor."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 13,
+        "amarelo": 12,
+        "vermelho": null,
+        "unidade": "g/dL",
+        "contexto": "Contexto verde: categoria de refer?ncia masculina; amarelo: abaixo da faixa masculina, usando valor publicado para a faixa feminina.",
+        "contextoVerde": "categoria de refer?ncia masculina",
+        "contextoAmarelo": "categoria de refer?ncia masculina",
+        "fonteUrl": "https://medlineplus.gov/ency/article/003642.htm",
+        "motivoSemExemploVermelho": "A fonte n?o publica corte num?rico vermelho para este indicador; escalonamento depende de sintoma e avalia??o cl?nica."
+      }
+    },
+    {
+      "id": "massa_corporal",
+      "nome": "Massa corporal",
+      "escopo": "tripulante",
+      "regiaoCorpo": "digestao",
+      "unidade": "kg",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA HRP, nutrição",
+        "url": "https://humanresearchroadmap.nasa.gov/Risks/risk.aspx?i=176"
+      },
+      "explicacao": "A tendência de massa corporal ajuda a equipe a revisar ingestão, exercício e adaptação individual.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira qualidade, unidade, horário e contexto; compare com a série pessoal ou com o plano e comunique persistência ao CMO."
+        ],
+        "colega": "Ofereça ajuda prática se a pessoa pedir e respeite a privacidade.",
+        "vermelho": [
+          "O CMO segue o procedimento médico ou operacional aprovado e encaminha os dados ao médico de voo."
+        ],
+        "gatilhoParaSubir": "Sintoma urgente, piora aguda ou critério individual ou operacional aprovado."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "agua_ingerida",
+      "nome": "Água ingerida",
+      "escopo": "tripulante",
+      "regiaoCorpo": "rins",
+      "unidade": "mL",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "INFERÊNCIA",
+        "referencia": "Limiar C5 demonstrativo, não é meta de ingestão ou prescrição",
+        "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/"
+      },
+      "explicacao": "O registro de ingestão ajuda a contextualizar balanço de fluidos e risco renal sem impor uma meta universal.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira o registro e o plano individual; hidratação segue a meta aprovada para a pessoa."
+        ],
+        "colega": "Ofereça apoio privado e água conforme o plano individual.",
+        "vermelho": [
+          "Ingestão ou cor não geram vermelho sozinhas; o CMO avalia sintomas pelo procedimento clínico."
+        ],
+        "gatilhoParaSubir": "Sintoma renal ou sistêmico urgente ou critério clínico aprovado."
+      },
+      "faixas": {
+        "demonstracao": {
+          "totalMenorQueMl24h": 1200,
+          "janelaDias": 2,
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Placeholder para C5, não é meta hídrica.",
+          "aplicaSomenteEmRegra": "R-HID-01"
+        },
+        "etiqueta": "[INFERÊNCIA]",
+        "justificativa": "Placeholder para C5, não é meta hídrica."
+      },
+      "valorDeDemonstracao": true,
+      "demonstracao": {
+        "valores": {
+          "totalMenorQueMl24h": 1200,
+          "janelasConsecutivas": 2,
+          "unidade": "mL/24 h",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        "justificativa": "Placeholder para C5, não é meta hídrica nem prescrição de ingestão.",
+        "fonte": {
+          "etiqueta": "[INFERÊNCIA]",
+          "referencia": "Regra C5 em docs/04",
+          "url": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "aplicaSomenteEmRegra": "R-HID-01"
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": "<",
+            "valor": 1200,
+            "unidade": "mL/24 h",
+            "origem": "[INFER?NCIA]",
+            "texto": "Abaixo de 1.200 mL/24 h: demonstra??o somente em R-HID-01, por 2 dias e junto aos demais crit?rios; n?o ? meta ou prescri??o.",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-HID-01",
+            "repeticoes": 2,
+            "unidadeRepeticoes": "dias consecutivos",
+            "justificativa": "Placeholder para C5, não é meta hídrica nem prescrição de ingestão."
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base; demonstra??o de R-HID-01 fica condicionada ? regra conjunta.",
+        "campoAvaliado": "zScore",
+        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "cor_urina",
+      "nome": "Cor da urina, escala proposta de oito níveis",
+      "escopo": "tripulante",
+      "regiaoCorpo": "rins",
+      "unidade": "categoria ordinal 1 a 8",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "INFERÊNCIA",
+        "referencia": "Categoria escura demonstrativa, sem validação clínica de voo",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32330109/"
+      },
+      "explicacao": "A cor autorrelatada é um dado auxiliar de hidratação e não confirma doença nem substitui avaliação clínica.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira o registro e o plano individual; hidratação segue a meta aprovada para a pessoa."
+        ],
+        "colega": "Ofereça apoio privado e água conforme o plano individual.",
+        "vermelho": [
+          "Ingestão ou cor não geram vermelho sozinhas; o CMO avalia sintomas pelo procedimento clínico."
+        ],
+        "gatilhoParaSubir": "Sintoma renal ou sistêmico urgente ou critério clínico aprovado."
+      },
+      "faixas": {
+        "demonstracao": {
+          "categoriaEscuraMaiorIgual": 6,
+          "escala": "1 a 8",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Categoria visual para C5, sem validação de voo.",
+          "aplicaSomenteEmRegra": "R-HID-01"
+        },
+        "etiqueta": "[INFERÊNCIA]",
+        "justificativa": "Categoria visual para C5, sem validação de voo."
+      },
+      "valorDeDemonstracao": true,
+      "demonstracao": {
+        "valores": {
+          "categoriaEscuraMaiorOuIgual": 6,
+          "escala": "1 a 8",
+          "unidade": "categoria ordinal",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        "justificativa": "Categoria visual escolhida para C5, sem validação de voo.",
+        "fonte": {
+          "etiqueta": "[INFERÊNCIA]",
+          "referencia": "Regra C5 em docs/04 e escala descrita em 08",
+          "url": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "aplicaSomenteEmRegra": "R-HID-01"
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": ">=",
+            "valor": 6,
+            "unidade": "categoria ordinal de 1 a 8",
+            "origem": "[INFER?NCIA]",
+            "texto": "Categoria 6 ou acima: demonstra??o somente em R-HID-01 e junto aos demais crit?rios; n?o ? limite cl?nico de voo.",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-HID-01",
+            "justificativa": "Categoria visual escolhida para C5, sem validação de voo."
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base; demonstra??o de R-HID-01 fica condicionada ? regra conjunta.",
+        "campoAvaliado": "zScore",
+        "demonstracaoSeparada": "A regra demonstrativa s? atua dentro da regra de cruzamento indicada em regraCor.regras.",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "tempo_exercicio",
+      "nome": "Tempo de exercício",
+      "escopo": "tripulante",
+      "regiaoCorpo": "musculos",
+      "unidade": "min",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-TB-031, Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/"
+      },
+      "explicacao": "O registro de exercício ajuda a acompanhar a contramedida individual para perda de condicionamento.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, equipamento e linha de base; registre tendência e siga o plano de exercício e nutrição aprovado."
+        ],
+        "colega": "Ofereça ajuda para registrar exercício ou adaptar tarefa conforme orientação da equipe.",
+        "vermelho": [
+          "O CMO avalia trauma e função; suspeita de fratura ou déficit agudo segue procedimento de urgência."
+        ],
+        "gatilhoParaSubir": "Fratura suspeita, trauma com perda de função, sinal neurovascular ou incapacidade funcional aguda."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "carga_ared",
+      "nome": "Carga e execução no ARED",
+      "escopo": "tripulante",
+      "regiaoCorpo": "musculos",
+      "unidade": "carga, séries e repetições",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-TB-031, Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/"
+      },
+      "explicacao": "A carga e as repetições ajudam a acompanhar execução da contramedida resistida e a capacidade funcional.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, equipamento e linha de base; registre tendência e siga o plano de exercício e nutrição aprovado."
+        ],
+        "colega": "Ofereça ajuda para registrar exercício ou adaptar tarefa conforme orientação da equipe.",
+        "vermelho": [
+          "O CMO avalia trauma e função; suspeita de fratura ou déficit agudo segue procedimento de urgência."
+        ],
+        "gatilhoParaSubir": "Fratura suspeita, trauma com perda de função, sinal neurovascular ou incapacidade funcional aguda."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Teste do componente normalizado definido pelo protocolo; dado original ? estruturado.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "acuidade_perto",
+      "nome": "Acuidade visual próxima",
+      "escopo": "tripulante",
+      "regiaoCorpo": "olhos",
+      "unidade": "escala ou logMAR de cartela validada",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 2160,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-MTB-001, SANS monitoring and treatment",
+        "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+      },
+      "explicacao": "Mudanças de visão próxima podem afetar leitura e tarefas, e são acompanhadas no contexto de SANS.",
+      "orientacoes": {
+        "amarelo": [
+          "Repita em condições iguais, com a correção prescrita; registre cada olho e comunique mudança ao CMO."
+        ],
+        "colega": "Ajude a repetir o teste sem interpretar a imagem.",
+        "vermelho": [
+          "O CMO encaminha para avaliação ocular; perda visual súbita ou diplopia importante exige avaliação imediata."
+        ],
+        "gatilhoParaSubir": "Perda visual súbita, diplopia nova importante ou dor ocular intensa."
+      },
+      "gatilhosSintoma": [
+        "Perda visual súbita, diplopia nova importante ou dor ocular intensa."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Perda visual s?bita, diplopia nova importante ou dor ocular intensa",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "texto": "Seguir procedimento ocular e acionar CMO."
+          },
+          {
+            "sintoma": "Cefaleia persistente acompanhada de sintoma visual",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "texto": "Antecipar avalia??o ocular e contatar CMO."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste da mudan?a normalizada versus a linha de base pessoal.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "amsler_distorcao",
+      "nome": "Grade de Amsler e sintomas visuais",
+      "escopo": "tripulante",
+      "regiaoCorpo": "olhos",
+      "unidade": "resposta e coordenadas por olho",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 2160,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA OCHMO-MTB-001, SANS monitoring and treatment",
+        "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf"
+      },
+      "explicacao": "A grade registra distorção visual por olho, um sinal que pode justificar revisão ocular sem confirmar SANS.",
+      "orientacoes": {
+        "amarelo": [
+          "Repita em condições iguais, com a correção prescrita; registre cada olho e comunique mudança ao CMO."
+        ],
+        "colega": "Ajude a repetir o teste sem interpretar a imagem.",
+        "vermelho": [
+          "O CMO encaminha para avaliação ocular; perda visual súbita ou diplopia importante exige avaliação imediata."
+        ],
+        "gatilhoParaSubir": "Perda visual súbita, diplopia nova importante ou dor ocular intensa."
+      },
+      "gatilhosSintoma": [
+        "Perda visual repentina ou área escura súbita."
+      ],
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "sintomas": [
+          {
+            "sintoma": "Perda visual repentina ou ?rea escura s?bita",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf",
+            "texto": "Seguir procedimento ocular e acionar CMO."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste da mudan?a normalizada; distor??o nova tamb?m entra em R-SANS-01.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "densidade_ossea",
+      "nome": "Densidade mineral óssea de quadril e coluna",
+      "escopo": "tripulante",
+      "regiaoCorpo": "ossos",
+      "unidade": "% da linha de base por sítio anatômico",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030",
+        "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+      },
+      "explicacao": "A microgravidade reduz carga mecânica no esqueleto, tornando importante acompanhar medidas comparáveis e contramedidas.",
+      "orientacoes": {
+        "amarelo": [
+          "Confirme método, equipamento e linha de base; registre tendência e siga o plano de exercício e nutrição aprovado."
+        ],
+        "colega": "Ofereça ajuda para registrar exercício ou adaptar tarefa conforme orientação da equipe.",
+        "vermelho": [
+          "O CMO avalia trauma e função; suspeita de fratura ou déficit agudo segue procedimento de urgência."
+        ],
+        "gatilhoParaSubir": "Fratura suspeita, trauma com perda de função, sinal neurovascular ou incapacidade funcional aguda."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "quadrilMin": 95,
+          "colunaMin": 95,
+          "coloFemoralMin": 90
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Quadril e coluna ≥95%; colo femoral ≥90% do linha de base, meta V1 4027.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        },
+        "amarelo": {
+          "criterio": "Abaixo da meta pede revisão, não diagnóstico.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        },
+        "vermelho": {
+          "criterio": "Fratura suspeita segue urgência; sem corte clínico em voo.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        }
+      },
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "abaixo_do_alvo_por_sitio",
+            "valor": {
+              "quadril": 95,
+              "coluna": 95,
+              "coloFemoral": 90
+            },
+            "unidade": "% da linha de base por s?tio",
+            "origem": "OFICIAL",
+            "texto": "Abaixo da meta oficial para o s?tio: revis?o pela equipe m?dica ou de contramedidas ?sseas, sem diagn?stico.",
+            "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
+            "criterio": "meta_de_contramedida"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 95,
+        "amarelo": null,
+        "vermelho": 90,
+        "unidade": "% da linha de base por s?tio",
+        "contexto": "Verde: quadril ou coluna no alvo publicado. Vermelho: 90% no quadril, abaixo do alvo de 95%; a??o da equipe m?dica ou de contramedidas ?sseas, sem diagn?stico.",
+        "contextoVerde": "quadril ou coluna",
+        "contextoVermelho": "quadril",
+        "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "ppco2_modulo",
+      "nome": "Pressão parcial de CO2 na cabine",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "mmHg",
+      "direcao": "acima",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004; OCHMO-TB-004",
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "explicacao": "O CO2 pode se acumular localmente em microgravidade e a ventilação perto do rosto pode variar.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira módulo, sensor e ventilação; se autorizado, vá a um módulo com leitura menor e informe controle ambiental e CMO."
+        ],
+        "colega": "Ofereça acompanhar a pessoa ou avisar o controle ambiental.",
+        "vermelho": [
+          "Acima de 3 mmHg na média de 1 h excede V2 6004; siga o procedimento ambiental e avalie sintomas com o CMO."
+        ],
+        "gatilhoParaSubir": "Média de 1 h acima de 3 mmHg, tontura ou cefaleia intensa, conforme regra C1."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "mediaUmaHoraMaxMmHg": 3
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Média de uma hora até 3 mmHg, V2 6004.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004; OCHMO-TB-004"
+        },
+        "amarelo": {
+          "criterio": "Sem corte amarelo oficial; o marcador ilustrativo está separado no campo demonstracao.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004; OCHMO-TB-004"
+        },
+        "vermelho": {
+          "criterio": "Acima de 3 mmHg excede o requisito da cabine.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004; OCHMO-TB-004"
+        }
+      },
+      "valorDeDemonstracao": true,
+      "demonstracao": {
+        "valores": {
+          "mediaUmaHoraMaiorQueMmHg": 2.8,
+          "unidade": "mmHg",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        "justificativa": "Marcador amarelo ilustrativo de C1 abaixo do requisito oficial de 3 mmHg; não é limite NASA.",
+        "fonte": {
+          "etiqueta": "[INFERÊNCIA]",
+          "referencia": "Regra C1 em docs/04; base ambiental OCHMO-TB-004",
+          "url": "../../docs/04-cruzamento-de-dados.md"
+        },
+        "aplicaSomenteEmRegra": "R-CO2-01"
+      },
+      "gatilhosSintoma": [
+        "Média de 1 h acima de 3 mmHg viola o requisito V2 6004; seguir procedimento ambiental."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": ">",
+            "valor": 3,
+            "unidade": "mmHg, m?dia de 1 h",
+            "origem": "OFICIAL",
+            "texto": "M?dia de 1 h acima de 3 mmHg: seguir procedimento do controle ambiental e informar CMO.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F, V2 6004"
+          },
+          {
+            "nivel": 2,
+            "operador": ">",
+            "valor": 2.8,
+            "unidade": "mmHg, m?dia EWMA de demonstra??o",
+            "origem": "[INFER?NCIA]",
+            "texto": "Acima de 2,8 mmHg: marcador amarelo demonstrativo somente em R-CO2-01, abaixo do requisito de 3 mmHg.",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "valorDeDemonstracao": true,
+            "aplicaSomenteEmRegra": "R-CO2-01",
+            "justificativa": "Marcador amarelo ilustrativo de C1 abaixo do requisito oficial de 3 mmHg; não é limite NASA."
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null,
+        "sintomas": [
+          {
+            "sintoma": "Cefaleia intensa ou tontura associada no contexto de CO2",
+            "nivel": 3,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+            "texto": "Avaliar sintomas com CMO; controle ambiental segue o procedimento de remo??o de CO2."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 1.9,
+        "amarelo": 3,
+        "vermelho": 3.2,
+        "unidade": "mmHg, m?dia m?vel de 1 h",
+        "contexto": "1,9 mmHg ? leitura do perfil; 3 mmHg ativa o marcador amarelo demonstrativo acima de 2,8 mmHg; 3,2 mmHg do cen?rio excede o requisito oficial.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      }
+    },
+    {
+      "id": "pio2_cabine",
+      "nome": "Pressão parcial inspirada de O2, PIO2",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "kPa",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F",
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "explicacao": "A pressão parcial de oxigênio caracteriza a atmosfera respirada e ajuda a acompanhar o envelope ambiental da missão.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "normoxiaMmHg": {
+            "min": 145,
+            "max": 155
+          },
+          "normoxiaKpa": {
+            "min": 19.33,
+            "max": 20.67
+          },
+          "mediaUmaHoraMinMmHg": 127,
+          "pisoAbsolutoCurtaDuracaoMmHg": 122
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "145 a 155 mmHg, aproximadamente 19,33 a 20,67 kPa.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "amarelo": {
+          "criterio": "Fora da normoxia, aplicar envelope e duração aprovados.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "vermelho": {
+          "criterio": "Alarme e resposta são do veículo.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        }
+      },
+      "gatilhosSintoma": [
+        "PIO2 abaixo de 122 mmHg como mínimo absoluto de curta duração, conforme requisito aplicável; seguir procedimento ambiental."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "fora_do_intervalo_inclusivo",
+            "valor": {
+              "min": 19.33,
+              "max": 20.67
+            },
+            "unidade": "kPa",
+            "origem": "OFICIAL",
+            "texto": "Fora da faixa oficial de normoxia, solicitar avalia??o do controle ambiental e aplicar envelope e dura??o aprovados pelo ve?culo.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "requisito": "NASA-STD-3001 Vol. 2 Rev. F"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": 20,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "kPa",
+        "contexto": "Leitura do perfil dentro da faixa de normoxia publicada; n?o h? amostra fora da faixa entre os valores aprovados.",
+        "motivoSemExemploVermelho": "Os valores publicados fora da faixa s?o limites de exposi??o dependentes de dura??o; n?o h? amostra can?nica aprovada fora da faixa.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "pressao_cabine",
+      "nome": "Pressão total da cabine",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "kPa",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F",
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "explicacao": "A pressão total é uma condição central de habitabilidade e deve seguir o envelope do veículo.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "psia": {
+            "minExclusivo": 5,
+            "maxInclusivo": 15
+          },
+          "kpa": {
+            "minExclusivo": 34.47,
+            "maxInclusivo": 103.42
+          }
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Mais de 5 até 15 psia, aproximadamente 34,47 a 103,42 kPa.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "amarelo": {
+          "criterio": "Excursão do envelope ou tendência de vazamento pede revisão.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "vermelho": {
+          "criterio": "Despressurização rápida segue procedimento da estação.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        }
+      },
+      "gatilhosSintoma": [
+        "Pressão fora do envelope acima de 5 até 15 psia; seguir procedimento oficial do veículo."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "<=",
+            "valor": 34.47,
+            "unidade": "kPa, equivalente aproximado a 5 psia",
+            "origem": "OFICIAL",
+            "texto": "Press?o no limite inferior exclusivo ou abaixo: seguir o procedimento oficial do ve?culo e do controle ambiental.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+          },
+          {
+            "nivel": 3,
+            "operador": ">",
+            "valor": 103.42,
+            "unidade": "kPa, equivalente aproximado a 15 psia",
+            "origem": "OFICIAL",
+            "texto": "Press?o acima do limite superior: seguir o procedimento oficial do ve?culo e do controle ambiental.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": 103.42,
+        "amarelo": null,
+        "vermelho": 34.47,
+        "unidade": "kPa",
+        "contexto": "Limites publicados convertidos para a unidade can?nica; 34,47 kPa representa aproximadamente 5 psia e fica fora pelo limite inferior exclusivo.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "temperatura_cabine",
+      "nome": "Temperatura da cabine",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "°C",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F",
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "explicacao": "A temperatura afeta conforto e deve ser lida junto à umidade conforme o envelope combinado da cabine.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "poligonoV2_6012": [
+            {
+              "temperaturaC": 18,
+              "umidadePct": 75
+            },
+            {
+              "temperaturaC": 25.7,
+              "umidadePct": 75
+            },
+            {
+              "temperaturaC": 27,
+              "umidadePct": 25
+            },
+            {
+              "temperaturaC": 19.1,
+              "umidadePct": 25
+            }
+          ]
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Dentro do polígono V2 6012 combinado com umidade.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "amarelo": {
+          "criterio": "Aproximação da fronteira pede revisão ambiental.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "vermelho": {
+          "criterio": "Alarme ou estresse térmico agudo segue procedimento.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        }
+      },
+      "gatilhosSintoma": [
+        "Alarme ambiental ou critério de contingência do veículo."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "fora_do_poligono",
+            "valor": [
+              {
+                "temperaturaC": 18,
+                "umidadePct": 75
+              },
+              {
+                "temperaturaC": 25.7,
+                "umidadePct": 75
+              },
+              {
+                "temperaturaC": 27,
+                "umidadePct": 25
+              },
+              {
+                "temperaturaC": 19.1,
+                "umidadePct": 25
+              }
+            ],
+            "unidade": "?C e %",
+            "origem": "OFICIAL",
+            "texto": "Par temperatura e umidade fora do pol?gono V2 6012: a??o do controle ambiental conforme procedimento do ve?culo.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "dependencias": [
+              "temperatura_cabine",
+              "umidade_cabine"
+            ],
+            "fechamentoDoPoligono": "inclusivo"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": 22,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "?C",
+        "contexto": "Exemplo do perfil com umidade de 50%, dentro do pol?gono ambiental publicado.",
+        "valorPareado": 50,
+        "unidadePareada": "% de umidade",
+        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "umidade_cabine",
+      "nome": "Umidade relativa da cabine",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "%",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F",
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf"
+      },
+      "explicacao": "A umidade afeta conforto e deve ser lida junto à temperatura conforme o envelope combinado da cabine.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "poligonoV2_6012": [
+            {
+              "temperaturaC": 18,
+              "umidadePct": 75
+            },
+            {
+              "temperaturaC": 25.7,
+              "umidadePct": 75
+            },
+            {
+              "temperaturaC": 27,
+              "umidadePct": 25
+            },
+            {
+              "temperaturaC": 19.1,
+              "umidadePct": 25
+            }
+          ]
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Dentro do polígono V2 6012 combinado com temperatura.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "amarelo": {
+          "criterio": "Aproximação da fronteira pede revisão ambiental.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        },
+        "vermelho": {
+          "criterio": "Alarme ou deterioração clínica segue procedimento.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F"
+        }
+      },
+      "gatilhosSintoma": [
+        "Alarme ambiental ou critério de contingência do veículo."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "fora_do_poligono",
+            "valor": [
+              {
+                "temperaturaC": 18,
+                "umidadePct": 75
+              },
+              {
+                "temperaturaC": 25.7,
+                "umidadePct": 75
+              },
+              {
+                "temperaturaC": 27,
+                "umidadePct": 25
+              },
+              {
+                "temperaturaC": 19.1,
+                "umidadePct": 25
+              }
+            ],
+            "unidade": "?C e %",
+            "origem": "OFICIAL",
+            "texto": "Par temperatura e umidade fora do pol?gono V2 6012: a??o do controle ambiental conforme procedimento do ve?culo.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+            "dependencias": [
+              "temperatura_cabine",
+              "umidade_cabine"
+            ],
+            "fechamentoDoPoligono": "inclusivo"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": 50,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "%",
+        "contexto": "Exemplo do perfil com temperatura de 22 ?C, dentro do pol?gono ambiental publicado.",
+        "valorPareado": 22,
+        "unidadePareada": "?C",
+        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2025/05/nasa-std-3001-vol-2.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "ruido_trabalho",
+      "nome": "Ruído em áreas de trabalho",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "dBA e dB por banda de oitava",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F, acústica",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf"
+      },
+      "explicacao": "Ruído afeta comunicação, execução de tarefas e exposição auditiva em ambiente fechado.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "curvaNC50Db": {
+            "frequenciasHz": [
+              63,
+              125,
+              250,
+              500,
+              1000,
+              2000,
+              4000,
+              8000,
+              16000
+            ],
+            "limites": [
+              71,
+              64,
+              58,
+              54,
+              51,
+              49,
+              48,
+              47,
+              46
+            ]
+          },
+          "aproximacaoGlobalDba": 58
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Curva NC-50 por bandas; 58 dBA é aproximação global.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        },
+        "amarelo": {
+          "criterio": "Banda acima da curva pede revisão da fonte.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        },
+        "vermelho": {
+          "criterio": "Perda auditiva súbita ou vertigem é gatilho clínico.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        }
+      },
+      "gatilhosSintoma": [
+        "Exposição fora do critério aplicável ou dano auditivo súbito, conforme procedimento."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "qualquer_banda_acima_da_curva",
+            "valor": {
+              "frequenciasHz": [
+                63,
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000,
+                16000
+              ],
+              "limitesDb": [
+                71,
+                64,
+                58,
+                54,
+                51,
+                49,
+                48,
+                47,
+                46
+              ]
+            },
+            "unidade": "Hz e dB por banda de oitava",
+            "origem": "OFICIAL",
+            "texto": "Qualquer banda acima da curva NC-50 aplic?vel: revis?o da fonte pela equipe de controle ambiental e ac?stica.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+            "operadorDeCurva": "uma_frequencia_comparada_ao_limite_correspondente"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null,
+        "sintomas": [
+          {
+            "sintoma": "Perda auditiva s?bita ou vertigem",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+            "texto": "Acionar CMO conforme procedimento auditivo."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 51,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "dB por banda de oitava",
+        "contexto": "Limite publicado a 1.000 Hz; aprova??o completa exige todas as bandas.",
+        "frequenciaTeste": 1000,
+        "unidadeFrequenciaTeste": "Hz",
+        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "ruido_dormitorio",
+      "nome": "Ruído na cabine de dormir",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "dBA e dB por banda de oitava",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 2 Rev. F, acústica",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf"
+      },
+      "explicacao": "Ruído durante o descanso pode fragmentar o sono e deve ser contextualizado pela curva e pelo período.",
+      "orientacoes": {
+        "amarelo": [
+          "Compare ao envelope aplicável do veículo e confira os dados do sensor; siga instrução do controle ambiental."
+        ],
+        "colega": "Ajude a confirmar a instrução do controle, sem improvisar procedimento.",
+        "vermelho": [
+          "Mostre o procedimento oficial do veículo; o sistema não comanda equipamento nem substitui o alarme da estação."
+        ],
+        "gatilhoParaSubir": "Alarme ambiental ou limite operacional crítico aprovado para o veículo."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "curvaNC40Mais30dDb": {
+            "frequenciasHz": [
+              63,
+              125,
+              250,
+              500,
+              1000,
+              2000,
+              4000,
+              8000,
+              16000
+            ],
+            "limites": [
+              64,
+              56,
+              50,
+              44,
+              41,
+              39,
+              38,
+              37,
+              36
+            ]
+          },
+          "curvaNC50Ate30dDb": {
+            "frequenciasHz": [
+              63,
+              125,
+              250,
+              500,
+              1000,
+              2000,
+              4000,
+              8000,
+              16000
+            ],
+            "limites": [
+              71,
+              64,
+              58,
+              54,
+              51,
+              49,
+              48,
+              47,
+              46
+            ]
+          },
+          "dose24hMax": 100,
+          "aproximacaoGlobalNC40Dba": 49
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "NC-40 após 30 dias e NC-50 até 30 dias; dose 24 h ≤100.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        },
+        "amarelo": {
+          "criterio": "Excesso de curva ou sono interrompido pede revisão.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        },
+        "vermelho": {
+          "criterio": "Perda auditiva súbita ou vertigem exige avaliação.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 2 Rev. F, acústica"
+        }
+      },
+      "gatilhosSintoma": [
+        "Exposição fora da curva aplicável ou sintoma auditivo importante, conforme procedimento."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": "qualquer_banda_acima_da_curva_aplicavel",
+            "valor": {
+              "frequenciasHz": [
+                63,
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000,
+                16000
+              ],
+              "NC50Ate30DiasDb": [
+                71,
+                64,
+                58,
+                54,
+                51,
+                49,
+                48,
+                47,
+                46
+              ],
+              "NC40Mais30DiasDb": [
+                64,
+                56,
+                50,
+                44,
+                41,
+                39,
+                38,
+                37,
+                36
+              ]
+            },
+            "unidade": "Hz e dB por banda de oitava",
+            "origem": "OFICIAL",
+            "texto": "Qualquer banda acima da curva correspondente ? dura??o da miss?o: revis?o da fonte pela equipe de controle ambiental e ac?stica.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+            "contextoNecessario": "diasNaMissao"
+          },
+          {
+            "nivel": 3,
+            "operador": ">",
+            "valor": 100,
+            "unidade": "% da dose em 24 h",
+            "origem": "OFICIAL",
+            "texto": "Dose de ru?do em 24 h acima de 100%: revis?o pelo controle ambiental e pela equipe cl?nica.",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null,
+        "sintomas": [
+          {
+            "sintoma": "Perda auditiva s?bita ou vertigem",
+            "nivel": 4,
+            "origem": "procedimento de sa?de e orienta??es aprovadas",
+            "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+            "texto": "Acionar CMO conforme procedimento auditivo."
+          }
+        ]
+      },
+      "exemplosTeste": {
+        "verde": 41,
+        "amarelo": null,
+        "vermelho": null,
+        "unidade": "dB por banda de oitava",
+        "contexto": "Curva NC-40 publicada a 1.000 Hz ap?s 30 dias; aprova??o completa exige todas as bandas e dose.",
+        "frequenciaTeste": 1000,
+        "unidadeFrequenciaTeste": "Hz",
+        "diasNaMissaoTeste": 31,
+        "unidadeDiasNaMissaoTeste": "dias",
+        "motivoSemExemploVermelho": "O valor escalar ou os v?rtices publicados n?o fornecem uma amostra fora do requisito sem criar dado de teste.",
+        "fonteUrl": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-035-acoustics.pdf",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "taxa_dose_radiacao",
+      "nome": "Taxa de dose ambiental",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "µGy/h",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 1 Rev. C, tabela 4.8-1",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/11/nasa-std-3001-vol-1-rev-c-with-signature.pdf"
+      },
+      "explicacao": "A taxa medida contextualiza exposição radiológica no local e durante eventos, conforme o programa de proteção.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira localização, instante e fonte; siga instruções do controle e registre dose do evento."
+        ],
+        "colega": "Ajude a confirmar a instrução e acompanhar a tripulação ao local indicado.",
+        "vermelho": [
+          "CMO e proteção radiológica seguem o procedimento oficial e comunicam Flight Surgeon e controle."
+        ],
+        "gatilhoParaSubir": "Patamar de dose aprovado pela missão ou ordem operacional de emergência."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base, sem corte individual num?rico publicado.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    },
+    {
+      "id": "dose_acumulada",
+      "nome": "Dose efetiva acumulada de carreira",
+      "escopo": "tripulante",
+      "regiaoCorpo": "corpo",
+      "unidade": "mSv",
+      "direcao": "ambos",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 24,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030",
+        "url": "https://www.nasa.gov/reference/4-0-human-performance/"
+      },
+      "explicacao": "A dose efetiva acumulada acompanha exposição de carreira e requer interpretação pelo programa de proteção radiológica.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira localização, instante e fonte; siga instruções do controle e registre dose do evento."
+        ],
+        "colega": "Ajude a confirmar a instrução e acompanhar a tripulação ao local indicado.",
+        "vermelho": [
+          "CMO e proteção radiológica seguem o procedimento oficial e comunicam Flight Surgeon e controle."
+        ],
+        "gatilhoParaSubir": "Patamar de dose aprovado pela missão ou ordem operacional de emergência."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "carreiraMenorQueMsv": 600
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "Menor que 600 mSv de carreira, V1 4030.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        },
+        "amarelo": {
+          "criterio": "Aproximação do limite pede revisão radiológica.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        },
+        "vermelho": {
+          "criterio": "Excedência é resposta do programa, não diagnóstico.",
+          "fonteDoValor": "NASA-STD-3001 Vol. 1 Rev. C, requisitos V1 4027, 4024, 4001 a 4003 e 4030"
+        }
+      },
+      "gatilhosSintoma": [
+        "Dose de carreira igual ou superior a 600 mSv exige revisão pelo programa de proteção, sem diagnóstico automático."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 3,
+            "operador": ">=",
+            "valor": 600,
+            "unidade": "mSv de carreira",
+            "origem": "OFICIAL",
+            "texto": "Dose efetiva de carreira em ou acima de 600 mSv: revis?o pela equipe de prote??o radiol?gica, sem diagn?stico.",
+            "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
+            "requisito": "NASA-STD-3001 Vol. 1 Rev. C, V1 4030"
+          }
+        ],
+        "nivelMaximoSemSintoma": 3,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": null,
+        "amarelo": null,
+        "vermelho": 600,
+        "unidade": "mSv de carreira",
+        "contexto": "O perfil n?o cont?m uma dose verde de carreira; 600 mSv ? o limite oficial para revis?o do programa de prote??o radiol?gica.",
+        "motivoSemExemploVerde": "O perfil n?o cont?m uma dose efetiva de carreira para teste verde.",
+        "fonteUrl": "https://www.nasa.gov/reference/4-0-human-performance/",
+        "motivoSemExemploAmarelo": "N?o h? corte amarelo num?rico oficial ou demonstrativo aplic?vel a este indicador."
+      }
+    },
+    {
+      "id": "fluxo_protons_goes",
+      "nome": "Fluxo de prótons GOES, canal ≥10 MeV",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "pfu (partículas/cm²/s/sr)",
+      "direcao": "acima",
+      "classe": "requisito_oficial",
+      "usaLinhaDeBase": false,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NOAA SWPC, limites de prótons e notificações",
+        "url": "https://www.swpc.noaa.gov/products/notifications-timeline"
+      },
+      "explicacao": "O fluxo de prótons permite reconhecer evento solar oficial e apoiar instrução de proteção da tripulação.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira localização, instante e fonte; siga instruções do controle e registre dose do evento."
+        ],
+        "colega": "Ajude a confirmar a instrução e acompanhar a tripulação ao local indicado.",
+        "vermelho": [
+          "CMO e proteção radiológica seguem o procedimento oficial e comunicam Flight Surgeon e controle."
+        ],
+        "gatilhoParaSubir": "Patamar de dose aprovado pela missão ou ordem operacional de emergência."
+      },
+      "faixas": {
+        "valoresPublicados": {
+          "limiarS1Pfu10MeV": 10,
+          "S2": 100,
+          "S3": 1000,
+          "S4": 10000,
+          "S5": 100000
+        },
+        "etiqueta": "[OFICIAL]",
+        "rotulo": "requisito ou meta oficial, sujeito ao perfil da missão",
+        "verde": {
+          "criterio": "S1 começa em 10 pfu para prótons ≥10 MeV.",
+          "fonteDoValor": "NOAA SWPC, limites de prótons e notificações"
+        },
+        "amarelo": {
+          "criterio": "S1 é alerta ambiental, não dose pessoal.",
+          "fonteDoValor": "NOAA SWPC, limites de prótons e notificações"
+        },
+        "vermelho": {
+          "criterio": "Abrigo depende de SRAG e controle de missão.",
+          "fonteDoValor": "NOAA SWPC, limites de prótons e notificações"
+        }
+      },
+      "gatilhosSintoma": [
+        "Evento NOAA S1 ou alerta SEP gera nível 2; escalonamento depende do patamar de dose aprovado pela missão."
+      ],
+      "regraCor": {
+        "tipo": "limiar",
+        "regras": [
+          {
+            "nivel": 2,
+            "operador": ">=",
+            "valor": 10,
+            "unidade": "pfu para pr?tons de 10 MeV ou mais",
+            "origem": "OFICIAL",
+            "texto": "In?cio NOAA S1: mostrar contexto ambiental ? tripula??o; n?o representa dose individual nem vermelho.",
+            "fonteUrl": "https://www.swpc.noaa.gov/products/notifications-timeline",
+            "natureza": "limiar_de_evento_ambiental",
+            "nivelMaximoSemSintomaDaRegra": 2
+          }
+        ],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": null
+      },
+      "exemplosTeste": {
+        "verde": null,
+        "amarelo": 10,
+        "vermelho": null,
+        "unidade": "pfu para pr?tons de 10 MeV ou mais",
+        "contexto": "10 pfu ? o limiar oficial NOAA S1 e resulta em contexto amarelo, n?o em dose pessoal ou vermelho.",
+        "motivoSemExemploVerde": "N?o h? valor abaixo do evento S1 publicado ou no perfil para exemplo verde.",
+        "fonteUrl": "https://www.swpc.noaa.gov/products/notifications-timeline",
+        "motivoSemExemploVermelho": "N?o h? amostra publicada ou de demonstra??o autorizada para este estado; nenhum n?mero foi criado."
+      }
+    },
+    {
+      "id": "kp",
+      "nome": "Índice planetário Kp",
+      "escopo": "ambiente",
+      "regiaoCorpo": "ambiente",
+      "unidade": "escala adimensional NOAA",
+      "direcao": "ambos",
+      "classe": "linha_de_base",
+      "usaLinhaDeBase": true,
+      "validadeHoras": 1,
+      "fonte": {
+        "etiqueta": "OFICIAL",
+        "referencia": "NOAA SWPC, limites de prótons e notificações",
+        "url": "https://www.swpc.noaa.gov/products/notifications-timeline"
+      },
+      "explicacao": "O índice geomagnético oferece contexto de clima espacial, sem medir dose individual.",
+      "orientacoes": {
+        "amarelo": [
+          "Confira localização, instante e fonte; siga instruções do controle e registre dose do evento."
+        ],
+        "colega": "Ajude a confirmar a instrução e acompanhar a tripulação ao local indicado.",
+        "vermelho": [
+          "CMO e proteção radiológica seguem o procedimento oficial e comunicam Flight Surgeon e controle."
+        ],
+        "gatilhoParaSubir": "Patamar de dose aprovado pela missão ou ordem operacional de emergência."
+      },
+      "regraCor": {
+        "tipo": "linha_de_base",
+        "regras": [],
+        "nivelMaximoSemSintoma": 2,
+        "linhaDeBase": {
+          "zAmarelo": 2,
+          "zPersistenteAcima": 3,
+          "repeticoesParaPersistente": 2,
+          "unidadeZScore": "desvios padr?o",
+          "unidadeRepeticoes": "leituras consecutivas",
+          "minimoLeiturasValidas": 7,
+          "unidadeMinimoLeiturasValidas": "leituras",
+          "nuncaVermelho": true,
+          "fonte": "docs/04, regra de linha de base [INFER?NCIA]",
+          "fonteUrl": "../../docs/04-cruzamento-de-dados.md"
+        }
+      },
+      "exemplosTeste": {
+        "verde": 0,
+        "amarelo": 2,
+        "vermelho": null,
+        "unidade": "z-score, desvios padr?o",
+        "contexto": "Entrada de teste do comparador de linha de base.",
+        "campoAvaliado": "zScore",
+        "fonteUrl": "../../docs/04-cruzamento-de-dados.md",
+        "motivoSemExemploVermelho": "A linha de base nunca gera vermelho sozinha; eventual escalonamento depende de sintoma ou regra cruzada aprovada."
+      }
+    }
+  ],
+  "regrasCruzamento": [
+    {
+      "id": "R-CO2-01",
+      "condicoes": [
+        {
+          "grupo": "principal",
+          "indicadorId": "ppco2_modulo",
+          "campo": "ewma_ppco2",
+          "operador": "maior_que",
+          "valor": 2.8,
+          "unidade": "mmHg",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        },
+        {
+          "grupo": "e",
+          "alternativas": [
+            {
+              "indicadorId": "sintomas_checkin",
+              "campo": "dor_cabeca",
+              "operador": "relatado",
+              "valor": true
+            },
+            {
+              "indicadorId": "pvt_tempo_reacao",
+              "campo": "deltaPercentual",
+              "operador": "maior_que",
+              "valor": 10,
+              "unidade": "%",
+              "etiqueta": "[INFERÊNCIA]",
+              "valorDeDemonstracao": true
+            },
+            {
+              "indicadorId": "sintomas_checkin",
+              "campo": "dificuldade_concentracao",
+              "operador": "relatado",
+              "valor": true
+            }
+          ]
+        }
+      ],
+      "janelaMin": 180,
+      "nivel": 2,
+      "hipotese": "Possível efeito de CO2 elevado no módulo informado.",
+      "escalonamento": {
+        "nivel": 3,
+        "quando": [
+          "dor de cabeça igual ou superior a 7 pontos em escala de 0 a 10 [INFERÊNCIA]",
+          "tontura associada",
+          "média de 1 h de ppCO2 acima de 3 mmHg, requisito V2 6004"
+        ]
+      },
+      "valoresDeDemonstracao": [
+        {
+          "indicadorId": "ppco2_modulo",
+          "valor": 2.8,
+          "unidade": "mmHg",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Marcador de atenção do cenário C1 abaixo do requisito oficial de 3 mmHg, não é limiar NASA."
+        },
+        {
+          "indicadorId": "pvt_tempo_reacao",
+          "operador": "maior_que",
+          "valor": 10,
+          "unidade": "%",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Variação ilustrativa de C1, sem limiar operacional público."
+        },
+        {
+          "indicadorId": "dor",
+          "operador": "maior_ou_igual",
+          "valor": 7,
+          "unidade": "pontos em escala de 0 a 10",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Critério de escalonamento ilustrativo de C1, não é limite clínico universal."
+        },
+        {
+          "campo": "janela de coincidência",
+          "valor": 180,
+          "unidade": "min",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Janela de C1 definida em docs/04, sem validação como limiar fisiológico."
+        },
+        {
+          "campo": "repetição do PVT",
+          "valor": 2,
+          "unidade": "h",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Intervalo de repetição definido para C1 em docs/04 e D10, não é cadência clínica universal."
+        }
+      ],
+      "valorDeDemonstracao": true,
+      "orientacoes": {
+        "amarelo": [
+          "Confira módulo, sensor e ventilação; se autorizado, vá para módulo com leitura menor; repita PVT em 2 h conforme o plano e avise controle ambiental e CMO."
+        ],
+        "colega": "Ofereça acompanhar a pessoa ou avisar o controle ambiental.",
+        "vermelho": [
+          "Avalie sintomas e encaminhe local, duração, ppCO2 e PVT ao Flight Surgeon; controle ambiental segue o procedimento de remoção de CO2."
+        ],
+        "gatilhoParaSubir": "Cefaleia intensa, tontura associada ou limite crítico oficial ou aprovado."
+      },
+      "fonte": {
+        "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
+        "referencia": "Regra em docs/04; OCHMO-TB-004 para relação entre CO2 e sintomas",
+        "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      }
+    },
+    {
+      "id": "R-RAD-01",
+      "condicoes": [
+        {
+          "grupo": "ou",
+          "alternativas": [
+            {
+              "indicadorId": "fluxo_protons_goes",
+              "campo": "fluxo_10MeV",
+              "operador": "maior_ou_igual",
+              "valor": 10,
+              "unidade": "pfu",
+              "etiqueta": "[OFICIAL, NOAA S1]"
+            },
+            {
+              "campo": "alerta_sep_donki",
+              "operador": "ativo",
+              "valor": true
+            }
+          ]
+        }
+      ],
+      "janelaMin": null,
+      "duracao": "enquanto durar o evento oficial",
+      "nivel": 2,
+      "hipotese": "Evento solar em andamento: a dose de radiação pode subir.",
+      "escalonamento": {
+        "nivel": 3,
+        "quando": [
+          "taxa de dose a bordo acima do patamar definido e aprovado pela missão; sem valor público universal"
+        ]
+      },
+      "orientacoes": {
+        "amarelo": [
+          "Leia a instrução do controle; siga o procedimento de abrigo e registre dose e duração; não escolha abrigo por conta própria."
+        ],
+        "colega": "Ajude a confirmar a instrução e acompanhe a tripulação ao abrigo indicado.",
+        "vermelho": [
+          "Coordene com Flight Surgeon, proteção radiológica e controle; registre exposição, duração e sintomas."
+        ],
+        "gatilhoParaSubir": "Patamar de dose aprovado pela missão ou ordem operacional de emergência."
+      },
+      "fonte": {
+        "etiqueta": "[OFICIAL]",
+        "referencia": "NOAA SWPC, escala S1 a S5; protocolo local de radiação em docs/04",
+        "url": "https://www.swpc.noaa.gov/noaa-scales-explanation",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      }
+    },
+    {
+      "id": "R-SANS-01",
+      "condicoes": [
+        {
+          "grupo": "principal",
+          "alternativas": [
+            {
+              "indicadorId": "acuidade_perto",
+              "campo": "mudanca_vs_linha de base",
+              "operador": "piora_confirmada",
+              "valor": true
+            },
+            {
+              "indicadorId": "amsler_distorcao",
+              "campo": "distorcao_nova",
+              "operador": "relatada",
+              "valor": true
+            }
+          ]
+        },
+        {
+          "grupo": "e",
+          "indicadorId": "repeticao",
+          "campo": "testes_consecutivos",
+          "operador": "maior_ou_igual",
+          "valor": 2,
+          "unidade": "testes",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        }
+      ],
+      "janelaMin": 20160,
+      "nivel": 2,
+      "hipotese": "Mudança visual: vale antecipar o exame de olhos com o médico de voo.",
+      "escalonamento": {
+        "nivel": 3,
+        "quando": [
+          "cefaleia persistente com sintoma visual",
+          "visão dupla",
+          "perda visual súbita"
+        ]
+      },
+      "valoresDeDemonstracao": [
+        {
+          "campo": "janela de confirmação",
+          "valor": 14,
+          "unidade": "dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Janela de C3 definida na regra do protótipo, sem cutoff NASA universal."
+        }
+      ],
+      "valorDeDemonstracao": true,
+      "orientacoes": {
+        "amarelo": [
+          "Repita acuidade e Amsler no mesmo horário, distância e luz; use a correção prescrita e envie resumo ao CMO."
+        ],
+        "colega": "Ajude a repetir a cartela e contatar o CMO, sem interpretar a imagem.",
+        "vermelho": [
+          "Siga o procedimento ocular e encaminhe dados ao Flight Surgeon e oftalmologia; perda súbita ou diplopia pede avaliação imediata."
+        ],
+        "gatilhoParaSubir": "Cefaleia persistente com sintoma visual, diplopia nova ou perda visual súbita."
+      },
+      "fonte": {
+        "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
+        "referencia": "Regra em docs/04; OCHMO-MTB-001, SANS",
+        "url": "https://www.nasa.gov/wp-content/uploads/2024/02/ochmo-mtb-001-sans.pdf",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      }
+    },
+    {
+      "id": "R-SONO-01",
+      "condicoes": [
+        {
+          "grupo": "principal",
+          "campo": "divida_sono_min",
+          "operador": "maior_que",
+          "valor": 0,
+          "unidade": "min em 3 dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        },
+        {
+          "grupo": "e",
+          "campo": "atividade_critica_planejada",
+          "operador": "dentro_dos_proximos",
+          "valor": 2,
+          "unidade": "dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        }
+      ],
+      "janelaMin": 4320,
+      "nivel": 2,
+      "hipotese": "Sono abaixo do programado antes de uma atividade crítica.",
+      "escalonamento": {
+        "nivel": null,
+        "quando": [
+          "não há vermelho automático pela dívida de sono; CMO avalia aptidão e segurança da tarefa"
+        ]
+      },
+      "valoresDeDemonstracao": [
+        {
+          "campo": "divida de sono",
+          "operador": "maior_que",
+          "valor": 0,
+          "unidade": "min",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Condição mínima ilustrativa de C4, sem limiar clínico universal."
+        },
+        {
+          "campo": "janela histórica",
+          "valor": 3,
+          "unidade": "dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Janela de C4 definida em docs/04 para a demonstração."
+        },
+        {
+          "campo": "janela futura da tarefa",
+          "valor": 2,
+          "unidade": "dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Antecedência de tarefa crítica definida em docs/04 para a demonstração."
+        }
+      ],
+      "valorDeDemonstracao": true,
+      "orientacoes": {
+        "amarelo": [
+          "Proteja as próximas janelas de sono; reduza ruído e luz conforme o plano, ajuste a paisagem sonora do óculos para o pré-sono se aprovada e informe tarefa crítica e sonolência ao CMO."
+        ],
+        "colega": "Ajude a proteger a janela de descanso e a coordenar cobertura autorizada da tarefa.",
+        "vermelho": [
+          "Avalie aptidão para a tarefa e comunique ao controle; a regra não cria vermelho automático."
+        ],
+        "gatilhoParaSubir": "Incapacidade de executar tarefa com segurança ou sintoma urgente."
+      },
+      "fonte": {
+        "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
+        "referencia": "Regra em docs/04; NASA OCHMO-TB-041, sono e desempenho",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-041-sleep-accommodations.pdf",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      },
+      "contextoOpcional": "Se o ruído na cabine de dormir estiver fora do envelope aprovado, acrescentar apenas que pode ser um fator contribuinte."
+    },
+    {
+      "id": "R-HID-01",
+      "condicoes": [
+        {
+          "grupo": "principal",
+          "indicadorId": "agua_ingerida",
+          "campo": "total_24h",
+          "operador": "menor_que",
+          "valor": 1200,
+          "unidade": "mL/24 h",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        },
+        {
+          "grupo": "e",
+          "indicadorId": "cor_urina",
+          "campo": "escala_cor",
+          "operador": "maior_ou_igual",
+          "valor": 6,
+          "unidade": "categoria de 1 a 8",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        },
+        {
+          "grupo": "e",
+          "campo": "repeticao_dias",
+          "operador": "maior_ou_igual",
+          "valor": 2,
+          "unidade": "dias",
+          "etiqueta": "[INFERÊNCIA]",
+          "valorDeDemonstracao": true
+        }
+      ],
+      "janelaMin": 2880,
+      "nivel": 2,
+      "hipotese": "Registro de hidratação abaixo do parâmetro demonstrativo, com urina escura; revisar plano individual.",
+      "escalonamento": {
+        "nivel": null,
+        "quando": [
+          "não há vermelho automático por ingestão ou cor da urina; sintomas urgentes seguem procedimento médico"
+        ]
+      },
+      "valoresDeDemonstracao": [
+        {
+          "indicadorId": "agua_ingerida",
+          "operador": "menor_que",
+          "valor": 1200,
+          "unidade": "mL/24 h",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Limite substituto de C5 para teste do cenário, não é meta ou prescrição de ingestão."
+        },
+        {
+          "indicadorId": "cor_urina",
+          "operador": "maior_ou_igual",
+          "valor": 6,
+          "unidade": "categoria de 1 a 8",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Categoria escura escolhida para C5, sem validação de voo."
+        },
+        {
+          "campo": "repeticao",
+          "valor": 2,
+          "unidade": "dias consecutivos",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Persistência mínima da regra C5 em docs/04, sem cutoff clínico universal."
+        }
+      ],
+      "valorDeDemonstracao": true,
+      "orientacoes": {
+        "amarelo": [
+          "Confira o registro e a meta individual; hidrate-se conforme o plano e anote sintomas, sem usar o número demonstrativo como prescrição."
+        ],
+        "colega": "Ofereça água conforme o plano individual e apoio privado, se solicitado.",
+        "vermelho": [
+          "Revise sintomas, ingestão e contexto renal; encaminhe ao Flight Surgeon conforme plano clínico."
+        ],
+        "gatilhoParaSubir": "Sintoma renal ou sistêmico urgente, ou critério individual aprovado."
+      },
+      "fonte": {
+        "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
+        "referencia": "Regra em docs/04; NASA OCHMO-MTB-003, saúde urinária",
+        "url": "https://www.nasa.gov/ochmo-mtb-003-urinary-health-2/",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      },
+      "agravante": "Fase da missão com perda óssea esperada pode elevar o contexto de risco renal; não altera sozinho o nível."
+    },
+    {
+      "id": "R-AMB-01",
+      "condicoes": [
+        {
+          "campo": "sintoma_checkin",
+          "operador": "relatado",
+          "valor": true
+        },
+        {
+          "campo": "modulo_mais_ocupado",
+          "operador": "ultimas",
+          "valor": 6,
+          "unidade": "h",
+          "etiqueta": "[INFERÊNCIA]"
+        },
+        {
+          "campo": "grandeza_ambiental",
+          "operador": "fora_do_verde",
+          "valor": true
+        }
+      ],
+      "janelaMin": 360,
+      "nivel": null,
+      "hipotese": "Fatores ambientais possíveis no módulo mais ocupado; contexto não confirma causa.",
+      "valorDeDemonstracao": true,
+      "valoresDeDemonstracao": [
+        {
+          "campo": "janela de contexto ambiental",
+          "valor": 6,
+          "unidade": "h",
+          "etiqueta": "[INFERÊNCIA]",
+          "justificativa": "Janela de busca de contexto definida em docs/04; não é limiar clínico ou de veículo."
+        }
+      ],
+      "orientacoes": {
+        "amarelo": [
+          "Confira módulo, hora e sensor; registre o sintoma e o fator ambiental possível e reporte conforme o plano."
+        ],
+        "colega": "Ofereça ajuda para conferir o módulo ou chamar o controle, respeitando a privacidade.",
+        "vermelho": [
+          "Avalie o sintoma pelo procedimento aplicável; emergência ambiental segue o alarme e procedimento oficial da estação."
+        ],
+        "gatilhoParaSubir": "Sintoma de alarme, critério aprovado ou alarme oficial ambiental."
+      },
+      "fonte": {
+        "etiqueta": "[INFERÊNCIA] + [OFICIAL]",
+        "referencia": "Regra em docs/04; NASA Technical Briefs e OCHMO-TB-004",
+        "url": "https://www.nasa.gov/ochmo/hsa-standards/ochmo-technical-briefs/",
+        "especificacaoLocal": "../../docs/04-cruzamento-de-dados.md"
+      },
+      "apenasContextualiza": true
+    }
+  ]
+}
